@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Gamemanager : MonoBehaviour
+public class GamemanagerGame1 : MonoBehaviour
 {
 
     public int startSteps = 8;
@@ -19,10 +19,10 @@ public class Gamemanager : MonoBehaviour
     public TileBehaviour[] startAvailable;
 
     public LayerMask obstacleMask, tileMask;
-    public MinigameSettings settings;
+    public MinigameSettings1 settings;
     public GameObject startpositionObject;
 
-    public Minigame mg;
+    public PanelController pc;
    [HideInInspector] public int lust =0, love =0, sus =0;
     
     private Vector3 playerPosition;
@@ -226,7 +226,7 @@ public class Gamemanager : MonoBehaviour
             tile.canbeStepped = false;
         }
         
-        mg.EndGame(love, lust, sus);
+        pc.GameDone(love,lust,sus);
     }
 
     void OnDrawGizmos()
