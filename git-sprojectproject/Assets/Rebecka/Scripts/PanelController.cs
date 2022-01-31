@@ -8,7 +8,7 @@ public class PanelController : MonoBehaviour
     
     
     
-    public int love, lust, sus;
+   private int love, lust, sus;
     public Minigame mg;
 
     //call this from other scripts to signal that you want to turn on the gameover panel

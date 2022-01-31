@@ -23,6 +23,7 @@ public class GamemanagerGame1 : MonoBehaviour
     public GameObject startpositionObject;
 
     public PanelController pc;
+    public Text loveText, lustText, susText;
    [HideInInspector] public int lust =0, love =0, sus =0;
     
     private Vector3 playerPosition;
@@ -225,6 +226,10 @@ public class GamemanagerGame1 : MonoBehaviour
         {
             tile.canbeStepped = false;
         }
+
+        loveText.text = love.ToString();
+        lustText.text = lust.ToString();
+        susText.text = sus.ToString();
         
         pc.GameDone(love,lust,sus);
     }

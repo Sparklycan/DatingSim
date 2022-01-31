@@ -1,5 +1,720 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &459089795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 459089796}
+  - component: {fileID: 459089798}
+  - component: {fileID: 459089797}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &459089796
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459089795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1040834803}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: 69}
+  m_SizeDelta: {x: 42.666668, y: 42.666668}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &459089798
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459089795}
+  m_CullTransparentMesh: 1
+--- !u!114 &459089797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459089795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6c1086d38a968fb4db668a1fab84aefb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &513222849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513222850}
+  - component: {fileID: 513222852}
+  - component: {fileID: 513222851}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &513222850
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513222849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1040834803}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: 0}
+  m_SizeDelta: {x: 42.666668, y: 42.666668}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &513222852
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513222849}
+  m_CullTransparentMesh: 1
+--- !u!114 &513222851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513222849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 42552a9a8aebae4479b5b48e60f337c5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &903240399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 903240400}
+  - component: {fileID: 903240401}
+  m_Layer: 0
+  m_Name: BackgroundMusicSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &903240400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903240399}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1693182064252398096}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &903240401
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903240399}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &984264990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984264991}
+  - component: {fileID: 984264992}
+  m_Layer: 0
+  m_Name: PanelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984264991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984264990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1693182064252398096}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &984264992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984264990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce77bf529b18c444ab1ed0e63f3770a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameOverPanel: {fileID: 1040834802}
+  mg: {fileID: 6787471343947723562}
+--- !u!1 &1040834802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040834803}
+  - component: {fileID: 1040834805}
+  - component: {fileID: 1040834804}
+  m_Layer: 5
+  m_Name: Game done panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1040834803
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040834802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 459089796}
+  - {fileID: 513222850}
+  - {fileID: 1660763591}
+  - {fileID: 1897060554}
+  - {fileID: 1222445718}
+  - {fileID: 1132269249}
+  m_Father: {fileID: 1693182064219792452}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1.4370117, y: 1.4368896}
+  m_SizeDelta: {x: 37.3591, y: 43.1068}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1040834805
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040834802}
+  m_CullTransparentMesh: 1
+--- !u!114 &1040834804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040834802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1132269248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1132269249}
+  - component: {fileID: 1132269251}
+  - component: {fileID: 1132269250}
+  m_Layer: 5
+  m_Name: SusText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1132269249
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132269248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1040834803}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -174.5, y: -69}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1132269251
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132269248}
+  m_CullTransparentMesh: 1
+--- !u!114 &1132269250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132269248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!1 &1222445717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1222445718}
+  - component: {fileID: 1222445720}
+  - component: {fileID: 1222445719}
+  m_Layer: 5
+  m_Name: LustText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1222445718
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222445717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1040834803}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -174.5, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1222445720
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222445717}
+  m_CullTransparentMesh: 1
+--- !u!114 &1222445719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222445717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!1 &1660763590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660763591}
+  - component: {fileID: 1660763593}
+  - component: {fileID: 1660763592}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1660763591
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660763590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1040834803}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: -69}
+  m_SizeDelta: {x: 42.666668, y: 42.666668}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1660763593
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660763590}
+  m_CullTransparentMesh: 1
+--- !u!114 &1660763592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660763590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cd767dae8b464aa43bb996635e62cb5a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1897060553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897060554}
+  - component: {fileID: 1897060556}
+  - component: {fileID: 1897060555}
+  m_Layer: 5
+  m_Name: LoveText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1897060554
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897060553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1040834803}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -174.5, y: 69}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1897060556
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897060553}
+  m_CullTransparentMesh: 1
+--- !u!114 &1897060555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897060553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
 --- !u!1 &1693182062783139152
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +819,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -242,6 +960,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -380,6 +1101,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -518,6 +1242,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -656,6 +1383,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -794,6 +1524,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -932,6 +1665,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -1070,6 +1806,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -1208,6 +1947,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -1346,6 +2088,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -1484,6 +2229,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -1622,6 +2370,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -1760,6 +2511,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -1898,6 +2652,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -2036,6 +2793,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -2174,6 +2934,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -2312,6 +3075,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -2450,6 +3216,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -2588,6 +3357,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -2726,6 +3498,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -2864,6 +3639,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -3032,6 +3810,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -3170,6 +3951,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -3390,6 +4174,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -3528,6 +4315,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -3666,6 +4456,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -3913,12 +4706,15 @@ MonoBehaviour:
   powerIcon: {fileID: 1693182063411774382}
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
-  pickupValue: 0
+  pickupValue: 2
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
   loveBite: 0
-  love: 0
+  love: 1
   lust: 0
   sus: 0
   extraSus: 0
@@ -4052,6 +4848,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -4190,6 +4989,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -4328,6 +5130,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -4548,6 +5353,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -4615,10 +5423,10 @@ RectTransform:
   m_Father: {fileID: 1693182064219792452}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -625, y: 453}
-  m_SizeDelta: {x: 220.8606, y: 47.3888}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110.4303, y: -23.694397}
+  m_SizeDelta: {x: 220.8606, y: 47.388794}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1693182063447064091
 CanvasRenderer:
@@ -4781,6 +5589,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -4919,6 +5730,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -5057,6 +5871,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -5195,6 +6012,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -5333,6 +6153,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -5471,6 +6294,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -5609,6 +6435,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -5747,6 +6576,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -5885,6 +6717,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -6105,6 +6940,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -6243,6 +7081,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -6490,6 +7331,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -6628,6 +7472,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -6766,6 +7613,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -6904,6 +7754,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -7042,6 +7895,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -7180,6 +8036,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -7318,6 +8177,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -7456,6 +8318,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -7594,6 +8459,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -7732,14 +8600,17 @@ MonoBehaviour:
   powerIcon: {fileID: 1693182063680187426}
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
-  pickupValue: 0
+  pickupValue: 2
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
   loveBite: 0
   love: 0
   lust: 0
-  sus: 0
+  sus: 1
   extraSus: 0
 --- !u!61 &1693182063880135017
 BoxCollider2D:
@@ -7871,6 +8742,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -8009,6 +8883,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -8147,6 +9024,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -8285,6 +9165,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -8423,6 +9306,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -8561,6 +9447,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -8699,6 +9588,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -8837,6 +9729,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -8975,6 +9870,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -9113,6 +10011,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -9251,6 +10152,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -9389,6 +10293,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -9527,6 +10434,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -9665,6 +10575,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -9803,6 +10716,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -9941,6 +10857,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -10079,6 +10998,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -10217,6 +11139,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -10260,6 +11185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1693182064092172181}
+  - component: {fileID: 504388127}
   m_Layer: 0
   m_Name: Tiles
   m_TagString: Untagged
@@ -10379,6 +11305,102 @@ Transform:
   m_Father: {fileID: 1693182064252398096}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &504388127
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693182064092172182}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1693182064096215631
 GameObject:
   m_ObjectHideFlags: 0
@@ -10483,12 +11505,15 @@ MonoBehaviour:
   powerIcon: {fileID: 1693182064519084451}
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
-  pickupValue: 0
+  pickupValue: 2
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
   loveBite: 0
-  love: 0
+  love: 1
   lust: 0
   sus: 0
   extraSus: 0
@@ -10654,6 +11679,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -10792,6 +11820,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -10930,6 +11961,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -11068,6 +12102,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -11133,6 +12170,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1693182063447064093}
+  - {fileID: 1040834803}
   m_Father: {fileID: 1693182064252398096}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11306,6 +12344,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -11444,6 +12485,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -11513,6 +12557,8 @@ Transform:
   - {fileID: 1693182063165503869}
   - {fileID: 1693182064219792452}
   - {fileID: 1693182064522642258}
+  - {fileID: 984264991}
+  - {fileID: 903240400}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11632,6 +12678,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -11770,6 +12819,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -11908,6 +12960,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -12046,6 +13101,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -12184,6 +13242,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -12322,6 +13383,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -12460,7 +13524,10 @@ MonoBehaviour:
   powerIcon: {fileID: 1693182064872893562}
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
-  pickupValue: 0
+  pickupValue: 2
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -12599,6 +13666,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -12737,6 +13807,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -12875,13 +13948,16 @@ MonoBehaviour:
   powerIcon: {fileID: 1693182063320335202}
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
-  pickupValue: 0
+  pickupValue: 2
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
   loveBite: 0
   love: 0
-  lust: 0
+  lust: 1
   sus: 0
   extraSus: 0
 --- !u!61 &1693182064434460278
@@ -13014,6 +14090,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -13152,6 +14231,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -13290,6 +14372,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -13428,6 +14513,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -13648,6 +14736,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -13786,6 +14877,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -14050,6 +15144,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -14188,6 +15285,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -14326,13 +15426,16 @@ MonoBehaviour:
   powerIcon: {fileID: 1693182064466789901}
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
-  pickupValue: 0
+  pickupValue: 2
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
   loveBite: 0
   love: 0
-  lust: 0
+  lust: 1
   sus: 0
   extraSus: 0
 --- !u!61 &1693182064543773470
@@ -14465,6 +15568,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -14603,6 +15709,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -14741,6 +15850,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -14879,6 +15991,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -15017,6 +16132,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -15155,6 +16273,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -15293,6 +16414,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -15431,6 +16555,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -15537,7 +16664,10 @@ MonoBehaviour:
     m_Bits: 128
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   startpositionObject: {fileID: 1693182063165503870}
-  mg: {fileID: 6787471343947723562}
+  pc: {fileID: 984264992}
+  loveText: {fileID: 1897060555}
+  lustText: {fileID: 1222445719}
+  susText: {fileID: 1132269250}
   lust: 0
   love: 0
   sus: 0
@@ -15646,6 +16776,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -15784,6 +16917,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -16004,6 +17140,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -16142,6 +17281,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -16280,6 +17422,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -16418,6 +17563,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
@@ -16556,6 +17704,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 0
@@ -16776,6 +17927,9 @@ MonoBehaviour:
   gm: {fileID: 1693182064662497484}
   settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
   pickupValue: 0
+  tileSounds: {fileID: 11400000, guid: 870f8fc89fb387d479c25cc8ca4a8686, type: 2}
+  crunchSound: {fileID: 11400000, guid: 834a1627dd706074b893b36d278fe026, type: 2}
+  audioSource: {fileID: 504388127}
   firstPass: 1
   secondPass: 0
   canbeStepped: 1
