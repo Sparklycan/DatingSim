@@ -28,10 +28,14 @@ public class TileBehaviour : MonoBehaviour
     
     private MinigameSettings1 settings;
     private Color temporaryColor;
-    private AudioClip tileStep, loveStep, lustStep, susStep, winStep;
-     
+    private AudioClip tileStep, loveStep, lustStep, susStep, winStep, pointlossStep;
+
+    [Tooltip("This bool sets whether you want to do minus points instead of plus")]
+    [SerializeField] private bool detractPoints = false;
+    [Tooltip("You cannot use extraSus and detractPoints at the same time")]
     [SerializeField]private bool love, lust, sus, extraSus;
     private bool canBePicked = true;
+    private bool turnedUp = false;
     
     private SpriteRenderer sr;
     private BoxCollider2D boxC;
@@ -76,6 +80,7 @@ public class TileBehaviour : MonoBehaviour
         lustStep = tileSounds.clips[2];
         susStep = tileSounds.clips[3];
         winStep = tileSounds.clips[4];
+        pointlossStep = tileSounds.clips[5];
 
     }
 
@@ -83,7 +88,7 @@ public class TileBehaviour : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) && loveBite)
+        if (Input.GetKeyDown(KeyCode.Space) && loveBite && !turnedUp)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (boxC.OverlapPoint(mousePosition))
@@ -114,14 +119,19 @@ public class TileBehaviour : MonoBehaviour
                 {
                     
                     gm.UpdateStartSteps(transform.position); 
-                    sr.color = tileSettings.firstPassColour;
-                    temporaryColor = sr.color;
+                    //sr.color = tileSettings.firstPassColour;
+                   // temporaryColor = sr.color;
                     if (powerIcon != null)
                     {
                         powerIcon.SetActive(true);
-                        
+                        sr.sprite = tileSettings.spriteUpWithIcon;
                     }
-                    
+                    else
+                    {
+                        sr.sprite = tileSettings.spriteUp;
+                    }
+
+                    turnedUp = true;
                     audioSource.clip = tileStep;
                     audioSource.Play();
                 }
@@ -144,35 +154,63 @@ public class TileBehaviour : MonoBehaviour
                             powerIcon.SetActive(true);
                             
                         }
-
+                        if (detractPoints)
+                        {
+                            pickupValue *= -1;
+                            audioSource.clip = pointlossStep;
+                        }
+                        
+                        
                         //value of pickup to be sent here, then setting the pickup to not be pickupable
                         if (love)
                         {
-                           gm.love += pickupValue;
-                           audioSource.clip = loveStep;
+                            gm.love += pickupValue;
+                            if (!detractPoints)
+                            {
+                               audioSource.clip = loveStep; 
+                            }
+                           
                         }
                         
                         if (lust)
                         {
                             gm.lust += pickupValue;
-                            audioSource.clip = lustStep;
+                            if (!detractPoints)
+                            {
+                                audioSource.clip = lustStep;
+                            }
+                            
                         }
                         
                         if (sus || extraSus)
                         {
                             gm.sus += pickupValue;
-                            audioSource.clip = susStep;
+                            if (!detractPoints)
+                            {
+                                audioSource.clip = susStep;
+                            }
+                            
                         }
                         
                         canBePicked = false;
+                        if (!turnedUp)
+                        {
+                            sr.sprite = tileSettings.spriteUpWithIcon;
+                        }
+
                     }
                     else
                     {
+                        if (!turnedUp)
+                        {
+                             sr.sprite = tileSettings.spriteUp;
+                        }
+                       
                         audioSource.clip = tileStep;
+                        
                     }
+                    turnedUp = true;
                     
-                    sr.color = tileSettings.secondPassColour;
-                    temporaryColor = sr.color;
                     audioSource.Play();
                 }
             }
@@ -182,12 +220,19 @@ public class TileBehaviour : MonoBehaviour
 
     public void ColourchangeAvailable()
     {
-        temporaryColor = sr.color;
-        sr.color = tileSettings.highlightedColour;
+        if (!finishline)
+        {
+            sr.color = tileSettings.highlightedColour;
+        }
+        
     }
 
     public void ChangeBackColour()
     {
-        sr.color = temporaryColor;
+        if (!finishline)
+        {
+            sr.color = tileSettings.downlightedColour;
+        }
+        
     }
 }

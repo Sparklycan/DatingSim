@@ -226,7 +226,7 @@ public class GamemanagerGame1 : MonoBehaviour
         {
             tile.canbeStepped = false;
         }
-
+        
         loveText.text = love.ToString();
         lustText.text = lust.ToString();
         susText.text = sus.ToString();
