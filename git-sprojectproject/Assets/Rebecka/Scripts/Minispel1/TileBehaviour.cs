@@ -129,9 +129,10 @@ public class TileBehaviour : MonoBehaviour
                 {
                     gm.UpdateSecondturnSteps(transform.position); 
                     if (finishline)
-                    {
-                        gm.FinishGame();
+                    {   
                         audioSource.clip = winStep;
+                        gm.FinishGame();
+                        
 
                     }
                     
