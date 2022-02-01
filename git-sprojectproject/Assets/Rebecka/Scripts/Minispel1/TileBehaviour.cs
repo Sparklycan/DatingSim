@@ -8,31 +8,30 @@ public class TileBehaviour : MonoBehaviour
 
 
     public bool finishline;
+    public TileCommonSettings tileSettings;
     
-    public Color firstPassColour, secondPassColour, highlightedColour;
     public GameObject powerIcon;
     public GamemanagerGame1 gm;
-    public MinigameSettings1 settings;
+   
     public int pickupValue;
     
-    [Tooltip("Sounds: Step, love, lust, sus and win, in that order")]
-    public AudioClips tileSounds;
-    
-    [Tooltip("For when you remove with Lovebite")]
-    public AudioClips crunchSound;
+    //Sounds: Step, love, lust, sus and win, in that order
+    private AudioClips tileSounds;
+    //For when you remove with Lovebite
+    private AudioClips crunchSound;
     public AudioSource audioSource;
     [HideInInspector] public bool firstPass = true;
     [HideInInspector]public bool secondPass = false;
     [HideInInspector]public bool canbeStepped = false;
     
     [HideInInspector]public bool loveBite;
-
+    
+    private MinigameSettings1 settings;
     private Color temporaryColor;
     private AudioClip tileStep, loveStep, lustStep, susStep, winStep;
      
     [SerializeField]private bool love, lust, sus, extraSus;
     private bool canBePicked = true;
-    
     
     private SpriteRenderer sr;
     private BoxCollider2D boxC;
@@ -41,7 +40,9 @@ public class TileBehaviour : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         temporaryColor = sr.color;
-        
+        tileSounds = tileSettings.tileSounds;
+        crunchSound = tileSettings.crunchSound;
+        settings = tileSettings.settings;
     }
 
     // Start is called before the first frame update
@@ -113,7 +114,7 @@ public class TileBehaviour : MonoBehaviour
                 {
                     
                     gm.UpdateStartSteps(transform.position); 
-                    sr.color = firstPassColour;
+                    sr.color = tileSettings.firstPassColour;
                     temporaryColor = sr.color;
                     if (powerIcon != null)
                     {
@@ -170,7 +171,7 @@ public class TileBehaviour : MonoBehaviour
                         audioSource.clip = tileStep;
                     }
                     
-                    sr.color = secondPassColour;
+                    sr.color = tileSettings.secondPassColour;
                     temporaryColor = sr.color;
                     audioSource.Play();
                 }
@@ -181,9 +182,8 @@ public class TileBehaviour : MonoBehaviour
 
     public void ColourchangeAvailable()
     {
-        Debug.Log(temporaryColor);
         temporaryColor = sr.color;
-        sr.color = highlightedColour;
+        sr.color = tileSettings.highlightedColour;
     }
 
     public void ChangeBackColour()
