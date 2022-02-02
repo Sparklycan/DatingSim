@@ -32,7 +32,7 @@ private void OnGUI()
 
         GUILayout.Label("Balls", EditorStyles.boldLabel);
         ballhandler.ballAmount =  EditorGUILayout.IntSlider(ballhandler.ballAmount, 1, 20);
-        ballhandler.BallCheck();
+     //   ballhandler.BallCheck();
 
 
 

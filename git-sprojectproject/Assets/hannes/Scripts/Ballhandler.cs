@@ -25,7 +25,7 @@ public class Ballhandler : MonoBehaviour
             Balls.Add(node);
 
         }
-        BallCheck();
+        //BallCheck();
     }
 
 
@@ -72,7 +72,13 @@ public class Ballhandler : MonoBehaviour
                 Balls.RemoveAt(i);
         }
 
-
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            foreach (GameObject ball in Balls)
+            {
+                ball.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 100);
+            }
+        }
 
         Debug.Log("woop");
 
