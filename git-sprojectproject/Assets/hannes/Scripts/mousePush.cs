@@ -7,27 +7,57 @@ public class mousePush : MonoBehaviour
     Vector3 worldPosition;
 
     private float pushSize, pushTimer;
+    private float power;
 
-    public float pushMultiplier, maxPush, pushDelay;
+    public float pushSizeMultiplier, pushDelay;
 
     [Space(10)]
 
-    public float power;
+    [Range(1000, 10000)]
+    public float minPower;
+    [Range(1000, 10000)]
+    public float maxPower;
+    private float powerRange;
+
+    [Space(10)]
+
+    [Range(0,10)]
+    public float minPushSize;
+    [Range(0, 10)]
+    public float maxPushSize;
+    private float PSizeRange;
+    
 
     CircleCollider2D circle;
 
-    
+
+
+    // PSEUDO
+    /*
+    Arange = distance of the A values (Amin … Amax)
+    Avalue = value on Arange
+
+    Brange = distance of the B values (Bmin … Bmax)
+    Bvalue = value on Brange
+
+    Arange = Amax - Amin
+    Brange = Bmax - Bmin
+
+    Bvalue = Bmin + (Avalue-Amin)/Arange*Brange
+    */
+
+
 
     void Start()
     {
         circle = gameObject.GetComponent<CircleCollider2D>();
+        powerRange = maxPower - minPower;
+        PSizeRange = maxPushSize - minPushSize;
     }
 
+    
 
 
-    // gradual SIZE DIFFERENCE OF POWER REMEMBER UNTIL YOU GET HOME M-KAAAY?
-    // gradual SIZE DIFFERENCE OF POWER REMEMBER UNTIL YOU GET HOME M-KAAAY?
-    // gradual SIZE DIFFERENCE OF POWER REMEMBER UNTIL YOU GET HOME M-KAAAY?
     // gradual SIZE DIFFERENCE OF POWER REMEMBER UNTIL YOU GET HOME M-KAAAY?
     void Update()
     {
@@ -36,9 +66,12 @@ public class mousePush : MonoBehaviour
         worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
         transform.position = worldPosition;
 
-        if(pushSize >= maxPush)
+
+
+
+        if(pushSize >= maxPushSize)
         {
-            pushSize = maxPush;
+            pushSize = maxPushSize;
         }
 
 
@@ -46,14 +79,15 @@ public class mousePush : MonoBehaviour
         {
             // circle.radius += pushSize * power * Time.deltaTime;
 
-            pushSize += Time.deltaTime * pushMultiplier;
+            pushSize += Time.deltaTime * pushSizeMultiplier;
+            power = minPower + (pushSize - minPushSize) / PSizeRange * powerRange;
         }
         if(Input.GetMouseButtonUp(0))
         {
             pushTimer = 0;
             circle.radius = pushSize;
             circle.enabled = true;
-            pushSize = 0;
+            pushSize = minPushSize;
         }
 
 
@@ -82,6 +116,7 @@ public class mousePush : MonoBehaviour
         {
             Debug.Log("BALL");
             Vector3 dir = (collision.transform.position - worldPosition).normalized;
+            collision.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
             collision.GetComponent<Rigidbody2D>().AddForce(dir * power);
         }
     }

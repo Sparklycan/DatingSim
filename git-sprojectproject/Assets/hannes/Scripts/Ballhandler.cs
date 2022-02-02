@@ -39,19 +39,37 @@ public class Ballhandler : MonoBehaviour
 
     public void RemoveBall()
     {
-        Debug.Log("removing");
-        DestroyImmediate(Balls[Balls.Count - 1]);
+        int removing = Balls.Count - ballAmount;
+        
+        Debug.Log("removing " + removing);
+
+
+        
+        
+            for (int i = removing; i > 0; i--)
+            {
+                DestroyImmediate(Balls[Balls.Count - 1]);
+            }
+
+
     }
 
     public void AddBall()
     {
-        Debug.Log("adding");
-        GameObject.Instantiate(ball, Vector3.zero, Quaternion.identity);
+        int adding = ballAmount - Balls.Count;
+        Debug.Log("adding " + adding);
+
+        for (int i = 0; i < adding; i++)
+        {
+            Debug.Log("hi");
+            GameObject.Instantiate(ball, Vector3.zero, Quaternion.identity);
+        }
+
     }
 
     public void BallCheck()
     {
-        if (ballAmount > Balls.Count) AddBall();
+        if (ballAmount > Balls.Count)AddBall();
         if (ballAmount < Balls.Count) RemoveBall();
     }
 
@@ -80,7 +98,6 @@ public class Ballhandler : MonoBehaviour
             }
         }
 
-        Debug.Log("woop");
 
 
     }

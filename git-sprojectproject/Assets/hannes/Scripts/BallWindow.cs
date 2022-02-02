@@ -9,6 +9,8 @@ public class BallWindow : EditorWindow
     float minSize, maxSize;
 
 
+
+
     [MenuItem("Window/Balls")]
     public static void ShowWindow()
     {
@@ -32,14 +34,15 @@ private void OnGUI()
 
         GUILayout.Label("Balls", EditorStyles.boldLabel);
         ballhandler.ballAmount =  EditorGUILayout.IntSlider(ballhandler.ballAmount, 1, 20);
-     //   ballhandler.BallCheck();
+
+        if (GUILayout.Button("Change!"))
+        {
+               ballhandler.BallCheck();
+        }
 
 
-
-
-
-            GUILayout.Space(40);
-
+        GUILayout.Space(40);
+        /*
         GUILayout.Label("MinSize");
         minSize = EditorGUILayout.Slider( minSize, 1 , 10);
 
@@ -53,12 +56,35 @@ private void OnGUI()
         }
 
         GUILayout.Space(20);
+        */
 
+        /*
+        BallType ball = null;
 
-        if (GUILayout.Button("Change Style"))
+        if (Selection.activeGameObject.GetComponent<BallType>() != null)
         {
-
+            ball = Selection.activeGameObject.GetComponent<BallType>();
         }
+
+
+        if (ball)
+        {
+            ball.dropDown = (BallType.Value)EditorGUILayout.EnumPopup(ball.dropDown);
+
+
+            ball.Sus = EditorGUILayout.ColorField("Sus", ball.Sus);
+            ball.Lust = EditorGUILayout.ColorField("Lust", ball.Lust);
+            ball.Love = EditorGUILayout.ColorField("Love", ball.Love);
+            ball.Neutral = EditorGUILayout.ColorField("Neutral", ball.Neutral);
+
+
+            if (GUILayout.Button("Change!"))
+            {
+                ball.Change(ball.dropDown);
+            }
+        }
+
+        */
     }
 
 
