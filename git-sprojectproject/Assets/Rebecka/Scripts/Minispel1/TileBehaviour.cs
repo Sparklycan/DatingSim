@@ -119,8 +119,7 @@ public class TileBehaviour : MonoBehaviour
                 {
                     
                     gm.UpdateStartSteps(transform.position); 
-                    //sr.color = tileSettings.firstPassColour;
-                   // temporaryColor = sr.color;
+                    
                     if (powerIcon != null)
                     {
                         powerIcon.SetActive(true);
