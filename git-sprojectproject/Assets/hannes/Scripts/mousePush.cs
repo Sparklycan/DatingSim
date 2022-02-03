@@ -14,7 +14,7 @@ public class mousePush : MonoBehaviour
 
     [Space(20)]
 
-    public float pushSizeMultiplier, pushDelay;
+    public float pushSizeMultiplier, pushDuration;
 
     [Space(10)]
 
@@ -105,7 +105,7 @@ public class mousePush : MonoBehaviour
 
 
             pushTimer += Time.deltaTime;
-            if (pushTimer >= pushDelay)
+            if (pushTimer >= pushDuration)
             {
                 circle.enabled = false;
             }
