@@ -17,6 +17,8 @@ public class GamemanagerGame1 : MonoBehaviour
 
     [Tooltip("Which tiles can be stepped on at the start")]
     public TileBehaviour[] startAvailable;
+    [Tooltip("For when you have double distance enabled")]
+    public TileBehaviour[] startAvailableExtended;
 
     public LayerMask obstacleMask, tileMask;
     public MinigameSettings1 settings;
@@ -62,19 +64,26 @@ public class GamemanagerGame1 : MonoBehaviour
             obstacleCollection.SetActive(false);
         }
 
+        /*foreach (TileBehaviour tile in tileArray)
+        {
+            tile.ChangeBackColour();
+        }
         foreach (TileBehaviour tile in startAvailable)
         {
             tile.ColourchangeAvailable();
         }
 
+        if (settings.doubleDistance)
+        {
+            foreach (TileBehaviour tile in startAvailableExtended)
+            {
+                tile.ColourchangeAvailable();
+            }
+        }*/
+        BegginerStepAvailability();
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void UpdateStartSteps(Vector3 position)
     {
@@ -136,6 +145,15 @@ public class GamemanagerGame1 : MonoBehaviour
             startTile.canbeStepped = true;
             startTile.ColourchangeAvailable();
         }
+
+        if (settings.doubleDistance)
+        {
+            foreach (TileBehaviour secondStartTile in startAvailableExtended)
+            {
+                secondStartTile.canbeStepped = true;
+                secondStartTile.ColourchangeAvailable();
+            }
+        }
     }
 
     private void CheckStepAvailability()
@@ -161,10 +179,16 @@ public class GamemanagerGame1 : MonoBehaviour
         
         foreach (Collider2D col in overlaps)
         {
+            
             if (settings.diagonalMovement)
             {
+                
+                
                 RaycastHit2D hit = Physics2D.Linecast(playerPosition, col.transform.position, obstacleMask);
-                                
+                
+                   
+                
+                
                 if (hit.collider != null)
                 {
                     TileBehaviour tile = col.gameObject.GetComponent<TileBehaviour>();
@@ -174,11 +198,23 @@ public class GamemanagerGame1 : MonoBehaviour
                 }
                 else
                 {
-                    TileBehaviour tile = col.gameObject.GetComponent<TileBehaviour>();
-                    tile.canbeStepped = true;
+                    Vector3 direction = playerPosition - col.transform.position;
+                    float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+                    angle = Mathf.Abs(angle);   
                     
-                    tile.ColourchangeAvailable();
-                }                
+                    
+                    if (angle == 135 || angle == 90 || angle == 180 || angle == 45 || angle == 0)
+                    {
+                        Debug.Log(col.gameObject);
+                         TileBehaviour tile = col.gameObject.GetComponent<TileBehaviour>();
+                        tile.canbeStepped = true;
+                        
+                        tile.ColourchangeAvailable();
+                        
+                    }
+                    
+                }
+                
             }
 
             else
@@ -211,8 +247,6 @@ public class GamemanagerGame1 : MonoBehaviour
                          tile.ColourchangeAvailable();
                      }
                  }
-                 
-                 
             }
             
             
@@ -226,7 +260,7 @@ public class GamemanagerGame1 : MonoBehaviour
         {
             tile.canbeStepped = false;
         }
-
+        
         loveText.text = love.ToString();
         lustText.text = lust.ToString();
         susText.text = sus.ToString();
