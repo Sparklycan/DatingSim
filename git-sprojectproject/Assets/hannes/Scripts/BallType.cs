@@ -11,6 +11,8 @@ public class BallType : MonoBehaviour
 
     public List<GameObject> SubBalls = new List<GameObject>();
     
+
+
     public enum Value // your custom enumeration
     {
         SUS,
@@ -23,13 +25,13 @@ public class BallType : MonoBehaviour
 
     private void Awake()
     {
-
-
+        SubBalls.Clear();
         foreach (Transform child in this.transform)
         {
             SubBalls.Add(child.gameObject);
             Change(child.gameObject);
         }
+
 
     }
 
@@ -42,13 +44,14 @@ public class BallType : MonoBehaviour
             case Value.SUS:
                 {
                     SPR.color = Sus;
-                    
+                    V.Value.x = 1;
                     Debug.Log("S");
                     break;
                 }
             case Value.LUST:
                 {
                     SPR.color = Lust;
+                    V.Value.y = 1;
                     Debug.Log("LU");
 
                     break;
@@ -56,6 +59,7 @@ public class BallType : MonoBehaviour
             case Value.LOVE:
                 {
                     SPR.color = Love;
+                    V.Value.z = 1;
                     Debug.Log("LO");
 
                     break;

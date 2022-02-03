@@ -9,6 +9,11 @@ public class mousePush : MonoBehaviour
     private float pushSize, pushTimer;
     private float power;
 
+    [Tooltip("When ticked in, Kacpers awesome movement is active, otherwise Hannes weird ass movement is implemented.")]
+    public bool GoodMovement;
+
+    [Space(20)]
+
     public float pushSizeMultiplier, pushDelay;
 
     [Space(10)]
@@ -30,9 +35,17 @@ public class mousePush : MonoBehaviour
 
     CircleCollider2D circle;
 
+    // Variables for Hannes Movement
+
+    Vector2 StartForcePos, EndForcePos;
 
 
-    // PSEUDO
+
+
+
+
+
+    // PSEUDO for gradual amount increase.
     /*
     Arange = distance of the A values (Amin … Amax)
     Avalue = value on Arange
@@ -58,7 +71,6 @@ public class mousePush : MonoBehaviour
     
 
 
-    // gradual SIZE DIFFERENCE OF POWER REMEMBER UNTIL YOU GET HOME M-KAAAY?
     void Update()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -67,36 +79,55 @@ public class mousePush : MonoBehaviour
         transform.position = worldPosition;
 
 
-
-
-        if(pushSize >= maxPushSize)
+        if (GoodMovement)
         {
-            pushSize = maxPushSize;
+
+            if (pushSize >= maxPushSize)
+            {
+                pushSize = maxPushSize;
+            }
+
+
+            if (Input.GetMouseButton(0))
+            {
+                // circle.radius += pushSize * power * Time.deltaTime;
+
+                pushSize += Time.deltaTime * pushSizeMultiplier;
+                power = minPower + (pushSize - minPushSize) / PSizeRange * powerRange;
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                pushTimer = 0;
+                circle.radius = pushSize;
+                circle.enabled = true;
+                pushSize = minPushSize;
+            }
+
+
+            pushTimer += Time.deltaTime;
+            if (pushTimer >= pushDelay)
+            {
+                circle.enabled = false;
+            }
         }
-
-
-        if(Input.GetMouseButton(0))
+        else
         {
-            // circle.radius += pushSize * power * Time.deltaTime;
 
-            pushSize += Time.deltaTime * pushSizeMultiplier;
-            power = minPower + (pushSize - minPushSize) / PSizeRange * powerRange;
+            if(Input.GetMouseButtonDown(0))
+            {
+                EndForcePos = worldPosition;
+                StartForcePos = worldPosition;
+            }
+
+            if(Input.GetMouseButtonUp(0))
+            {
+                EndForcePos = worldPosition;
+            }
+
+
+
+
         }
-        if(Input.GetMouseButtonUp(0))
-        {
-            pushTimer = 0;
-            circle.radius = pushSize;
-            circle.enabled = true;
-            pushSize = minPushSize;
-        }
-
-
-        pushTimer += Time.deltaTime;
-        if(pushTimer >= pushDelay)
-        {
-            circle.enabled = false;
-        }
-
     }
 
 
@@ -105,7 +136,13 @@ public class mousePush : MonoBehaviour
     {
         Gizmos.color = Color.red;
 
+        if(GoodMovement)
         Gizmos.DrawWireSphere(worldPosition, pushSize);
+
+        else {
+            Gizmos.DrawLine(StartForcePos, EndForcePos);
+        }
+
     }
 
 
