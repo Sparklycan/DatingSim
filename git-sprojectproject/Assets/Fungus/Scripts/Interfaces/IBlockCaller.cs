@@ -8,6 +8,8 @@ namespace Fungus
     /// </summary>
     public interface IBlockCaller : IStringLocationIdentifier
     {
+        public event System.Action<Command, Block> onCall;
+
         bool MayCallBlock(Block block);
     }
 }
