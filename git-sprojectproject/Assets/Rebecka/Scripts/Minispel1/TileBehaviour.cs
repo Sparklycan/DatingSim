@@ -14,18 +14,19 @@ public class TileBehaviour : MonoBehaviour
     public GamemanagerGame1 gm;
    
     public int pickupValue;
-    
-    //Sounds: Step, love, lust, sus and win, in that order
-    private AudioClips tileSounds;
-    //For when you remove with Lovebite
-    private AudioClips crunchSound;
+
+    public ParticleSystem particleSystem;
     public AudioSource audioSource;
     [HideInInspector] public bool firstPass = true;
     [HideInInspector]public bool secondPass = false;
     [HideInInspector]public bool canbeStepped = false;
     
     [HideInInspector]public bool loveBite;
-    
+     //Sounds: Step, love, lust, sus and win, in that order
+     private AudioClips tileSounds;
+     
+    //For when you remove with Lovebite
+    private AudioClips crunchSound;
     private MinigameSettings1 settings;
     private Color temporaryColor;
     private AudioClip tileStep, loveStep, lustStep, susStep, winStep, pointlossStep;
@@ -132,6 +133,7 @@ public class TileBehaviour : MonoBehaviour
 
                     turnedUp = true;
                     audioSource.clip = tileStep;
+                    Debug.Log(tileStep);
                     audioSource.Play();
                 }
 
@@ -148,11 +150,10 @@ public class TileBehaviour : MonoBehaviour
                     
                     if (powerIcon != null && canBePicked)
                     {
-                        if (powerIcon.activeInHierarchy == false)
-                        {
-                            powerIcon.SetActive(true);
-                            
-                        }
+                        
+                            Destroy(powerIcon);
+                            powerIcon = null;
+                        
                         if (detractPoints)
                         {
                             pickupValue *= -1;
@@ -168,7 +169,7 @@ public class TileBehaviour : MonoBehaviour
                             {
                                audioSource.clip = loveStep; 
                             }
-                           
+
                         }
                         
                         if (lust)
@@ -188,9 +189,13 @@ public class TileBehaviour : MonoBehaviour
                             {
                                 audioSource.clip = susStep;
                             }
-                            
+                           
                         }
                         
+                        if (particleSystem != null)
+                        {
+                            particleSystem.Play();
+                        }
                         canBePicked = false;
                         if (!turnedUp)
                         {
@@ -210,6 +215,7 @@ public class TileBehaviour : MonoBehaviour
                     }
                     turnedUp = true;
                     
+                    Debug.Log(audioSource.clip);
                     audioSource.Play();
                 }
             }
