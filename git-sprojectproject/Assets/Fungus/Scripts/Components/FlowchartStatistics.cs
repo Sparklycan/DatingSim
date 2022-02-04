@@ -7,6 +7,7 @@ using System.IO;
 using Fungus;
 
 [ExecuteInEditMode]
+[DisallowMultipleComponent]
 [RequireComponent(typeof(Flowchart))]
 public class FlowchartStatistics : MonoBehaviour
 {
