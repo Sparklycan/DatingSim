@@ -89,7 +89,7 @@ public class TileBehaviour : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) && loveBite && !turnedUp)
+        if (Input.GetKeyDown(KeyCode.Space) && loveBite)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (boxC.OverlapPoint(mousePosition))
