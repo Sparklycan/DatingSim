@@ -9,7 +9,7 @@ public class mousePush : MonoBehaviour
     private float pushSize, pushTimer;
     private float power;
 
-    [Tooltip("When ticked in, Kacpers awesome movement is active, otherwise Hannes weird ass movement is implemented.")]
+    [Tooltip("When ticked in, Kacpers awesome movement is active, otherwise Hannes weird ass movement is implemented(not yet though).")]
     public bool GoodMovement;
 
     [Space(20)]
@@ -34,6 +34,9 @@ public class mousePush : MonoBehaviour
     
 
     CircleCollider2D circle;
+
+
+    public Transform SpriteTransform;
 
     // Variables for Hannes Movement
 
@@ -93,11 +96,13 @@ public class mousePush : MonoBehaviour
                 // circle.radius += pushSize * power * Time.deltaTime;
 
                 pushSize += Time.deltaTime * pushSizeMultiplier;
+                SpriteTransform.localScale = new Vector3(pushSize * 2, pushSize * 2, 1);
                 power = minPower + (pushSize - minPushSize) / PSizeRange * powerRange;
             }
             if (Input.GetMouseButtonUp(0))
             {
                 pushTimer = 0;
+                SpriteTransform.localScale = Vector3.zero;
                 circle.radius = pushSize;
                 circle.enabled = true;
                 pushSize = minPushSize;
