@@ -19,6 +19,8 @@ namespace Fungus
         [Tooltip("Name of the Block to stop")]
         [SerializeField] protected StringData blockName = new StringData("");
 
+        public event System.Action<Command, Block> onCall;
+
         #region Public members
 
         public override void OnEnter()

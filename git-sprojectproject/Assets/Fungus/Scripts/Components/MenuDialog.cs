@@ -124,7 +124,7 @@ namespace Fungus
             Canvas.ForceUpdateCanvases();
         }
 
-        protected virtual IEnumerator WaitForTimeout(float timeoutDuration, Block targetBlock)
+        protected virtual IEnumerator WaitForTimeout(float timeoutDuration, Block targetBlock, System.Action<Block> onSelectCallback = null)
         {
             float elapsedTime = 0;
 
@@ -150,13 +150,15 @@ namespace Fungus
 
             if (targetBlock != null)
             {
+                onSelectCallback?.Invoke(targetBlock);
                 targetBlock.StartExecution();
             }
         }
 
-        protected IEnumerator CallBlock(Block block)
+        protected IEnumerator CallBlock(Block block, System.Action<Block> onSelectCallback = null)
         {
             yield return new WaitForEndOfFrame();
+            onSelectCallback?.Invoke(block);
             block.StartExecution();
         }
 
@@ -227,7 +229,7 @@ namespace Fungus
         /// <param name="interactable">If false, the option is displayed but is not selectable.</param>
         /// <param name="hideOption">If true, the option is not displayed but the menu knows that option can or did exist</param>
         /// <param name="targetBlock">Block to execute when the option is selected.</param>
-        public virtual bool AddOption(string text, bool interactable, bool hideOption, Block targetBlock)
+        public virtual bool AddOption(string text, bool interactable, bool hideOption, Block targetBlock, System.Action<Block> onSelectCallback = null)
         {
             var block = targetBlock;
             UnityEngine.Events.UnityAction action = delegate
@@ -243,7 +245,7 @@ namespace Fungus
                     gameObject.SetActive(false);
                     // Use a coroutine to call the block on the next frame
                     // Have to use the Flowchart gameobject as the MenuDialog is now inactive
-                    flowchart.StartCoroutine(CallBlock(block));
+                    flowchart.StartCoroutine(CallBlock(block, onSelectCallback));
                 }
             };
 
@@ -333,14 +335,14 @@ namespace Fungus
         /// </summary>
         /// <param name="duration">The duration during which the player can select an option.</param>
         /// <param name="targetBlock">Block to execute if the player does not select an option in time.</param>
-        public virtual void ShowTimer(float duration, Block targetBlock)
+        public virtual void ShowTimer(float duration, Block targetBlock, System.Action<Block> onSelectCallback = null)
         {
             if (cachedSlider != null)
             {
                 cachedSlider.gameObject.SetActive(true);
                 gameObject.SetActive(true);
                 StopAllCoroutines();
-                StartCoroutine(WaitForTimeout(duration, targetBlock));
+                StartCoroutine(WaitForTimeout(duration, targetBlock, onSelectCallback));
             }
             else
             {

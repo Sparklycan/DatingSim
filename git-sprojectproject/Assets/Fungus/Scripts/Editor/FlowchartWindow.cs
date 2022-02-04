@@ -214,6 +214,7 @@ namespace Fungus.EditorUtils
         protected int blockPopupSelection = -1;
         protected Vector2 popupScroll;
         protected Flowchart flowchart, prevFlowchart;
+        protected FlowchartStatistics flowchartStatistics; 
         protected int prevVarCount;
         protected Block[] blocks = new Block[0];
         protected Block dragBlock;
@@ -225,6 +226,16 @@ namespace Fungus.EditorUtils
         private bool filterStale = true;
         private bool wasControl;
         private ExecutingBlocks executingBlocks = new ExecutingBlocks();
+
+        private int selectedView = 0;
+        private string[] views = new string[]
+        {
+            "Default",
+            "Statistics"
+        };
+
+        private bool CanViewStatistics => flowchart != null && flowchartStatistics != null;
+        public bool ViewStatistics => selectedView == 1 && CanViewStatistics;
 
         private GUIStyle toolbarSeachTextFieldStyle;
         protected GUIStyle ToolbarSeachTextFieldStyle
@@ -335,6 +346,7 @@ namespace Fungus.EditorUtils
             //force null so it can refresh context on the other side of the context
             flowchart = null;
             prevFlowchart = null;
+            flowchartStatistics = null;
             blockInspector = null;
         }
 #endif
@@ -400,6 +412,7 @@ namespace Fungus.EditorUtils
         protected void UpdateBlockCollection()
         {
             flowchart = GetFlowchart();
+            flowchartStatistics = GetFlowchartStatistics();
             if (flowchart == null)
             {
                 blocks = new Block[0];
@@ -512,6 +525,14 @@ namespace Fungus.EditorUtils
             }
 
             return fungusState.SelectedFlowchart;
+        }
+
+        public FlowchartStatistics GetFlowchartStatistics()
+        {
+            if (flowchart == null)
+                return null;
+            else
+                return flowchart.GetComponent<FlowchartStatistics>();
         }
 
         protected void UpdateFilteredBlocks()
@@ -741,6 +762,7 @@ namespace Fungus.EditorUtils
         internal bool HandleFlowchartSelectionChange()
         {
             flowchart = GetFlowchart();
+            flowchartStatistics = GetFlowchartStatistics();
             //target has changed, so clear the blockinspector
             if (flowchart != prevFlowchart)
             {
@@ -910,6 +932,8 @@ namespace Fungus.EditorUtils
             // Name and description group
             GUILayout.BeginHorizontal();
             {
+                selectedView = GUILayout.SelectionGrid(selectedView, views, 1);
+
                 GUILayout.FlexibleSpace();
 
                 GUILayout.BeginVertical();
@@ -1677,8 +1701,21 @@ namespace Fungus.EditorUtils
                     boundRect.yMin = Mathf.Min(startRect.yMin, endRect.yMin);
                     boundRect.yMax = Mathf.Max(startRect.yMax, endRect.yMax);
 
+                    Color color;
+                    float width;
+                    if (ViewStatistics)
+                    {
+                        color = flowchartStatistics.ConnectionColor(command);
+                        width = highlight ? 6.0f : 3.0f;
+                    }
+                    else
+                    {
+                        color = highlight ? Color.green : connectionColor;
+                        width = 3.0f;
+                    }
+
                     if (boundRect.Overlaps(scriptViewRect))
-                        DrawRectConnection(startRect, endRect, highlight);
+                        DrawRectConnection(startRect, endRect, color, width);
                 }
             }
         }
@@ -1699,7 +1736,7 @@ namespace Fungus.EditorUtils
         //prevent alloc in DrawAAConvexPolygon
         static readonly Vector3[] beizerWorkSpace = new Vector3[3];
 
-        protected virtual void DrawRectConnection(Rect rectA, Rect rectB, bool highlight)
+        protected virtual void DrawRectConnection(Rect rectA, Rect rectB, Color color, float width)
         {
             //previous method made a lot of garbage so now we reuse the same array
             pointsA[0] = new Vector2(rectA.xMin, rectA.center.y);
@@ -1731,12 +1768,6 @@ namespace Fungus.EditorUtils
                 }
             }
 
-            Color color = connectionColor;
-            if (highlight)
-            {
-                color = Color.green;
-            }
-
             Handles.color = color;
 
             // Place control based on distance between points
@@ -1752,13 +1783,21 @@ namespace Fungus.EditorUtils
             var directionA = (rectA.center - pointA).normalized;
             var directionB = (rectB.center - pointB).normalized;
             var controlA = pointA - directionA * mod * 0.67f;
-            var controlB = pointB - directionB * mod * 0.67f;            
-            Handles.DrawBezier(pointA, pointB, controlA, controlB, color, null, 3f);
+            var controlB = pointB - directionB * mod * 0.67f;
 
-            // Draw arrow on curve
+            // Seperate the curves
             var point = GetPointOnCurve(pointA, controlA, pointB, controlB, 0.7f);
             var direction = (GetPointOnCurve(pointA, controlA, pointB, controlB, 0.6f) - point).normalized;
             var perp = new Vector2(direction.y, -direction.x);
+            controlA += 8.0f * perp;
+            controlB += 8.0f * perp;
+
+            Handles.DrawBezier(pointA, pointB, controlA, controlB, color, null, width);
+
+            // Draw arrow on curve
+            point = GetPointOnCurve(pointA, controlA, pointB, controlB, 0.7f);
+            direction = (GetPointOnCurve(pointA, controlA, pointB, controlB, 0.6f) - point).normalized;
+            perp = new Vector2(direction.y, -direction.x);
             //reuse same array to avoid the auto alloced one in DrawAAConvexPolygon
             beizerWorkSpace[0] = point;
             beizerWorkSpace[1] = point + direction * 10 + perp * 5;
@@ -2158,7 +2197,10 @@ namespace Fungus.EditorUtils
                 }
 
                 nodeStyle.normal.background = graphics.offTexture;
-                GUI.backgroundColor = graphics.tint;
+                if (ViewStatistics)
+                    GUI.backgroundColor = flowchartStatistics.BlockColor(block);
+                else
+                    GUI.backgroundColor = graphics.tint;
                 GUI.Box(windowRelativeRect, block.BlockName, nodeStyle);
 
                 GUI.backgroundColor = Color.white;

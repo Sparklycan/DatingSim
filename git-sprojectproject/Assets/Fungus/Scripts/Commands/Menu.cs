@@ -39,6 +39,8 @@ namespace Fungus
         [Tooltip("If true, this option will be passed to the Menu Dialogue but marked as hidden, this can be used to hide options while maintaining a Menu Shuffle.")]
         [SerializeField] protected BooleanData hideThisOption = new BooleanData(false);
 
+        public event System.Action<Command, Block> onCall;
+
         #region Public members
 
         public MenuDialog SetMenuDialog  { get { return setMenuDialog; } set { setMenuDialog = value; } }
@@ -61,7 +63,7 @@ namespace Fungus
                     var flowchart = GetFlowchart();
                     string displayText = flowchart.SubstituteVariables(text);
 
-                    menuDialog.AddOption(displayText, interactable, hideOption, targetBlock);
+                    menuDialog.AddOption(displayText, interactable, hideOption, targetBlock, targetBlock => { onCall?.Invoke(this, targetBlock); });
                 }
             
             Continue();
@@ -87,7 +89,7 @@ namespace Fungus
                 return "Error: No button text selected";
             }
 
-            return text + " : " + targetBlock.BlockName;
+            return GetCallFraction() + text + " : " + targetBlock.BlockName;
         }
 
         public override Color GetButtonColor()
@@ -104,6 +106,25 @@ namespace Fungus
         public bool MayCallBlock(Block block)
         {
             return block == targetBlock;
+        }
+
+        private string GetCallFraction()
+        {
+            Flowchart flowchart = GetFlowchart();
+            if (flowchart == null)
+                return "";
+
+            FlowchartStatistics statistics = flowchart.GetComponent<FlowchartStatistics>();
+            if (statistics == null)
+                return "";
+
+            int calls = statistics.CallCount(ItemId);
+            int total = statistics.BlockCount(ParentBlock.BlockName);
+            if (calls < 0 || total < 0 || calls > total)
+                return "";
+
+            float frac = (float)calls / (float)total;
+            return frac.ToString("P") + "\t";
         }
 
         #endregion

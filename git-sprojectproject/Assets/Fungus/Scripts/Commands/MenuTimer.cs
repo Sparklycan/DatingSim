@@ -24,6 +24,8 @@ namespace Fungus
         [Tooltip("Block to execute when the timer expires")]
         [SerializeField] protected Block targetBlock;
 
+        public event System.Action<Command, Block> onCall;
+
         #region Public members
 
         public override void OnEnter()
@@ -33,7 +35,7 @@ namespace Fungus
             if (menuDialog != null &&
                 targetBlock != null)
             {
-                menuDialog.ShowTimer(_duration.Value, targetBlock);
+                menuDialog.ShowTimer(_duration.Value, targetBlock, targetBlock => { onCall?.Invoke(this, targetBlock); });
             }
 
             Continue();
@@ -54,7 +56,7 @@ namespace Fungus
                 return "Error: No target block selected";
             }
 
-            return targetBlock.BlockName;
+            return GetCallFraction() + targetBlock.BlockName;
         }
 
         public override Color GetButtonColor()
@@ -72,7 +74,26 @@ namespace Fungus
         {
             return block == targetBlock;
         }
-        
+
+        private string GetCallFraction()
+        {
+            Flowchart flowchart = GetFlowchart();
+            if (flowchart == null)
+                return "";
+
+            FlowchartStatistics statistics = flowchart.GetComponent<FlowchartStatistics>();
+            if (statistics == null)
+                return "";
+
+            int calls = statistics.CallCount(ItemId);
+            int total = statistics.BlockCount(ParentBlock.BlockName);
+            if (calls < 0 || total < 0 || calls > total)
+                return "";
+
+            float frac = (float)calls / (float)total;
+            return frac.ToString("P") + "\t";
+        }
+
         #endregion
 
         #region Backwards compatibility
