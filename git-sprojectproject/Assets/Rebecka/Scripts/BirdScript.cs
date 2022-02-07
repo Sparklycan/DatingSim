@@ -8,14 +8,19 @@ public class BirdScript : MonoBehaviour
     
     public float minSpeed, maxSpeed;
     [HideInInspector]public bool direction;
-    public Vector3 goalDirection = new Vector3(1, 0,0);
+    [HideInInspector]public Vector3 goalDirection = new Vector3(1, 0,0);
+    public GameObject birdPoop;
+    public float poopTimer;
+    public GameObject value1, value2;
+    public float dropChance;
     
     private float speed;
-        //float shittimer
+    private float timer;
 
         private void Start()
         {
-            GetRandomValue();
+            timer = poopTimer;
+            GetRandomValueSpeed();
             if (direction)
             {
                 goalDirection *= -1;
@@ -25,18 +30,31 @@ public class BirdScript : MonoBehaviour
         private void Update()
         {
             transform.position = Vector3.MoveTowards(transform.position,  transform.position + goalDirection, speed * Time.deltaTime);
-        }
-    
-        
-        //void onBecameInvisible destroy
-        //void birdpoop
-        //void setrandomSpeed
 
-        
-        private void GetRandomValue()
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                timer = poopTimer;
+                SpawnPoop();
+            }
+        }
+
+        private void GetRandomValueSpeed()
         {
             speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
         }
+
+        private float GetRandomValueDrop()
+        {
+            return UnityEngine.Random.Range(0, dropChance);
+        }
+
+
+        private void SpawnPoop()
+        {
+            Instantiate(birdPoop, transform.position, Quaternion.identity);
+        }
+        
         private void OnBecameInvisible()
         {
             Destroy(gameObject);
