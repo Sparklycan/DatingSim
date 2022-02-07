@@ -5,23 +5,26 @@ using UnityEngine;
 
 public class BirdScript : MonoBehaviour
 {
-        //speed float: private
-        //speed range
-
-        public float minSpeed, maxSpeed;
-        private float speed;
-       public Vector3 goalDirection = new Vector3(1, 0,0);
-        
+    
+    public float minSpeed, maxSpeed;
+    [HideInInspector]public bool direction;
+    public Vector3 goalDirection = new Vector3(1, 0,0);
+    
+    private float speed;
         //float shittimer
 
         private void Start()
         {
             GetRandomValue();
+            if (direction)
+            {
+                goalDirection *= -1;
+            }
         }
 
         private void Update()
         {
-            transform.position = Vector3.MoveTowards(transform.position,  transform.position - goalDirection, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,  transform.position + goalDirection, speed * Time.deltaTime);
         }
     
         
