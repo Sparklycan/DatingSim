@@ -35,8 +35,8 @@ public class stealthCamera : MonoBehaviour
 
 
 
-        float halfHeight = Camera.main.orthographicSize;
-        float halfWidth = Camera.main.aspect * halfHeight;
+        float halfHeight = this.GetComponent<Camera>().orthographicSize;
+        float halfWidth = this.GetComponent<Camera>().aspect * halfHeight;
         
         // ugly solution for now....
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftLimit + halfWidth, rightLimit - halfWidth),

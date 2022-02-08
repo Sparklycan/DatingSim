@@ -7,7 +7,7 @@ public class StealthPlayer : MonoBehaviour
 
     public float speed, sprintMultiplier;
 
-    public float sprintDuration, coolDownDuration;
+    public float sprintDuration, coolDownDuration, acceleration;
 
     bool sprinting = false, coolDown;
 
@@ -60,7 +60,6 @@ public class StealthPlayer : MonoBehaviour
         }
          
         
-       
 
 
         
@@ -70,15 +69,17 @@ public class StealthPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
 
         movement = new Vector3(horizontal, 0, vertical).normalized;
-        if(sprinting)
+        if (sprinting)
         {
-            Rb.MovePosition(transform.position + (movement * sprintSpeed * Time.deltaTime));
+            Rb.velocity = Vector3.MoveTowards(Rb.velocity, movement * sprintSpeed, Time.deltaTime * acceleration);
+
         }
         else
-        Rb.MovePosition(transform.position + (movement * speed * Time.deltaTime));
+            Rb.velocity = Vector3.MoveTowards(Rb.velocity, movement * speed, Time.deltaTime * acceleration);
     }
 }
