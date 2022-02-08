@@ -5,26 +5,66 @@ using UnityEngine;
 public class StealthPlayer : MonoBehaviour
 {
 
-    public float speed;
+    public float speed, sprintMultiplier;
+
+    public float sprintDuration, coolDownDuration;
+
+    bool sprinting = false, coolDown;
 
     Vector3 movement;
 
     Rigidbody Rb;
 
-    float vertical, horizontal;
+    float vertical, horizontal, sprintSpeed, timer1, timer2;
 
+    stealthCamera StealthCam;
+
+    
 
     void Start()
     {
+        StealthCam = Camera.main.GetComponent<stealthCamera>();
         Rb = GetComponent<Rigidbody>();
+        sprintSpeed = speed * sprintMultiplier;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        //Rb.velocity = movement * speed * Time.deltaTime;
-        //Debug.Log(Rb.velocity);
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !sprinting && !coolDown)
+        {
+            sprinting = true;
+        }
+        if(sprinting)
+        {
+            Debug.Log("sprint");
+            timer1 += Time.deltaTime;
+            if(timer1 >= sprintDuration)
+            {
+                Debug.Log("done");
+                coolDown = true;
+                sprinting = false;
+                timer1 = 0;
+            }
+            
+        }
+        if(coolDown)
+        {
+            Debug.Log("cooldown");
+            timer2 += Time.deltaTime;
+            if(timer2 >= coolDownDuration)
+            {
+                coolDown = false;
+            }
+        }
+         
+        
+       
+
+
+        
+
         
     }
 
@@ -34,6 +74,11 @@ public class StealthPlayer : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
 
         movement = new Vector3(horizontal, 0, vertical).normalized;
+        if(sprinting)
+        {
+            Rb.MovePosition(transform.position + (movement * sprintSpeed * Time.deltaTime));
+        }
+        else
         Rb.MovePosition(transform.position + (movement * speed * Time.deltaTime));
     }
 }
