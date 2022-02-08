@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Fungus;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GamemanagerGame1 : MonoBehaviour
 {
 
+    public Flowchart flowchart;
+    
     public int startSteps = 8;
     public int startStepsIfDiagonal= 5;
     public Text stepsLeftText;
@@ -107,6 +110,7 @@ public class GamemanagerGame1 : MonoBehaviour
                 playerPosition = playerStartPosition;
                 player.transform.position = playerPosition; 
                 BegginerStepAvailability();
+                flowchart.SendFungusMessage("Message");
             }
             else
             {
@@ -282,5 +286,8 @@ public class GamemanagerGame1 : MonoBehaviour
         }
         
     }
+    
+    
+    
     
 }

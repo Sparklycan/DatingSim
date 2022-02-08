@@ -7,6 +7,29 @@ using UnityEditor;
 public class FlowchartStatisticsEditor : Editor
 {
 
+    [MenuItem("Tools/Fungus/Create/Flowchart statistics", false, 1)]
+    static void CreateFlowchartStatistics()
+    {
+        if (Selection.activeGameObject == null)
+        {
+            EditorUtility.DisplayDialog("Create flowchart statistics", "Select the flowchart to gather statistics from.", "OK");
+            return;
+        }
+
+        Fungus.Flowchart flowchart = Selection.activeGameObject.GetComponent<Fungus.Flowchart>();
+        if (flowchart == null)
+        {
+            EditorUtility.DisplayDialog("Create flowchart statistics", "Select the flowchart to gather statistics from.", "OK");
+            return;
+        }
+
+        FlowchartStatistics flowchartStatistics = flowchart.GetComponent<FlowchartStatistics>();
+        if(flowchartStatistics == null)
+            flowchartStatistics = flowchart.gameObject.AddComponent<FlowchartStatistics>();
+
+        Selection.activeObject = flowchartStatistics;
+    }
+
     public override void OnInspectorGUI()
     {
         FlowchartStatistics record = target as FlowchartStatistics;
