@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class HookMovement : MonoBehaviour
 {
@@ -17,10 +19,14 @@ public class HookMovement : MonoBehaviour
 
     private Transform target;
 
+    private FMOD.Studio.EventInstance hookSound;
+
     // Start is called before the first frame update
     void Start()
     {
         target = pos2;
+        hookSound = FMODUnity.RuntimeManager.CreateInstance("event:/Sound/SFX/Minigames/MinigameGoFish/Hook");
+        hookSound.start();
     }
 
     // Update is called once per frame
@@ -39,5 +45,10 @@ public class HookMovement : MonoBehaviour
 
         hook.position = Vector3.MoveTowards(hook.position, target.position, speed * Time.deltaTime);
 
+    }
+
+    private void OnDisable()
+    {
+        hookSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
