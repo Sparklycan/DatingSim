@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StealthPlayer : MonoBehaviour
 {
@@ -15,11 +16,16 @@ public class StealthPlayer : MonoBehaviour
 
     Rigidbody Rb;
 
-    float vertical, horizontal, sprintSpeed, timer1, timer2;
+    float vertical, horizontal, sprintSpeed;
+        
+    [HideInInspector]
+    public float timer1, timer2;
 
     stealthCamera StealthCam;
 
-    
+
+    public Slider slider;
+
 
     void Start()
     {
@@ -38,31 +44,37 @@ public class StealthPlayer : MonoBehaviour
         }
         if(sprinting)
         {
+            slider.gameObject.SetActive(true);
             Debug.Log("sprint");
             timer1 += Time.deltaTime;
-            if(timer1 >= sprintDuration)
+            slider.maxValue = sprintDuration;
+            setStamina(timer1);
+            if (timer1 >= sprintDuration)
             {
                 Debug.Log("done");
+                timer2 = coolDownDuration;
                 coolDown = true;
                 sprinting = false;
                 timer1 = 0;
             }
-            
         }
-        if(coolDown)
+        if (coolDown)
         {
             Debug.Log("cooldown");
-            timer2 += Time.deltaTime;
-            if(timer2 >= coolDownDuration)
+            
+            slider.maxValue = coolDownDuration;
+            setStamina(timer2);
+            timer2 -= Time.deltaTime;
+            if(timer2 <= 0)
             {
                 coolDown = false;
+                slider.gameObject.SetActive(false);
             }
         }
-         
-        
 
 
-        
+
+
 
         
     }
@@ -81,5 +93,11 @@ public class StealthPlayer : MonoBehaviour
         }
         else
             Rb.velocity = Vector3.MoveTowards(Rb.velocity, movement * speed, Time.deltaTime * acceleration);
+    }
+
+
+    void setStamina(float stamina)
+    {
+        slider.value = stamina;
     }
 }

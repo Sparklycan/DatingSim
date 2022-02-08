@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HookPoints : MonoBehaviour
 {
-    [Tooltip("X = Lust, Y = Lust, Z = Love")]
+    [Tooltip("X = Sus, Y = Lust, Z = Love")]
     public Vector3 Points;
 
     public

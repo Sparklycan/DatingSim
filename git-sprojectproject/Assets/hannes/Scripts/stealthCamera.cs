@@ -28,7 +28,7 @@ public class stealthCamera : MonoBehaviour
     void Update()
     {
         startPos = transform.position;
-        EndPos = target.position;
+        EndPos = new Vector3(target.position.x, transform.position.y, target.position.z);
 
 
         transform.position = Vector3.Lerp(startPos, EndPos, timeOffset * Time.deltaTime);
