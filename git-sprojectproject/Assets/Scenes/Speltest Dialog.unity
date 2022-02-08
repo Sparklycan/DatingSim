@@ -586,6 +586,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8846266802935838354, guid: dddbace9157d607448fb74803997be1d, type: 3}
   m_PrefabInstance: {fileID: 8846266802706133515}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &866170517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866170519}
+  - component: {fileID: 866170518}
+  m_Layer: 0
+  m_Name: View (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &866170518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866170517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c387d3e32404bcc91c60318d766bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewSize: 4.649373
+  primaryAspectRatio: {x: 4, y: 3}
+  secondaryAspectRatio: {x: 2, y: 1}
+--- !u!4 &866170519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866170517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.17, y: 0.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &890811128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,6 +1630,88 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {x: 0, y: 0, z: 0}
   characterTraits: []
+--- !u!1 &1543068535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543068537}
+  - component: {fileID: 1543068536}
+  m_Layer: 0
+  m_Name: BackgroundCandyStore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1543068536
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543068535}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: b106b2d677150b04ea1475564e2b1247, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 19.2, y: 10.8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1543068537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543068535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1653558691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,7 +2130,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -200.07326
     y: 65.12195
-    width: 77.49997
+    width: 75.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2029,19 +2157,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 498.26233, y: 572.0173}
+  scrollPos: {x: 332.83423, y: 157.47083}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
-  zoom: 0.40000045
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1801900771}
+  selectedCommands:
+  - {fileID: 1801900758}
   variables:
   - {fileID: 1801900726}
   - {fileID: 1801900725}
@@ -3236,7 +3366,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2178.0537
     y: 186.22511
-    width: 104.99994
+    width: 106.8
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3286,7 +3416,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 464.7364
     y: 48.5
-    width: 64.999985
+    width: 66
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3317,7 +3447,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 337.00922
     y: 107.54544
-    width: 72.49998
+    width: 72.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3347,7 +3477,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 333.50903
     y: 44.532112
-    width: 72.49998
+    width: 73.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3376,7 +3506,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 334.6385
     y: -15.045452
-    width: 72.49998
+    width: 73.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3405,7 +3535,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 202.1
     y: 61.323532
-    width: 64.999985
+    width: 65.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3436,7 +3566,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 66.100006
     y: 138.67647
-    width: 69.99998
+    width: 71.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3465,7 +3595,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 64.100006
     y: 64.5
-    width: 69.99998
+    width: 72.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3494,7 +3624,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 66.100006
     y: -7.5
-    width: 69.99998
+    width: 72.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3521,9 +3651,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -93.73534
+    x: -91.73534
     y: 62.02916
-    width: 89.999954
+    width: 88.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3710,10 +3840,10 @@ MonoBehaviour:
     stringVal: 'Tinkerer: "Oh yeah sorry... It''s a bad habit and I often forget
       that I can just go off on rambels, I''m sorry."
 
-      
 
-      "But uhm,
-      well okay... Uhm... Do you like garlic bread?" '
+
+      "But uhm, well okay...
+      Uhm... Do you like garlic bread?" '
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -3885,11 +4015,11 @@ MonoBehaviour:
       "Oh, imagine all the stuff
       we could create together!"
 
-      
 
-      "Sorry... I am getting too ahead
-      of myself! I just love meeting fellow tinkerers or crafters or what you would
-      like to call us!"'
+
+      "Sorry... I am getting too ahead of myself!
+      I just love meeting fellow tinkerers or crafters or what you would like to
+      call us!"'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -3942,7 +4072,7 @@ MonoBehaviour:
     stringVal: 'Tinkerer: "Hah wow, what a loner you are! It''s not like I sit alone
       too and blast music while tinkering! I have Putts, my mechanical doggo friend!
 
-      
+
 
       But
       heh... that is nice. Music always gets me in the tinkering mood!"'
@@ -4030,10 +4160,10 @@ MonoBehaviour:
     stringVal: 'Tinkerer: "Hmmm, no, I don''t think so, sorry. But I hope you have
       a good one!"
 
-      
 
-      Narrator: *she smiles at you and turns around,
-      leaving the store.*'
+
+      Narrator: *she smiles at you and turns around, leaving
+      the store.*'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -4087,11 +4217,11 @@ MonoBehaviour:
       Here is my number, feel free to text me if you ever just want to hang out or
       something!"
 
-      
+
 
       Player:"Likewise! Talk to you later"
 
-      
+
 
       Narrator:
       *She leaves and you happily look at the number in your phone*'
@@ -4126,11 +4256,11 @@ MonoBehaviour:
     stringVal: 'Tinkerer: "Aaahh, so you are one of thooose. What, too scared to
       do any real work like us geniuses?"
 
-      
 
-      "Aahhh... okay, that was
-      kinda mean I guess, sorry. Gaming has never been my thing, can''t sit still
-      for that long."'
+
+      "Aahhh... okay, that was kinda
+      mean I guess, sorry. Gaming has never been my thing, can''t sit still for that
+      long."'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -4159,7 +4289,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 944.0738
     y: 103.920616
-    width: 97.49995
+    width: 97.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4187,7 +4317,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 922.424
     y: 149.28151
-    width: 122.499916
+    width: 124.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4295,7 +4425,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1365.1321
     y: 153.5253
-    width: 94.999954
+    width: 94
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4325,7 +4455,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1343.2197
     y: -15.779114
-    width: 149.99988
+    width: 147.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4354,7 +4484,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1353.6838
     y: 78.94887
-    width: 124.999916
+    width: 125.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4731,7 +4861,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1222.2324
     y: 60.363617
-    width: 77.49997
+    width: 76.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4761,7 +4891,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1086.1631
     y: -23.836273
-    width: 87.499954
+    width: 86.8
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4789,7 +4919,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1087.407
     y: 28.30365
-    width: 82.49996
+    width: 85.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4817,7 +4947,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1082.6584
     y: 83.91789
-    width: 89.999954
+    width: 90
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4845,7 +4975,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1082.4878
     y: 129.30734
-    width: 94.999954
+    width: 94
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4908,10 +5038,10 @@ MonoBehaviour:
     stringVal: 'Narrator: *She gaspas and looks at you with a shocked and scared
       face.*
 
-      
 
-      Tinkerer: "Oh... okay.. I''m sorry... Well, I won''t
-      bother you anymore..."
+
+      Tinkerer: "Oh... okay.. I''m sorry... Well, I won''t bother
+      you anymore..."
 
 
       Narrator: *She leaves*'
@@ -5280,10 +5410,9 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: 'Tinkerer: "Okay, good to hear, bye!"
 
-      
 
-      Narrator: *She
-      leaves*'
+
+      Narrator: *She leaves*'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -5333,7 +5462,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2700.7341
     y: 382.48193
-    width: 169.99986
+    width: 166
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5362,7 +5491,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2962.7341
     y: 364.48193
-    width: 97.49995
+    width: 97.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5389,7 +5518,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3070.7341
     y: -3.5180664
-    width: 132.49991
+    width: 132.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5417,7 +5546,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2883.7341
     y: 97.48193
-    width: 194.99983
+    width: 193.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5690,7 +5819,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1702.1953
     y: 114.71782
-    width: 109.99993
+    width: 109.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5850,7 +5979,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1529.342
     y: 131.8085
-    width: 109.99993
+    width: 110
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5879,7 +6008,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1526.3276
     y: 43.558884
-    width: 107.49994
+    width: 104.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5909,7 +6038,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1526.4062
     y: 86.708435
-    width: 119.99992
+    width: 119.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6111,7 +6240,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 749.77435
     y: 88.38809
-    width: 137.49991
+    width: 141.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6140,7 +6269,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 758.59863
     y: 41.397774
-    width: 122.499916
+    width: 120.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6302,12 +6431,12 @@ MonoBehaviour:
     stringVal: 'Tinkerer: "Uh no... I like lollipops... Hellooo I am holding one
       and didn''t you listen to me?! Geez..."
 
-      
 
-      "I think i am just
-      going to go, tip for next time, liiisten to who you talk to, it''s rude otherwise!"
 
-      
+      "I think i am just going to
+      go, tip for next time, liiisten to who you talk to, it''s rude otherwise!"
+
+
 
       Narrator:
       *She walks away hastily*'
@@ -6394,7 +6523,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1973.2662
     y: 167.99973
-    width: 89.999954
+    width: 90
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6422,7 +6551,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 740.3242
     y: 144.49174
-    width: 159.99988
+    width: 158
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6645,7 +6774,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 588.29315
     y: 60.15184
-    width: 147.4999
+    width: 148.4
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6674,7 +6803,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 605.8543
     y: -35.72049
-    width: 112.49992
+    width: 109.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6703,7 +6832,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 589.85333
     y: 112.181984
-    width: 99.99994
+    width: 102
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6775,7 +6904,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2428.7341
     y: 381.48193
-    width: 102.49994
+    width: 103.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6804,7 +6933,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2586.7341
     y: 295.48193
-    width: 112.49992
+    width: 111.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6832,7 +6961,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2538.7341
     y: 342.48193
-    width: 119.99992
+    width: 118.8
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6940,7 +7069,7 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: 'Tinkerer: "Oh, that is so sweet of you. Thank you!!"
 
-      
+
 
       Narrator:
       *she blushes and looks down nervously before clearing her throat*'
@@ -6984,7 +7113,7 @@ MonoBehaviour:
       *You feel more sure about yourself; that you managed to
       have a really nice conversation with her, and even get her number as well.*
 
-      
+
 
       *You
       decide to head home and take a shortcut through the park. Suddenly, you see
@@ -7082,7 +7211,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 926.6839
     y: -12.483385
-    width: 64.999985
+    width: 66
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7549,7 +7678,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 604.223
     y: 11.353638
-    width: 112.49992
+    width: 111.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7888,7 +8017,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3189.8538
     y: 219.65309
-    width: 112.49992
+    width: 113.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -8778,7 +8907,7 @@ MonoBehaviour:
       it doesn''t matter that much what people think about you, true friends will
       love those weird things about you."
 
-      
+
 
       Narrator: *She walks away*'
   clearPrevious:
@@ -8809,7 +8938,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2635.029
     y: 171.48198
-    width: 134.99991
+    width: 135.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -8838,7 +8967,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2661.029
     y: 227.48198
-    width: 72.49998
+    width: 74.8
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9115,7 +9244,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2915.029
     y: 6.4819794
-    width: 72.49998
+    width: 70
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9233,7 +9362,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2655.029
     y: 113.48198
-    width: 102.49994
+    width: 101.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9261,7 +9390,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2599.029
     y: 50.48198
-    width: 102.49994
+    width: 106
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9289,7 +9418,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2503.029
     y: -5.5180206
-    width: 149.99988
+    width: 143.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9421,7 +9550,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2472.8706
     y: 201.16374
-    width: 117.49992
+    width: 117.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9450,7 +9579,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2435.2341
     y: 280.48193
-    width: 112.49992
+    width: 114
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9480,7 +9609,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2441.0063
     y: 115.48198
-    width: 147.4999
+    width: 146.8
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10569,7 +10698,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2330.4595
     y: 186.57277
-    width: 89.999954
+    width: 87.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10653,7 +10782,7 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: 'Narrator: *She blushes slightly and looks away shyly before nodding*
 
-      
+
 
 
       Tinkerer:
@@ -10686,7 +10815,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1529.1316
     y: -1.442585
-    width: 119.99992
+    width: 117.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10903,7 +11032,7 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: 'Tinkerer: "Ah, alright! It was nice meeting you!"
 
-      
+
 
       Narrator:
       *You finish your shopping and leave the candy store*'
@@ -11226,7 +11355,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1742.5007
     y: -75.97478
-    width: 84.99996
+    width: 83.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11521,6 +11650,52 @@ MonoBehaviour:
   fadeWhenDone:
     booleanRef: {fileID: 0}
     booleanVal: 1
+--- !u!1 &1805891545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805891547}
+  - component: {fileID: 1805891546}
+  m_Layer: 0
+  m_Name: View
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1805891546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805891545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c387d3e32404bcc91c60318d766bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewSize: 4.649373
+  primaryAspectRatio: {x: 4, y: 3}
+  secondaryAspectRatio: {x: 2, y: 1}
+--- !u!4 &1805891547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805891545}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1871819808
 GameObject:
   m_ObjectHideFlags: 0
