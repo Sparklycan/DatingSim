@@ -5,7 +5,8 @@ using UnityEngine;
 [ExecuteAlways]
 public class BallType : MonoBehaviour
 {
-    public Color Sus = Color.green, Lust = Color.cyan, Love = Color.red, Neutral = Color.white;
+  //  public Color Sus = Color.green, Lust = Color.cyan, Love = Color.red, Neutral = Color.white;
+    public Sprite Sus, Lust, Love;
 
     private SpriteRenderer SPR;
 
@@ -43,14 +44,14 @@ public class BallType : MonoBehaviour
         {
             case Value.SUS:
                 {
-                    SPR.color = Sus;
+                    SPR.sprite = Sus;
                     V.Value.x = 1;
                     Debug.Log("S");
                     break;
                 }
             case Value.LUST:
                 {
-                    SPR.color = Lust;
+                    SPR.sprite = Lust;
                     V.Value.y = 1;
                     Debug.Log("LU");
 
@@ -58,7 +59,7 @@ public class BallType : MonoBehaviour
                 }
             case Value.LOVE:
                 {
-                    SPR.color = Love;
+                    SPR.sprite = Love;
                     V.Value.z = 1;
                     Debug.Log("LO");
 
@@ -66,7 +67,7 @@ public class BallType : MonoBehaviour
                 }
             case Value.NEUTRAL:
                 {
-                    SPR.color = Neutral;
+                    SPR.color = Color.white;
                     Debug.Log("N");
 
                     break;
