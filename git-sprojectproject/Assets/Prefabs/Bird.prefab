@@ -102,9 +102,10 @@ MonoBehaviour:
   goalDirection: {x: 1, y: 0, z: 0}
   birdPoop: {fileID: 3188557704912961942, guid: 60a4a1ba0b8112f4c830eba461e77f3c, type: 3}
   poopTimer: 2
-  value1: {fileID: 0}
-  value2: {fileID: 0}
-  dropChance: 0
+  drops:
+  - {fileID: 4797692834551932334, guid: efb7b4b30354fec489457c130624c936, type: 3}
+  - {fileID: 1943404392397316097, guid: e601f1fbffb6c90469fa8b2a43b9ceca, type: 3}
+  dropChance: 100
 --- !u!61 &6663427027634061470
 BoxCollider2D:
   m_ObjectHideFlags: 0

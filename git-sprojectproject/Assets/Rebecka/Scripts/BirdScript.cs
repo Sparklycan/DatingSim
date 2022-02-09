@@ -11,7 +11,8 @@ public class BirdScript : MonoBehaviour
     [HideInInspector]public Vector3 goalDirection = new Vector3(1, 0,0);
     public GameObject birdPoop;
     public float poopTimer;
-    public GameObject value1, value2;
+    public GameObject[] drops;
+    [Range(0.0f, 100.0f)]
     public float dropChance;
     
     private float speed;
@@ -64,7 +65,9 @@ public class BirdScript : MonoBehaviour
         {
             if (GetRandomValueDrop() <= dropChance)
             {
-                
+                int drop = UnityEngine.Random.Range(0, drops.Length);
+                Instantiate(drops[drop], transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
         }
 
