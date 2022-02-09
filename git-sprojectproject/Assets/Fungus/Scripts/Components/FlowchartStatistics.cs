@@ -59,36 +59,37 @@ public class FlowchartStatistics : MonoBehaviour
     private Dictionary<Call, Call> calls = new Dictionary<Call, Call>();
     private HashSet<long> ids = new HashSet<long>();
 
-    public int MaxBlockCount { get; private set; }
-    public int MinBlockCount { get; private set; }
-    private Dictionary<string, int> maxCallCount = new Dictionary<string, int>();
-    public int MaxCallCount(string block)
+    // The highest & lowest count for calls that lead away from the blocks
+    private Dictionary<int, int> maxCallCount = new Dictionary<int, int>();
+    public int MaxCallCount(int blockID)
     {
-        if (maxCallCount.TryGetValue(block, out int count))
+        if (maxCallCount.TryGetValue(blockID, out int count))
             return count;
         else
             return -1;
     }
-    private Dictionary<string, int> minCallCount = new Dictionary<string, int>();
-    public int MinCallCount(string block)
+    private Dictionary<int, int> minCallCount = new Dictionary<int, int>();
+    public int MinCallCount(int blockID)
     {
-        if (minCallCount.TryGetValue(block, out int count))
+        if (minCallCount.TryGetValue(blockID, out int count))
             return count;
         else
             return -1;
     }
-    private Dictionary<string, int> blockCount = new Dictionary<string, int>();
-    public int BlockCount(string block)
+    // The total number off calls that have lead away from the blocks
+    private Dictionary<int, int> blockCount = new Dictionary<int, int>();
+    public int BlockCount(int blockID)
     {
-        if (blockCount.TryGetValue(block, out int count))
+        if (blockCount.TryGetValue(blockID, out int count))
             return count;
         else
             return -1;
     }
+    // The number of times a call have been used
     private Dictionary<int, int> callCount = new Dictionary<int, int>();
-    public int CallCount(int id)
+    public int CallCount(int callID)
     {
-        if (callCount.TryGetValue(id, out int count))
+        if (callCount.TryGetValue(callID, out int count))
             return count;
         else
             return -1;
@@ -97,12 +98,12 @@ public class FlowchartStatistics : MonoBehaviour
     [Serializable]
     private class Call
     {
-        public string fromBlock;
-        public string toBlock;
+        public int fromBlock;
+        public int toBlock;
         public int commandID;
         public int count;
 
-        public Call(string from, string to, int command)
+        public Call(int from, int to, int command)
         {
             fromBlock = from;
             toBlock = to;
@@ -137,6 +138,17 @@ public class FlowchartStatistics : MonoBehaviour
     {
         public long[] ids;
         public Call[] calls;
+        public BlockStatistics[] blocks;
+    }
+
+    [Serializable]
+    private class BlockStatistics
+    {
+        public int blockID;
+        public int[] blocks;
+        public int[] blockCounts;
+        public int[] commands;
+        public int[] commandCounts;
     }
 
     private void OnEnable()
@@ -173,11 +185,17 @@ public class FlowchartStatistics : MonoBehaviour
         if (deleteFile && File.Exists(LocalFile))
             File.Delete(LocalFile);
 
+        Block.ClearVisitedBlocks();
+        Block.ClearVisitedCommands();
+        foreach (Block block in flowchart.GetComponents<Block>())
+        {
+            block.ClearBlockStatistics();
+            block.ClearCommandtatistics();
+        }
+
         ids.Clear();
         newCalls.Clear();
         calls.Clear();
-        MaxBlockCount = 0;
-        MinBlockCount = 0;
         maxCallCount.Clear();
         minCallCount.Clear();
         blockCount.Clear();
@@ -186,33 +204,119 @@ public class FlowchartStatistics : MonoBehaviour
 
     public Color BlockColor(Fungus.Block block)
     {
-        // No data for this block
-        if (MaxBlockCount == 0 || !blockCount.ContainsKey(block.BlockName))
+        Color color;
+        if (GetPathBlockColor(block, flowchart.SelectedBlock, out color))
+            return color;
+        else if (GetBlockColor(block, out color))
+            return color;
+        else
             return Color.grey;
+    }
+
+    private bool GetBlockColor(Block block, out Color color)
+    {
+        IEnumerable<int> counts = flowchart.GetComponents<Block>()
+            .Where(b => b.BlockStatistics.ContainsKey(b))
+            .Select(b => b.BlockStatistics[b]);
+
+        // No data for this block
+        if (!counts.Any() || !block.BlockStatistics.ContainsKey(block))
+        {
+            color = Color.gray;
+            return false;
+        }
+
+        float count = block.BlockStatistics[block];
+        float min = counts.Min();
+        float max = counts.Max();
 
         float frac = 1.0f;
-        if (MaxBlockCount != MinBlockCount)
-            frac = (float)(BlockCount(block.BlockName) - MinBlockCount) / (float)(MaxBlockCount - MinBlockCount);
-        return blockGradient.Evaluate(frac);
+        if (max != min)
+            frac = (count - min) / (max - min);
+
+        color = blockGradient.Evaluate(frac);
+        return true;
+    }
+
+    private bool GetPathBlockColor(Block block, Block selectedBlock, out Color color)
+    {
+        color = Color.gray;
+        if (selectedBlock == null)
+            return false;
+
+        // No data for this block
+        if (!flowchart.SelectedBlock.BlockStatistics.Any(b => b.Key == block))
+            return true;
+
+        float count = flowchart.SelectedBlock.BlockStatistics.Single(b => b.Key == block).Value;
+        float min = flowchart.SelectedBlock.BlockStatistics.Select(b => b.Value).Min();
+        float max = flowchart.SelectedBlock.BlockStatistics.Select(b => b.Value).Max();
+
+        float frac = 1.0f;
+        if (max != min)
+            frac = (count - min) / (max - min);
+
+        color = blockGradient.Evaluate(frac);
+        return true;
     }
 
     public Color ConnectionColor(Fungus.Command command)
     {
+        Color color;
+        if (GetPathConnectionColor(command, flowchart.SelectedBlock, out color))
+            return color;
+        else if (GetConnectionColor(command, out color))
+            return color;
+        else
+            return Color.grey;
+    }
+
+    private bool GetConnectionColor(Command command, out Color color)
+    {
         // No data for this connection
         if (!callCount.ContainsKey(command.ItemId))
-            return Color.grey;
+        {
+            color = Color.gray;
+            return false;
+        }
 
-        int minCount = MinCallCount(command.ParentBlock.BlockName);
-        int maxCount = MaxCallCount(command.ParentBlock.BlockName);
+        float minCount = MinCallCount(command.ParentBlock.ItemId);
+        float maxCount = MaxCallCount(command.ParentBlock.ItemId);
+
         float frac = 1.0f;
         if (minCount != maxCount)
-            frac = (float)(CallCount(command.ItemId) - minCount) / (float)(maxCount - minCount);
-        return connectionGradient.Evaluate(frac);
+            frac = (CallCount(command.ItemId) - minCount) / (maxCount - minCount);
+
+        color = connectionGradient.Evaluate(frac);
+        return true;
+    }
+
+    private bool GetPathConnectionColor(Command command, Block selectedBlock, out Color color)
+    {
+        color = Color.gray;
+        if (selectedBlock == null)
+            return false;
+
+        // No data for this block
+        if (!selectedBlock.CommandStatistics.Any(b => b.Key == command))
+            return true;
+
+        float count = selectedBlock.CommandStatistics.Single(c => c.Key == command).Value;
+        float min = selectedBlock.CommandStatistics.Select(c => c.Value).Min();
+        float max = selectedBlock.CommandStatistics.Select(c => c.Value).Max();
+
+        float frac = 1.0f;
+        if (max != min)
+            frac = (count - min) / (max - min);
+
+        color = connectionGradient.Evaluate(frac);
+        return true;
     }
 
     private void OnCall(Command command, Block targetBlock)
     {
-        Call call = new Call(command.ParentBlock.BlockName, targetBlock.BlockName, command.ItemId);
+        Block.Visit(command);
+        Call call = new Call(command.ParentBlock.ItemId, targetBlock.ItemId, command.ItemId);
         AddCalls(call, 1, true);
     }
 
@@ -232,12 +336,36 @@ public class FlowchartStatistics : MonoBehaviour
                 calls.Add(call.Value, call.Value);
         }
 
+        foreach(Block block in Block.VisitedBlocks)
+        {
+            foreach(Block other in Block.VisitedBlocks)
+                block.Visit(other, 1);
+            foreach(Command command in Block.VisitedCommands)
+                block.Visit(command, 1);
+        }
+
+        List<BlockStatistics> blockStatistics = new List<BlockStatistics>();
+        foreach(Block block in flowchart.GetComponents<Block>())
+        {
+            if (!block.BlockStatistics.Any())
+                continue;
+
+            BlockStatistics statistics = new BlockStatistics();
+            statistics.blockID = block.ItemId;
+            statistics.blocks = block.BlockStatistics.Select(b => b.Key.ItemId).ToArray();
+            statistics.blockCounts = block.BlockStatistics.Select(b => b.Value).ToArray();
+            statistics.commands = block.CommandStatistics.Select(c => c.Key.ItemId).ToArray();
+            statistics.commandCounts = block.CommandStatistics.Select(c => c.Value).ToArray();
+            blockStatistics.Add(statistics);
+        }
+
         // Save collected statistics
         JsonData jsonData = new JsonData();
         jsonData.calls = calls
             .Select(c => c.Value)
             .ToArray();
         jsonData.ids = ids.ToArray();
+        jsonData.blocks = blockStatistics.ToArray();
 
         string jsonString = JsonUtility.ToJson(jsonData);
         File.WriteAllText(LocalFile, jsonString);
@@ -270,8 +398,34 @@ public class FlowchartStatistics : MonoBehaviour
             foreach (long id in jsonData.ids)
                 ids.Add(id);
 
-            foreach (Call call in jsonData.calls)
-                AddCalls(call, call.count, false);
+            if(jsonData.calls.Length >= 1)
+                AddCalls(jsonData.calls[0], jsonData.calls[0].count, true);
+            for (int i = 1; i < jsonData.calls.Length; i++)
+                AddCalls(jsonData.calls[i], jsonData.calls[i].count, false);
+
+            foreach (BlockStatistics statistics in jsonData.blocks)
+            {
+                Block block = flowchart.GetComponents<Block>()
+                    .SingleOrDefault(b => b.ItemId == statistics.blockID);
+                if (block == null)
+                    continue;
+
+                for(int i = 0; i < statistics.blocks.Length; i++)
+                {
+                    Block other = flowchart.GetComponents<Block>()
+                        .SingleOrDefault(b => b.ItemId == statistics.blocks[i]);
+
+                    block.Visit(other, statistics.blockCounts[i]);
+                }
+
+                for(int i = 0; i < statistics.commands.Length; i++)
+                {
+                    Command command = flowchart.GetComponents<Command>()
+                        .SingleOrDefault(b => b.ItemId == statistics.commands[i]);
+
+                    block.Visit(command, statistics.commandCounts[i]);
+                }
+            }
         }
 
         if (!loadNew || !Directory.Exists(StatisticsPath))
@@ -298,15 +452,18 @@ public class FlowchartStatistics : MonoBehaviour
             JsonData jsonData = JsonUtility.FromJson<JsonData>(jsonString);
 
             ids.Add(jsonData.ids[0]);
-            foreach (Call call in jsonData.calls)
-                AddCalls(call, call.count, false);
+            if (jsonData.calls.Length >= 1)
+                AddCalls(jsonData.calls[0], jsonData.calls[0].count, true);
+            for (int i = 1; i < jsonData.calls.Length; i++)
+                AddCalls(jsonData.calls[i], jsonData.calls[i].count, false);
         }
     }
 
-    private void AddCalls(Call call, int count, bool newCall)
+    private void AddCalls(Call call, int count, bool newCall, bool addFromBlock = false)
     {
         int commandID = call.commandID;
-        string blockName = call.fromBlock;
+        int fromID = call.fromBlock;
+        int toID = call.toBlock;
 
         Dictionary<Call, Call> calls = newCall ? newCalls : this.calls;
         if (calls.TryGetValue(call, out Call originalCall))
@@ -319,26 +476,32 @@ public class FlowchartStatistics : MonoBehaviour
         else
             callCount.Add(commandID, count);
 
-        if (blockCount.ContainsKey(blockName))
+        if (blockCount.ContainsKey(toID))
         {
-            blockCount[blockName] += count;
-            maxCallCount[blockName] = Mathf.Max(maxCallCount[blockName], callCount[commandID]);
-            MaxBlockCount = Mathf.Max(MaxBlockCount, blockCount[blockName]);
+            blockCount[toID] += count;
         }
         else
         {
-            blockCount.Add(blockName, count);
-            maxCallCount.Add(blockName, count);
-            MaxBlockCount = Mathf.Max(MaxBlockCount, count);
+            blockCount.Add(toID, count);
         }
 
-        MinBlockCount = blockCount
-            .Select(b => b.Value)
-            .Min();
-        minCallCount[blockName] = this.newCalls
+        if (addFromBlock)
+        {
+            if (blockCount.ContainsKey(fromID))
+                blockCount[fromID] += count;
+            else
+                blockCount.Add(fromID, count);
+        }
+
+        if (maxCallCount.ContainsKey(fromID))
+            maxCallCount[fromID] = Mathf.Max(maxCallCount[fromID], callCount[commandID]);
+        else
+            maxCallCount.Add(fromID, count);
+
+        minCallCount[fromID] = this.newCalls
             .Concat(this.calls)
             .Select(c => c.Key)
-            .Where(c => c.fromBlock == blockName)
+            .Where(c => c.fromBlock == fromID)
             .Select(c => c.count)
             .Min();
     }
