@@ -7,7 +7,7 @@ public class EndFishGame : Minigame
 
     public void EndGame(HookPoints hookPoints)
     {
-        EndGame(hookPoints.Points.x, hookPoints.Points.y, hookPoints.Points.z);
+        EndGame(hookPoints.Points.z, hookPoints.Points.y, hookPoints.Points.x);
     }
 
 }
