@@ -70,7 +70,43 @@ namespace Fungus
         public bool SuppressNextAutoSelection { get; set; }
 
         [SerializeField] bool suppressAllAutoSelections = false;
-        
+
+
+        // Blocks visited in playthrough
+        static private HashSet<Block> visitedBlocks = new HashSet<Block>();
+        static public IEnumerable<Block> VisitedBlocks => visitedBlocks;
+        static public void ClearVisitedBlocks() => visitedBlocks.Clear();
+        static public void Visit(Block block) => visitedBlocks.Add(block);
+        // Commands visited in playthrough
+        static private HashSet<Command> visitedCommands = new HashSet<Command>();
+        static public IEnumerable<Command> VisitedCommands => visitedCommands;
+        static public void ClearVisitedCommands() => visitedCommands.Clear();
+        static public void Visit(Command command) => visitedCommands.Add(command);
+
+        // Statistics for blocks that connect to this one
+        private Dictionary<Block, int> blockStatistics = new Dictionary<Block, int>();
+        public Dictionary<Block, int> BlockStatistics => blockStatistics;
+        public void ClearBlockStatistics() => blockStatistics.Clear();
+        public void Visit(Block block, int count)
+        {
+            if (blockStatistics.ContainsKey(block))
+                blockStatistics[block] += count;
+            else
+                blockStatistics[block] = count;
+        }
+
+        // Statistics for commands that connect to this one
+        private Dictionary<Command, int> commandStatistics = new Dictionary<Command, int>();
+        public Dictionary<Command, int> CommandStatistics => commandStatistics;
+        public void ClearCommandtatistics() => commandStatistics.Clear();
+        public void Visit(Command command, int count)
+        {
+            if (commandStatistics.ContainsKey(command))
+                commandStatistics[command] += count;
+            else
+                commandStatistics[command] = count;
+        }
+
 
         protected virtual void Awake()
         {
@@ -258,6 +294,7 @@ namespace Fungus
             #endif
 
             jumpToCommandIndex = commandIndex;
+            visitedBlocks.Add(this);
 
             int i = 0;
             while (true)

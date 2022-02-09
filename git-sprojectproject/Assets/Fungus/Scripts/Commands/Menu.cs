@@ -119,7 +119,7 @@ namespace Fungus
                 return "";
 
             int calls = statistics.CallCount(ItemId);
-            int total = statistics.BlockCount(ParentBlock.BlockName);
+            int total = statistics.BlockCount(ParentBlock.ItemId);
             if (calls < 0 || total < 0 || calls > total)
                 return "";
 
