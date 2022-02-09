@@ -272,6 +272,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &437358059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1218775740, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+  m_PrefabInstance: {fileID: 1693182064060142183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &760075183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 764175384, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+  m_PrefabInstance: {fileID: 1693182064060142183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &760075185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760075183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620232ce68f626044b71ae90bf00293d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: a069925bda9461e43bb3c764b9e5b7c3, type: 2}
+  diagonal: {fileID: 1536566980}
+  doublemov: {fileID: 1333250969}
+  lovebite: {fileID: 437358059}
 --- !u!1 &900981642
 GameObject:
   m_ObjectHideFlags: 1
@@ -316,6 +348,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333250969 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 397817109, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+  m_PrefabInstance: {fileID: 1693182064060142183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1536566980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 993020692, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+  m_PrefabInstance: {fileID: 1693182064060142183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1595796307 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7234404427297280799, guid: 12e477e59026d444da612d0eb27da631, type: 3}
@@ -334,6 +388,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 847399766, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 760075185}
+    - target: {fileID: 847399766, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_loveBite
+      objectReference: {fileID: 0}
+    - target: {fileID: 847399766, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsForPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567815075, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 760075185}
+    - target: {fileID: 1567815075, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_diagonalMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567815075, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsForPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132895849, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 760075185}
+    - target: {fileID: 2132895849, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_doubleDis
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132895849, guid: 12e477e59026d444da612d0eb27da631, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsForPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1693182064252398096, guid: 12e477e59026d444da612d0eb27da631, type: 3}
       propertyPath: m_RootOrder
       value: 2
