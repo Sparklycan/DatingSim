@@ -46,7 +46,7 @@ public class BirdScript : MonoBehaviour
 
         private float GetRandomValueDrop()
         {
-            return UnityEngine.Random.Range(0, dropChance);
+            return UnityEngine.Random.Range(0, 100);
         }
 
 
@@ -58,5 +58,18 @@ public class BirdScript : MonoBehaviour
         private void OnBecameInvisible()
         {
             Destroy(gameObject);
+        }
+
+        private void OnHit()
+        {
+            if (GetRandomValueDrop() <= dropChance)
+            {
+                
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            OnHit();
         }
 }
