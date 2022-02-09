@@ -66,23 +66,7 @@ public class GamemanagerGame1 : MonoBehaviour
         {
             obstacleCollection.SetActive(false);
         }
-
-        /*foreach (TileBehaviour tile in tileArray)
-        {
-            tile.ChangeBackColour();
-        }
-        foreach (TileBehaviour tile in startAvailable)
-        {
-            tile.ColourchangeAvailable();
-        }
-
-        if (settings.doubleDistance)
-        {
-            foreach (TileBehaviour tile in startAvailableExtended)
-            {
-                tile.ColourchangeAvailable();
-            }
-        }*/
+        
         BegginerStepAvailability();
         
     }
@@ -286,8 +270,48 @@ public class GamemanagerGame1 : MonoBehaviour
         }
         
     }
-    
-    
-    
+
+
+    public void UpdateSettings()
+    {
+        
+        if (settings.doubleDistance)
+        {
+            foreach (TileBehaviour secondStartTile in startAvailableExtended)
+            {
+                secondStartTile.canbeStepped = true;
+                secondStartTile.ColourchangeAvailable();
+            }
+        }
+        else
+        {
+            foreach (TileBehaviour secondStartTile in startAvailableExtended)
+            {
+                secondStartTile.canbeStepped = false;
+                secondStartTile.ChangeBackColour();
+            }
+        }
+        
+        
+        if (settings.diagonalMovement)
+        {
+            stepsTaken = startStepsIfDiagonal;
+        }
+        else
+        {
+            stepsTaken = startSteps;
+        }
+        
+        stepsLeftText.text = "Steps left: " + stepsTaken.ToString();
+
+        if (settings.doubleDistance)
+        {
+            obstacleCollection.SetActive(true);
+        }
+        else
+        {
+            obstacleCollection.SetActive(false);
+        }
+    }
     
 }
