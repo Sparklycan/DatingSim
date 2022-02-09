@@ -368,6 +368,7 @@ public class FlowchartStatistics : MonoBehaviour
         jsonData.blocks = blockStatistics.ToArray();
 
         string jsonString = JsonUtility.ToJson(jsonData);
+        Directory.CreateDirectory(Path.GetDirectoryName(LocalFile));
         File.WriteAllText(LocalFile, jsonString);
 
         if (newCalls.Count == 0)
