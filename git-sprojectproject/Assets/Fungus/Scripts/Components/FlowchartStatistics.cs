@@ -457,6 +457,30 @@ public class FlowchartStatistics : MonoBehaviour
                 AddCalls(jsonData.calls[0], jsonData.calls[0].count, true);
             for (int i = 1; i < jsonData.calls.Length; i++)
                 AddCalls(jsonData.calls[i], jsonData.calls[i].count, false);
+
+            foreach (BlockStatistics statistics in jsonData.blocks)
+            {
+                Block block = flowchart.GetComponents<Block>()
+                    .SingleOrDefault(b => b.ItemId == statistics.blockID);
+                if (block == null)
+                    continue;
+
+                for (int i = 0; i < statistics.blocks.Length; i++)
+                {
+                    Block other = flowchart.GetComponents<Block>()
+                        .SingleOrDefault(b => b.ItemId == statistics.blocks[i]);
+
+                    block.Visit(other, statistics.blockCounts[i]);
+                }
+
+                for (int i = 0; i < statistics.commands.Length; i++)
+                {
+                    Command command = flowchart.GetComponents<Command>()
+                        .SingleOrDefault(b => b.ItemId == statistics.commands[i]);
+
+                    block.Visit(command, statistics.commandCounts[i]);
+                }
+            }
         }
     }
 
