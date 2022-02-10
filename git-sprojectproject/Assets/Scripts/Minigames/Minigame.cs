@@ -25,6 +25,7 @@ public class Minigame : MonoBehaviour
         OnEndGame(ref romance, ref lust, ref suspicion);
 
         onEndGameCallback(romance, lust, suspicion);
+
     }
 
     protected virtual void OnEndGame(ref float romance, ref float lust, ref float suspicion) { }
