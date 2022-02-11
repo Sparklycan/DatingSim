@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Fungus;
 using UnityEngine;
 using UnityEngine.AI;
 
+[ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
 {
 
@@ -13,17 +15,27 @@ public class PoliceScript : MonoBehaviour
     // Start is called before the first frame update
     
     // Attention area
+    
     public float distance = 10;
     public float angle = 30;
     public float height = 1.1f;
-    public color meshcolor = Color.red;
-
-    private mesh mesh;
+    public Color meshcolor = Color.red;
+    public int scanFrequency = 30;
+    public LayerMask layers;
+    public List<GameObject> Objects = new List<GameObject>();
+    
+    
+    private Collider[] colliders = new Collider[50];
+    private Mesh mesh;
+    private int count;
+    private float scanInterval;
+    private float scanTimer;
     
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("StealthPlayer");
+        scanInterval = 1.0f / scanFrequency;
     }
 
     // Update is called once per frame
@@ -35,22 +47,52 @@ public class PoliceScript : MonoBehaviour
             agent.SetDestination(player.transform.position);
         }
 
+
+        scanTimer -= Time.deltaTime;
+        if (scanTimer < 0)
+        {
+            scanTimer += scanInterval;
+            Scan();
+        }
     }
 
+    void Scan()
+    {
+        count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layers,
+            QueryTriggerInteraction.Collide);
+        Objects.Clear();
+        for (int i = 0; i < count; i++)
+        {
+            GameObject obj = colliders[i].gameObject;
+            if (IsInsIght((obj)))
+            {
+                Objects.Add((obj));
+            }
+
+        }
+        
+    }
+
+    public bool IsInsIght(GameObject obj)
+    {
+        return true;
+    }
+    
      Mesh createWedgeMesh()
      {
          Mesh mesh = new Mesh();
 
-         int numtriangles = 8;
-         int numVertices = numtriangles * 3;
+         int segments = 10;
+         int numTriangles = (segments*4) + 2 + 2;
+         int numVertices = numTriangles * 3;
          
          
          Vector3[] vertices = new Vector3[numVertices];
          int[] triangles = new int[numVertices];
 
          Vector3 bottomCenter = Vector3.zero;
-         Vector3 bottomLeft = Quaternion.Euler(0, -angle, 0) * Vector3.forward * distance);
-         Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward * distance);
+         Vector3 bottomLeft = Quaternion.Euler(0, -angle, 0) * Vector3.forward * distance;
+         Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward * distance;
 
          Vector3 topCenter = bottomCenter + Vector3.up * height;
          Vector3 topRight = bottomRight + Vector3.up * height;
@@ -61,7 +103,7 @@ public class PoliceScript : MonoBehaviour
          // left side
          vertices[vert++] = bottomCenter;
          vertices[vert++] = bottomLeft;
-         vertices[vert++] = bottomRight;
+         vertices[vert++] = topLeft;
          
          vertices[vert++] = topLeft;
          vertices[vert++] = topCenter;
@@ -74,28 +116,41 @@ public class PoliceScript : MonoBehaviour
          vertices[vert++] = topRight;
          vertices[vert++] = bottomRight;
          vertices[vert++] = bottomCenter;
-         // far side
-         vertices[vert++] = bottomLeft;
-         vertices[vert++] = bottomRight;
-         vertices[vert++] = topRight;
-         
-         vertices[vert++] = topRight;
-         vertices[vert++] = topLeft;
-         vertices[vert++] = bottomLeft;
-         // top
-         vertices[vert++] = topCenter;
-         vertices[vert++] = topLeft;
-         vertices[vert++] = topRight;
-         
-         // bottom
-         vertices[vert++] = bottomCenter;
-         vertices[vert++] = bottomRight;
-         vertices[vert++] = bottomLeft;
 
+         float currentAngle = -angle;
+         float deltaAngle = (angle * 2) / segments;
+         for (int i = 0; i < segments; i++)
+         {
+              bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward * distance;
+              bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward * distance;
 
+              topRight = bottomRight + Vector3.up * height;
+              topLeft = bottomLeft + Vector3.up * height;
+             
+             // far side
+             vertices[vert++] = bottomLeft;
+             vertices[vert++] = bottomRight;
+             vertices[vert++] = topRight;
+         
+             vertices[vert++] = topRight;
+             vertices[vert++] = topLeft;
+             vertices[vert++] = bottomLeft;
+             // top
+             vertices[vert++] = topCenter;
+             vertices[vert++] = topLeft;
+             vertices[vert++] = topRight;
+         
+             // bottom
+             vertices[vert++] = bottomCenter;
+             vertices[vert++] = bottomRight;
+             vertices[vert++] = bottomLeft;
+             
+             currentAngle += deltaAngle;
+         }
+         
          for (int i = 0; i < numVertices; i++)
          {
-             triangles[i] = i
+             triangles[i] = i;
          }
 
          mesh.vertices = vertices;
@@ -110,6 +165,7 @@ public class PoliceScript : MonoBehaviour
      private void OnValidate()
      {
          mesh = createWedgeMesh();
+         scanInterval = 1.0f / scanFrequency;
 
      }
      
@@ -119,8 +175,21 @@ public class PoliceScript : MonoBehaviour
          if(mesh)
          {
              Gizmos.color = meshcolor;
-             Gizmos.DrawMesh((mesh, transform.position, transform.rotation));
+             Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
          }
+          
          
+         Gizmos.DrawWireSphere(transform.position, distance);
+         for (int i = 0; i < count; i++)
+         {
+             Gizmos.DrawSphere((colliders[i].transform.position), 0.2f);
+         }
+
+
+         Gizmos.color = Color.green;
+         foreach (var obj in Objects)
+         {
+             Gizmos.DrawSphere((obj.transform.position), 0.2f);
+         }
      }
 }
