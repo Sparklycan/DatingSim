@@ -50,7 +50,6 @@ public class PoliceScript : MonoBehaviour
     public float confusedTime;
     private float pauseTimer, chaseTimer, confusedTimer;
     int current = 0;
-    [SerializeField]
     GameObject Chased;
 
     void Start()
