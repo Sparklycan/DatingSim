@@ -48,7 +48,7 @@ public class TileBehaviour : MonoBehaviour
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        iconSr = powerIcon.GetComponent<SpriteRenderer>();
+       
         temporaryColor = sr.color;
         tileSounds = tileSettings.tileSounds;
         crunchSound = tileSettings.crunchSound;
@@ -57,12 +57,14 @@ public class TileBehaviour : MonoBehaviour
         if (useIcon)
         {
             particleSystem.GetComponent<ParticleSystemRenderer>().material = iconSettings.particleMaterial;
+            iconSr = powerIcon.GetComponent<SpriteRenderer>();
            iconSr.sprite = iconSettings.iconImage;
         }
-        else
+        /*else
         {
+            
             iconSr.sprite = null;
-        }
+        }*/
     }
 
     // Start is called before the first frame update
