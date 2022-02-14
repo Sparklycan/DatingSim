@@ -9,13 +9,16 @@ public class TileBehaviour : MonoBehaviour
 
     public bool finishline;
     public TileCommonSettings tileSettings;
-    
+
+    public bool useIcon = false;
+    public IconSettings iconSettings;
     public GameObject powerIcon;
+    public ParticleSystem particleSystem;
     public GamemanagerGame1 gm;
    
     public int pickupValue;
 
-    public ParticleSystem particleSystem;
+    
     public AudioSource audioSource;
     [HideInInspector] public bool firstPass = true;
     [HideInInspector]public bool secondPass = false;
@@ -39,15 +42,29 @@ public class TileBehaviour : MonoBehaviour
     private bool turnedUp = false;
     
     private SpriteRenderer sr;
+    private SpriteRenderer iconSr;
     private BoxCollider2D boxC;
 
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+       
         temporaryColor = sr.color;
         tileSounds = tileSettings.tileSounds;
         crunchSound = tileSettings.crunchSound;
         settings = tileSettings.settings;
+        
+        if (useIcon)
+        {
+            particleSystem.GetComponent<ParticleSystemRenderer>().material = iconSettings.particleMaterial;
+            iconSr = powerIcon.GetComponent<SpriteRenderer>();
+           iconSr.sprite = iconSettings.iconImage;
+        }
+        /*else
+        {
+            
+            iconSr.sprite = null;
+        }*/
     }
 
     // Start is called before the first frame update
@@ -96,7 +113,7 @@ public class TileBehaviour : MonoBehaviour
             {
                 audioSource.clip = crunchSound.clips[0];
                 audioSource.Play();
-                if (powerIcon != null)
+                if (powerIcon != null && useIcon)
                 {
                     Destroy(powerIcon);
                     powerIcon = null;
@@ -121,7 +138,7 @@ public class TileBehaviour : MonoBehaviour
                     
                     gm.UpdateStartSteps(transform.position); 
                     
-                    if (powerIcon != null)
+                    if (powerIcon != null && useIcon)
                     {
                         powerIcon.SetActive(true);
                         sr.sprite = tileSettings.spriteUpWithIcon;
@@ -148,7 +165,7 @@ public class TileBehaviour : MonoBehaviour
 
                     }
                     
-                    if (powerIcon != null && canBePicked)
+                    if (useIcon && powerIcon != null && canBePicked)
                     {
                         
                             Destroy(powerIcon);
@@ -240,4 +257,6 @@ public class TileBehaviour : MonoBehaviour
         }
         
     }
+
+    
 }
