@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Fungus;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Experimental.GlobalIllumination;
 
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
@@ -31,6 +32,8 @@ public class PoliceScript : MonoBehaviour
     private int count;
     private float scanInterval;
     private float scanTimer;
+
+    public Light SpotLight;
     
     void Start()
     {
@@ -42,7 +45,8 @@ public class PoliceScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SpotLight.spotAngle = angle * 2;
+        SpotLight.range = distance + 2;
         if(Input.GetKeyDown(KeyCode.C))
         {
             agent.SetDestination(player.transform.position);

@@ -87,10 +87,7 @@ public class StealthPlayer : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
 
         movement = new Vector3(horizontal, 0, vertical).normalized;
-        if (vertical == 0 && horizontal == 0)
-        {
-            Rb.velocity = Vector3.zero;
-        }
+
         if (sprinting)
         {
             Rb.velocity = (movement * sprintSpeed);
