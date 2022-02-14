@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using Fungus;
 using UnityEngine;
 using UnityEngine.AI;
@@ -34,7 +35,17 @@ public class PoliceScript : MonoBehaviour
     private float scanTimer;
 
     public Light SpotLight;
+    [Space(15)] [Header("RoamPoints")] public Vector3[] Points;
     
+    
+    
+    
+    // movement
+    private bool seen;
+    [Tooltip("The time the Police waits on the different points.")]
+    public float PauseTime;
+    
+    private float pauseTimer;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -59,6 +70,9 @@ public class PoliceScript : MonoBehaviour
             scanTimer += scanInterval;
             Scan();
         }
+
+
+
     }
 
     void Scan()
@@ -75,9 +89,55 @@ public class PoliceScript : MonoBehaviour
             }
 
         }
-        
+        if (Objects.Count > 0)
+        {
+            agent.SetDestination(Objects[0].transform.position);
+        }
+        else
+        {
+            
+        }
     }
 
+    void Roam()
+    {
+        bool arrived;
+        int current = 0;
+        //Arrived.
+
+        agent.SetDestination(Points[current]);
+        
+        if (arrived)
+        {
+            pauseTimer += Time.deltaTime;
+            if (pauseTimer >= PauseTime)
+            {
+                
+            }    
+        }
+            // PSEUDO
+            // IF REACHED GOAL
+            // BOOL ARRIVED TRUE
+            // IF ARRIVED TRUE: PAUSETIMER + TIME
+            // IF PAUSETIMER > PAUSETIME: CURRENT ++
+            // AS LONG AS CURRENT <= POINTS.LENGTH
+            // SHOULD WORK
+
+
+
+            float dist=agent.remainingDistance;
+            
+            if (dist != Mathf.infinite && agent.pathStatus == NavMeshPathStatus.completed && agent.remainingDistance == 0)
+            {
+                arrived = true;
+            }
+
+        
+
+
+    }
+    
+    
     public bool IsInsIght(GameObject obj)
     {
         Vector3 origin = transform.position;
@@ -135,6 +195,7 @@ public class PoliceScript : MonoBehaviour
          vertices[vert++] = topLeft;
          vertices[vert++] = topCenter;
          vertices[vert++] = bottomCenter;
+         
          // right side 
          vertices[vert++] = bottomCenter;
          vertices[vert++] = topCenter;
@@ -219,5 +280,19 @@ public class PoliceScript : MonoBehaviour
          {
              Gizmos.DrawSphere((obj.transform.position), 0.2f);
          }
+     }
+
+     private void OnDrawGizmosSelected()
+     {
+         Gizmos.color = Color.white;
+
+         for (int i = 0; i < Points.Length - 1; i++)
+         {
+            Gizmos.DrawLine(Points[i], Points[i+1]);
+                    
+         }
+         Gizmos.DrawWireSphere(Points[0], 1);
+         Gizmos.DrawLine(Points[Points.Length - 1], Points[0]);
+
      }
 }
