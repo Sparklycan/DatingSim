@@ -22,6 +22,7 @@ public class PoliceScript : MonoBehaviour
     public Color meshcolor = Color.red;
     public int scanFrequency = 30;
     public LayerMask layers;
+    public LayerMask OcclusionLayers;
     public List<GameObject> Objects = new List<GameObject>();
     
     
@@ -75,6 +76,28 @@ public class PoliceScript : MonoBehaviour
 
     public bool IsInsIght(GameObject obj)
     {
+        Vector3 origin = transform.position;
+        Vector3 dest = obj.transform.position;
+        Vector3 direction = dest - origin;
+        if ((direction.y < 0) || direction.y > height)
+        {
+            return false;
+        }
+
+        direction.y = 0;
+        float deltaAngle = Vector3.Angle(direction, transform.forward);
+        if (deltaAngle > angle)
+        {
+            return false;
+        }
+
+        origin.y += height / 2;
+        dest.y = origin.y;
+        if (Physics.Linecast(origin, dest, OcclusionLayers))
+        {
+            return false;
+        }
+
         return true;
     }
     
@@ -135,6 +158,7 @@ public class PoliceScript : MonoBehaviour
              vertices[vert++] = topRight;
              vertices[vert++] = topLeft;
              vertices[vert++] = bottomLeft;
+             
              // top
              vertices[vert++] = topCenter;
              vertices[vert++] = topLeft;

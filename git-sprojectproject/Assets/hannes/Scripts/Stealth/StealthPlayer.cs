@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,13 +46,13 @@ public class StealthPlayer : MonoBehaviour
         if(sprinting)
         {
             slider.gameObject.SetActive(true);
-            Debug.Log("sprint");
+            //Debug.Log("sprint");
             timer1 += Time.deltaTime;
             slider.maxValue = sprintDuration;
             setStamina(timer1);
             if (timer1 >= sprintDuration)
             {
-                Debug.Log("done");
+             //   Debug.Log("done");
                 timer2 = coolDownDuration;
                 coolDown = true;
                 sprinting = false;
@@ -60,7 +61,7 @@ public class StealthPlayer : MonoBehaviour
         }
         if (coolDown)
         {
-            Debug.Log("cooldown");
+           // Debug.Log("cooldown");
             
             slider.maxValue = coolDownDuration;
             setStamina(timer2);
@@ -82,18 +83,26 @@ public class StealthPlayer : MonoBehaviour
     private void FixedUpdate()
     {
 
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
 
         movement = new Vector3(horizontal, 0, vertical).normalized;
+        if (vertical == 0 && horizontal == 0)
+        {
+            Rb.velocity = Vector3.zero;
+        }
         if (sprinting)
         {
-            Rb.velocity = Vector3.MoveTowards(Rb.velocity, movement * sprintSpeed, Time.deltaTime * acceleration);
-
+            Rb.velocity = (movement * sprintSpeed);
         }
         else
-            Rb.velocity = Vector3.MoveTowards(Rb.velocity, movement * speed, Time.deltaTime * acceleration);
+            Rb.velocity = (movement * speed);
+        
+
+       // Debug.Log(Rb.velocity);
     }
+
+
 
 
     void setStamina(float stamina)
