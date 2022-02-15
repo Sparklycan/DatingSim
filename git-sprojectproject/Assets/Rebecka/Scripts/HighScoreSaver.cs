@@ -7,9 +7,8 @@ using UnityEngine;
 
 public class HighScoreSaver : MonoBehaviour
 {
-    public Vector3 fishpongScore1 = new Vector3(0,0,0 ), fishpongScore2 = new Vector3(0,0,0 ), fishpongScore3 =new Vector3(0,0,0 );
-    public Vector3 platformerTimeScores = new Vector3(0,0,0 );
-    public Vector3 sweeperScore1 = new Vector3(0,0,0), sweeperScore2 = new Vector3(0,0,0), sweeperscore3 = new Vector3(0,0,0);
+    public HighscoreContainer scoreContainer;
+    
     
     
     public void SaveGame()
@@ -19,13 +18,13 @@ public class HighScoreSaver : MonoBehaviour
         FileStream file = File.Create("C:/users/c17rebma/MyHighscoreSaveData.dat"); 
         HighscoreSaveData data = new HighscoreSaveData();
         
-        data.values1a = fishpongScore1;
-        data.values2a = fishpongScore2;
-        data.values3a = fishpongScore3;
-        data.values1b = platformerTimeScores;
-        data.values1e = sweeperScore1;
-        data.values2e = sweeperScore2;
-        data.values3e = sweeperscore3;
+        data.values1a = scoreContainer.fishpongScore1;
+        data.values2a = scoreContainer.fishpongScore2;
+        data.values3a = scoreContainer.fishpongScore3;
+        data.values1b = scoreContainer.platformerTimeScores;
+        data.values1e = scoreContainer.sweeperScore1;
+        data.values2e = scoreContainer.sweeperScore2;
+        data.values3e = scoreContainer.sweeperscore3;
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Game data saved!");
@@ -40,13 +39,13 @@ public class HighScoreSaver : MonoBehaviour
                 File.Open("C:/users/c17rebma/MyHighscoreSaveData.dat", FileMode.Open);
             HighscoreSaveData data = (HighscoreSaveData)bf.Deserialize(file);
             file.Close();
-            fishpongScore1 = data.values1a;
-            fishpongScore2 = data.values2a;
-            fishpongScore3 = data.values3a;
-            platformerTimeScores = data.values1b;
-            sweeperScore1 = data.values1e;
-            sweeperScore2 = data.values2e;
-            sweeperscore3 = data.values3e;
+            scoreContainer.fishpongScore1 = data.values1a;
+            scoreContainer.fishpongScore2 = data.values2a;
+            scoreContainer.fishpongScore3 = data.values3a;
+            scoreContainer.platformerTimeScores = data.values1b;
+            scoreContainer.sweeperScore1 = data.values1e;
+            scoreContainer.sweeperScore2 = data.values2e;
+            scoreContainer.sweeperscore3 = data.values3e;
             Debug.Log("Game data loaded!");
         }
         else
@@ -60,13 +59,13 @@ public class HighScoreSaver : MonoBehaviour
         if (File.Exists("C:/users/c17rebma/MyHighscoreSaveData.dat"))
         {
             File.Delete("C:/users/c17rebma/MyHighscoreSaveData.dat");
-            fishpongScore1 = Vector3.zero;
-            fishpongScore2 = Vector3.zero;
-            fishpongScore3 = Vector3.zero;
-            platformerTimeScores = Vector3.zero;
-            sweeperScore1 = Vector3.zero;
-            sweeperScore2 = Vector3.zero;
-            sweeperscore3 = Vector3.zero;
+            scoreContainer.fishpongScore1 = Vector3.zero;
+            scoreContainer.fishpongScore2 = Vector3.zero;
+            scoreContainer.fishpongScore3 = Vector3.zero;
+            scoreContainer.platformerTimeScores = Vector3.zero;
+            scoreContainer.sweeperScore1 = Vector3.zero;
+            scoreContainer.sweeperScore2 = Vector3.zero;
+            scoreContainer.sweeperscore3 = Vector3.zero;
             Debug.Log("Data reset done, yeet");
         }
         else
