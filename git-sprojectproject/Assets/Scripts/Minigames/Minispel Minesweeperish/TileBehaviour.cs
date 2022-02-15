@@ -60,11 +60,7 @@ public class TileBehaviour : MonoBehaviour
             iconSr = powerIcon.GetComponent<SpriteRenderer>();
            iconSr.sprite = iconSettings.iconImage;
         }
-        /*else
-        {
-            
-            iconSr.sprite = null;
-        }*/
+       
     }
 
     // Start is called before the first frame update
