@@ -15,9 +15,8 @@ public class PoliceScript : MonoBehaviour
 
     private GameObject player;
     // Start is called before the first frame update
-    
+
     // Attention area
-    
     public float distance = 10;
     public float angle = 30;
     public float height = 1.1f;
@@ -26,37 +25,49 @@ public class PoliceScript : MonoBehaviour
     public LayerMask layers;
     public LayerMask OcclusionLayers;
     public List<GameObject> Objects = new List<GameObject>();
-    
-    
+    public Light SpotLight;
+
+
     private Collider[] colliders = new Collider[50];
     private Mesh mesh;
     private int count;
     private float scanInterval;
     private float scanTimer;
 
-    public Light SpotLight;
-    [Space(15)] [Header("RoamPoints")] public Vector3[] Points;
-    
-    
-    
-    
+    [Tooltip(
+        "All the points that the Police will go through, the cyan line is from starting position to show which direction the police will move.")]
+    [Space(15)]
+    public Vector3[] Points;
+
+
     // movement
     private bool seen, chase, roam = true, confused;
+
     [Tooltip("The time the Police waits on the different points.")]
     public float PauseTime;
-    [Tooltip("How long the police will remember your position even after you are outside his viewcone")]
+
+    [Tooltip("How long the police will remember your position even after you are outside his viewcone.")]
     public float chaseTime;
-    [Tooltip("How long the police will pause after forgetting the player at a spot before going back to its roam")]
+
+    [Tooltip("How long the police will pause after forgetting the player at a spot before going back to its roam.")]
     public float confusedTime;
+
     private float pauseTimer, chaseTimer, confusedTimer;
     int current = 0;
     GameObject Chased;
 
+    // Picture
+    public float PictureTime;
+    private float pictureTimer;
+    private bool picture, pictureTaken;
+    private FlowchartCommunicator _flowchartCommunicator;
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("StealthPlayer");
         scanInterval = 1.0f / scanFrequency;
+        _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
     }
 
     // Update is called once per frame
@@ -64,7 +75,7 @@ public class PoliceScript : MonoBehaviour
     {
         SpotLight.spotAngle = angle * 2;
         SpotLight.range = distance + 2;
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             agent.SetDestination(player.transform.position);
         }
@@ -77,7 +88,7 @@ public class PoliceScript : MonoBehaviour
             Scan();
         }
 
-        if(chase)
+        if (chase)
         {
             Debug.Log("CHASING");
             agent.isStopped = false;
@@ -90,10 +101,17 @@ public class PoliceScript : MonoBehaviour
                 chase = false;
             }
         }
-        if(confused)
+        else
+        {
+            chaseTimer = 0;
+        }
+
+
+        if (confused)
         {
             confusedTimer += Time.deltaTime;
             agent.isStopped = true;
+            pictureTimer = 0;
             if (confusedTimer >= confusedTime)
             {
                 confusedTimer = 0;
@@ -101,11 +119,24 @@ public class PoliceScript : MonoBehaviour
                 roam = true;
             }
         }
-        if(roam)
+        else
         {
-            if(Points.Length > 0)
-            Roam();
+            confusedTimer = 0;
         }
+
+
+        if (roam)
+        {
+            if (Points.Length > 0)
+                Roam();
+        }
+
+
+        if (picture && !pictureTaken)
+        {
+            Picture();
+        }
+
 
 
     }
@@ -125,12 +156,18 @@ public class PoliceScript : MonoBehaviour
             }
 
         }
-        if (Objects.Count > 0)
+
+        if (Objects.Count > 0 && !pictureTaken)
         {
             chaseTimer = 0;
             chase = true;
             confused = false;
             roam = false;
+            picture = true;
+        }
+        else
+        {
+            picture = false;
         }
 
     }
@@ -139,46 +176,56 @@ public class PoliceScript : MonoBehaviour
     {
         bool arrived = false;
         agent.isStopped = false;
-        
+
         agent.SetDestination(Points[current]);
         float dist = agent.remainingDistance;
-        if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0 && !chase)
+        if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete &&
+            agent.remainingDistance == 0 && !chase)
         {
             arrived = true;
-            Debug.Log("ARRIVED"); 
         }
 
         if (arrived)
         {
-            Debug.Log(pauseTimer);
             pauseTimer += Time.deltaTime * 2;
             if (pauseTimer >= PauseTime)
             {
-                if(current < Points.Length - 1)
+                if (current < Points.Length - 1)
                 {
-                    Debug.Log("next " + current);
-                    current ++;
+                    current++;
                 }
                 else
                 {
                     current = 0;
                 }
+
                 pauseTimer = 0;
                 arrived = false;
-            }    
+            }
         }
 
-            // PSEUDO
-            // IF REACHED GOAL §
-            // BOOL ARRIVED TRUE §
-            // IF ARRIVED TRUE: PAUSETIMER + TIME § (might not work as the scan is on a timer...)
-            // IF PAUSETIMER > PAUSETIME: CURRENT ++ § 
-            // AS LONG AS CURRENT <= POINTS.LENGTH §
-            // SHOULD WORK §
-
+        // PSEUDO
+        // IF REACHED GOAL ï¿½
+        // BOOL ARRIVED TRUE ï¿½
+        // IF ARRIVED TRUE: PAUSETIMER + TIME ï¿½ (might not work as the scan is on a timer...)
+        // IF PAUSETIMER > PAUSETIME: CURRENT ++ ï¿½ 
+        // AS LONG AS CURRENT <= POINTS.LENGTH ï¿½
+        // SHOULD WORK ï¿½
     }
     
-    
+    void Picture()
+    {
+        Light light = GetComponent<Light>();
+        pictureTimer += Time.deltaTime;
+        if (pictureTimer > PictureTime)
+        {
+            confused = true;
+            chase = false;
+            _flowchartCommunicator.SendMessage("Click");
+            pictureTaken = true;
+            light.color = Color.magenta;
+        }
+    }
     public bool IsInsIght(GameObject obj)
     {
         Vector3 origin = transform.position;
@@ -205,137 +252,150 @@ public class PoliceScript : MonoBehaviour
 
         return true;
     }
-    
-     Mesh createWedgeMesh()
-     {
-         Mesh mesh = new Mesh();
 
-         int segments = 10;
-         int numTriangles = (segments*4) + 2 + 2;
-         int numVertices = numTriangles * 3;
-         
-         
-         Vector3[] vertices = new Vector3[numVertices];
-         int[] triangles = new int[numVertices];
+    Mesh createWedgeMesh()
+    {
+        Mesh mesh = new Mesh();
 
-         Vector3 bottomCenter = Vector3.zero;
-         Vector3 bottomLeft = Quaternion.Euler(0, -angle, 0) * Vector3.forward * distance;
-         Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward * distance;
-
-         Vector3 topCenter = bottomCenter + Vector3.up * height;
-         Vector3 topRight = bottomRight + Vector3.up * height;
-         Vector3 topLeft = bottomLeft + Vector3.up * height;
-
-         int vert = 0;
-         
-         // left side
-         vertices[vert++] = bottomCenter;
-         vertices[vert++] = bottomLeft;
-         vertices[vert++] = topLeft;
-         
-         vertices[vert++] = topLeft;
-         vertices[vert++] = topCenter;
-         vertices[vert++] = bottomCenter;
-         
-         // right side 
-         vertices[vert++] = bottomCenter;
-         vertices[vert++] = topCenter;
-         vertices[vert++] = topRight;
-         
-         vertices[vert++] = topRight;
-         vertices[vert++] = bottomRight;
-         vertices[vert++] = bottomCenter;
-
-         float currentAngle = -angle;
-         float deltaAngle = (angle * 2) / segments;
-         for (int i = 0; i < segments; i++)
-         {
-              bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward * distance;
-              bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward * distance;
-
-              topRight = bottomRight + Vector3.up * height;
-              topLeft = bottomLeft + Vector3.up * height;
-             
-             // far side
-             vertices[vert++] = bottomLeft;
-             vertices[vert++] = bottomRight;
-             vertices[vert++] = topRight;
-         
-             vertices[vert++] = topRight;
-             vertices[vert++] = topLeft;
-             vertices[vert++] = bottomLeft;
-             
-             // top
-             vertices[vert++] = topCenter;
-             vertices[vert++] = topLeft;
-             vertices[vert++] = topRight;
-         
-             // bottom
-             vertices[vert++] = bottomCenter;
-             vertices[vert++] = bottomRight;
-             vertices[vert++] = bottomLeft;
-             
-             currentAngle += deltaAngle;
-         }
-         
-         for (int i = 0; i < numVertices; i++)
-         {
-             triangles[i] = i;
-         }
-
-         mesh.vertices = vertices;
-         mesh.triangles = triangles;
-         mesh.RecalculateNormals();
-         
-         
-         return mesh;
-     }
+        int segments = 10;
+        int numTriangles = (segments * 4) + 2 + 2;
+        int numVertices = numTriangles * 3;
 
 
-     private void OnValidate()
-     {
-         mesh = createWedgeMesh();
-         scanInterval = 1.0f / scanFrequency;
+        Vector3[] vertices = new Vector3[numVertices];
+        int[] triangles = new int[numVertices];
 
-     }
-     
+        Vector3 bottomCenter = Vector3.zero;
+        Vector3 bottomLeft = Quaternion.Euler(0, -angle, 0) * Vector3.forward * distance;
+        Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward * distance;
 
-     private void OnDrawGizmos()
-     {
-         if(mesh)
-         {
-             Gizmos.color = meshcolor;
-             Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
-         }
-          
-         
-         Gizmos.DrawWireSphere(transform.position, distance);
-         for (int i = 0; i < count; i++)
-         {
-             Gizmos.DrawSphere((colliders[i].transform.position), 0.2f);
-         }
+        Vector3 topCenter = bottomCenter + Vector3.up * height;
+        Vector3 topRight = bottomRight + Vector3.up * height;
+        Vector3 topLeft = bottomLeft + Vector3.up * height;
+
+        int vert = 0;
+
+        // left side
+        vertices[vert++] = bottomCenter;
+        vertices[vert++] = bottomLeft;
+        vertices[vert++] = topLeft;
+
+        vertices[vert++] = topLeft;
+        vertices[vert++] = topCenter;
+        vertices[vert++] = bottomCenter;
+
+        // right side 
+        vertices[vert++] = bottomCenter;
+        vertices[vert++] = topCenter;
+        vertices[vert++] = topRight;
+
+        vertices[vert++] = topRight;
+        vertices[vert++] = bottomRight;
+        vertices[vert++] = bottomCenter;
+
+        float currentAngle = -angle;
+        float deltaAngle = (angle * 2) / segments;
+        for (int i = 0; i < segments; i++)
+        {
+            bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward * distance;
+            bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward * distance;
+
+            topRight = bottomRight + Vector3.up * height;
+            topLeft = bottomLeft + Vector3.up * height;
+
+            // far side
+            vertices[vert++] = bottomLeft;
+            vertices[vert++] = bottomRight;
+            vertices[vert++] = topRight;
+
+            vertices[vert++] = topRight;
+            vertices[vert++] = topLeft;
+            vertices[vert++] = bottomLeft;
+
+            // top
+            vertices[vert++] = topCenter;
+            vertices[vert++] = topLeft;
+            vertices[vert++] = topRight;
+
+            // bottom
+            vertices[vert++] = bottomCenter;
+            vertices[vert++] = bottomRight;
+            vertices[vert++] = bottomLeft;
+
+            currentAngle += deltaAngle;
+        }
+
+        for (int i = 0; i < numVertices; i++)
+        {
+            triangles[i] = i;
+        }
+
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.RecalculateNormals();
 
 
-         Gizmos.color = Color.green;
-         foreach (var obj in Objects)
-         {
-             Gizmos.DrawSphere((obj.transform.position), 0.2f);
-         }
-     }
+        return mesh;
+    }
 
-     private void OnDrawGizmosSelected()
-     {
-         Gizmos.color = Color.white;
+    private void OnValidate()
+    {
+        mesh = createWedgeMesh();
+        scanInterval = 1.0f / scanFrequency;
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (mesh)
+        {
+            Gizmos.color = meshcolor;
+            Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
+        }
+
+
+        Gizmos.DrawWireSphere(transform.position, distance);
+        for (int i = 0; i < count; i++)
+        {
+            Gizmos.DrawSphere((colliders[i].transform.position), 0.2f);
+        }
+
+
+        Gizmos.color = Color.green;
+        foreach (var obj in Objects)
+        {
+            Gizmos.DrawSphere((obj.transform.position), 0.2f);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
 
         if (Points.Length > 0)
         {
-            for (int i = 0; i < Points.Length - 1; i++)
+            for (int i = 1; i < Points.Length - 1; i++)
             {
                 Gizmos.DrawLine(Points[i], Points[i + 1]);
-
+                Gizmos.DrawIcon(Points[i], "blendKeySelected", true);
             }
-            Gizmos.DrawWireSphere(Points[0], 1);
+
             Gizmos.DrawLine(Points[Points.Length - 1], Points[0]);
+            //Gizmos.DrawWireSphere(Points[1], 1);
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(Points[0], 1);
+            Gizmos.DrawLine(Points[0], Points[1]);
+
         }
-     }
+    }
+
+    // POLICE FIND PLAYER, COUNTER GOES DOWN FOR EVERY SECOND THEY SEE YOU
+    // IF STILL IN CHASE STATE COUNTER UP, BUT ONLY WHEN YOU'RE IN VISION.
+    // WHEN TIMES GONE UP, PICTURE TAKEN. 
+    // TIMER ON X-SECONDS UNTIL PERSON UPLOADS THE PICTURE.
+
+
+
+
 }

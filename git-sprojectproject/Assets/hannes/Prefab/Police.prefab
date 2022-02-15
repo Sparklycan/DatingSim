@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1885521985588876564}
   - component: {fileID: 1885521985588876566}
   - component: {fileID: 1885521985588876567}
+  - component: {fileID: 7754815382498624574}
   m_Layer: 0
   m_Name: Police
   m_TagString: Untagged
@@ -121,15 +122,11 @@ MonoBehaviour:
     m_Bits: 64
   Objects: []
   SpotLight: {fileID: 844281036839440097}
-  Points:
-  - {x: -63.55, y: 0, z: 29.2}
-  - {x: 12.95, y: 0, z: 30.06}
-  - {x: 33.91, y: 0, z: -13.26}
-  - {x: -86, y: 0, z: -17.8}
+  Points: []
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
-  Chased: {fileID: 0}
+  PictureTime: 1
 --- !u!195 &1885521985588876567
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -152,6 +149,19 @@ NavMeshAgent:
   m_BaseOffset: 0.29
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7754815382498624574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885521985588876563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f60e9d1af51eb44d89d3f5509e3d637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Flowchart: {fileID: 0}
 --- !u!1 &5625061195951971450
 GameObject:
   m_ObjectHideFlags: 0
