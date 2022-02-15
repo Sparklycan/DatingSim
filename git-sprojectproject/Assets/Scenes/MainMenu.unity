@@ -291,8 +291,10 @@ GameObject:
   m_Component:
   - component: {fileID: 673387181}
   - component: {fileID: 673387180}
+  - component: {fileID: 673387183}
+  - component: {fileID: 673387182}
   m_Layer: 0
-  m_Name: MenuOptions
+  m_Name: MenuBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,6 +326,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &673387182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673387179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028f22e7345d914d8c80efdcf03e18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamesUnlocked: {fileID: 11400000, guid: 13081b796bb0dc54a83e4161e93ae38b, type: 2}
+--- !u!114 &673387183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673387179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc683aec9bef609488b1823bbe30c93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveBehaviour: {fileID: 673387182}
 --- !u!1 &817124482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1040,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Speltest Dialog
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1858238288
