@@ -10,9 +10,9 @@ public class MainMenuBehaviour : MonoBehaviour
     void Start()
     {
         saveBehaviour.gamesUnlocked.minigame1 = false;
-        saveBehaviour.gamesUnlocked.minigame2 = false;
+        /*saveBehaviour.gamesUnlocked.minigame2 = false;
         saveBehaviour.gamesUnlocked.minigame3 = false;
-        saveBehaviour.gamesUnlocked.minigame4 = false;
+        saveBehaviour.gamesUnlocked.minigame4 = false;*/
         saveBehaviour.LoadGame();
     }
 
