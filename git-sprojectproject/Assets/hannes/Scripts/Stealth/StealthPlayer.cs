@@ -79,18 +79,21 @@ public class StealthPlayer : MonoBehaviour
 
         
     }
+    // FIX SOME "KEY OFF FINGER" DELAY ON MOVEMENT.
 
     private void FixedUpdate()
     {
 
-        vertical = Input.GetAxisRaw("Vertical");
-        horizontal = Input.GetAxisRaw("Horizontal");
+
+        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
 
         movement = new Vector3(horizontal, 0, vertical).normalized;
 
         if (sprinting)
         {
             Rb.velocity = (movement * sprintSpeed);
+            
         }
         else
             Rb.velocity = (movement * speed);
@@ -106,4 +109,7 @@ public class StealthPlayer : MonoBehaviour
     {
         slider.value = stamina;
     }
+    
+    
+    
 }
