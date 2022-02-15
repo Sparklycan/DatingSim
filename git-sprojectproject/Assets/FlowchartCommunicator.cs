@@ -5,7 +5,8 @@ using Fungus;
 
 public class FlowchartCommunicator : MonoBehaviour
 {
-
+    
+    
     public void SendMessage(string text)
     {
         Debug.Log("Sent message");

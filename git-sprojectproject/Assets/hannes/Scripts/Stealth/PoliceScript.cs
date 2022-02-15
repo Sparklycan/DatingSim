@@ -3,18 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using Fungus;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
 {
-
+ 
+    // FIX SOME "KEY OFF FINGER" DELAY ON MOVEMENT.
+    
     NavMeshAgent agent;
 
     private GameObject player;
-    // Start is called before the first frame update
 
     // Attention area
     public float distance = 10;
@@ -56,11 +59,13 @@ public class PoliceScript : MonoBehaviour
     int current = 0;
     GameObject Chased;
 
+    [Header("Picture")]
     // Picture
     public float PictureTime;
     private float pictureTimer;
     private bool picture, pictureTaken;
     private FlowchartCommunicator _flowchartCommunicator;
+    public Slider slider;
     
     void Start()
     {
@@ -68,11 +73,13 @@ public class PoliceScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("StealthPlayer");
         scanInterval = 1.0f / scanFrequency;
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
+        slider.maxValue = PictureTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         SpotLight.spotAngle = angle * 2;
         SpotLight.range = distance + 2;
         if (Input.GetKeyDown(KeyCode.C))
@@ -217,6 +224,15 @@ public class PoliceScript : MonoBehaviour
     {
         Light light = GetComponent<Light>();
         pictureTimer += Time.deltaTime;
+        slider.value = chaseTimer;
+        
+        if (pictureTimer > 0)
+        {
+            slider.gameObject.SetActive(true);
+        }
+        else
+            slider.gameObject.SetActive(false);
+        
         if (pictureTimer > PictureTime)
         {
             confused = true;
@@ -225,7 +241,10 @@ public class PoliceScript : MonoBehaviour
             pictureTaken = true;
             light.color = Color.magenta;
         }
+        
     }
+    
+
     public bool IsInsIght(GameObject obj)
     {
         Vector3 origin = transform.position;
