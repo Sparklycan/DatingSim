@@ -41,11 +41,17 @@ public class PoliceScript : MonoBehaviour
     
     
     // movement
-    private bool seen;
+    private bool seen, chase, roam = true, confused;
     [Tooltip("The time the Police waits on the different points.")]
     public float PauseTime;
-    
-    private float pauseTimer;
+    [Tooltip("How long the police will remember your position even after you are outside his viewcone")]
+    public float chaseTime;
+    [Tooltip("How long the police will pause after forgetting the player at a spot before going back to its roam")]
+    public float confusedTime;
+    private float pauseTimer, chaseTimer, confusedTimer;
+    int current = 0;
+    GameObject Chased;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -71,6 +77,35 @@ public class PoliceScript : MonoBehaviour
             Scan();
         }
 
+        if(chase)
+        {
+            Debug.Log("CHASING");
+            agent.isStopped = false;
+            agent.SetDestination(Chased.transform.position);
+            chaseTimer += Time.deltaTime;
+            if (chaseTimer >= chaseTime)
+            {
+                chaseTimer = 0;
+                confused = true;
+                chase = false;
+            }
+        }
+        if(confused)
+        {
+            confusedTimer += Time.deltaTime;
+            agent.isStopped = true;
+            if (confusedTimer >= confusedTime)
+            {
+                confusedTimer = 0;
+                confused = false;
+                roam = true;
+            }
+        }
+        if(roam)
+        {
+            if(Points.Length > 0)
+            Roam();
+        }
 
 
     }
@@ -86,54 +121,60 @@ public class PoliceScript : MonoBehaviour
             if (IsInsIght((obj)))
             {
                 Objects.Add((obj));
+                Chased = Objects[0];
             }
 
         }
         if (Objects.Count > 0)
         {
-            agent.SetDestination(Objects[0].transform.position);
+            chaseTimer = 0;
+            chase = true;
+            confused = false;
+            roam = false;
         }
-        else
-        {
-            
-        }
+
     }
 
     void Roam()
     {
-        bool arrived;
-        int current = 0;
-        //Arrived.
-
-        agent.SetDestination(Points[current]);
+        bool arrived = false;
+        agent.isStopped = false;
         
+        agent.SetDestination(Points[current]);
+        float dist = agent.remainingDistance;
+        if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0 && !chase)
+        {
+            arrived = true;
+            Debug.Log("ARRIVED"); 
+        }
+
         if (arrived)
         {
-            pauseTimer += Time.deltaTime;
+            Debug.Log(pauseTimer);
+            pauseTimer += Time.deltaTime * 2;
             if (pauseTimer >= PauseTime)
             {
-                
+                if(current < Points.Length - 1)
+                {
+                    Debug.Log("next " + current);
+                    current ++;
+                }
+                else
+                {
+                    current = 0;
+                }
+                pauseTimer = 0;
+                arrived = false;
             }    
         }
+
             // PSEUDO
-            // IF REACHED GOAL
-            // BOOL ARRIVED TRUE
-            // IF ARRIVED TRUE: PAUSETIMER + TIME
-            // IF PAUSETIMER > PAUSETIME: CURRENT ++
-            // AS LONG AS CURRENT <= POINTS.LENGTH
-            // SHOULD WORK
-
-
-
-            float dist=agent.remainingDistance;
-            
-            if (dist != Mathf.infinite && agent.pathStatus == NavMeshPathStatus.completed && agent.remainingDistance == 0)
-            {
-                arrived = true;
-            }
-
-        
-
+            // IF REACHED GOAL §
+            // BOOL ARRIVED TRUE §
+            // IF ARRIVED TRUE: PAUSETIMER + TIME § (might not work as the scan is on a timer...)
+            // IF PAUSETIMER > PAUSETIME: CURRENT ++ § 
+            // AS LONG AS CURRENT <= POINTS.LENGTH §
+            // SHOULD WORK §
 
     }
     
@@ -286,13 +327,15 @@ public class PoliceScript : MonoBehaviour
      {
          Gizmos.color = Color.white;
 
-         for (int i = 0; i < Points.Length - 1; i++)
-         {
-            Gizmos.DrawLine(Points[i], Points[i+1]);
-                    
-         }
-         Gizmos.DrawWireSphere(Points[0], 1);
-         Gizmos.DrawLine(Points[Points.Length - 1], Points[0]);
+        if (Points.Length > 0)
+        {
+            for (int i = 0; i < Points.Length - 1; i++)
+            {
+                Gizmos.DrawLine(Points[i], Points[i + 1]);
 
+            }
+            Gizmos.DrawWireSphere(Points[0], 1);
+            Gizmos.DrawLine(Points[Points.Length - 1], Points[0]);
+        }
      }
 }
