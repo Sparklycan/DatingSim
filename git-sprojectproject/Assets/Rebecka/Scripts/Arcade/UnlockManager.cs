@@ -12,6 +12,8 @@ public class UnlockManager : MonoBehaviour
 
    private void Start()
    {
+
+      buttons[4].interactable = false;
       if (gamesUnlocked.minigame1)
       {
          buttons[0].interactable = true;
@@ -19,6 +21,15 @@ public class UnlockManager : MonoBehaviour
       else
       {
          buttons[0].interactable = false;
+      }
+
+      if (gamesUnlocked.minigame5)
+      {
+         buttons[4].interactable = true;
+      }
+      else
+      {
+         buttons[4].interactable = false;
       }
       
    }
