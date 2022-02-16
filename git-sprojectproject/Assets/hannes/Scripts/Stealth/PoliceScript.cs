@@ -18,6 +18,7 @@ public class PoliceScript : MonoBehaviour
 
     private GameObject player;
 
+    private Light _light;
     // Attention area
     public float distance = 10;
     public float angle = 30;
@@ -73,6 +74,7 @@ public class PoliceScript : MonoBehaviour
     
     void Start()
     {
+        _light = GetComponent<Light>();
         boxCollider = GetComponent<BoxCollider>();
         slider.gameObject.SetActive(false);
         agent = GetComponent<NavMeshAgent>();
@@ -102,42 +104,22 @@ public class PoliceScript : MonoBehaviour
 
         if (chase)
         {
-            Debug.Log("CHASING");
-            agent.isStopped = false;
-            agent.SetDestination(Chased.transform.position);
-            chaseTimer += Time.deltaTime;
-            if (chaseTimer >= chaseTime)
-            {
-                chaseTimer = 0;
-                confused = true;
-                chase = false;
-            }
+            Chase();
         }
         else
         {
             chaseTimer = 0;
         }
-
-
+        
         if (confused)
         {
-            slider.gameObject.SetActive(false);
-            confusedTimer += Time.deltaTime;
-            agent.isStopped = true;
-            pictureTimer = 0;
-            if (confusedTimer >= confusedTime)
-            {
-                confusedTimer = 0;
-                confused = false;
-                roam = true;
-            }
+            Confused();
         }
         else
         {
             confusedTimer = 0;
         }
-
-
+        
         if (roam)
         {
             if (Points.Length > 0)
@@ -229,12 +211,26 @@ public class PoliceScript : MonoBehaviour
         // AS LONG AS CURRENT <= POINTS.LENGTH �
         // SHOULD WORK �
     }
+
+    void Chase()
+    {
+        _light.color = Color.red;
+        Debug.Log("CHASING");
+        agent.isStopped = false;
+        agent.SetDestination(Chased.transform.position);
+        chaseTimer += Time.deltaTime;
+        if (chaseTimer >= chaseTime)
+        {
+            chaseTimer = 0;
+            confused = true;
+            chase = false;
+        }
+    }
     
     void Picture()
     {
         slider.gameObject.SetActive(true);
         slider.maxValue = PictureTime;
-        Light light = GetComponent<Light>();
         pictureTimer += Time.deltaTime;
         setProgress(pictureTimer);
         if (pictureTimer > 0)
@@ -250,11 +246,29 @@ public class PoliceScript : MonoBehaviour
             chase = false;
             _flowchartCommunicator.SendMessage("Click");
             pictureTaken = true;
-            light.color = Color.magenta;
+            _light.color = Color.magenta;
             slider.gameObject.SetActive(false);
         }
         
         
+    }
+
+    void Confused()
+    {
+        if (!pictureTaken)
+        {
+            _light.color = Color.blue;
+        }
+        slider.gameObject.SetActive(false);
+        confusedTimer += Time.deltaTime;
+        agent.isStopped = true;
+        pictureTimer = 0;
+        if (confusedTimer >= confusedTime)
+        {
+            confusedTimer = 0;
+            confused = false;
+            roam = true;
+        }  
     }
 
     void setProgress(float progress)
