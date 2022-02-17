@@ -66,6 +66,7 @@ public class PoliceScript : MonoBehaviour
     private bool picture, pictureTaken;
     private FlowchartCommunicator _flowchartCommunicator;
     public Slider slider;
+    public GameObject DeathParticle;
 
     [Header("Picture")]
     // Backstab
@@ -401,6 +402,7 @@ public class PoliceScript : MonoBehaviour
     {
         if (other.tag == "StealthPlayer")
         {
+            GameObject.Instantiate(DeathParticle, transform.position, quaternion.identity);
             Destroy(gameObject);
         }
     }
