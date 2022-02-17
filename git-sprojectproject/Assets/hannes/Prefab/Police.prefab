@@ -400,14 +400,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Objects: []
-  SpotLight: {fileID: 844281036839440097}
   Points: []
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
+  scaredTime: 6
+  AlertSpeedMultiplier: 1.5
   PictureTime: 1
   slider: {fileID: 2976708071670187240}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
+  SpotLight: {fileID: 844281036839440097}
 --- !u!195 &1885521985588876567
 NavMeshAgent:
   m_ObjectHideFlags: 0

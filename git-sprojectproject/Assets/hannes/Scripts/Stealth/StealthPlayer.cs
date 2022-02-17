@@ -94,7 +94,7 @@ public class StealthPlayer : MonoBehaviour
 
         if (Input.GetAxis("Vertical") == 0f && Rb.velocity.z != 0)
         {
-            Debug.Log("SLOW DOWN Z" );
+//            Debug.Log("SLOW DOWN Z" );
             if (timeElapsedZ < decelerationTime)
             {
                 Rb.velocity = Vector3.Lerp(Rb.velocity, new Vector3(Rb.velocity.x, Rb.velocity.y, 0f), timeElapsedZ / decelerationTime);
@@ -108,7 +108,7 @@ public class StealthPlayer : MonoBehaviour
         
         if ((Input.GetAxis("Horizontal") == 0f && Rb.velocity.x != 0f))
         {
-            Debug.Log("SLOW DOWN X");
+//            Debug.Log("SLOW DOWN X");
             if (timeElapsedX < decelerationTime)
             {
                 Rb.velocity = Vector3.Lerp(Rb.velocity, new Vector3(0f, Rb.velocity.y, Rb.velocity.z), timeElapsedX / decelerationTime);

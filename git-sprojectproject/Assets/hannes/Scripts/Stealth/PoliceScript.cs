@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
+using Random = System.Random;
 
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
@@ -20,6 +21,7 @@ public class PoliceScript : MonoBehaviour
 
     private Light _light;
     // Attention area
+    [Header("ViewArea")]
     public float distance = 10;
     public float angle = 30;
     public float height = 1.1f;
@@ -27,8 +29,8 @@ public class PoliceScript : MonoBehaviour
     public int scanFrequency = 30;
     public LayerMask layers;
     public LayerMask OcclusionLayers;
+    [HideInInspector]
     public List<GameObject> Objects = new List<GameObject>();
-    public Light SpotLight;
 
 
     private Collider[] colliders = new Collider[50];
@@ -37,15 +39,17 @@ public class PoliceScript : MonoBehaviour
     private float scanInterval;
     private float scanTimer;
 
-    [Tooltip(
-        "All the points that the Police will go through, the cyan line is from starting position to show which direction the police will move.")]
+    [Tooltip( "All the points that the Police will go through, the cyan line is from starting position to show which direction the police will move.")]
     [Space(15)]
     public Vector3[] Points;
 
 
     // movement
-    private bool seen, chase, roam = true, confused;
+    [Header("Movement")]
+    private bool seen, chase, roam = true, confused, scared;
 
+    private Transform startTransform;
+    
     [Tooltip("The time the Police waits on the different points.")]
     public float PauseTime;
 
@@ -55,18 +59,33 @@ public class PoliceScript : MonoBehaviour
     [Tooltip("How long the police will pause after forgetting the player at a spot before going back to its roam.")]
     public float confusedTime;
 
-    private float pauseTimer, chaseTimer, confusedTimer;
+    [Tooltip("")]
+    public float scaredTime;
+
+    [Tooltip("")]
+    public float AlertSpeedMultiplier;
+    
+
+    private float AlertSpeed, originalSpeed;
+    
+    private float pauseTimer, chaseTimer, confusedTimer, scaredTimer;
     int current = 0;
+
+    private float multiplyBy = 2 ;
+    
     GameObject Chased;
 
-    [Header("Picture")]
     // Picture
+    [Header("Picture")]
     public float PictureTime;
     private float pictureTimer;
-    private bool picture, pictureTaken;
+    private bool picture, pictureTaken = false;
     private FlowchartCommunicator _flowchartCommunicator;
+    
+    [Space(10)]
     public Slider slider;
     public GameObject DeathParticle;
+    public Light SpotLight;
 
     [Header("Picture")]
     // Backstab
@@ -82,6 +101,8 @@ public class PoliceScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("StealthPlayer");
         scanInterval = 1.0f / scanFrequency;
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
+        originalSpeed = agent.speed;
+        AlertSpeed = agent.speed * AlertSpeedMultiplier;
     }
 
     // Update is called once per frame
@@ -137,6 +158,14 @@ public class PoliceScript : MonoBehaviour
             boxCollider.enabled = true;
         }
 
+        if (scared)
+        {
+            Scared();
+        }
+        else
+        {
+            scaredTimer = 0;
+        }
 
 
     }
@@ -159,8 +188,17 @@ public class PoliceScript : MonoBehaviour
 
         if (Objects.Count > 0 && !pictureTaken)
         {
+            
             chaseTimer = 0;
             chase = true;
+            confused = false;
+            roam = false;
+            picture = true;
+        }
+        else if (Objects.Count > 0 && pictureTaken)
+        {
+            scaredTimer = 0;
+            scared = true;
             confused = false;
             roam = false;
             picture = true;
@@ -177,6 +215,15 @@ public class PoliceScript : MonoBehaviour
         bool arrived = false;
         agent.isStopped = false;
 
+        if (pictureTaken)
+        {
+            _light.color = Color.magenta;
+        }
+        else
+        {
+            _light.color = Color.blue;
+        }
+        
         agent.SetDestination(Points[current]);
         float dist = agent.remainingDistance;
         if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete &&
@@ -207,10 +254,11 @@ public class PoliceScript : MonoBehaviour
         // PSEUDO
         // IF REACHED GOAL �
         // BOOL ARRIVED TRUE �
-        // IF ARRIVED TRUE: PAUSETIMER + TIME � (might not work as the scan is on a timer...)
+        // IF ARRIVED TRUE: PAUSETIMER + TIME � (might not work as the scan is on a timer...) §
         // IF PAUSETIMER > PAUSETIME: CURRENT ++ � 
         // AS LONG AS CURRENT <= POINTS.LENGTH �
         // SHOULD WORK �
+        
     }
 
     void Chase()
@@ -220,11 +268,38 @@ public class PoliceScript : MonoBehaviour
         agent.isStopped = false;
         agent.SetDestination(Chased.transform.position);
         chaseTimer += Time.deltaTime;
-        if (chaseTimer >= chaseTime)
+        agent.speed = AlertSpeed;
+        
+        if(chaseTimer >= chaseTime)
         {
+            agent.speed = originalSpeed;
             chaseTimer = 0;
             confused = true;
             chase = false;
+        }
+        
+    }
+
+    
+    // YOU ARE HERE MOTHERBITCHFUCK
+    void Scared()
+    {
+        Debug.Log("SCARED");
+        _light.color = Color.cyan;
+        
+        Vector3 dirToPlayer = transform.position - player.transform.position;
+
+        Vector3 newPos = transform.position + dirToPlayer;
+
+        agent.SetDestination(newPos);
+
+        scaredTimer += Time.deltaTime;
+        if (scaredTimer > scaredTime)
+        {
+            Debug.Log("not scared anymore");
+            scaredTimer = 0;
+            confused = true;
+            scared = false;
         }
     }
     
@@ -243,8 +318,10 @@ public class PoliceScript : MonoBehaviour
         
         if (pictureTimer > PictureTime)
         {
+            agent.speed = originalSpeed;
             confused = true;
             chase = false;
+            scared = false;
             _flowchartCommunicator.SendMessage("Click");
             pictureTaken = true;
             _light.color = Color.magenta;
@@ -260,6 +337,8 @@ public class PoliceScript : MonoBehaviour
         {
             _light.color = Color.blue;
         }
+
+        scared = false;
         slider.gameObject.SetActive(false);
         confusedTimer += Time.deltaTime;
         agent.isStopped = true;
