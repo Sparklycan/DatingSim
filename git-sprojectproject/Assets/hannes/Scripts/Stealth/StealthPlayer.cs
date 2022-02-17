@@ -29,7 +29,6 @@ public class StealthPlayer : MonoBehaviour
 
     public Slider slider;
 
-
     void Start()
     {
         StealthCam = Camera.main.GetComponent<stealthCamera>();
@@ -40,8 +39,8 @@ public class StealthPlayer : MonoBehaviour
     void Update()
     {
 
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
 
         movement = new Vector3(horizontal, 0, vertical).normalized;
         
