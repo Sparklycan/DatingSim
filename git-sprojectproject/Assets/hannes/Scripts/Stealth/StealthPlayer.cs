@@ -9,8 +9,10 @@ public class StealthPlayer : MonoBehaviour
 
     public float speed, sprintMultiplier;
 
-    public float sprintDuration, coolDownDuration, acceleration;
+    public float sprintDuration, coolDownDuration, decelerationTime;
 
+    private float timeElapsedX, timeElapsedZ;
+    
     bool sprinting = false, coolDown;
 
     Vector3 movement;
@@ -35,10 +37,14 @@ public class StealthPlayer : MonoBehaviour
         sprintSpeed = speed * sprintMultiplier;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
+        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+
+        movement = new Vector3(horizontal, 0, vertical).normalized;
+        
         if(Input.GetKeyDown(KeyCode.LeftShift) && !sprinting && !coolDown)
         {
             sprinting = true;
@@ -79,26 +85,65 @@ public class StealthPlayer : MonoBehaviour
 
         
     }
-
+    // FIX SOME "KEY OFF FINGER" DELAY ON MOVEMENT.
+    // IT WORKS AHAHAHAHAHAHAHAHAHHAHAHHAAH HELL YEAH DUMBASS HORIZONTAL AND VERTICAL AAAAAAA
     private void FixedUpdate()
     {
 
-        vertical = Input.GetAxisRaw("Vertical");
-        horizontal = Input.GetAxisRaw("Horizontal");
 
-        movement = new Vector3(horizontal, 0, vertical).normalized;
 
-        if (sprinting)
+
+        if (Input.GetAxis("Vertical") == 0f && Rb.velocity.z != 0)
         {
-            Rb.velocity = (movement * sprintSpeed);
+            Debug.Log("SLOW DOWN Z" );
+            if (timeElapsedZ < decelerationTime)
+            {
+                Rb.velocity = Vector3.Lerp(Rb.velocity, new Vector3(Rb.velocity.x, Rb.velocity.y, 0f), timeElapsedZ / decelerationTime);
+                timeElapsedZ += Time.deltaTime;
+            }
+        } 
+        else
+        {
+            timeElapsedZ = 0;
+        }
+        
+        if ((Input.GetAxis("Horizontal") == 0f && Rb.velocity.x != 0f))
+        {
+            Debug.Log("SLOW DOWN X");
+            if (timeElapsedX < decelerationTime)
+            {
+                Rb.velocity = Vector3.Lerp(Rb.velocity, new Vector3(0f, Rb.velocity.y, Rb.velocity.z), timeElapsedX / decelerationTime);
+                timeElapsedX += Time.deltaTime;
+            }
         }
         else
-            Rb.velocity = (movement * speed);
+        {
+            timeElapsedX = 0;
+        }
         
 
-       // Debug.Log(Rb.velocity);
-    }
 
+        
+        
+        
+        
+        if (sprinting)
+        {
+            Rb.AddForce(movement * sprintSpeed, ForceMode.Impulse);
+           // Rb.velocity = (movement * sprintSpeed);
+           Rb.velocity = Vector3.ClampMagnitude(Rb.velocity, sprintSpeed);
+        }
+        else
+        {
+            Rb.AddForce(movement * speed, ForceMode.Impulse);
+            Rb.velocity = Vector3.ClampMagnitude(Rb.velocity, speed);
+        }
+        //  Rb.velocity = (movement * speed);
+
+
+   //     Debug.Log(Rb.velocity);
+    }
+    
 
 
 
@@ -106,4 +151,7 @@ public class StealthPlayer : MonoBehaviour
     {
         slider.value = stamina;
     }
+    
+    
+    
 }

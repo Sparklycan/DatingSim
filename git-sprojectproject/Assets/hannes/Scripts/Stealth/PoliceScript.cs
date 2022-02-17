@@ -13,12 +13,12 @@ using UnityEngine.UI;
 public class PoliceScript : MonoBehaviour
 {
  
-    // FIX SOME "KEY OFF FINGER" DELAY ON MOVEMENT.
     
     NavMeshAgent agent;
 
     private GameObject player;
 
+    private Light _light;
     // Attention area
     public float distance = 10;
     public float angle = 30;
@@ -66,14 +66,21 @@ public class PoliceScript : MonoBehaviour
     private bool picture, pictureTaken;
     private FlowchartCommunicator _flowchartCommunicator;
     public Slider slider;
+
+    [Header("Picture")]
+    // Backstab
+    private BoxCollider boxCollider;
+    
     
     void Start()
     {
+        _light = GetComponent<Light>();
+        boxCollider = GetComponent<BoxCollider>();
+        slider.gameObject.SetActive(false);
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("StealthPlayer");
         scanInterval = 1.0f / scanFrequency;
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
-        slider.maxValue = PictureTime;
     }
 
     // Update is called once per frame
@@ -97,41 +104,22 @@ public class PoliceScript : MonoBehaviour
 
         if (chase)
         {
-            Debug.Log("CHASING");
-            agent.isStopped = false;
-            agent.SetDestination(Chased.transform.position);
-            chaseTimer += Time.deltaTime;
-            if (chaseTimer >= chaseTime)
-            {
-                chaseTimer = 0;
-                confused = true;
-                chase = false;
-            }
+            Chase();
         }
         else
         {
             chaseTimer = 0;
         }
-
-
+        
         if (confused)
         {
-            confusedTimer += Time.deltaTime;
-            agent.isStopped = true;
-            pictureTimer = 0;
-            if (confusedTimer >= confusedTime)
-            {
-                confusedTimer = 0;
-                confused = false;
-                roam = true;
-            }
+            Confused();
         }
         else
         {
             confusedTimer = 0;
         }
-
-
+        
         if (roam)
         {
             if (Points.Length > 0)
@@ -142,6 +130,10 @@ public class PoliceScript : MonoBehaviour
         if (picture && !pictureTaken)
         {
             Picture();
+        }
+        else if (pictureTaken)
+        {
+            boxCollider.enabled = true;
         }
 
 
@@ -219,13 +211,28 @@ public class PoliceScript : MonoBehaviour
         // AS LONG AS CURRENT <= POINTS.LENGTH �
         // SHOULD WORK �
     }
+
+    void Chase()
+    {
+        _light.color = Color.red;
+        Debug.Log("CHASING");
+        agent.isStopped = false;
+        agent.SetDestination(Chased.transform.position);
+        chaseTimer += Time.deltaTime;
+        if (chaseTimer >= chaseTime)
+        {
+            chaseTimer = 0;
+            confused = true;
+            chase = false;
+        }
+    }
     
     void Picture()
     {
-        Light light = GetComponent<Light>();
+        slider.gameObject.SetActive(true);
+        slider.maxValue = PictureTime;
         pictureTimer += Time.deltaTime;
-        slider.value = chaseTimer;
-        
+        setProgress(pictureTimer);
         if (pictureTimer > 0)
         {
             slider.gameObject.SetActive(true);
@@ -239,11 +246,35 @@ public class PoliceScript : MonoBehaviour
             chase = false;
             _flowchartCommunicator.SendMessage("Click");
             pictureTaken = true;
-            light.color = Color.magenta;
+            _light.color = Color.magenta;
+            slider.gameObject.SetActive(false);
         }
         
+        
     }
-    
+
+    void Confused()
+    {
+        if (!pictureTaken)
+        {
+            _light.color = Color.blue;
+        }
+        slider.gameObject.SetActive(false);
+        confusedTimer += Time.deltaTime;
+        agent.isStopped = true;
+        pictureTimer = 0;
+        if (confusedTimer >= confusedTime)
+        {
+            confusedTimer = 0;
+            confused = false;
+            roam = true;
+        }  
+    }
+
+    void setProgress(float progress)
+    {
+        slider.value = progress;
+    }
 
     public bool IsInsIght(GameObject obj)
     {
@@ -274,6 +305,7 @@ public class PoliceScript : MonoBehaviour
 
     Mesh createWedgeMesh()
     {
+        // this... was interesting to code to say the least. Thank you emil for your amazing Datorgrafik Course!
         Mesh mesh = new Mesh();
 
         int segments = 10;
@@ -364,6 +396,15 @@ public class PoliceScript : MonoBehaviour
 
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "StealthPlayer")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (mesh)
@@ -409,10 +450,7 @@ public class PoliceScript : MonoBehaviour
         }
     }
 
-    // POLICE FIND PLAYER, COUNTER GOES DOWN FOR EVERY SECOND THEY SEE YOU
-    // IF STILL IN CHASE STATE COUNTER UP, BUT ONLY WHEN YOU'RE IN VISION.
-    // WHEN TIMES GONE UP, PICTURE TAKEN. 
-    // TIMER ON X-SECONDS UNTIL PERSON UPLOADS THE PICTURE.
+
 
 
 
