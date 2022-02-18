@@ -27,6 +27,7 @@ public class StealthPlayer : MonoBehaviour
     stealthCamera StealthCam;
 
 
+
     public Slider slider;
 
     void Start()

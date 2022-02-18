@@ -16,6 +16,7 @@ using System.Linq;
 public class PoliceScript : MonoBehaviour
 {
                         // GODDAMN THIS IS BIG
+                        // FUNGUS. REMEMBER THIS.
     
     NavMeshAgent agent;
 
@@ -87,12 +88,10 @@ public class PoliceScript : MonoBehaviour
     private float pictureTimer;
     private bool picture, pictureTaken = false;
     private FlowchartCommunicator _flowchartCommunicator;
-
+    
+    
     // Backstab
     private BoxCollider boxCollider;
-
-
-    
     void Start()
     {
         Friends.Clear();
@@ -246,7 +245,7 @@ public class PoliceScript : MonoBehaviour
         agent.SetDestination(Points[current]);
         float dist = agent.remainingDistance;
         if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete &&
-            agent.remainingDistance == 0 && !chase)
+            agent.remainingDistance <= 4 && !chase)
         {
             arrived = true;
         }
@@ -607,10 +606,4 @@ public class PoliceScript : MonoBehaviour
 
         }
     }
-
-         
-         
-         
-         
-         
 }
