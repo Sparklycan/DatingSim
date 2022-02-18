@@ -111,6 +111,12 @@ public class MinigameHighscoreManager : MonoBehaviour
 
     public void PrintFishpongScores()
     {
+        scoreTexts[0].text = scoreContainer.fishpongScore1.x.ToString() +" "+ scoreContainer.fishpongScore1.y.ToString() +" "+
+                             scoreContainer.fishpongScore1.z.ToString();
+        scoreTexts[1].text = scoreContainer.fishpongScore2.x.ToString() +" "+ scoreContainer.fishpongScore2.y.ToString() +" "+
+                             scoreContainer.fishpongScore2.z.ToString();
+        scoreTexts[2].text = scoreContainer.fishpongScore3.x.ToString() +" "+ scoreContainer.fishpongScore3.y.ToString() +" "+
+                             scoreContainer.fishpongScore3.z.ToString();
         Debug.Log(scoreContainer.fishpongScore1);
         Debug.Log(scoreContainer.fishpongScore2);
         Debug.Log(scoreContainer.fishpongScore3);
