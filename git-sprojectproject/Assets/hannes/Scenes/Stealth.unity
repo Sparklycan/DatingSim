@@ -435,6 +435,7 @@ Transform:
   - {fileID: 879762592}
   - {fileID: 1869152482}
   - {fileID: 437485777}
+  - {fileID: 923915525}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3218,7 +3219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &870779179
 GameObject:
@@ -3262,7 +3263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &879762590
 GameObject:
@@ -3424,12 +3425,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923915522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 250, y: 21.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 197.32697, y: 80.05156, z: -105.90217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 122084775}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1080445312
 GameObject:
@@ -5000,6 +5001,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 277390696873865053, guid: 74ebaa6bc45fff6429af668645bd4211, type: 3}
   m_PrefabInstance: {fileID: 1477717413}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1512331944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 277390696873865051, guid: 74ebaa6bc45fff6429af668645bd4211, type: 3}
+  m_PrefabInstance: {fileID: 277390696855513216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1512331945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512331944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f60e9d1af51eb44d89d3f5509e3d637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1521865734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5247,7 +5265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1553809765}
   m_Layer: 0
-  m_Name: CivilianAI
+  m_Name: FungusTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5487,7 +5505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649976353
 GameObject:
@@ -5895,7 +5913,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1734586200}
+  - {fileID: 1734586198}
   selectedCommands: []
   variables: []
   description: 
@@ -5922,7 +5940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 1734586198}
   suppressBlockAutoSelect: 0
-  message: 
+  message: The world!
 --- !u!114 &1734586198
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5939,13 +5957,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 68.06383
     y: 71.06383
-    width: 112.76595
+    width: 115.95744
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 0
-  blockName: New Block
-  description: 
+  blockName: PauseTime
+  description: Pause of time to go further into fungus
   eventHandler: {fileID: 1734586197}
   commandList: []
   suppressAllAutoSelections: 0
@@ -5977,8 +5995,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 96.545944
-    y: 181.34695
+    x: 102.92891
+    y: 210.0703
     width: 79.78723
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
