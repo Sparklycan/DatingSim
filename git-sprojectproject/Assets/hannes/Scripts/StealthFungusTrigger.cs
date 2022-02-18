@@ -18,9 +18,10 @@ public class StealthFungusTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("StealthPlayer"))
         {
             _flowchartCommunicator.SendMessage("The world!");
+           // Destroy(this.gameObject);
         }
     }
 }

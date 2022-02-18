@@ -129,7 +129,6 @@ public class StealthPlayer : MonoBehaviour
         if (sprinting)
         {
             Rb.AddForce(movement * sprintSpeed, ForceMode.Impulse);
-           // Rb.velocity = (movement * sprintSpeed);
            Rb.velocity = Vector3.ClampMagnitude(Rb.velocity, sprintSpeed);
         }
         else
@@ -137,10 +136,7 @@ public class StealthPlayer : MonoBehaviour
             Rb.AddForce(movement * speed, ForceMode.Impulse);
             Rb.velocity = Vector3.ClampMagnitude(Rb.velocity, speed);
         }
-        //  Rb.velocity = (movement * speed);
 
-
-   //     Debug.Log(Rb.velocity);
     }
     
 

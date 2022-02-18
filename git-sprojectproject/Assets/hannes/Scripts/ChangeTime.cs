@@ -8,6 +8,7 @@ public class ChangeTime : Command
 {
     [Range(0, 1)] public float timeScale; 
 
+    
     public override void OnEnter()
     {
         Time.timeScale = timeScale;
@@ -19,6 +20,7 @@ public class ChangeTime : Command
     {
         return timeScale.ToString();
     }
+    
     
     
 }
