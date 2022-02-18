@@ -11,7 +11,7 @@ public class MinigameHighscoreManager : MonoBehaviour
     
     
 
-    public void FishpongScoreSetter(int a, int b, int c)
+    public void FishpongScoreSetter(float a, float b, float c)
     {
         Vector3 temporary = new Vector3(a, b ,c);
         float currentscore = temporary.x + temporary.y - temporary.z;
@@ -72,7 +72,7 @@ public class MinigameHighscoreManager : MonoBehaviour
         PrintPlatformScores();
     }
 
-    public void SweeperScoreSetter(int a, int b, int c)
+    public void SweeperScoreSetter(float a, float b, float c)
     {
         Vector3 temporary = new Vector3(a, b ,c);
         float currentscore = temporary.x + temporary.y - temporary.z;
