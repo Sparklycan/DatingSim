@@ -5,8 +5,8 @@ using UnityEngine;
 public class PanelController : MonoBehaviour
 {
     public GameObject minigameOverPanel;
-    
-    
+    public MinigameHighscoreManager hsm;
+    public bool useHighscores = false;
     
    private int love, lust, sus;
     public Minigame mg;
@@ -18,6 +18,12 @@ public class PanelController : MonoBehaviour
         lust = lu;
         sus = s;
         minigameOverPanel.SetActive(true);
+        if (useHighscores)
+        {
+            Debug.Log("Saving scores");
+            hsm.SweeperScoreSetter((float)love, (float)lust, (float)sus);
+        }
+        
     }
 
     //call this through a button or some such to end the minigame completely

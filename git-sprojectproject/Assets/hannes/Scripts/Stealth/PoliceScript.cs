@@ -15,8 +15,10 @@ using System.Linq;
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
 {
+// EXTREMELY IMPORTANT TO REMEMBER UNTIL AFTERWARDS: STATEMACHINE OR EVENTS
                         // GODDAMN THIS IS BIG
                         // FUNGUS. REMEMBER THIS.
+                        // KILLSWITCH - (Alerter)
     
     NavMeshAgent agent;
 
@@ -66,6 +68,15 @@ public class PoliceScript : MonoBehaviour
     [Tooltip("")]
     public float AlertSpeedMultiplier;
     
+    [Header("Alerter")]
+    // ALERTER
+    public bool Alerter;
+    public float alerterTime;
+    
+
+    private float alerterTimer;
+    private bool alerted;
+    
     private float AlertSpeed, originalSpeed;
     private float pauseTimer, chaseTimer, confusedTimer, scaredTimer;
     private float multiplyBy = 2 ;
@@ -73,7 +84,8 @@ public class PoliceScript : MonoBehaviour
     private int current = 0;
 
     private Transform startTransform;
-    private GameObject Chased;
+    [HideInInspector]
+    public GameObject Chased;
     private List<GameObject> Friends = new List<GameObject>();
     private NavMeshPath path;
     
@@ -88,6 +100,9 @@ public class PoliceScript : MonoBehaviour
     private float pictureTimer;
     private bool picture, pictureTaken = false;
     private FlowchartCommunicator _flowchartCommunicator;
+    
+    
+
     
     
     // Backstab
@@ -137,51 +152,66 @@ public class PoliceScript : MonoBehaviour
                 scanTimer += scanInterval;
                 Scan();
             }
+            
+            if (Alerter)
+                {
+                    if (alerted)
+                    {
+                        Alert();
+                    }
+                    else
+                    {
+                        alerterTimer = 0;
+                    }
+                }
+                else
+                {
+                    if (chase)
+                    {
+                        Chase();
+                    }
+                    else
+                    {
+                        chaseTimer = 0;
+                    } 
+                    
+                    if (picture && !pictureTaken)
+                    {
+                        Picture();
+                    }
+                    else if (pictureTaken)
+                    {
+                        boxCollider.enabled = true;
+                    }
+                    
+                    if (scared)
+                    {
+                        Scared();
+                    }
+                    else
+                    {
+                        scaredTimer = 0;
+                        cool = false;
+                        stop = false;
+                    }
+                }
+                if (confused)
+                    {
+                        Confused();
+                    }
+                    else
+                    {
+                        confusedTimer = 0;
+                    }
 
-            if (chase)
-            {
-                Chase();
-            }
-            else
-            {
-                chaseTimer = 0;
-            }
-        
-            if (confused)
-            {
-                Confused();
-            }
-            else
-            {
-                confusedTimer = 0;
-            }
-        
-            if (roam)
-            {
-                if (Points.Length > 0)
-                    Roam();
-            }
-
-
-            if (picture && !pictureTaken)
-            {
-                Picture();
-            }
-            else if (pictureTaken)
-            {
-                boxCollider.enabled = true;
-            }
-
-            if (scared)
-            {
-                Scared();
-            }
-            else
-            {
-                scaredTimer = 0;
-                cool = false;
-                stop = false;
-            }
+                    if (!alerted)
+                    {
+                        if (roam)
+                        {
+                            if (Points.Length > 0)
+                                Roam();
+                        }   
+                    }
 
         }
       
@@ -204,14 +234,27 @@ public class PoliceScript : MonoBehaviour
 
         }
 
+        
         if (Objects.Count > 0 && !pictureTaken)
         {
-            
-            chaseTimer = 0;
-            chase = true;
-            confused = false;
-            roam = false;
-            picture = true;
+            if (Alerter)
+            {
+                alerterTimer = 0;
+                chase = false;
+                confused = false;
+                roam = false;
+                picture = false;
+                alerted = true;
+            }
+            else
+            {
+                chaseTimer = 0;
+                chase = true;
+                confused = false;
+                roam = false;
+                picture = true;
+            }
+
         }
         else if (Objects.Count > 0 && pictureTaken)
         {
@@ -233,14 +276,22 @@ public class PoliceScript : MonoBehaviour
         bool arrived = false;
         agent.isStopped = false;
 
-        if (pictureTaken)
+        if (Alerter)
         {
-            _light.color = Color.magenta;
+            _light.color = Color.green;
         }
         else
         {
-            _light.color = Color.blue;
+            if (pictureTaken)
+            {
+                _light.color = Color.magenta;
+            }
+            else
+            {
+                _light.color = Color.blue;
+            }   
         }
+
         
         agent.SetDestination(Points[current]);
         float dist = agent.remainingDistance;
@@ -296,6 +347,40 @@ public class PoliceScript : MonoBehaviour
             chase = false;
         }
         
+    }
+
+    void Alert()
+    {
+        _light.color = Color.yellow;
+        Debug.Log("ALERTING");
+        alerterTimer += Time.deltaTime;
+        transform.LookAt(player.transform.position);
+        
+        foreach (GameObject P in Friends)
+        {
+            if (!P.GetComponent<PoliceScript>().Alerter)
+            {
+                P.GetComponent<PoliceScript>().alerted = true;
+                P.GetComponent<NavMeshAgent>().SetDestination(player.transform.position);
+            }
+        }
+        
+        if (alerterTimer >= alerterTime)
+        {
+            foreach (GameObject P in Friends)
+            {
+                if (P.GetComponent<PoliceScript>().chase == false)
+                {
+                    P.GetComponent<PoliceScript>().confused = true;
+                }
+            }
+
+            confused = true;
+            alerted = false;
+            chaseTimer = 0;
+        }
+
+
     }
     
     void Scared()
@@ -415,6 +500,7 @@ public class PoliceScript : MonoBehaviour
         {
             confusedTimer = 0;
             confused = false;
+            alerted = false;
             roam = true;
         }  
     }
