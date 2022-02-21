@@ -432,15 +432,8 @@ Transform:
   m_LocalPosition: {x: 52.673027, y: -58.55156, z: 105.90217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 788450934}
-  - {fileID: 1734586199}
-  - {fileID: 805103091}
-  - {fileID: 242447488}
-  - {fileID: 1380453824}
-  - {fileID: 879762592}
-  - {fileID: 1869152482}
   - {fileID: 437485777}
-  - {fileID: 923915525}
+  - {fileID: 728091654}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -884,7 +877,7 @@ Transform:
   m_LocalPosition: {x: -57.596237, y: 58.473293, z: -96.50217}
   m_LocalScale: {x: 20, y: 1, z: 7.055983}
   m_Children: []
-  m_Father: {fileID: 122084775}
+  m_Father: {fileID: 728091654}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250704292
@@ -1707,7 +1700,7 @@ RectTransform:
   m_Children:
   - {fileID: 1707536600}
   m_Father: {fileID: 122084775}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2071,7 +2064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502513468}
   - component: {fileID: 502513469}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: StaminaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2849,6 +2842,46 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721206153}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &728091653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728091654}
+  m_Layer: 0
+  m_Name: Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &728091654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728091653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 788450934}
+  - {fileID: 1734586199}
+  - {fileID: 805103091}
+  - {fileID: 242447488}
+  - {fileID: 1380453824}
+  - {fileID: 879762592}
+  - {fileID: 1869152482}
+  - {fileID: 923915525}
+  - {fileID: 1593547105}
+  - {fileID: 859564511}
+  m_Father: {fileID: 122084775}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778397079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,7 +3102,7 @@ Transform:
   - {fileID: 664557518}
   - {fileID: 1428500972}
   - {fileID: 1116571571}
-  m_Father: {fileID: 122084775}
+  m_Father: {fileID: 728091654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &805103087
@@ -3162,7 +3195,7 @@ Transform:
   m_LocalPosition: {x: -134.06302, y: 77.30156, z: -116.40217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 122084775}
+  m_Father: {fileID: 728091654}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &827694231
@@ -3330,12 +3363,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859564510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -52.673027, y: 58.55156, z: -105.90217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 728091654}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &870779179
 GameObject:
@@ -3379,7 +3412,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &879762590
 GameObject:
@@ -3433,7 +3466,7 @@ Transform:
   m_Children:
   - {fileID: 1746464378}
   - {fileID: 1977845926}
-  m_Father: {fileID: 122084775}
+  m_Father: {fileID: 728091654}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &879762593
@@ -3545,8 +3578,8 @@ Transform:
   m_LocalPosition: {x: 197.32697, y: 80.05156, z: -105.90217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 122084775}
-  m_RootOrder: 8
+  m_Father: {fileID: 728091654}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1080445312
 GameObject:
@@ -4117,7 +4150,7 @@ GameObject:
   - component: {fileID: 1212649556}
   - component: {fileID: 1212649558}
   - component: {fileID: 1212649557}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4891,7 +4924,7 @@ Transform:
   - {fileID: 272705590}
   - {fileID: 383228923}
   - {fileID: 1919263094}
-  m_Father: {fileID: 122084775}
+  m_Father: {fileID: 728091654}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &1408052868
@@ -5756,12 +5789,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593547102}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -52.673027, y: 58.55156, z: -105.90217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 728091654}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649976353
 GameObject:
@@ -6139,6 +6172,7 @@ GameObject:
   - component: {fileID: 1734586204}
   - component: {fileID: 1734586206}
   - component: {fileID: 1734586205}
+  - component: {fileID: 1734586207}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -6172,8 +6206,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1734586198}
-  selectedCommands:
-  - {fileID: 1734586205}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -6214,7 +6247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 208.46556
+    x: 243.46556
     y: -118.66168
     width: 113
     height: 40
@@ -6225,8 +6258,9 @@ MonoBehaviour:
   description: Pause of time to go further into fungus
   eventHandler: {fileID: 1734586197}
   commandList:
-  - {fileID: 1734586206}
   - {fileID: 1734586205}
+  - {fileID: 1734586206}
+  - {fileID: 1734586207}
   suppressAllAutoSelections: 0
 --- !u!4 &1734586199
 Transform:
@@ -6239,7 +6273,7 @@ Transform:
   m_LocalPosition: {x: -52.673027, y: 58.55156, z: -105.90217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 122084775}
+  m_Father: {fileID: 728091654}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1734586200
@@ -6345,19 +6379,18 @@ MonoBehaviour:
   fadeTweenType: 4
 --- !u!114 &1734586205
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734586195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98e7ceee318b9e44e940fe70e4dc6261, type: 3}
+  m_Script: {fileID: 11500000, guid: c5493fe8fc278794b838ebf6c7e08985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 7
   indentLevel: 0
-  timeScale: 0.01
 --- !u!114 &1734586206
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6374,9 +6407,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererHappy2.0: Oh, I am an engineer! I tinker with all
-      kinds of stuff! Like my glasses here, I made it so much better ''cause my eye
-      sucked before and now it is awesome!'
+    stringVal: 'Tinkerer TinkererHappy2.0: We''ll be right back!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -6389,6 +6420,20 @@ MonoBehaviour:
   fadeWhenDone:
     booleanRef: {fileID: 0}
     booleanVal: 1
+--- !u!114 &1734586207
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734586195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5eb492c0bbe39f4da9904bed988ab1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
 --- !u!1 &1746464376
 GameObject:
   m_ObjectHideFlags: 0
@@ -6399,7 +6444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1746464378}
   - component: {fileID: 1746464377}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6873,7 +6918,7 @@ GameObject:
   - component: {fileID: 1842530383}
   - component: {fileID: 1842530385}
   - component: {fileID: 1842530384}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6966,7 +7011,7 @@ Transform:
   m_Children:
   - {fileID: 2066302834}
   - {fileID: 1553809765}
-  m_Father: {fileID: 122084775}
+  m_Father: {fileID: 728091654}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869638210
@@ -7361,7 +7406,7 @@ GameObject:
   - component: {fileID: 1977845929}
   - component: {fileID: 1977845928}
   - component: {fileID: 1977845927}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: StaminaCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ public class StealthFungusTrigger : MonoBehaviour
         if (other.CompareTag("StealthPlayer"))
         {
             _flowchartCommunicator.SendMessage("The world!");
-           // Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
