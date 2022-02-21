@@ -11,7 +11,7 @@ public class Destroy : MonoBehaviour
     {
         if(collision.tag == "Ball")
         {
-            Destroy(collision);
+            Destroy(collision.gameObject);
         }
     }
 }

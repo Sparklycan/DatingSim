@@ -49,6 +49,8 @@ namespace Fungus
         [Tooltip("Select if the calling block should stop or continue executing commands, or wait until the called block finishes.")]
         [SerializeField] protected CallMode callMode;
 
+        public event Action<Command, Block> onCall;
+
         #region Public members
 
         public override void OnEnter()
@@ -97,6 +99,7 @@ namespace Fungus
                     {
                         StopParentBlock();
                     }
+                    onCall?.Invoke(this, targetBlock);
                     StartCoroutine(targetBlock.Execute(index, onComplete));
                 }
                 else
@@ -138,7 +141,7 @@ namespace Fungus
             }
             else
             {
-                summary = targetBlock.BlockName;
+                summary = GetCallFraction() + targetBlock.BlockName;
             }
 
             summary += " : " + callMode.ToString();
@@ -159,6 +162,25 @@ namespace Fungus
         public bool MayCallBlock(Block block)
         {
             return block == targetBlock;
+        }
+
+        private string GetCallFraction()
+        {
+            Flowchart flowchart = GetFlowchart();
+            if (flowchart == null)
+                return "";
+
+            FlowchartStatistics statistics = flowchart.GetComponent<FlowchartStatistics>();
+            if (statistics == null)
+                return "";
+
+            int calls = statistics.CallCount(ItemId);
+            int total = statistics.BlockCount(ParentBlock.ItemId);
+            if (calls < 0 || total < 0 || calls > total)
+                return "";
+
+            float frac = (float)calls / (float)total;
+            return frac.ToString("P") + "\t";
         }
 
         #endregion

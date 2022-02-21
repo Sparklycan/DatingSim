@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using UnityEngine;
-
+using FMODUnity;
 public class mousePush : MonoBehaviour
 {
     Vector3 worldPosition;
@@ -37,6 +38,8 @@ public class mousePush : MonoBehaviour
 
 
     public Transform SpriteTransform;
+    
+    FMOD.Studio.EventInstance pointerSound;
 
     // Variables for Hannes Movement
 
@@ -50,10 +53,10 @@ public class mousePush : MonoBehaviour
 
     // PSEUDO for gradual amount increase.
     /*
-    Arange = distance of the A values (Amin … Amax)
+    Arange = distance of the A values (Amin ï¿½ Amax)
     Avalue = value on Arange
 
-    Brange = distance of the B values (Bmin … Bmax)
+    Brange = distance of the B values (Bmin ï¿½ Bmax)
     Bvalue = value on Brange
 
     Arange = Amax - Amin
@@ -69,6 +72,7 @@ public class mousePush : MonoBehaviour
         circle = gameObject.GetComponent<CircleCollider2D>();
         powerRange = maxPower - minPower;
         PSizeRange = maxPushSize - minPushSize;
+        pointerSound = FMODUnity.RuntimeManager.CreateInstance("event:/Sound/SFX/Minigames/MinigameGoFish/Pointer");
     }
 
     
@@ -98,6 +102,7 @@ public class mousePush : MonoBehaviour
                 pushSize += Time.deltaTime * pushSizeMultiplier;
                 SpriteTransform.localScale = new Vector3(pushSize * 2, pushSize * 2, 1);
                 power = minPower + (pushSize - minPushSize) / PSizeRange * powerRange;
+                pointerSound.start();
             }
             if (Input.GetMouseButtonUp(0))
             {
@@ -106,6 +111,7 @@ public class mousePush : MonoBehaviour
                 circle.radius = pushSize;
                 circle.enabled = true;
                 pushSize = minPushSize;
+                pointerSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             }
 
 

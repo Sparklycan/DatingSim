@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-
+#if UNITY_EDITOR
 public class BallWindow : EditorWindow
 {
     public Ballhandler ballhandler;
@@ -111,3 +111,4 @@ private void OnGUI()
     */
 
 }
+#endif
