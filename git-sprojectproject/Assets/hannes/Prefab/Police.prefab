@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 7565219771943797100}
   m_Layer: 0
   m_Name: Police
-  m_TagString: Untagged
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,14 +400,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Objects: []
-  SpotLight: {fileID: 844281036839440097}
   Points: []
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
+  scaredTime: 6
+  AlertSpeedMultiplier: 1.5
   PictureTime: 1
   slider: {fileID: 2976708071670187240}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
+  SpotLight: {fileID: 844281036839440097}
 --- !u!195 &1885521985588876567
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -422,7 +424,7 @@ NavMeshAgent:
   m_Acceleration: 25
   avoidancePriority: 50
   m_AngularSpeed: 500
-  m_StoppingDistance: 0.1
+  m_StoppingDistance: 0.6
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
