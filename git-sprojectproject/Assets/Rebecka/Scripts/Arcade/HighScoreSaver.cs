@@ -54,9 +54,9 @@ public class HighScoreSaver : MonoBehaviour
         data.values2ey = scoreContainer.sweeperScore2.y;
         data.values2ez = scoreContainer.sweeperScore2.z;
         
-        data.values3ex = scoreContainer.sweeperscore3.x;
-        data.values3ey = scoreContainer.sweeperscore3.y;
-        data.values3ez = scoreContainer.sweeperscore3.z;
+        data.values3ex = scoreContainer.sweeperScore3.x;
+        data.values3ey = scoreContainer.sweeperScore3.y;
+        data.values3ez = scoreContainer.sweeperScore3.z;
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Game data saved!");
@@ -102,9 +102,9 @@ public class HighScoreSaver : MonoBehaviour
                 scoreContainer.sweeperScore2.y = data.values2ey;
                 scoreContainer.sweeperScore2.z = data.values2ez;
                 
-                scoreContainer.sweeperscore3.x = data.values3ex;
-                scoreContainer.sweeperscore3.y = data.values3ey;
-                scoreContainer.sweeperscore3.z = data.values3ez;
+                scoreContainer.sweeperScore3.x = data.values3ex;
+                scoreContainer.sweeperScore3.y = data.values3ey;
+                scoreContainer.sweeperScore3.z = data.values3ez;
                 Debug.Log("Game data loaded!");
             }
             else
@@ -149,9 +149,9 @@ public class HighScoreSaver : MonoBehaviour
                 scoreContainer.sweeperScore2.y = data.values2ey;
                 scoreContainer.sweeperScore2.z = data.values2ez;
                 
-                scoreContainer.sweeperscore3.x = data.values3ex;
-                scoreContainer.sweeperscore3.y = data.values3ey;
-                scoreContainer.sweeperscore3.z = data.values3ez;
+                scoreContainer.sweeperScore3.x = data.values3ex;
+                scoreContainer.sweeperScore3.y = data.values3ey;
+                scoreContainer.sweeperScore3.z = data.values3ez;
                 Debug.Log("Game data loaded!");
             }
             else
@@ -178,7 +178,7 @@ public class HighScoreSaver : MonoBehaviour
                 scoreContainer.platformerTimeScores = Vector3.zero;
                 scoreContainer.sweeperScore1 = Vector3.zero;
                 scoreContainer.sweeperScore2 = Vector3.zero;
-                scoreContainer.sweeperscore3 = Vector3.zero;
+                scoreContainer.sweeperScore3 = Vector3.zero;
                 Debug.Log("Data reset done, yeet");
             }
             else
@@ -199,7 +199,7 @@ public class HighScoreSaver : MonoBehaviour
                 scoreContainer.platformerTimeScores = Vector3.zero;
                 scoreContainer.sweeperScore1 = Vector3.zero;
                 scoreContainer.sweeperScore2 = Vector3.zero;
-                scoreContainer.sweeperscore3 = Vector3.zero;
+                scoreContainer.sweeperScore3 = Vector3.zero;
                 Debug.Log("Data reset done, yeet");
             }
             else
