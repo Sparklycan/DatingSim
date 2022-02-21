@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Timers;
 using Fungus;
 using Unity.Mathematics;
@@ -8,11 +9,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
+using Random = System.Random;
+using System.Linq;
 
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
 {
- 
+                        // GODDAMN THIS IS BIG
+                        // FUNGUS. REMEMBER THIS.
     
     NavMeshAgent agent;
 
@@ -20,6 +24,7 @@ public class PoliceScript : MonoBehaviour
 
     private Light _light;
     // Attention area
+    [Header("ViewArea")]
     public float distance = 10;
     public float angle = 30;
     public float height = 1.1f;
@@ -27,8 +32,8 @@ public class PoliceScript : MonoBehaviour
     public int scanFrequency = 30;
     public LayerMask layers;
     public LayerMask OcclusionLayers;
+    [HideInInspector]
     public List<GameObject> Objects = new List<GameObject>();
-    public Light SpotLight;
 
 
     private Collider[] colliders = new Collider[50];
@@ -37,15 +42,15 @@ public class PoliceScript : MonoBehaviour
     private float scanInterval;
     private float scanTimer;
 
-    [Tooltip(
-        "All the points that the Police will go through, the cyan line is from starting position to show which direction the police will move.")]
+    [Tooltip( "All the points that the Police will go through, the cyan line is from starting position to show which direction the police will move.")]
     [Space(15)]
     public Vector3[] Points;
 
 
     // movement
-    private bool seen, chase, roam = true, confused;
-
+    [Header("Movement")]
+    private bool seen, chase, roam = true, confused, scared, cool = false, stop;
+    
     [Tooltip("The time the Police waits on the different points.")]
     public float PauseTime;
 
@@ -55,26 +60,48 @@ public class PoliceScript : MonoBehaviour
     [Tooltip("How long the police will pause after forgetting the player at a spot before going back to its roam.")]
     public float confusedTime;
 
-    private float pauseTimer, chaseTimer, confusedTimer;
-    int current = 0;
-    GameObject Chased;
+    [Tooltip("")]
+    public float scaredTime;
 
-    [Header("Picture")]
+    [Tooltip("")]
+    public float AlertSpeedMultiplier;
+    
+    private float AlertSpeed, originalSpeed;
+    private float pauseTimer, chaseTimer, confusedTimer, scaredTimer;
+    private float multiplyBy = 2 ;
+    
+    private int current = 0;
+
+    private Transform startTransform;
+    private GameObject Chased;
+    private List<GameObject> Friends = new List<GameObject>();
+    private NavMeshPath path;
+    
     // Picture
+    [Header("Picture")]
     public float PictureTime;
-    private float pictureTimer;
-    private bool picture, pictureTaken;
-    private FlowchartCommunicator _flowchartCommunicator;
+    [Space(10)]
     public Slider slider;
     public GameObject DeathParticle;
-
-    [Header("Picture")]
+    public Light SpotLight;
+    
+    private float pictureTimer;
+    private bool picture, pictureTaken = false;
+    private FlowchartCommunicator _flowchartCommunicator;
+    
+    
     // Backstab
     private BoxCollider boxCollider;
-    
-    
     void Start()
     {
+        Friends.Clear();
+        GameObject[] AIArray = GameObject.FindGameObjectsWithTag("AI");
+        foreach (GameObject node in AIArray)
+        {
+            Friends.Add(node);
+        }
+
+        path = new NavMeshPath();
         _light = GetComponent<Light>();
         boxCollider = GetComponent<BoxCollider>();
         slider.gameObject.SetActive(false);
@@ -82,12 +109,19 @@ public class PoliceScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("StealthPlayer");
         scanInterval = 1.0f / scanFrequency;
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
+        originalSpeed = agent.speed;
+        AlertSpeed = agent.speed * AlertSpeedMultiplier;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        for (int i = 0; i < Friends.Count - 1; i++)
+        {
+            if (Friends[i] == null)
+            {
+                Friends.RemoveAt(i);
+            }
+        }
         SpotLight.spotAngle = angle * 2;
         SpotLight.range = distance + 2;
         if (Input.GetKeyDown(KeyCode.C))
@@ -95,49 +129,62 @@ public class PoliceScript : MonoBehaviour
             agent.SetDestination(player.transform.position);
         }
 
+        if (Application.isPlaying)
+        {
+            scanTimer -= Time.deltaTime;
+            if (scanTimer < 0)
+            {
+                scanTimer += scanInterval;
+                Scan();
+            }
 
-        scanTimer -= Time.deltaTime;
-        if (scanTimer < 0)
-        {
-            scanTimer += scanInterval;
-            Scan();
-        }
-
-        if (chase)
-        {
-            Chase();
-        }
-        else
-        {
-            chaseTimer = 0;
-        }
+            if (chase)
+            {
+                Chase();
+            }
+            else
+            {
+                chaseTimer = 0;
+            }
         
-        if (confused)
-        {
-            Confused();
-        }
-        else
-        {
-            confusedTimer = 0;
-        }
+            if (confused)
+            {
+                Confused();
+            }
+            else
+            {
+                confusedTimer = 0;
+            }
         
-        if (roam)
-        {
-            if (Points.Length > 0)
-                Roam();
+            if (roam)
+            {
+                if (Points.Length > 0)
+                    Roam();
+            }
+
+
+            if (picture && !pictureTaken)
+            {
+                Picture();
+            }
+            else if (pictureTaken)
+            {
+                boxCollider.enabled = true;
+            }
+
+            if (scared)
+            {
+                Scared();
+            }
+            else
+            {
+                scaredTimer = 0;
+                cool = false;
+                stop = false;
+            }
+
         }
-
-
-        if (picture && !pictureTaken)
-        {
-            Picture();
-        }
-        else if (pictureTaken)
-        {
-            boxCollider.enabled = true;
-        }
-
-
+      
 
     }
 
@@ -159,8 +206,17 @@ public class PoliceScript : MonoBehaviour
 
         if (Objects.Count > 0 && !pictureTaken)
         {
+            
             chaseTimer = 0;
             chase = true;
+            confused = false;
+            roam = false;
+            picture = true;
+        }
+        else if (Objects.Count > 0 && pictureTaken)
+        {
+            scaredTimer = 0;
+            scared = true;
             confused = false;
             roam = false;
             picture = true;
@@ -177,10 +233,19 @@ public class PoliceScript : MonoBehaviour
         bool arrived = false;
         agent.isStopped = false;
 
+        if (pictureTaken)
+        {
+            _light.color = Color.magenta;
+        }
+        else
+        {
+            _light.color = Color.blue;
+        }
+        
         agent.SetDestination(Points[current]);
         float dist = agent.remainingDistance;
         if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete &&
-            agent.remainingDistance == 0 && !chase)
+            agent.remainingDistance <= 4 && !chase)
         {
             arrived = true;
         }
@@ -207,10 +272,11 @@ public class PoliceScript : MonoBehaviour
         // PSEUDO
         // IF REACHED GOAL �
         // BOOL ARRIVED TRUE �
-        // IF ARRIVED TRUE: PAUSETIMER + TIME � (might not work as the scan is on a timer...)
+        // IF ARRIVED TRUE: PAUSETIMER + TIME � (might not work as the scan is on a timer...) §
         // IF PAUSETIMER > PAUSETIME: CURRENT ++ � 
         // AS LONG AS CURRENT <= POINTS.LENGTH �
         // SHOULD WORK �
+        
     }
 
     void Chase()
@@ -220,12 +286,89 @@ public class PoliceScript : MonoBehaviour
         agent.isStopped = false;
         agent.SetDestination(Chased.transform.position);
         chaseTimer += Time.deltaTime;
-        if (chaseTimer >= chaseTime)
+        agent.speed = AlertSpeed;
+        
+        if(chaseTimer >= chaseTime)
         {
+            agent.speed = originalSpeed;
             chaseTimer = 0;
             confused = true;
             chase = false;
         }
+        
+    }
+    
+    void Scared()
+    {
+        if (!stop)
+        {
+            agent.isStopped = true;
+            stop = true;
+        }
+        else
+        {
+            agent.isStopped = false;
+        }
+        
+        Debug.Log("SCARED");
+        //agent.speed = AlertSpeed;
+        _light.color = Color.cyan;
+        
+        // Change this to shellsort you laaaaaaaazy pieve of lard <3
+        Friends = Friends.OrderBy(x => Vector3.Distance(this.transform.position,x.transform.position)).ToList();
+
+
+        if (SetDestination(Friends[1].transform.position))
+        {
+            Debug.Log("foundDestionation");
+            NavMesh.CalculatePath(transform.position, Friends[1].transform.position, NavMesh.AllAreas, path);
+            agent.SetPath(path);
+            agent.SetDestination(Friends[1].transform.position);
+        }
+        else
+        {
+            Debug.Log("SOMETHINGS WRONG, I CAN FEEL IT.");
+        }
+        
+
+        
+        
+       float dist = agent.remainingDistance;
+     
+       if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete &&
+           agent.remainingDistance <= 4)
+       {
+          cool = true;
+       }
+
+       if (cool)
+       {
+           scaredTimer += Time.deltaTime;
+           if (scaredTimer > scaredTime)
+           {
+               Debug.Log("not scared anymore");
+               scaredTimer = 0;
+               confused = true;
+               scared = false;
+               agent.speed = originalSpeed;
+           }
+       }
+
+    }
+    
+    private bool SetDestination(Vector3 targetDestination)
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(targetDestination, out hit, 1f, NavMesh.AllAreas))
+        {
+            agent.SetDestination(hit.position);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
     
     void Picture()
@@ -243,8 +386,10 @@ public class PoliceScript : MonoBehaviour
         
         if (pictureTimer > PictureTime)
         {
+            agent.speed = originalSpeed;
             confused = true;
             chase = false;
+            scared = false;
             _flowchartCommunicator.SendMessage("Click");
             pictureTaken = true;
             _light.color = Color.magenta;
@@ -260,6 +405,8 @@ public class PoliceScript : MonoBehaviour
         {
             _light.color = Color.blue;
         }
+
+        scared = false;
         slider.gameObject.SetActive(false);
         confusedTimer += Time.deltaTime;
         agent.isStopped = true;
@@ -396,8 +543,7 @@ public class PoliceScript : MonoBehaviour
         scanInterval = 1.0f / scanFrequency;
 
     }
-
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "StealthPlayer")
@@ -428,6 +574,15 @@ public class PoliceScript : MonoBehaviour
         {
             Gizmos.DrawSphere((obj.transform.position), 0.2f);
         }
+
+        if (scared)
+        {
+            if (path.corners.Length > 0)
+            {
+                for (int i = 0; i < path.corners.Length - 1; i++)
+                    Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.yellow);
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -451,10 +606,4 @@ public class PoliceScript : MonoBehaviour
 
         }
     }
-
-
-
-
-
-
 }

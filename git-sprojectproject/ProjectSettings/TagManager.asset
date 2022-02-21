@@ -10,22 +10,21 @@ TagManager:
   - Ball
   - BallHandler
   - StealthPlayer
-  - Hook
-  - Wall
+  - AI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Detectable
   - Water
   - UI
-  - Tile
-  - Obstacle
-  - Projectile
-  - PlayerProjectile
-  - Points
-  - Enemy
-  - Player
+  - StealthWalls
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -48,10 +47,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Particle effects
-    uniqueID: 4140933625
-    locked: 0
-  - name: Tiles
-    uniqueID: 985607955
     locked: 0
