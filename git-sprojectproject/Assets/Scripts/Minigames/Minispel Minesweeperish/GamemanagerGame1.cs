@@ -43,6 +43,9 @@ public class GamemanagerGame1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        settings.diagonalMovement = false;
+        settings.doubleDistance = false;
+        settings.loveBite = false;
         playerStartPosition = startpositionObject.transform.position;
         tileArray = FindObjectsOfType<TileBehaviour>();
         if (settings.diagonalMovement)
@@ -311,6 +314,14 @@ public class GamemanagerGame1 : MonoBehaviour
         else
         {
             obstacleCollection.SetActive(false);
+        }
+
+        if (settings.loveBite)
+        {
+            foreach (TileBehaviour tile in tileArray)
+            {
+                tile.LoveBiteAction();
+            }
         }
     }
     

@@ -10,10 +10,16 @@ public class UIHandler : MonoBehaviour
 
     public Text X, Y, Z, TIMER;
 
+    public MinigameHighscoreManager mhs;
+    public bool usehighscore = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (usehighscore)
+        {
+            mhs.FishpongScoreSetter(H.Points.z, H.Points.y, H.Points.x);
+        }
     }
 
     // Update is called once per frame

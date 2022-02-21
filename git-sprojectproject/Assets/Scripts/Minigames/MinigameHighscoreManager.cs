@@ -111,29 +111,30 @@ public class MinigameHighscoreManager : MonoBehaviour
 
     public void PrintFishpongScores()
     {
-        scoreTexts[0].text = scoreContainer.fishpongScore1.x.ToString() +" "+ scoreContainer.fishpongScore1.y.ToString() +" "+
-                             scoreContainer.fishpongScore1.z.ToString();
-        scoreTexts[1].text = scoreContainer.fishpongScore2.x.ToString() +" "+ scoreContainer.fishpongScore2.y.ToString() +" "+
-                             scoreContainer.fishpongScore2.z.ToString();
-        scoreTexts[2].text = scoreContainer.fishpongScore3.x.ToString() +" "+ scoreContainer.fishpongScore3.y.ToString() +" "+
-                             scoreContainer.fishpongScore3.z.ToString();
-        Debug.Log(scoreContainer.fishpongScore1);
-        Debug.Log(scoreContainer.fishpongScore2);
-        Debug.Log(scoreContainer.fishpongScore3);
+        scoreTexts[0].text ="Romance: " +  scoreContainer.fishpongScore1.x.ToString() +", Lust: "+ scoreContainer.fishpongScore1.y.ToString() +", Suspicion: "+
+                            scoreContainer.fishpongScore1.z.ToString();
+        scoreTexts[1].text ="Romance: " +  scoreContainer.fishpongScore2.x.ToString() +", Lust: "+ scoreContainer.fishpongScore2.y.ToString() +", Suspicion: "+
+                            scoreContainer.fishpongScore2.z.ToString();
+        scoreTexts[2].text ="Romance: " +  scoreContainer.fishpongScore3.x.ToString() +", Lust: "+ scoreContainer.fishpongScore3.y.ToString() +", Suspicion: "+
+                            scoreContainer.fishpongScore3.z.ToString();
+       
     }
 
     public void PrintPlatformScores()
     {
-       Debug.Log(scoreContainer.platformerTimeScores.x); 
-       Debug.Log(scoreContainer.platformerTimeScores.y);
-       Debug.Log(scoreContainer.platformerTimeScores.z); 
+        scoreTexts[0].text = scoreContainer.platformerTimeScores.x.ToString();
+        scoreTexts[1].text = scoreContainer.platformerTimeScores.y.ToString();
+        scoreTexts[2].text = scoreContainer.platformerTimeScores.z.ToString();
     }
 
     public void PrintSweeperScores()
     {
-        Debug.Log(scoreContainer.sweeperScore1);
-        Debug.Log(scoreContainer.sweeperScore2);
-        Debug.Log(scoreContainer.sweeperscore3);
+        scoreTexts[0].text ="Romance: " + scoreContainer.sweeperScore1.x.ToString() +", Lust: "+ scoreContainer.sweeperScore1.y.ToString() +", Suspicion: "+
+                             scoreContainer.sweeperScore1.z.ToString();
+        scoreTexts[1].text ="Romance: " +  scoreContainer.sweeperScore2.x.ToString() +", Lust: "+ scoreContainer.sweeperScore2.y.ToString() +", Suspicion: "+
+                            scoreContainer.sweeperScore2.z.ToString();
+        scoreTexts[2].text ="Romance: " +  scoreContainer.sweeperscore3.x.ToString() +", Lust: "+ scoreContainer.sweeperscore3.y.ToString() +", Suspicion: "+
+                            scoreContainer.sweeperscore3.z.ToString();
     }
     
 }
