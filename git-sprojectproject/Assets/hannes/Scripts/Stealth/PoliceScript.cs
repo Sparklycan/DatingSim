@@ -137,6 +137,7 @@ public class PoliceScript : MonoBehaviour
                 Friends.RemoveAt(i);
             }
         }
+        
         SpotLight.spotAngle = angle * 2;
         SpotLight.range = distance + 2;
         if (Input.GetKeyDown(KeyCode.C))
