@@ -54,6 +54,7 @@ public class TileBehaviour : MonoBehaviour
         crunchSound = tileSettings.crunchSound;
         settings = tileSettings.settings;
         
+        
         if (useIcon)
         {
             particleSystem.GetComponent<ParticleSystemRenderer>().material = iconSettings.particleMaterial;
@@ -66,29 +67,14 @@ public class TileBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loveBite = settings.loveBite;
+        
         boxC = GetComponent<BoxCollider2D>();
+        
         if (powerIcon != null)
         {
             powerIcon.SetActive(false);
         }
-
-        if (extraSus)
-        {
-            if (!loveBite)
-            {
-                Destroy(powerIcon);
-                powerIcon = null;
-                extraSus = false; 
-            }
-
-
-            love = false;
-            love = false;
-            lust = false;
-            sus = false;
-        }
-
+        
         tileStep = tileSounds.clips[0];
         loveStep = tileSounds.clips[1];
         lustStep = tileSounds.clips[2];
@@ -254,5 +240,26 @@ public class TileBehaviour : MonoBehaviour
         
     }
 
-    
+    public void LoveBiteAction()
+    {
+        loveBite = settings.loveBite;
+        
+        
+
+        if (extraSus)
+        {
+            if (!loveBite)
+            {
+                Destroy(powerIcon);
+                powerIcon = null;
+                extraSus = false; 
+            }
+
+
+            love = false;
+            love = false;
+            lust = false;
+            sus = false;
+        }
+    }
 }

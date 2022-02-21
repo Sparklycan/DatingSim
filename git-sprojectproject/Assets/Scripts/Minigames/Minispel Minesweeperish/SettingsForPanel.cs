@@ -25,32 +25,7 @@ public class SettingsForPanel : MonoBehaviour
 
     private void Awake()
     {
-        if (settings.diagonalMovement)
-        {
-            diagonal.color = Color.white;
-        }
-        else
-        {
-            diagonal.color = Color.gray;
-        }
-        
-        if (settings.doubleDistance)
-        {
-            doublemov.color = Color.white;
-        }
-        else
-        {
-            doublemov.color = Color.gray;
-        }
-        
-        if (settings.loveBite)
-        {
-            lovebite.color = Color.white;
-        }
-        else
-        {
-            lovebite.color = Color.gray;
-        }
+        SetAllDark();   
     }
 
 
@@ -94,5 +69,12 @@ public class SettingsForPanel : MonoBehaviour
             settings.loveBite = true;
             lovebite.color = Color.white;
         }
+    }
+
+    public void SetAllDark()
+    {
+        diagonal.color = Color.gray;
+        doublemov.color = Color.grey;
+        lovebite.color = Color.grey;
     }
 }
