@@ -4469,6 +4469,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885521985588876566, guid: 47d5fd23edf71a142ae214599adfbaad, type: 3}
+      propertyPath: Alerter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885521985588876566, guid: 47d5fd23edf71a142ae214599adfbaad, type: 3}
+      propertyPath: alerterTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885521985588876566, guid: 47d5fd23edf71a142ae214599adfbaad, type: 3}
       propertyPath: Points.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -5791,7 +5799,7 @@ GameObject:
   - component: {fileID: 1707536602}
   - component: {fileID: 1707536601}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Screen (RawImage)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5889,11 +5897,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -18.00422, y: 258.11853}
+  scrollPos: {x: 98.53877, y: 320.31738}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.8200002
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -5942,9 +5950,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 71.25531
-    y: 72.127655
-    width: 114.63413
+    x: 207.46556
+    y: -118.66168
+    width: 113
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5983,9 +5991,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 246.54587
-    y: -40.9935
-    width: 78.048775
+    x: 120.229996
+    y: -114.99338
+    width: 79
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
