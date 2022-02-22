@@ -92,10 +92,16 @@ public class PoliceScript : MonoBehaviour
     // Picture
     [Header("Picture")]
     public float PictureTime;
-    [Space(10)]
+    
+    
+    
+    // Extras
+    [Header("No touchy")]
+    public Image CharacterImage;
     public Slider slider;
     public GameObject DeathParticle;
     public Light SpotLight;
+    public Sprite[] Sprites;
     
     private float pictureTimer;
     private bool picture, pictureTaken = false;
@@ -280,16 +286,19 @@ public class PoliceScript : MonoBehaviour
         if (Alerter)
         {
             _light.color = Color.green;
+            CharacterImage.sprite = Sprites[4];
         }
         else
         {
             if (pictureTaken)
             {
                 _light.color = Color.magenta;
+                CharacterImage.sprite = Sprites[2];
             }
             else
             {
                 _light.color = Color.blue;
+                CharacterImage.sprite = Sprites[0];
             }   
         }
 
@@ -334,6 +343,7 @@ public class PoliceScript : MonoBehaviour
     void Chase()
     {
         _light.color = Color.red;
+        CharacterImage.sprite = Sprites[1];
         Debug.Log("CHASING");
         agent.isStopped = false;
         agent.SetDestination(Chased.transform.position);
@@ -414,6 +424,7 @@ public class PoliceScript : MonoBehaviour
         Debug.Log("SCARED");
         //agent.speed = AlertSpeed;
         _light.color = Color.cyan;
+        CharacterImage.sprite = Sprites[3];
         
         // Change this to shellsort you laaaaaaaazy pieve of lard <3
         Friends = Friends.OrderBy(x => Vector3.Distance(this.transform.position,x.transform.position)).ToList();
