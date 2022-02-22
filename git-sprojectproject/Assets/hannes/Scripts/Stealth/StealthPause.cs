@@ -26,8 +26,6 @@ public class StealthPause : Command
 //⣿⣿⡿⡅⠄⠄⢀⡰⠂⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 
 
-// STOP EVERYTHING ON A CERTAIN LAYER? 
-// THERE IS NOT A GOOD WAY OF DOING THIS
 
     private GameObject Player;
     private GameObject[] AIs;
