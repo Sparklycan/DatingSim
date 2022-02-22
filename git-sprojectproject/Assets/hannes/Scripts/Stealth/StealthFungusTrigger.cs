@@ -8,7 +8,9 @@ using Fungus;
 public class StealthFungusTrigger : MonoBehaviour
 {
     private FlowchartCommunicator _flowchartCommunicator;
-
+    [Tooltip("Message sent to the flowchart")]
+    public string Message;
+    
     private void Start()
     {
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
@@ -20,8 +22,8 @@ public class StealthFungusTrigger : MonoBehaviour
     {
         if (other.CompareTag("StealthPlayer"))
         {
-            _flowchartCommunicator.SendMessage("The world!");
-           // Destroy(this.gameObject);
+            _flowchartCommunicator.SendMessage(Message);
+            Destroy(this.gameObject);
         }
     }
 }
