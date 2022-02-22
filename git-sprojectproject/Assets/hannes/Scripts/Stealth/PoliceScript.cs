@@ -137,6 +137,7 @@ public class PoliceScript : MonoBehaviour
                 Friends.RemoveAt(i);
             }
         }
+        
         SpotLight.spotAngle = angle * 2;
         SpotLight.range = distance + 2;
         if (Input.GetKeyDown(KeyCode.C))
@@ -349,6 +350,21 @@ public class PoliceScript : MonoBehaviour
         
     }
 
+/*
+             (                 ,&&&.
+             )                .,.&&
+            (  (              \=__/
+                )             ,'-'.
+          (    (  ,,      _.__|/ /|
+           ) /\ -((------((_|___/ |
+         (  // | (`'      ((  `'--|
+       _ -.;_/ \\--._      \\ \-._/.
+      (_;-// | \ \-'.\    <_,\_\`--'|
+      ( `.__ _  ___,')      <_,-'__,'
+       `'(_ )_)(_)_)'
+ 
+        Take a break from this enormous script bud, it never ends anyway.
+ */
     void Alert()
     {
         _light.color = Color.yellow;
