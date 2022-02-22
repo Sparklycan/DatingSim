@@ -19,6 +19,9 @@ public class PoliceScript : MonoBehaviour
                         // GODDAMN THIS IS BIG
                         // FUNGUS. REMEMBER THIS.
                         // KILLSWITCH - (Alerter)
+                        // UPLOAD PICTURE - SEND SUS POINTS TO STEALTHPOINTSAVER
+                        
+    
     
     NavMeshAgent agent;
 
@@ -53,16 +56,16 @@ public class PoliceScript : MonoBehaviour
     [Header("Movement")]
     private bool seen, chase, roam = true, confused, scared, cool = false, stop;
     
-    [Tooltip("The time the Police waits on the different points.")]
+    [Tooltip("Amount of time the AI waits on the different points during roam state.")]
     public float PauseTime;
 
-    [Tooltip("How long the police will remember your position even after you are outside his viewcone.")]
+    [Tooltip("Amount of time the AI will remember your position even after you are outside his viewcone.")]
     public float chaseTime;
 
-    [Tooltip("How long the police will pause after forgetting the player at a spot before going back to its roam.")]
+    [Tooltip("Amount of time the AI will pause after forgetting the player at a spot before going back to its roam state.")]
     public float confusedTime;
 
-    [Tooltip("")]
+    [Tooltip("Amount of time the AI is scared before going into the Confused state.")]
     public float scaredTime;
 
     [Tooltip("")]
@@ -70,7 +73,9 @@ public class PoliceScript : MonoBehaviour
     
     [Header("Alerter")]
     // ALERTER
+    [Tooltip("If the AI is an alerter(true) or not(false)")]
     public bool Alerter;
+    [Tooltip("Amount of time the AI will Alert its friends")]
     public float alerterTime;
     
 
@@ -91,9 +96,16 @@ public class PoliceScript : MonoBehaviour
     
     // Picture
     [Header("Picture")]
+    [Tooltip("The amount of time before a picture is taken.")]
     public float PictureTime;
-    
-    
+    [Tooltip("Time before picture is being uploaded")]
+    public float UploadTime;
+    [Tooltip("Amount of sus points to be sent")]
+    public int SusPoints;
+    [HideInInspector] public int Sus;
+
+    private float uploadTimer;
+    private bool uploaded;
     
     // Extras
     [Header("No touchy")]
@@ -186,9 +198,9 @@ public class PoliceScript : MonoBehaviour
                     {
                         Picture();
                     }
-                    else if (pictureTaken)
+                    else if (pictureTaken && !uploaded)
                     {
-                        boxCollider.enabled = true;
+                        Upload();
                     }
                     
                     if (scared)
@@ -498,6 +510,7 @@ public class PoliceScript : MonoBehaviour
         
         if (pictureTimer > PictureTime)
         {
+            Sus += SusPoints;
             agent.speed = originalSpeed;
             confused = true;
             chase = false;
@@ -509,6 +522,22 @@ public class PoliceScript : MonoBehaviour
         }
         
         
+    }
+
+    void Upload()
+    {
+        boxCollider.enabled = true;
+        slider.gameObject.SetActive(true);
+        slider.maxValue = UploadTime;
+        slider.GetComponentInChildren<Image>().color = Color.cyan;
+        setProgress(uploadTimer);
+        uploadTimer += Time.deltaTime;
+        if (uploadTimer >= UploadTime)
+        {
+            Sus += (SusPoints * 3);
+            uploaded = true;
+            slider.gameObject.SetActive(false);
+        }
     }
 
     void Confused()
