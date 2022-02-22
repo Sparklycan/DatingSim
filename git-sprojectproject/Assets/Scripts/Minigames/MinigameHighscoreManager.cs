@@ -78,7 +78,7 @@ public class MinigameHighscoreManager : MonoBehaviour
     }
 
 
-    public void StealthScoreSetter()
+    public void StealthScoreSetter(float timeFirst, int nuggets, float timeSecond)
     {
         
         
