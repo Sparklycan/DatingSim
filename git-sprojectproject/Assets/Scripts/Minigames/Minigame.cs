@@ -1,4 +1,4 @@
- using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +24,8 @@ public class Minigame : MonoBehaviour
     {
         OnEndGame(ref romance, ref lust, ref suspicion);
 
-        onEndGameCallback(romance, lust, suspicion);
+        if (onEndGameCallback != null)
+            onEndGameCallback(romance, lust, suspicion);
 
     }
 
