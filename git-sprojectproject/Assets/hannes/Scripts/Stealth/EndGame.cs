@@ -13,8 +13,11 @@ public class EndGame : Command
     {
         _stealthPointSaver = GameObject.FindWithTag("StealthHandler").GetComponent<StealthPointSaver>();
         
+        
+        
         _stealthPointSaver.EndGame();
-
+        
+        
         Continue();
     }
 }

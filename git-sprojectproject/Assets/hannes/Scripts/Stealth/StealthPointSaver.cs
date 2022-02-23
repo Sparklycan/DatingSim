@@ -23,6 +23,8 @@ public class StealthPointSaver : MonoBehaviour
 
     public Text susText, triggersText, timeText;
 
+    private Minigame _minigame;
+    
     public void SusPlus(int points)
     {
         concludedSus += points;
@@ -36,10 +38,18 @@ public class StealthPointSaver : MonoBehaviour
     public void EndGame()
     {
         EndGameCanvas.SetActive(true);
+        
         susText.text = "SusPoints: " + concludedSus;
         triggersText.text = "Storynuggets: " + triggers + " / " + maxTriggers;
         timeText.text = "Time: " + time;
+        
 
+    }
+
+    public void ReallyEndGame()
+    {
+        _minigame = GetComponent<Minigame>();
+        _minigame.EndGame(0,0,concludedSus);
     }
     
     
