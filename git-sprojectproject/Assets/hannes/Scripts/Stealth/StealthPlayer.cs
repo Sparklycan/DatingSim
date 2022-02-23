@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class StealthPlayer : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class StealthPlayer : MonoBehaviour
     stealthCamera StealthCam;
 
 
+    private FMOD.Studio.EventInstance sprintSound;
 
     public Slider slider;
 
@@ -35,6 +37,8 @@ public class StealthPlayer : MonoBehaviour
         StealthCam = Camera.main.GetComponent<stealthCamera>();
         Rb = GetComponent<Rigidbody>();
         sprintSpeed = speed * sprintMultiplier;
+
+        sprintSound = FMODUnity.RuntimeManager.CreateInstance("event:/Sound/SFX/Minigames/Stealth/Sprint");
     }
 
     void Update()
@@ -48,6 +52,7 @@ public class StealthPlayer : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftShift) && !sprinting && !coolDown)
         {
             sprinting = true;
+            sprintSound.start();
         }
         if(sprinting)
         {
@@ -62,6 +67,7 @@ public class StealthPlayer : MonoBehaviour
                 timer2 = coolDownDuration;
                 coolDown = true;
                 sprinting = false;
+                sprintSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 timer1 = 0;
             }
         }
@@ -122,11 +128,6 @@ public class StealthPlayer : MonoBehaviour
         }
         
 
-
-        
-        
-        
-        
         if (sprinting)
         {
             Rb.AddForce(movement * sprintSpeed, ForceMode.Impulse);

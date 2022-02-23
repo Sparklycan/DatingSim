@@ -4964,7 +4964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Points: {x: 0, y: 0, z: 0}
-  maxTriggers: 0
+  maxTriggers: 6
   EndGameCanvas: {fileID: 1319946866}
   susText: {fileID: 430015895}
   triggersText: {fileID: 874382910}
@@ -73034,6 +73034,7 @@ GameObject:
   - component: {fileID: 1734586203}
   - component: {fileID: 1734586204}
   - component: {fileID: 1734586205}
+  - component: {fileID: 1734586206}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -73067,8 +73068,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1734586198}
-  selectedCommands:
-  - {fileID: 1734586205}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -73121,6 +73121,7 @@ MonoBehaviour:
   eventHandler: {fileID: 1734586197}
   commandList:
   - {fileID: 1734586205}
+  - {fileID: 1734586206}
   suppressAllAutoSelections: 0
 --- !u!4 &1734586199
 Transform:
@@ -73250,6 +73251,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 5
+  indentLevel: 0
+--- !u!114 &1734586206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734586195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5604ab7b3b50064ca061d8f59b2c17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
   indentLevel: 0
 --- !u!1 &1736324791
 GameObject:

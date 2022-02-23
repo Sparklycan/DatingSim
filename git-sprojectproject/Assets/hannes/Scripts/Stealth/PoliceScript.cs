@@ -11,6 +11,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using Random = System.Random;
 using System.Linq;
+using FMODUnity;
 
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
@@ -498,13 +499,13 @@ public class PoliceScript : MonoBehaviour
         
         if (pictureTimer > PictureTime)
         {
-            _stealthPointSaver.SusPlus(SusPoints);
             agent.speed = originalSpeed;
             confused = true;
             chase = false;
             scared = false;
             _flowchartCommunicator.SendMessage("Click");
             pictureTaken = true;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Camera", transform.position);
             _light.color = Color.magenta;
             CharacterImage.sprite = Sprites[3];
 
@@ -682,6 +683,8 @@ public class PoliceScript : MonoBehaviour
         if (other.tag == "StealthPlayer")
         {
             GameObject.Instantiate(DeathParticle, transform.position, quaternion.identity);
+            _stealthPointSaver.SusPlus(SusPoints);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Bite");
             Destroy(gameObject);
         }
     }

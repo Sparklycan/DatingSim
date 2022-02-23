@@ -37,7 +37,7 @@ public class StealthPointSaver : MonoBehaviour
     {
         EndGameCanvas.SetActive(true);
         susText.text = "SusPoints: " + concludedSus;
-        triggersText.text = "Storynuggets found: " + triggers + " / " + maxTriggers;
+        triggersText.text = "Storynuggets: " + triggers + " / " + maxTriggers;
         timeText.text = "Time: " + time;
 
     }
