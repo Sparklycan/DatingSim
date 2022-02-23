@@ -11,6 +11,8 @@ public class StealthFungusTrigger : MonoBehaviour
     [Tooltip("Message sent to the flowchart")]
     public string Message;
     
+    
+    
     private void Start()
     {
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();

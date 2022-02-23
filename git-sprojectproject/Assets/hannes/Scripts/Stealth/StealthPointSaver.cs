@@ -11,8 +11,15 @@ public class StealthPointSaver : MonoBehaviour
 
     private List<GameObject> AI = new List<GameObject>();
     
+    
+    
     private void Start()
     {
         
     }
+    
+    
+    
+    
+    
 }

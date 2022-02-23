@@ -15,10 +15,10 @@ using System.Linq;
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
 {
-// EXTREMELY IMPORTANT TO REMEMBER UNTIL AFTERWARDS: STATEMACHINE OR EVENTS
-                        // GODDAMN THIS IS BIG
-                        // FUNGUS. REMEMBER THIS.
-                        // KILLSWITCH - (Alerter)
+// EXTREMELY IMPORTANT TO REMEMBER UNTIL AFTERWARDS: STATEMACHINE OR EVENTS TO FIX THIS MESS 
+                        // GODDAMN THIS IS BIG 
+                        // FUNGUS. REMEMBER THIS. §
+                        // KILLSWITCH - (Alerter) §
                         // UPLOAD PICTURE - SEND SUS POINTS TO STEALTHPOINTSAVER
                         
     
