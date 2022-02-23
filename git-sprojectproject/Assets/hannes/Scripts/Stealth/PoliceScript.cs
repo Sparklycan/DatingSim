@@ -444,7 +444,7 @@ public class PoliceScript : MonoBehaviour
 
         if (SetDestination(Friends[1].transform.position))
         {
-            Debug.Log("foundDestionation");
+         //   Debug.Log("foundDestionation");
             NavMesh.CalculatePath(transform.position, Friends[1].transform.position, NavMesh.AllAreas, path);
             agent.SetPath(path);
             agent.SetDestination(Friends[1].transform.position);
