@@ -10,6 +10,7 @@ namespace Fungus
     {
 
         [SerializeField]
+        [Tooltip("The collection to add the move to.")]
         private CollectionData moves;
         [SerializeField]
         private CharacterClassData attacker;
@@ -18,8 +19,10 @@ namespace Fungus
         [SerializeField]
         private AbilityData ability;
         [SerializeField]
+        [Tooltip("Where in the collection the move should be inserted")]
         private IntegerData index;
         [SerializeField]
+        [Tooltip("Should this move allow for more moves to be added this turn")]
         private BooleanData allowMoreMoves;
 
         public override void OnEnter()

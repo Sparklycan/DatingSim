@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 76, y: -89}
+  scrollPos: {x: 330, y: -82}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -112,12 +112,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2781643791422089906}
-  - {fileID: 2781643791422089911}
   - {fileID: 1590790989192649457}
-  - {fileID: 260242968896134286}
-  - {fileID: 3636743325337244281}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 6757232129978609202}
   variables:
   - {fileID: 7872903369572800680}
   - {fileID: 7522494415769798598}
@@ -852,7 +849,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958740bc7997fce4c8114eec91634204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noAbility: {fileID: 0}
 --- !u!114 &2781643791422089885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,7 +865,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 2781643791422089918}
-  targetComponentAssemblyName: TurnManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  targetComponentAssemblyName: TurnManager, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: TurnManager
@@ -877,7 +873,7 @@ MonoBehaviour:
   targetMethodText: 'GetAllegienceCount (Allegience): Int32'
   methodParameters:
   - objValue:
-      typeAssemblyname: Allegience, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      typeAssemblyname: Allegience, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
         PublicKeyToken=null
       typeFullname: Allegience
       intValue: 0
@@ -914,7 +910,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 2781643791422089918}
-  targetComponentAssemblyName: TurnManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  targetComponentAssemblyName: TurnManager, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: TurnManager
@@ -922,7 +918,7 @@ MonoBehaviour:
   targetMethodText: 'GetAllegienceCount (Allegience): Int32'
   methodParameters:
   - objValue:
-      typeAssemblyname: Allegience, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      typeAssemblyname: Allegience, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
         PublicKeyToken=null
       typeFullname: Allegience
       intValue: 0
@@ -1540,7 +1536,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 8388463957185723842}
-  targetComponentAssemblyName: Minigame, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  targetComponentAssemblyName: Minigame, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Minigame
@@ -1692,7 +1688,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 2781643791422089918}
-  targetComponentAssemblyName: TurnManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  targetComponentAssemblyName: TurnManager, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: TurnManager
@@ -1700,7 +1696,7 @@ MonoBehaviour:
   targetMethodText: 'CollectCharacters (CharacterClassCollection): Void'
   methodParameters:
   - objValue:
-      typeAssemblyname: Fungus.CharacterClassCollection, Assembly-CSharp, Version=0.0.0.0,
+      typeAssemblyname: Fungus.CharacterClassCollection, Assembly-CSharp, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
       typeFullname: Fungus.CharacterClassCollection
       intValue: 0

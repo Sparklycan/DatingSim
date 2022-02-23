@@ -21,6 +21,7 @@ public class CharacterClass : MonoBehaviour, ClassBase
     [SerializeField]
     private Allegience allegience;
     [SerializeField]
+    [Tooltip("The component that will be used to select this characters moves.")]
     private MoveSelector abilitySelector;
     [SerializeField]
     private List<Ability> abilities;
@@ -38,6 +39,7 @@ public class CharacterClass : MonoBehaviour, ClassBase
     public Allegience Allegience => allegience;
     public Animator Animator => animator;
 
+    // Used by TurnManager to keep track of all the characters
     static public event Action<CharacterClass> onCharacterEnable;
     static public event Action<CharacterClass> onCharacterDisable;
 
@@ -69,10 +71,13 @@ public class CharacterClass : MonoBehaviour, ClassBase
     public IEnumerator<Move> SelectAbility()
     {
         abilitySelector.OnBeginSelect(this);
+
         IEnumerator<Move> ability = abilitySelector.Select();
         while (ability.MoveNext())
             yield return null;
+
         abilitySelector.OnEndSelect();
+
         yield return ability.Current;
     }
 
