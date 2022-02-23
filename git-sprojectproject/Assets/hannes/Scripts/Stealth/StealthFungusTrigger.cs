@@ -9,8 +9,13 @@ public class StealthFungusTrigger : MonoBehaviour
 {
     private FlowchartCommunicator _flowchartCommunicator;
 
+    public string Message;
+
+    private StealthPointSaver _stealthPointSaver;
+    
     private void Start()
     {
+        _stealthPointSaver = GameObject.FindWithTag("StealthHandler").GetComponent<StealthPointSaver>();
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
     }
 
@@ -20,8 +25,9 @@ public class StealthFungusTrigger : MonoBehaviour
     {
         if (other.CompareTag("StealthPlayer"))
         {
-            _flowchartCommunicator.SendMessage("The world!");
-           // Destroy(this.gameObject);
+            _stealthPointSaver.TriggerPlus();
+            _flowchartCommunicator.SendMessage(Message);
+            Destroy(this.gameObject);
         }
     }
 }

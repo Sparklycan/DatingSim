@@ -102,7 +102,6 @@ public class PoliceScript : MonoBehaviour
     public float UploadTime = 30f;
     [Tooltip("Amount of sus points to be sent")]
     public int SusPoints;
-    [HideInInspector] public int Sus;
 
     private float uploadTimer;
     private bool uploaded;
@@ -118,7 +117,7 @@ public class PoliceScript : MonoBehaviour
     private float pictureTimer;
     private bool picture, pictureTaken = false;
     private FlowchartCommunicator _flowchartCommunicator;
-
+    private StealthPointSaver _stealthPointSaver;
     
     
     
@@ -136,6 +135,7 @@ public class PoliceScript : MonoBehaviour
             Friends.Add(node);
         }
 
+        _stealthPointSaver = GameObject.FindWithTag("StealthHandler").GetComponent<StealthPointSaver>();
         path = new NavMeshPath();
         _light = GetComponent<Light>();
         boxCollider = GetComponent<BoxCollider>();
@@ -498,6 +498,7 @@ public class PoliceScript : MonoBehaviour
         
         if (pictureTimer > PictureTime)
         {
+            _stealthPointSaver.SusPlus(SusPoints);
             agent.speed = originalSpeed;
             confused = true;
             chase = false;
@@ -523,7 +524,7 @@ public class PoliceScript : MonoBehaviour
         uploadTimer += Time.deltaTime;
         if (uploadTimer >= UploadTime)
         {
-            Sus += (SusPoints * 3);
+            _stealthPointSaver.SusPlus(SusPoints * 3);
             uploaded = true;
             slider.gameObject.SetActive(false);
         }

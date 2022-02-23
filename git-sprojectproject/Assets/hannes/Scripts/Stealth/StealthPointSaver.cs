@@ -12,11 +12,10 @@ public class StealthPointSaver : MonoBehaviour
 
     private List<GameObject> AI = new List<GameObject>();
 
-    [HideInInspector]
-    public int concludedSus;
+     int concludedSus;
 
-    [HideInInspector]
-    public int triggers;
+     public int maxTriggers;
+     int triggers;
 
     private float time;
 
@@ -24,25 +23,25 @@ public class StealthPointSaver : MonoBehaviour
 
     public Text susText, triggersText, timeText;
 
-    void SusPlus()
+    public void SusPlus(int points)
     {
-        concludedSus++;
+        concludedSus += points;
     }
     
-    void TriggerPlus()
+    public void TriggerPlus()
     {
         triggers++;
     }
 
-
-    void EndGame()
+    public void EndGame()
     {
-        susText.text = "Suspoints: " + concludedSus;
-        triggersText.text = "Nuggets found: " + triggers;
+        EndGameCanvas.SetActive(true);
+        susText.text = "SusPoints: " + concludedSus;
+        triggersText.text = "Storynuggets found: " + triggers + " / " + maxTriggers;
         timeText.text = "Time: " + time;
-        
-        //  ENABLA SCENEN OCH LÄGG IN I POLICE SCRIPT PLUS TRIGGERS TIHI HAHAHAHAHAHAHAHHAH
+
     }
+    
     
     
     
