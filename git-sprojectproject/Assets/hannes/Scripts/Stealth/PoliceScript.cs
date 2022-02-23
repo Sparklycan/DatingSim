@@ -11,6 +11,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using Random = System.Random;
 using System.Linq;
+using FMODUnity;
 
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
@@ -517,6 +518,7 @@ public class PoliceScript : MonoBehaviour
             scared = false;
             _flowchartCommunicator.SendMessage("Click");
             pictureTaken = true;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Camera", transform.position);
             _light.color = Color.magenta;
             slider.gameObject.SetActive(false);
         }
@@ -692,6 +694,7 @@ public class PoliceScript : MonoBehaviour
         {
             GameObject.Instantiate(DeathParticle, transform.position, quaternion.identity);
             Destroy(gameObject);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Bite");
         }
     }
 

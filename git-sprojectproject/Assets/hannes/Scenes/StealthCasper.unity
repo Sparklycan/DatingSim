@@ -13406,6 +13406,7 @@ GameObject:
   - component: {fileID: 879762593}
   - component: {fileID: 879762591}
   - component: {fileID: 879762594}
+  - component: {fileID: 879762595}
   m_Layer: 3
   m_Name: Player
   m_TagString: StealthPlayer
@@ -13478,6 +13479,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &879762595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879762590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &884804246
 GameObject:
   m_ObjectHideFlags: 0
@@ -13883,7 +13898,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923915522}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &923915524
 Camera:
   m_ObjectHideFlags: 0

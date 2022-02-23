@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using Fungus;
+using FMODUnity;
 
 public class StealthFungusTrigger : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class StealthFungusTrigger : MonoBehaviour
     {
         if (other.CompareTag("StealthPlayer"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Vampire Ping");
             _flowchartCommunicator.SendMessage(Message);
             Destroy(this.gameObject);
         }
