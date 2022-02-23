@@ -7,7 +7,7 @@ using Fungus;
 public class ChangeTime : Command
 {
     [Range(0, 1)] public float timeScale; 
-    
+
     
     public override void OnEnter()
     {
