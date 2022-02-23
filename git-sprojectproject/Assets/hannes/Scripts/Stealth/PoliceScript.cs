@@ -19,6 +19,9 @@ public class PoliceScript : MonoBehaviour
                         // GODDAMN THIS IS BIG
                         // FUNGUS. REMEMBER THIS.
                         // KILLSWITCH - (Alerter)
+                        // SPRITES FIX
+                        // POINTS FIX
+                        // IMPLEMENT RASMUS SHIT
     
     NavMeshAgent agent;
 
@@ -52,17 +55,17 @@ public class PoliceScript : MonoBehaviour
     // movement
     [Header("Movement")]
     private bool seen, chase, roam = true, confused, scared, cool = false, stop;
-    
-    [Tooltip("The time the Police waits on the different points.")]
+
+    [Tooltip("Amount of time the AI waits on the different points during roam state.")]
     public float PauseTime;
 
-    [Tooltip("How long the police will remember your position even after you are outside his viewcone.")]
+    [Tooltip("Amount of time the AI will remember your position even after you are outside his viewcone.")]
     public float chaseTime;
 
-    [Tooltip("How long the police will pause after forgetting the player at a spot before going back to its roam.")]
+    [Tooltip("Amount of time the AI will pause after forgetting the player at a spot before going back to its roam state.")]
     public float confusedTime;
 
-    [Tooltip("")]
+    [Tooltip("Amount of time the AI is scared before going into the Confused state.")]
     public float scaredTime;
 
     [Tooltip("")]
@@ -70,17 +73,19 @@ public class PoliceScript : MonoBehaviour
     
     [Header("Alerter")]
     // ALERTER
+    [Tooltip("If the AI is an alerter(true) or not(false)")]
     public bool Alerter;
+    [Tooltip("Amount of time the AI will Alert its friends")]
     public float alerterTime;
-    
+
 
     private float alerterTimer;
     private bool alerted;
-    
+
     private float AlertSpeed, originalSpeed;
     private float pauseTimer, chaseTimer, confusedTimer, scaredTimer;
     private float multiplyBy = 2 ;
-    
+
     private int current = 0;
 
     private Transform startTransform;
@@ -91,15 +96,30 @@ public class PoliceScript : MonoBehaviour
     
     // Picture
     [Header("Picture")]
+    [Tooltip("The amount of time before a picture is taken.")]
     public float PictureTime;
-    [Space(10)]
+    [Tooltip("Time before picture is being uploaded")]
+    public float UploadTime = 30f;
+    [Tooltip("Amount of sus points to be sent")]
+    public int SusPoints;
+    [HideInInspector] public int Sus;
+
+    private float uploadTimer;
+    private bool uploaded;
+    
+    // Extras
+    [Header("No touchy")]
+    public Image CharacterImage;
     public Slider slider;
     public GameObject DeathParticle;
     public Light SpotLight;
-    
+    public Sprite[] Sprites;
+
     private float pictureTimer;
     private bool picture, pictureTaken = false;
     private FlowchartCommunicator _flowchartCommunicator;
+
+    
     
     
 
@@ -179,9 +199,9 @@ public class PoliceScript : MonoBehaviour
                     {
                         Picture();
                     }
-                    else if (pictureTaken)
+                    else if (pictureTaken && !uploaded)
                     {
-                        boxCollider.enabled = true;
+                        Upload();
                     }
                     
                     if (scared)
@@ -279,16 +299,20 @@ public class PoliceScript : MonoBehaviour
         if (Alerter)
         {
             _light.color = Color.green;
+            CharacterImage.sprite = Sprites[4];
         }
         else
         {
             if (pictureTaken)
             {
                 _light.color = Color.magenta;
+                CharacterImage.sprite = Sprites[2];
             }
             else
             {
                 _light.color = Color.blue;
+                CharacterImage.sprite = Sprites[0];
+
             }   
         }
 
@@ -333,6 +357,8 @@ public class PoliceScript : MonoBehaviour
     void Chase()
     {
         _light.color = Color.red;
+        CharacterImage.sprite = Sprites[1];
+
         Debug.Log("CHASING");
         agent.isStopped = false;
         agent.SetDestination(Chased.transform.position);
@@ -398,7 +424,8 @@ public class PoliceScript : MonoBehaviour
         Debug.Log("SCARED");
         //agent.speed = AlertSpeed;
         _light.color = Color.cyan;
-        
+        CharacterImage.sprite = Sprites[3];
+
         // Change this to shellsort you laaaaaaaazy pieve of lard <3
         Friends = Friends.OrderBy(x => Vector3.Distance(this.transform.position,x.transform.position)).ToList();
 
@@ -478,17 +505,36 @@ public class PoliceScript : MonoBehaviour
             _flowchartCommunicator.SendMessage("Click");
             pictureTaken = true;
             _light.color = Color.magenta;
+            CharacterImage.sprite = Sprites[3];
+
             slider.gameObject.SetActive(false);
         }
         
         
     }
-
+    
+    void Upload()
+    {
+        boxCollider.enabled = true;
+        slider.gameObject.SetActive(true);
+        slider.maxValue = UploadTime;
+        slider.GetComponentInChildren<Image>().color = Color.cyan;
+        setProgress(uploadTimer);
+        uploadTimer += Time.deltaTime;
+        if (uploadTimer >= UploadTime)
+        {
+            Sus += (SusPoints * 3);
+            uploaded = true;
+            slider.gameObject.SetActive(false);
+        }
+    }
+    
     void Confused()
     {
         if (!pictureTaken)
         {
             _light.color = Color.blue;
+            CharacterImage.sprite = Sprites[0];
         }
 
         scared = false;
@@ -688,7 +734,10 @@ public class PoliceScript : MonoBehaviour
 
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(Points[0], 1);
-            Gizmos.DrawLine(Points[0], Points[1]);
+            if (Points.Length > 1)
+            {
+                Gizmos.DrawLine(Points[0], Points[1]);
+            }
 
         }
     }
