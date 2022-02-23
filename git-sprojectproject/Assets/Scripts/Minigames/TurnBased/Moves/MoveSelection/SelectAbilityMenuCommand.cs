@@ -6,7 +6,7 @@ using System;
 using UnityEngine.UI;
 
 [CommandInfo("Flex", "Select ability menu", helpText: "Select an ability.")]
-public class SelectAbilityMonuCommand : WaitForCondition
+public class SelectAbilityMenuCommand : WaitForCondition
 {
 
     [SerializeField]
@@ -23,9 +23,6 @@ public class SelectAbilityMonuCommand : WaitForCondition
     {
         selectedAbility.Value = null;
 
-        foreach (Button button in buttonLayoutGroup.GetComponentsInChildren<Button>())
-            Destroy(button.gameObject);
-
         foreach (Ability ability in character.Value.Abilities)
         {
             Button button = Instantiate(buttonPrefab, buttonLayoutGroup.transform);
@@ -41,7 +38,12 @@ public class SelectAbilityMonuCommand : WaitForCondition
         if (selectedAbility.Value == null)
             return null;
         else
+        {
+            foreach (Button button in buttonLayoutGroup.GetComponentsInChildren<Button>())
+                Destroy(button.gameObject);
+
             return true;
+        }
     }
 
 }

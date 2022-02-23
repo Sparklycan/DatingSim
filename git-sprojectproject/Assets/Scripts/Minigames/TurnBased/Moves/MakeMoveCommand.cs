@@ -13,6 +13,7 @@ namespace Fungus
         [SerializeField]
         private MoveData move;
         [SerializeField]
+        [Tooltip("The collection to use if the move adds more moves.")]
         private CollectionData moves;
 
         public override void OnEnter()

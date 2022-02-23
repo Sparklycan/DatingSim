@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Fungus
 {
 
-    [CommandInfo("Flex", "Sort moves", helpText: "Sort moves")]
+    [CommandInfo("Flex", "Sort moves", helpText: "Sort moves first by ability, second by allegience.")]
     public class SortMovesCommand : Command
     {
 

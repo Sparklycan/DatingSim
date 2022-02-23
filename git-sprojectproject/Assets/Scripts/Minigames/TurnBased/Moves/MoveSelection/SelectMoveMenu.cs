@@ -9,7 +9,6 @@ public class SelectMoveMenu : MoveSelector
 
     [SerializeField]
     private string characterVariable = "SelectedCharacter";
-    private string moveVariable = "SelectedMove";
 
     private Fungus.Flowchart flowchart = null;
     private Fungus.Flowchart Flowchart

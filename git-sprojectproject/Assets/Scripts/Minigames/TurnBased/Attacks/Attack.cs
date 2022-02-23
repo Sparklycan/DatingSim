@@ -13,10 +13,13 @@ public class Attack : MonoBehaviour
     protected CharacterClass[] targets;
 
     [SerializeField]
+    [Tooltip("The flowchart variable that should contain the attacker")]
     protected string attackerKey = "Attacker";
     [SerializeField]
+    [Tooltip("The flowchart variable that should contain the collection of moves")]
     protected string movesKey = "Moves";
     [SerializeField]
+    [Tooltip("The flowchart variable that should contain wether the attack sould allow more moves to be added")]
     protected string allowMoreMovesKey = "AllowMoreMoves";
     [SerializeField]
     protected Fungus.CharacterClassCollection targetCollection;

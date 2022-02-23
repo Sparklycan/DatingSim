@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 932850758699584656, guid: b753abfe14bbc7049ae0736947b66263, type: 3}
+  selectedFlowchart: {fileID: 783152247}
 --- !u!4 &291099735
 Transform:
   m_ObjectHideFlags: 1
@@ -167,6 +167,99 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &783152222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2097997643108384033, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+  m_PrefabInstance: {fileID: 6299933430103991863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &783152223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783152222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4e78da90263284c975417237d87849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 19
+  indentLevel: 0
+  buttonPrefab: {fileID: 4206129508134077846, guid: fb77c446cdde1fa40a9f2317ccfb6ea6, type: 3}
+  buttonLayoutGroup: {fileID: 1989453755}
+  character:
+    characterClassRef: {fileID: 783152225}
+    characterClassVal: {fileID: 0}
+  selectedAbility:
+    abilityRef: {fileID: 783152240}
+    abilityVal: {fileID: 0}
+--- !u!114 &783152225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2097997643108384010, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+  m_PrefabInstance: {fileID: 6299933430103991863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783152222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe4bc619f388fb45a57440f29c06d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &783152236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2097997643108384034, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+  m_PrefabInstance: {fileID: 6299933430103991863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783152222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &783152238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2097997643108384031, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+  m_PrefabInstance: {fileID: 6299933430103991863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783152222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &783152240 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2097997643108384025, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+  m_PrefabInstance: {fileID: 6299933430103991863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783152222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7deee79a997ff42a74a5f39500f45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &783152242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2097997643108384027, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+  m_PrefabInstance: {fileID: 6299933430103991863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783152222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &783152247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2097997643108384028, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+  m_PrefabInstance: {fileID: 6299933430103991863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783152222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1239080888
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +423,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1989453755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6059582346879976179, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+  m_PrefabInstance: {fileID: 6299933430103991863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6299933430103991863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -345,6 +449,30 @@ PrefabInstance:
       propertyPath: selectedCommands.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2097997643108384021, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+      propertyPath: nodeRect.x
+      value: 196.42857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097997643108384021, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+      propertyPath: commandList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097997643108384021, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+      propertyPath: commandList.Array.data[1]
+      value: 
+      objectReference: {fileID: 783152223}
+    - target: {fileID: 2097997643108384021, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+      propertyPath: commandList.Array.data[2]
+      value: 
+      objectReference: {fileID: 783152242}
+    - target: {fileID: 2097997643108384021, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+      propertyPath: commandList.Array.data[3]
+      value: 
+      objectReference: {fileID: 783152238}
+    - target: {fileID: 2097997643108384021, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
+      propertyPath: commandList.Array.data[4]
+      value: 
+      objectReference: {fileID: 783152236}
     - target: {fileID: 3403963889720538876, guid: 0cb149e8aa2da244fa810611c9ec678f, type: 3}
       propertyPath: m_RootOrder
       value: 3
