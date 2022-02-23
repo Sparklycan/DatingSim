@@ -287,11 +287,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1885521985588876565}
   - component: {fileID: 1885521985588876564}
-  - component: {fileID: 1885521985588876566}
   - component: {fileID: 1885521985588876567}
   - component: {fileID: 7754815382498624574}
   - component: {fileID: 7488492191549611922}
   - component: {fileID: 7565219771943797100}
+  - component: {fileID: 954757766936819316}
   m_Layer: 7
   m_Name: Police
   m_TagString: AI
@@ -377,53 +377,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1885521985588876566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885521985588876563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 10
-  angle: 30
-  height: 1.1
-  meshcolor: {r: 1, g: 0, b: 0, a: 1}
-  scanFrequency: 30
-  layers:
-    serializedVersion: 2
-    m_Bits: 8
-  OcclusionLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  Objects: []
-  Points: []
-  PauseTime: 3
-  chaseTime: 3
-  confusedTime: 2
-  scaredTime: 6
-  AlertSpeedMultiplier: 1.5
-  Alerter: 0
-  alerterTime: 4
-  Chased: {fileID: 0}
-  PictureTime: 1
-  UploadTime: 10
-  SusPoints: 1
-  Sus: 0
-  CharacterImage: {fileID: 1017536221986465685}
-  slider: {fileID: 2976708071670187240}
-  DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
-  SpotLight: {fileID: 844281036839440097}
-  Sprites:
-  - {fileID: 21300000, guid: 35f5046520d1e9d4e93030ec0e069539, type: 3}
-  - {fileID: 21300000, guid: a0e9ce65ebb145446914e8b84d39f247, type: 3}
-  - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
-  - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
-  - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
 --- !u!195 &1885521985588876567
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -484,6 +437,53 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: -0.5}
+--- !u!114 &954757766936819316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885521985588876563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d56681b6b259e4fb1637746a4e1957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 10
+  angle: 30
+  height: 1.1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
+  scanFrequency: 30
+  layers:
+    serializedVersion: 2
+    m_Bits: 0
+  OcclusionLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  Objects: []
+  Points: []
+  PauseTime: 0
+  chaseTime: 0
+  confusedTime: 0
+  scaredTime: 0
+  AlertSpeedMultiplier: 0
+  Alerter: 0
+  alerterTime: 0
+  Chased: {fileID: 0}
+  PictureTime: 0
+  UploadTime: 0
+  SusPoints: 0
+  Sus: 0
+  CharacterImage: {fileID: 1017536221986465685}
+  slider: {fileID: 2976708071670187240}
+  DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
+  SpotLight: {fileID: 844281036839440097}
+  Sprites:
+  - {fileID: 21300000, guid: 35f5046520d1e9d4e93030ec0e069539, type: 3}
+  - {fileID: 21300000, guid: a0e9ce65ebb145446914e8b84d39f247, type: 3}
+  - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
+  - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
+  - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
 --- !u!1 &5625061195951971450
 GameObject:
   m_ObjectHideFlags: 0
