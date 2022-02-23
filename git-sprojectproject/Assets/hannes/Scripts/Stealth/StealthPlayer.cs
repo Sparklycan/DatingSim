@@ -23,6 +23,7 @@ public class StealthPlayer : MonoBehaviour
 
     Rigidbody Rb;
 
+    private float bep;
     float vertical, horizontal, sprintSpeed;
         
     [HideInInspector]
