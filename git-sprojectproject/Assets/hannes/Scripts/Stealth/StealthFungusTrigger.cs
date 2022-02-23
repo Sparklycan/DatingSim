@@ -14,6 +14,8 @@ public class StealthFungusTrigger : MonoBehaviour
 
     private StealthHandler _stealthPointSaver;
     
+    
+    
     private void Start()
     {
         _stealthPointSaver = GameObject.FindWithTag("StealthHandler").GetComponent<StealthHandler>();
