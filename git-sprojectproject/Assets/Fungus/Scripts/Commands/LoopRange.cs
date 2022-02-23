@@ -50,7 +50,7 @@ namespace Fungus
             }
         }
 
-        protected override bool? EvaluateCondition()
+        protected override bool EvaluateCondition()
         {
             return (startingValue.Value <= endValue.Value ?
                    counter.Value < endValue.Value :

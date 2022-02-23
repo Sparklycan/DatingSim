@@ -16,8 +16,6 @@ public class FlowchartStatistics : MonoBehaviour
 
     public new string name;
 
-    public bool gatherStatistics = true;
-
     [Space]
     public Gradient blockGradient = new Gradient()
     {
@@ -162,8 +160,7 @@ public class FlowchartStatistics : MonoBehaviour
         foreach(IBlockCaller caller in blockCallers)
             caller.onCall += OnCall;
 
-        if (gatherStatistics)
-            LoadData(true, true);
+        LoadData(true, true);
     }
 
     private void OnDisable()

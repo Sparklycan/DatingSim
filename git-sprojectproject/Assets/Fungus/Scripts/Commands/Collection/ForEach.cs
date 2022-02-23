@@ -38,7 +38,7 @@ namespace Fungus
             }
         }
 
-        protected override bool? EvaluateCondition()
+        protected override bool EvaluateCondition()
         {
             var col = collection.Value;
             curIndex.Value++;

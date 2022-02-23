@@ -11,9 +11,12 @@ public class StealthFungusTrigger : MonoBehaviour
     private FlowchartCommunicator _flowchartCommunicator;
     [Tooltip("Message sent to the flowchart")]
     public string Message;
+
+    private StealthHandler _stealthPointSaver;
     
     private void Start()
     {
+        _stealthPointSaver = GameObject.FindWithTag("StealthHandler").GetComponent<StealthHandler>();
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
     }
 
@@ -25,6 +28,7 @@ public class StealthFungusTrigger : MonoBehaviour
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Vampire Ping");
             _flowchartCommunicator.SendMessage(Message);
+            _stealthPointSaver.NuggetPlus();
             Destroy(this.gameObject);
         }
     }

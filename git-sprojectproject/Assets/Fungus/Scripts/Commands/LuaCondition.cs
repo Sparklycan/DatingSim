@@ -21,7 +21,7 @@ namespace Fungus
         protected string friendlyName = "";
         protected Closure luaFunction;
 
-		protected override bool? EvaluateCondition()
+		protected override bool EvaluateCondition()
 		{
 			bool condition = false;
             luaEnvironment.RunLuaFunction(luaFunction, false, (returnValue) => {
