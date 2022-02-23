@@ -62,7 +62,7 @@ namespace Fungus
             }
         }
 
-        protected override bool EvaluateCondition()
+        protected override bool? EvaluateCondition()
         {
             if (conditions == null || conditions.Count == 0)
             {

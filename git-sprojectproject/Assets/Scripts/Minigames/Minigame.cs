@@ -24,7 +24,8 @@ public class Minigame : MonoBehaviour
     {
         OnEndGame(ref romance, ref lust, ref suspicion);
 
-        onEndGameCallback(romance, lust, suspicion);
+        if (onEndGameCallback != null)
+            onEndGameCallback(romance, lust, suspicion);
 
     }
 

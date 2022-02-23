@@ -89,6 +89,8 @@ namespace Fungus
         public void ClearBlockStatistics() => blockStatistics.Clear();
         public void Visit(Block block, int count)
         {
+            if (blockStatistics == null || block == null)
+                return;
             if (blockStatistics.ContainsKey(block))
                 blockStatistics[block] += count;
             else
