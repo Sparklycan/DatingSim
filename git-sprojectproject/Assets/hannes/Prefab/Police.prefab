@@ -306,7 +306,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885521985588876563}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -449,30 +449,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d56681b6b259e4fb1637746a4e1957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 10
+  distance: 20
   angle: 30
   height: 1.1
   meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   OcclusionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   Objects: []
   Points: []
-  PauseTime: 0
-  chaseTime: 0
-  confusedTime: 0
-  scaredTime: 0
-  AlertSpeedMultiplier: 0
+  PauseTime: 2
+  chaseTime: 2
+  confusedTime: 2
+  scaredTime: 2
+  AlertSpeedMultiplier: 2
   Alerter: 0
   alerterTime: 0
   Chased: {fileID: 0}
-  PictureTime: 0
-  UploadTime: 0
-  SusPoints: 0
+  PictureTime: 2
+  UploadTime: 2
+  SusPoints: 2
   Sus: 0
   CharacterImage: {fileID: 1017536221986465685}
   slider: {fileID: 2976708071670187240}
@@ -528,7 +528,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 20
-  m_Range: 12
+  m_Range: 22
   m_SpotAngle: 60
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -685,7 +685,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
