@@ -11,6 +11,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using Random = System.Random;
 using System.Linq;
+using FMODUnity;
 
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
@@ -102,7 +103,6 @@ public class PoliceScript : MonoBehaviour
     public float UploadTime = 30f;
     [Tooltip("Amount of sus points to be sent")]
     public int SusPoints;
-    [HideInInspector] public int Sus;
 
     private float uploadTimer;
     private bool uploaded;
@@ -118,7 +118,7 @@ public class PoliceScript : MonoBehaviour
     private float pictureTimer;
     private bool picture, pictureTaken = false;
     private FlowchartCommunicator _flowchartCommunicator;
-
+    private StealthPointSaver _stealthPointSaver;
     
     
     
@@ -136,6 +136,7 @@ public class PoliceScript : MonoBehaviour
             Friends.Add(node);
         }
 
+        _stealthPointSaver = GameObject.FindWithTag("StealthHandler").GetComponent<StealthPointSaver>();
         path = new NavMeshPath();
         _light = GetComponent<Light>();
         boxCollider = GetComponent<BoxCollider>();
@@ -504,6 +505,7 @@ public class PoliceScript : MonoBehaviour
             scared = false;
             _flowchartCommunicator.SendMessage("Click");
             pictureTaken = true;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Camera", transform.position);
             _light.color = Color.magenta;
             CharacterImage.sprite = Sprites[3];
 
@@ -523,7 +525,7 @@ public class PoliceScript : MonoBehaviour
         uploadTimer += Time.deltaTime;
         if (uploadTimer >= UploadTime)
         {
-            Sus += (SusPoints * 3);
+            _stealthPointSaver.SusPlus(SusPoints * 3);
             uploaded = true;
             slider.gameObject.SetActive(false);
         }
@@ -681,6 +683,8 @@ public class PoliceScript : MonoBehaviour
         if (other.tag == "StealthPlayer")
         {
             GameObject.Instantiate(DeathParticle, transform.position, quaternion.identity);
+            _stealthPointSaver.SusPlus(SusPoints);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Bite");
             Destroy(gameObject);
         }
     }
