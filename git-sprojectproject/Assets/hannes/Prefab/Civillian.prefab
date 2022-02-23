@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 277390696873865053}
   - component: {fileID: 277390696873865052}
-  - component: {fileID: 2254467980965240239}
   - component: {fileID: 8609701899043157431}
   - component: {fileID: 1512331945}
+  - component: {fileID: 544436959508135278}
   m_Layer: 0
   m_Name: Civillian
   m_TagString: Untagged
@@ -97,19 +97,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &2254467980965240239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 277390696873865051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50cdb2bb9ada69446af935cd3b53d332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Message: 
 --- !u!65 &8609701899043157431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -135,6 +122,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f60e9d1af51eb44d89d3f5509e3d637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &544436959508135278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277390696873865051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039a3ccdf96ecf046a9adf84a96a86c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Message: 
 --- !u!1 &7017073105604725917
 GameObject:
   m_ObjectHideFlags: 0
