@@ -10,7 +10,7 @@ public class EndStealthFungus : Command
     public override void OnEnter()
     {
         _stealthHandler = GameObject.FindWithTag("StealthHandler").GetComponent<StealthHandler>();
-        _stealthHandler.GetSusPoints();
+        //_stealthHandler.GetSusPoints();
         _stealthHandler.EndGame();
         Continue();
     }

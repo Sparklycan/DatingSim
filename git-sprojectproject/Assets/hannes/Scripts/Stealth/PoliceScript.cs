@@ -118,7 +118,7 @@ public class PoliceScript : MonoBehaviour
     private float pictureTimer;
     private bool picture, pictureTaken = false;
     private FlowchartCommunicator _flowchartCommunicator;
-    
+    private StealthHandler _stealthHandler;
     
 
     
@@ -134,6 +134,7 @@ public class PoliceScript : MonoBehaviour
             Friends.Add(node);
         }
 
+        _stealthHandler = GameObject.FindWithTag("StealthHandler").GetComponent<StealthHandler>();
         path = new NavMeshPath();
         _light = GetComponent<Light>();
         boxCollider = GetComponent<BoxCollider>();
@@ -510,7 +511,8 @@ public class PoliceScript : MonoBehaviour
         
         if (pictureTimer > PictureTime)
         {
-            Sus += SusPoints;
+            _stealthHandler.SusPlus(SusPoints);
+           // Sus += SusPoints;
             agent.speed = originalSpeed;
             confused = true;
             chase = false;
@@ -534,7 +536,8 @@ public class PoliceScript : MonoBehaviour
         uploadTimer += Time.deltaTime;
         if (uploadTimer >= UploadTime)
         {
-            Sus += (SusPoints * 3);
+            _stealthHandler.SusPlus(SusPoints * 3);
+            //Sus += (SusPoints * 3);
             uploaded = true;
             slider.gameObject.SetActive(false);
         }

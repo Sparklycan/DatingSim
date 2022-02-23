@@ -21,17 +21,24 @@ public class StealthHandler : MonoBehaviour
 
     private float timer;
     private int concludedSus;
-    
+
+    private Minigame _minigame;
+    /*
     public void GetSusPoints()
     {
        GameObject[] AIArray = GameObject.FindGameObjectsWithTag("AI");
        foreach (GameObject G in AIArray)
        {
-          concludedSus += GetComponent<PoliceScript>().Sus;
+          concludedSus += G.GetComponent<PoliceScript>().Sus;
        }
 
        Points.x = concludedSus;
 
+    }
+    */
+    public void SusPlus(int point)
+    {
+        concludedSus += point;
     }
 
     public void NuggetPlus()
@@ -44,7 +51,6 @@ public class StealthHandler : MonoBehaviour
         SusPointsText.text = "SusPoints: " + concludedSus;
         NuggetsCollectedText.text = "Nuggets found: " + takenNuggets + "/ " + allNuggets;
         TimeTakenText.text = "Time taken: " + timer;
-        
         
         EndGameCanvas.SetActive(true);
     }
