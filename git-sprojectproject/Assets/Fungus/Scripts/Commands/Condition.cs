@@ -161,7 +161,9 @@ namespace Fungus
         {
             PreEvaluate();
 
-            if (EvaluateCondition())
+            bool? condition = EvaluateCondition();
+
+            if (condition != null && condition == true)
             {
                 OnTrue();
             }
@@ -242,7 +244,7 @@ namespace Fungus
         /// <summary>
         /// Sits in the if within EvaluateAndContinue, if returns true, OnTrue will run, if false, OnFalse will run.
         /// </summary>
-        protected abstract bool EvaluateCondition();
+        protected abstract bool? EvaluateCondition();
 
         /// <summary>
         /// Child classes are required to report if it is possible for them to be evaulated.
