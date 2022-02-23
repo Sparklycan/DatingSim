@@ -10,7 +10,7 @@ public class StealthFungusTrigger : MonoBehaviour
     private FlowchartCommunicator _flowchartCommunicator;
     [Tooltip("Message sent to the flowchart")]
     public string Message;
-    
+    //FUCK
     
     
     private void Start()
