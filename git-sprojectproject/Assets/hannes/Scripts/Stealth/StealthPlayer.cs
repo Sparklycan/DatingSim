@@ -6,9 +6,13 @@ using UnityEngine.UI;
 
 public class StealthPlayer : MonoBehaviour
 {
-
-    public float speed, sprintMultiplier;
-
+    [Tooltip("Speed of player")]
+    public float speed;
+    
+    [Tooltip("Multiplied speed of original speed when sprinting")]
+    public float sprintMultiplier;
+    
+    [Tooltip("Duration calculated in time (seconds)")]
     public float sprintDuration, coolDownDuration, decelerationTime;
 
     private float timeElapsedX, timeElapsedZ;
