@@ -423,90 +423,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 92857471}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 92857468}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: -63.55, y: 0, z: 29.3}
   - {x: -50.3, y: 0, z: 29.3}
   - {x: -50.3, y: 0, z: 16}
   - {x: -80.9, y: 0, z: 16}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -514,36 +447,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1456276264546899709}
   slider: {fileID: 3703608684208633216}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -554,11 +462,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 8193204139684984150}
-  boxCollider: {fileID: 8275284108402683908}
 --- !u!195 &92857471
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2767,6 +2670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 728091654}
+  - component: {fileID: 7061704351716784220}
   - component: {fileID: 7061704352948201610}
   m_Layer: 0
   m_Name: Handler
@@ -2797,6 +2701,17 @@ Transform:
   m_Father: {fileID: 122084775}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &767873261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2129540231136509881, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
+  m_PrefabInstance: {fileID: 2129540231043006596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &778397079
 GameObject:
   m_ObjectHideFlags: 0
@@ -4966,11 +4881,11 @@ GameObject:
   - component: {fileID: 1734586200}
   - component: {fileID: 1734586201}
   - component: {fileID: 1734586202}
-  - component: {fileID: 1734586203}
   - component: {fileID: 1734586204}
   - component: {fileID: 1734586206}
   - component: {fileID: 1734586205}
   - component: {fileID: 1734586207}
+  - component: {fileID: 1734586208}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -5002,10 +4917,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1734586198}
-  selectedCommands:
-  - {fileID: 1734586205}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -5101,7 +5014,6 @@ MonoBehaviour:
   eventHandler: {fileID: 1734586201}
   commandList:
   - {fileID: 1734586202}
-  - {fileID: 1734586203}
   - {fileID: 1734586204}
   suppressAllAutoSelections: 0
 --- !u!114 &1734586201
@@ -5139,23 +5051,6 @@ MonoBehaviour:
   fadeColor: {r: 1, g: 1, b: 1, a: 1}
   fadeTexture: {fileID: 0}
   fadeTweenType: 4
---- !u!114 &1734586203
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734586195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 3
-  indentLevel: 0
-  soundClip: {fileID: 8300000, guid: 47cd9bdb64508a74b9c8b8db5d69e351, type: 3}
-  volume: 1
-  waitUntilFinished: 0
 --- !u!114 &1734586204
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5233,6 +5128,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 8
   indentLevel: 0
+--- !u!114 &1734586208
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734586195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 184.83194
+    y: -22.953339
+    width: 104.11764
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 9
+  blockName: END (me)
+  description: 
+  eventHandler: {fileID: 0}
+  commandList: []
+  suppressAllAutoSelections: 0
 --- !u!1 &1754835035
 GameObject:
   m_ObjectHideFlags: 0
@@ -8842,90 +8763,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521985515313534}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521985515313533}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: 25.08, y: 0, z: 19.19}
   - {x: 25.08, y: 0, z: 10.17}
   - {x: 65.4, y: 0, z: 10.17}
   - {x: 65.4, y: 0, z: 19.5}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -8933,36 +8787,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536222034799612}
   slider: {fileID: 2976708071705938049}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -8973,11 +8802,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815382446295127}
-  boxCollider: {fileID: 7565219772029881605}
 --- !u!1 &1885521985547931584
 GameObject:
   m_ObjectHideFlags: 0
@@ -9034,88 +8858,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521985547931588}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521985547931591}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: -92.3, y: 0, z: 17.09}
   - {x: -92.3, y: 0, z: 34.2}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -9123,36 +8880,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536222000086342}
   slider: {fileID: 2976708071604117051}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -9163,11 +8895,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815382545768173}
-  boxCollider: {fileID: 7565219771928026047}
 --- !u!4 &1885521985547931590
 Transform:
   m_ObjectHideFlags: 0
@@ -9280,89 +9007,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521986059429605}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521986059429606}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: -52.46, y: 0, z: 8.24}
   - {x: -31.8, y: 0, z: 28.8}
   - {x: -31.8, y: 0, z: 8.1}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -9370,36 +9030,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536222595945575}
   slider: {fileID: 2976708072267101978}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -9410,11 +9045,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815381900163020}
-  boxCollider: {fileID: 7565219771466969758}
 --- !u!195 &1885521986059429605
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9549,90 +9179,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521986380319104}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521986380319107}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: -17.33, y: 0, z: -9.8}
   - {x: -36.64, y: 0, z: -9.82}
   - {x: -36.64, y: 0, z: -20.4}
   - {x: -17.35, y: 0, z: -20.4}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -9640,36 +9203,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536222778440450}
   slider: {fileID: 2976708072453773439}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -9680,11 +9218,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815382250412201}
-  boxCollider: {fileID: 7565219771687198203}
 --- !u!4 &1885521986380319106
 Transform:
   m_ObjectHideFlags: 0
@@ -9875,88 +9408,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521986773015915}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521986773015912}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: -60.06, y: 0, z: -4.89}
   - {x: -60.06, y: 0, z: -17.2}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -9964,36 +9430,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 1
   alerterTime: 4
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536223224606697}
   slider: {fileID: 2976708070413765780}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -10004,11 +9445,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815381321894978}
-  boxCollider: {fileID: 7565219770971539728}
 --- !u!195 &1885521986773015915
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10165,90 +9601,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521986783931671}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521986783931668}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: 12.02, y: 0, z: 26}
   - {x: 12.02, y: 0, z: -10.4}
   - {x: -10.5, y: 0, z: -10.4}
   - {x: -10.5, y: 0, z: 26}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -10256,36 +9625,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536223182299029}
   slider: {fileID: 2976708070441729256}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -10296,11 +9640,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815381312109630}
-  boxCollider: {fileID: 7565219771017329004}
 --- !u!195 &1885521986783931671
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10357,90 +9696,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521986791194328}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521986791194331}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: 37.8, y: 0, z: 32.3}
   - {x: 25.6, y: 0, z: 34.2}
   - {x: 25.6, y: 0, z: 25.8}
   - {x: 37.1, y: 0, z: 25.8}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -10448,36 +9720,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536223172807770}
   slider: {fileID: 2976708070432239399}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -10488,11 +9735,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815381302587377}
-  boxCollider: {fileID: 7565219771024583331}
 --- !u!4 &1885521986791194330
 Transform:
   m_ObjectHideFlags: 0
@@ -10649,90 +9891,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521987009032828}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521987009032831}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: 24.27, y: 0, z: 3.34}
   - {x: 24.27, y: 0, z: -5}
   - {x: 62.22, y: 0, z: -5}
   - {x: 62.22, y: 0, z: 3.5}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -10740,36 +9915,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536223527485694}
   slider: {fileID: 2976708070783771523}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -10780,11 +9930,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815381490541397}
-  boxCollider: {fileID: 7565219771341514247}
 --- !u!4 &1885521987009032830
 Transform:
   m_ObjectHideFlags: 0
@@ -10875,90 +10020,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521987036709137}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521987036709138}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: 46.77, y: 0, z: 30.9}
   - {x: 58.3, y: 0, z: 34.7}
   - {x: 58.3, y: 0, z: 25.81}
   - {x: 46.2, y: 0, z: 26}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -10966,36 +10044,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536223489389459}
   slider: {fileID: 2976708070685888750}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -11006,11 +10059,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815381585596472}
-  boxCollider: {fileID: 7565219771244680554}
 --- !u!195 &1885521987036709137
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11189,90 +10237,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fb5cff07e4c54c8f654b2e6dbb17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1885521987571071964}
-  player: {fileID: 2129540231043006597}
-  _light: {fileID: 1885521987571071967}
   distance: 10
   angle: 30
   height: 1.1
-  meshcolor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
+  meshcolor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   layers:
+    serializedVersion: 2
     m_Bits: 8
   OcclusionLayers:
+    serializedVersion: 2
     m_Bits: 64
   Objects: []
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mesh: {fileID: 0}
-  count: 0
-  scanInterval: 0.033333335
-  scanTimer: 0
   Points:
   - {x: 57.29, y: 0, z: -11.9}
   - {x: 57.29, y: 0, z: -18.5}
   - {x: 22.8, y: 0, z: -18.5}
   - {x: 22.8, y: 0, z: -11.6}
-  seen: 0
-  chase: 0
-  roam: 1
-  confused: 0
-  scared: 0
-  cool: 0
-  stop: 0
   PauseTime: 3
   chaseTime: 3
   confusedTime: 2
@@ -11280,36 +10261,11 @@ MonoBehaviour:
   AlertSpeedMultiplier: 1.5
   Alerter: 0
   alerterTime: 0
-  alerterTimer: 0
-  alerted: 0
-  AlertSpeed: 22.5
-  originalSpeed: 15
-  pauseTimer: 0
-  chaseTimer: 0
-  confusedTimer: 0
-  scaredTimer: 0
-  multiplyBy: 2
-  current: 0
-  startTransform: {fileID: 0}
   Chased: {fileID: 0}
-  Friends:
-  - {fileID: 92857467}
-  - {fileID: 1885521985547931584}
-  - {fileID: 1885521986059429601}
-  - {fileID: 1885521986773015919}
-  - {fileID: 1885521986380319108}
-  - {fileID: 1885521986783931667}
-  - {fileID: 1885521986791194332}
-  - {fileID: 1885521987036709141}
-  - {fileID: 1885521987009032824}
-  - {fileID: 1885521987571071960}
-  - {fileID: 1885521985515313530}
   PictureTime: 1
   UploadTime: 10
   SusPoints: 1
   Sus: 0
-  uploadTimer: 0
-  uploaded: 0
   CharacterImage: {fileID: 1017536224039192926}
   slider: {fileID: 2976708071228369443}
   DeathParticle: {fileID: 4446249379584654529, guid: e589388d3cf1eb441a5360b1d8221535, type: 3}
@@ -11320,11 +10276,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad08a5754eacfb947ab2bcf1b2b3da91, type: 3}
   - {fileID: 21300000, guid: b1ad0359849608e4ebff57a3094f2ed0, type: 3}
   - {fileID: 21300000, guid: b94abf778ec968f4f8c18c9e18e669c5, type: 3}
-  pictureTimer: 0
-  picture: 0
-  pictureTaken: 0
-  _flowchartCommunicator: {fileID: 7754815381062724341}
-  boxCollider: {fileID: 7565219770695593895}
 --- !u!4 &1885521987571071966
 Transform:
   m_ObjectHideFlags: 0
@@ -11415,7 +10366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cdb2bb9ada69446af935cd3b53d332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flowchartCommunicator: {fileID: 0}
   Message: The world!
 --- !u!222 &2061847742791452314
 CanvasRenderer:
@@ -11509,9 +10459,29 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2129540230708517915, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129540230708517915, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
       propertyPath: slider
       value: 
-      objectReference: {fileID: 2129540231043006598}
+      objectReference: {fileID: 767873261}
+    - target: {fileID: 2129540230708517915, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
+      propertyPath: sprintDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129540230708517915, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
+      propertyPath: coolDownDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129540230708517915, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
+      propertyPath: decelerationTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129540230708517915, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
+      propertyPath: sprintMultiplier
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2129540230708517924, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -11566,22 +10536,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
---- !u!1 &2129540231043006597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2129540230708517914, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
-  m_PrefabInstance: {fileID: 2129540231043006596}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2129540231043006598 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2129540231136509881, guid: e400c65580dd9c74da8c7e49d3a76987, type: 3}
-  m_PrefabInstance: {fileID: 2129540231043006596}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2137104740650950313
 GameObject:
   m_ObjectHideFlags: 0
@@ -11661,7 +10615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cdb2bb9ada69446af935cd3b53d332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flowchartCommunicator: {fileID: 0}
   Message: 
 --- !u!114 &2254467980658653178
 MonoBehaviour:
@@ -11675,7 +10628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cdb2bb9ada69446af935cd3b53d332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flowchartCommunicator: {fileID: 0}
   Message: 
 --- !u!114 &2254467980832409934
 MonoBehaviour:
@@ -11689,7 +10641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cdb2bb9ada69446af935cd3b53d332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flowchartCommunicator: {fileID: 0}
   Message: 
 --- !u!114 &2254467981637120010
 MonoBehaviour:
@@ -11703,7 +10654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cdb2bb9ada69446af935cd3b53d332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flowchartCommunicator: {fileID: 0}
   Message: 
 --- !u!114 &2254467981738373931
 MonoBehaviour:
@@ -11717,7 +10667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cdb2bb9ada69446af935cd3b53d332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flowchartCommunicator: {fileID: 0}
   Message: 
 --- !u!224 &2285921352753278979
 RectTransform:
@@ -16338,6 +15287,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7061704351716784220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728091653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c71095cfa2bc34c9b57413ef6ca420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Points: {x: 0, y: 0, z: 0}
+  concludedSus: 0
+  triggers: 0
 --- !u!4 &7061704352311315504
 Transform:
   m_ObjectHideFlags: 0

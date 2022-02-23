@@ -4,14 +4,11 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using Fungus;
-using FMODUnity;
 
 public class StealthFungusTrigger : MonoBehaviour
 {
     private FlowchartCommunicator _flowchartCommunicator;
-    [Tooltip("Message sent to the flowchart")]
-    public string Message;
-    
+
     private void Start()
     {
         _flowchartCommunicator = GetComponent<FlowchartCommunicator>();
@@ -23,9 +20,8 @@ public class StealthFungusTrigger : MonoBehaviour
     {
         if (other.CompareTag("StealthPlayer"))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Stealth/Vampire Ping");
-            _flowchartCommunicator.SendMessage(Message);
-            Destroy(this.gameObject);
+            _flowchartCommunicator.SendMessage("The world!");
+           // Destroy(this.gameObject);
         }
     }
 }
