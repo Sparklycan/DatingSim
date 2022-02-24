@@ -94,6 +94,8 @@ public class PoliceScript : MonoBehaviour
     public GameObject Chased;
     private List<GameObject> Friends = new List<GameObject>();
     private NavMeshPath path;
+    private NavMeshAgent Agent;
+    private NavMeshSurface Surface;
     
     // Picture
     [Header("Picture")]
@@ -136,6 +138,7 @@ public class PoliceScript : MonoBehaviour
             Friends.Add(node);
         }
 
+        agent = GetComponent<NavMeshAgent>();
         _stealthPointSaver = GameObject.FindWithTag("StealthHandler").GetComponent<StealthPointSaver>();
         path = new NavMeshPath();
         _light = GetComponent<Light>();

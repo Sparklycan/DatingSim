@@ -25,6 +25,9 @@ public class StealthPointSaver : MonoBehaviour
 
     private Minigame _minigame;
     
+    
+    
+    
     public void SusPlus(int points)
     {
         concludedSus += points;
