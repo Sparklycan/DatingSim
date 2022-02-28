@@ -1,25 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Rendering;
-using  UnityEngine.Profiling;
 using UnityEditor;
-using UnityEditor.PackageManager.UI;
+using UnityEngine;
+using UnityEngine.Profiling;
+using UnityEngine.Rendering;
 
-partial class CameraRender
-{
+partial class CameraRenderer {
 
-    partial void DrawUnsupportedShaders();
+    partial void DrawGizmos ();
 
-    partial void DrawGizmos();
-    
+    partial void DrawUnsupportedShaders ();
+
+    partial void PrepareForSceneWindow ();
+
     partial void PrepareBuffer ();
-    partial void PrepareForSceneWindow();
-    
 
 #if UNITY_EDITOR
-
-    string SampleName { get; set; }
 
     static ShaderTagId[] legacyShaderTagIds = {
         new ShaderTagId("Always"),
@@ -27,17 +21,20 @@ partial class CameraRender
         new ShaderTagId("PrepassBase"),
         new ShaderTagId("Vertex"),
         new ShaderTagId("VertexLMRGBM"),
-        new ShaderTagId("V-ertexLM")
+        new ShaderTagId("VertexLM")
     };
+
     static Material errorMaterial;
+
+    string SampleName { get; set; }
 
     partial void DrawGizmos () {
         if (Handles.ShouldRenderGizmos()) {
             context.DrawGizmos(camera, GizmoSubset.PreImageEffects);
             context.DrawGizmos(camera, GizmoSubset.PostImageEffects);
         }
-    }    
-    
+    }
+
     partial void DrawUnsupportedShaders () {
         if (errorMaterial == null) {
             errorMaterial =
@@ -53,29 +50,25 @@ partial class CameraRender
         }
         var filteringSettings = FilteringSettings.defaultValue;
         context.DrawRenderers(
-            _cullingResults, ref drawingSettings, ref filteringSettings
+            cullingResults, ref drawingSettings, ref filteringSettings
         );
     }
-    
+
     partial void PrepareForSceneWindow () {
         if (camera.cameraType == CameraType.SceneView) {
             ScriptableRenderContext.EmitWorldGeometryForSceneView(camera);
         }
     }
-    
+
     partial void PrepareBuffer () {
         Profiler.BeginSample("Editor Only");
-        buffer.name = SampleName =camera.name;
+        buffer.name = SampleName = camera.name;
         Profiler.EndSample();
     }
 
-    
 #else
 
 	const string SampleName = bufferName;
-    
+
 #endif
-
-
-
 }

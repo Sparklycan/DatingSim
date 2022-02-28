@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 [CanEditMultipleObjects]
-[CustomEditorForRenderPipeline(typeof(Light), typeof(CustomRenderPipeLineAsset))]
+[CustomEditorForRenderPipeline(typeof(Light), typeof(CustomRenderPipelineAsset))]
 public class CustomLightEditor : LightEditor
 {
     
