@@ -82,6 +82,7 @@ class SaveData
     public bool minigame2BoolSave;
     public bool minigame3BoolSave;
     public bool minigame4BoolSave;
+    public bool allMinigamesSave;
 }
 
 //TODO: change filepath of saving to more generic path, does not work on school computers so it is user specific atm

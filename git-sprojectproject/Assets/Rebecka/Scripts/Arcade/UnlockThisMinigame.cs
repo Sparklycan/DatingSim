@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnlockThisMinigame : MonoBehaviour
 {
 
-    public bool game1, game2, game3, game4;
+    public bool game1, game2, game3, game4, allGames;
     public GamesUnlocked gamesUnlocked;
 
     public ArcadeSaving save;
@@ -34,6 +34,15 @@ public class UnlockThisMinigame : MonoBehaviour
         
         
         save.SaveGame();
+    }
+
+    public void UnlockAll()
+    {
+        if (allGames)
+        {
+            gamesUnlocked.allMinigamesUnlocked = true;
+            save.SaveGame();
+        }
     }
     
 }

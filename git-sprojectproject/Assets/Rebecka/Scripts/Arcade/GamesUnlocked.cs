@@ -6,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Arcade/MinigamesUnlocked")]
 public class GamesUnlocked : ScriptableObject
 {
+    public bool useDefaultPath = true;
+    public bool allMinigamesUnlocked = false;
     public bool minigame1 = false;
     public bool minigame2 = false;
     public bool minigame3 = false;
