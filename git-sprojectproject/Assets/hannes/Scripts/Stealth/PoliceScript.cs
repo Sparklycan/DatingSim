@@ -22,7 +22,6 @@ public class PoliceScript : MonoBehaviour
                         // KILLSWITCH - (Alerter)
                         // SPRITES FIX
                         // POINTS FIX
-                        // IMPLEMENT RASMUS SHIT
     
     NavMeshAgent agent;
 
