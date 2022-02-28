@@ -2,19 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-
-public class CameraRender
+public partial class CameraRender
 {
-    static ShaderTagId[] legacyShaderTagIds = {
-        new ShaderTagId("Always"),
-        new ShaderTagId("ForwardBase"),
-        new ShaderTagId("PrepassBase"),
-        new ShaderTagId("Vertex"),
-        new ShaderTagId("VertexLMRGBM"),
-        new ShaderTagId("VertexLM")
-    };
-    static Material errorMaterial;
-
+    
     ScriptableRenderContext context;
 
     static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");
@@ -42,6 +32,7 @@ public class CameraRender
         this.context = context;
         this.camera = camera;
 
+        PrepareForSceneWindow();
         if (!Cull())
         {
             return;
@@ -50,14 +41,16 @@ public class CameraRender
         SetUp();
         DrawVisibleGeometry();
         DrawUnsupportedShaders();
+        DrawGizmos();
         Submit();
     }
 
     void SetUp()
     {
         context.SetupCameraProperties(camera);
-        buffer.ClearRenderTarget(true, true, Color.clear);
-        buffer.BeginSample(bufferName);
+        CameraClearFlags flags = camera.clearFlags;
+        buffer.ClearRenderTarget(flags <= CameraClearFlags.Depth, flags == CameraClearFlags.Color, flags == CameraClearFlags.Color ? camera.backgroundColor.linear : Color.clear);
+        buffer.BeginSample(SampleName);
         ExecuteBuffer();
     }
     
@@ -72,7 +65,6 @@ public class CameraRender
 
         context.DrawSkybox(camera);
         
-        
         sortingSettings.criteria = SortingCriteria.CommonTransparent;
         drawingSettings.sortingSettings = sortingSettings;
         filteringSettings.renderQueueRange = RenderQueueRange.transparent;
@@ -83,27 +75,8 @@ public class CameraRender
     }
     
     
-    void DrawUnsupportedShaders () {
-        if (errorMaterial == null) {
-            errorMaterial =
-                new Material(Shader.Find("Hidden/InternalErrorShader"));
-        }
-        var drawingSettings = new DrawingSettings(
-            legacyShaderTagIds[0], new SortingSettings(camera)
-        ) {
-            overrideMaterial = errorMaterial
-        };
-        for (int i = 1; i < legacyShaderTagIds.Length; i++) {
-            drawingSettings.SetShaderPassName(i, legacyShaderTagIds[i]);
-        }
-        var filteringSettings = FilteringSettings.defaultValue;
-        context.DrawRenderers(
-            _cullingResults, ref drawingSettings, ref filteringSettings
-        );
-    }
-    
     void Submit () {
-        buffer.EndSample(bufferName);
+        buffer.EndSample(SampleName);
         ExecuteBuffer();
         context.Submit();
     }
