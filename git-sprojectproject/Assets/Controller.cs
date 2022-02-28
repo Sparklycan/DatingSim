@@ -5,93 +5,72 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    Rigidbody2D myBody;
-    public float moveSpeed = 10.0f;
-    public float jumpForce = 20.0f;
-    private Vector2 zero;
-    public float lerpSpeed = 0.5f;
-    public Transform groundCheck;
-    public LayerMask Ground;
-    private bool grounded = false;
-    public float gravity = 10.0f;
-    private Vector2 velocity;
-    Vector3 movement;
-    float vertical, horizontal;
+    public Rigidbody2D myBody;
+
+    private float moveForce = 2000f;
+    private float moveSpeed = 1f;
+    private float jumpForce = 20f;
+    private float maxMoveSpeed = 8f;
+    private float tSpeed = 0.1f;
+  
+
+  
 
 
 
     // Start is called before the first frame update   CREATE
     void Start()
     {
-        //Fetch the Rigidbody from the GameObject with this script attached
         myBody = GetComponent<Rigidbody2D>();
 
+
     }
 
-    void OnCollisionEnter2D(Collision2D theCollision)
-    {
-        if (theCollision.gameObject.name == "Ground")
-        {
-            grounded = true;
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D theCollision)
-    {
-        if (theCollision.gameObject.name == "Ground")
-        {
-            grounded = false;
-        }
-    }
 
     // Update is called once per frame  STEP
     void Update()
     {
-        //lösa grounded med vertical input
-      
-        vertical = Input.GetAxisRaw("Vertical");
-        horizontal = Input.GetAxisRaw("Horizontal");
-        movement = new Vector3(horizontal, vertical, 0).normalized;
-
-        //"raka" keybinds.
-        /*
-        if (Input.GetKey(KeyCode.A)){
-            velocity.x = -moveSpeed;
-            myBody.velocity += velocity;
-        }
-       else  if (Input.GetKey(KeyCode.D))
+        // rb.AddForce(forwardForce * Time.deltaTime, 0);
+        if (Input.GetKey(KeyCode.D))
         {
-            myBody.velocity = transform.right * moveSpeed;
-        }
-      
-        else
-        {
-            myBody.velocity = Vector2.Lerp(myBody.velocity, Vector2.zero, lerpSpeed * Time.deltaTime);
-        }
-      
-
-        if (Input.GetKeyDown(KeyCode.W) && grounded == true)
-        {
-            myBody.velocity = transform.up * jumpForce;
+            myBody.AddForce(transform.right * moveSpeed, ForceMode2D.Impulse);
+            /*
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
             
+            moveSpeed = Mathf.Lerp(0.0f, maxMoveSpeed, tSpeed);
+            tSpeed += 1.0f * Time.deltaTime;
+            */
+
         }
-        */
-
-        //hitta ett sätt att applicera en impulse på bara en axel?
-        myBody.AddForce(movement * moveSpeed, ForceMode2D.Impulse);
-        myBody.velocity = Vector2.Lerp(myBody.velocity, Vector2.zero, lerpSpeed * Time.deltaTime); //gör just nu ingenting
-        myBody.velocity = Vector3.ClampMagnitude(myBody.velocity, moveSpeed);
-
-        //gravity
-        /*
-        if (grounded == false)
+        else if (Input.GetKey(KeyCode.A))
         {
-            myBody.velocity = -transform.up * gravity;
+            myBody.AddForce(-transform.right * moveSpeed, ForceMode2D.Impulse);
+            /*
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            moveSpeed = Mathf.Lerp(0.0f, maxMoveSpeed, tSpeed);
+            tSpeed += 1.0f * Time.deltaTime;
+            */
+
+        }
+        /*
+		else
+		{
+            moveSpeed = Mathf.Lerp(0.0f, maxMoveSpeed, tSpeed);
+           tSpeed -= 0.5f * Time.deltaTime;
+
+        }
+        //  rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(Vector3.up * jumpForce * Time.deltaTime);
 
         }
         */
 
+        Mathf.Clamp(tSpeed, 0.0f, 1.0f);
 
-
+        //myBody.velocity.x = Mathf.Clamp(myBody.velocity.x, 0f, 1f);
+        
+        //grounded check for jump constraint (and gravity?)
     }
 }
