@@ -7,9 +7,10 @@ public class navMeshBake : MonoBehaviour
 {
 
     public NavMeshSurface Surface;
+
     void Awake()
     {
         Surface.BuildNavMesh();
     }
-    
+
 }
