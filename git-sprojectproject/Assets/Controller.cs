@@ -6,23 +6,29 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     public Rigidbody2D myBody;
+    private BoxCollider2D boxcollider2d;
+    private float moveSpeed = 3000f;
+    private float jumpForce = 20000f;
+    private float wallJumpXmod = 1.0f;
+    private float wallJumpYmod = 1.0f;
+    private float extraHeight = 0.02f;
+    private float extraWidth = 0.05f;
 
-    private float moveForce = 2000f;
-    private float moveSpeed = 1f;
-    private float jumpForce = 20f;
-    private float maxMoveSpeed = 8f;
-    private float tSpeed = 0.1f;
-  
-
-  
+    [SerializeField] private LayerMask groundLayerMask;
 
 
+
+    private void Awake()
+    {
+        boxcollider2d = transform.GetComponent<BoxCollider2D>();
+    }
 
     // Start is called before the first frame update   CREATE
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-
+        
+       
 
     }
 
@@ -30,47 +36,107 @@ public class Controller : MonoBehaviour
     // Update is called once per frame  STEP
     void Update()
     {
-        // rb.AddForce(forwardForce * Time.deltaTime, 0);
+        //STRAFING
         if (Input.GetKey(KeyCode.D))
         {
-            myBody.AddForce(transform.right * moveSpeed, ForceMode2D.Impulse);
-            /*
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-            
-            moveSpeed = Mathf.Lerp(0.0f, maxMoveSpeed, tSpeed);
-            tSpeed += 1.0f * Time.deltaTime;
-            */
-
+            if (gripRight())
+            {
+                myBody.velocity = new Vector2(moveSpeed * Time.deltaTime, 0f);
+            }
+            else {
+                myBody.velocity = new Vector2(moveSpeed * Time.deltaTime, myBody.velocity.y);
+            }
+         
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            myBody.AddForce(-transform.right * moveSpeed, ForceMode2D.Impulse);
-            /*
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-            moveSpeed = Mathf.Lerp(0.0f, maxMoveSpeed, tSpeed);
-            tSpeed += 1.0f * Time.deltaTime;
-            */
-
+            if (gripLeft()) {
+                myBody.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0f);
+            }
+            else {
+                myBody.velocity = new Vector2(-moveSpeed * Time.deltaTime, myBody.velocity.y);
+            }
+          
         }
-        /*
-		else
-		{
-            moveSpeed = Mathf.Lerp(0.0f, maxMoveSpeed, tSpeed);
-           tSpeed -= 0.5f * Time.deltaTime;
 
+        //JUMPING AND WALLJUMPING
+        if (grounded() && Input.GetKey(KeyCode.W))
+                {
+             myBody.velocity = new Vector2(myBody.velocity.x, jumpForce * Time.deltaTime);
         }
-        //  rb.AddForce(0, 0, forwardForce * Time.deltaTime);
-        if (Input.GetKey(KeyCode.W))
+        else if (gripRight() && Input.GetKey(KeyCode.W)) 
         {
-            transform.Translate(Vector3.up * jumpForce * Time.deltaTime);
-
+            myBody.velocity = new Vector2(-jumpForce * Time.deltaTime * wallJumpXmod, jumpForce * Time.deltaTime * wallJumpYmod);
         }
-        */
+        else if (gripLeft() && Input.GetKey(KeyCode.W))
+        {
+            myBody.velocity = new Vector2(jumpForce * Time.deltaTime * wallJumpXmod, jumpForce * Time.deltaTime * wallJumpYmod );
+        }
 
-        Mathf.Clamp(tSpeed, 0.0f, 1.0f);
-
-        //myBody.velocity.x = Mathf.Clamp(myBody.velocity.x, 0f, 1f);
-        
-        //grounded check for jump constraint (and gravity?)
+        //CLAMP VELOCITY
+      //  myBody.velocity = new Vector2(Mathf.Clamp(myBody.velocity.x, -moveSpeed, moveSpeed), myBody.velocity.y);
+      //  myBody.velocity = new Vector2(myBody.velocity.x, Mathf.Clamp(myBody.velocity.y, -jumpForce, jumpForce));
     }
+
+    //GROUND AND GRIP CHECKS
+    private bool grounded()
+    {
+       
+        RaycastHit2D raycastHit = Physics2D.Raycast(boxcollider2d.bounds.center, Vector2.down, boxcollider2d.bounds.extents.y + extraHeight, groundLayerMask);
+        Color  rayColor;
+
+        if (raycastHit.collider != null){
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+
+        Debug.DrawRay(boxcollider2d.bounds.center, Vector2.down * (boxcollider2d.bounds.extents.y + extraHeight), rayColor);
+        Debug.Log(raycastHit.collider);
+        return raycastHit.collider != null;
+    }
+
+    private bool gripRight()
+    {
+        
+        RaycastHit2D raycastHit = Physics2D.Raycast(boxcollider2d.bounds.center, Vector2.right, boxcollider2d.bounds.extents.x + extraWidth, groundLayerMask);
+        Color rayColor;
+
+        if (raycastHit.collider != null)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+
+        Debug.DrawRay(boxcollider2d.bounds.center, Vector2.right * (boxcollider2d.bounds.extents.x + extraWidth), rayColor);
+        Debug.Log(raycastHit.collider);
+        return raycastHit.collider != null;
+
+    }
+    private bool gripLeft()
+    {
+        
+        RaycastHit2D raycastHit = Physics2D.Raycast(boxcollider2d.bounds.center, Vector2.left, boxcollider2d.bounds.extents.x + extraWidth, groundLayerMask);
+        Color rayColor;
+
+        if (raycastHit.collider != null)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+
+        Debug.DrawRay(boxcollider2d.bounds.center, Vector2.left * (boxcollider2d.bounds.extents.x + extraWidth), rayColor);
+        Debug.Log(raycastHit.collider);
+        return raycastHit.collider != null;
+    }
+
+   
 }
