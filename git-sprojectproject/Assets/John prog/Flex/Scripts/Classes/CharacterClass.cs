@@ -28,6 +28,11 @@ public class CharacterClass : MonoBehaviour, ClassBase
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private float attackBuff = 1.0f;
+    [SerializeField]
+    private float defenseBuff = 1.0f;
+
     public string Name => name;
     public string ClassName => className;
 
@@ -35,13 +40,19 @@ public class CharacterClass : MonoBehaviour, ClassBase
     public int MaxHealth => maxHealth;
 
     public IEnumerable<Ability> Abilities => abilities;
+    public IEnumerable<Ability> DisabledAbilities => disabledAbilities;
+
     public ClassType BaseClass => baseClass;
     public Allegience Allegience => allegience;
     public Animator Animator => animator;
+    public float AttackBuff => attackBuff;
+    public float DefenseBuff => defenseBuff;
 
     // Used by TurnManager to keep track of all the characters
     static public event Action<CharacterClass> onCharacterEnable;
     static public event Action<CharacterClass> onCharacterDisable;
+
+    private HashSet<Ability> disabledAbilities = new HashSet<Ability>();
 
     public void Awake()
     {
@@ -61,6 +72,14 @@ public class CharacterClass : MonoBehaviour, ClassBase
     private void OnDisable()
     {
         onCharacterDisable?.Invoke(this);
+    }
+
+    public void EnableAbility(Ability ability, bool enabled)
+    {
+        if (enabled)
+            disabledAbilities.Remove(ability);
+        else
+            disabledAbilities.Add(ability);
     }
 
     public bool CanSelectAbility()
@@ -83,12 +102,18 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public void DoDamage(int damage, string hurtAnimation, string deathAnimation)
     {
-        currentHealth -= damage;
+        currentHealth -= (int)((float)damage * defenseBuff);
 
         if (currentHealth > 0)
             Animator.Play(hurtAnimation);
         else
             Animator.Play(deathAnimation);
+    }
+
+    public void AddBuff(float attack, float defense)
+    {
+        attackBuff *= attack;
+        defenseBuff *= defense;
     }
 
 }

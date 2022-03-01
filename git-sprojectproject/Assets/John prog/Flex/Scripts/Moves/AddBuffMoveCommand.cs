@@ -5,32 +5,31 @@ using UnityEngine;
 namespace Fungus
 {
 
-    [CommandInfo("Flex", "Add move", helpText: "Add a move")]
-    public class AddMoveCommand : Command
+    [CommandInfo("Flex", "Add buff", helpText: "Add a status buff")]
+    public class AddBuffMoveCommand : Command
     {
 
         [SerializeField]
         [Tooltip("The collection to add the move to.")]
         private CollectionData moves;
         [SerializeField]
-        private CharacterClassData attacker;
-        [SerializeField]
         private CharacterClassData target;
         [SerializeField]
         private AbilityData ability;
         [SerializeField]
+        private FloatData attack;
+        [SerializeField]
+        private FloatData defense;
+        [SerializeField]
         [Tooltip("Where in the collection the move should be inserted")]
         private IntegerData index;
-        [SerializeField]
-        [Tooltip("Should this move allow for more moves to be added this turn")]
-        private BooleanData allowMoreMoves;
         [SerializeField]
         private IntegerData waitTurns;
 
         public override void OnEnter()
         {
-            Move move = new Move(attacker.Value, ability.Value, new CharacterClass[] { target.Value }, waitTurns.Value);
-            move.allowMoreMoves = allowMoreMoves;
+            BuffMove move = new BuffMove(target, null, ability, attack.Value, defense.Value, waitTurns.Value);
+            move.allowMoreMoves = false;
             if (waitTurns.Value > 0)
                 moves.Value.Add(move);
             else
