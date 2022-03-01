@@ -169,6 +169,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &13248463 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+  m_PrefabInstance: {fileID: 561221992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &37971738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -560,6 +565,7 @@ GameObject:
   - component: {fileID: 96754469}
   - component: {fileID: 96754263}
   - component: {fileID: 96754470}
+  - component: {fileID: 96754468}
   m_Layer: 0
   m_Name: FlowchartLunchGuy
   m_TagString: Untagged
@@ -683,7 +689,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 638.632
     y: 283.5861
-    width: 124.62683
+    width: 122
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -712,7 +718,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 845.50037
     y: 396.62946
-    width: 78.3582
+    width: 77
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -740,7 +746,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 810.89154
     y: 196.45554
-    width: 108.20892
+    width: 105
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -770,7 +776,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 800.2646
     y: 44.07322
-    width: 93.28356
+    width: 91
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -875,7 +881,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 640.97876
     y: 198.54254
-    width: 114.17908
+    width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1044,7 +1050,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 538.97876
     y: 239.04254
-    width: 90.29849
+    width: 88
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1097,7 +1103,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 531.97876
     y: 153.04254
-    width: 108.20892
+    width: 105
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1276,7 +1282,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 376.97876
     y: 267.04254
-    width: 112.68654
+    width: 110
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1304,7 +1310,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 368.97876
     y: 129.04254
-    width: 142.53726
+    width: 138
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1333,7 +1339,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 383.97876
     y: 201.04254
-    width: 112.68654
+    width: 110
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1433,9 +1439,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 230.0625
-    y: 206.5
-    width: 88.805954
+    x: 176.90785
+    y: 207.43814
+    width: 88
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1517,9 +1523,14 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "\n\nNarrator: Looking outside you see it is cloudy and relief fills
-      you. At least you have no need of putting on sunscreen. You grab your jacket
-      and run out of your house.\n\nYou walk past a local caf\xE9 and walk in."
+    stringVal: 'Narrator: Looking outside you see it is cloudy and relief fills you.
+      At least you have no need of putting on sunscreen. You grab your jacket and
+      run out of your house.
+
+
+      You walk through the streets of your town and
+      the scent of coffee captivates you and you feel yourself following the it into
+      a local coffee shop.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -1548,28 +1559,64 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "You: Uugghhhh.... It's so early... The sun is already up...\r\nI
-      hate having to wake up early and be normal... Why can't everyone just be night
-      owls?\r\n\nNarrator: You walk over to the bathroom\r\nLooking in the mirror,
-      you sigh as only your pajamas are visible\r\nFeelings of dread, shame and disgust
-      pour over you.\r\n\nYou: Why do I have to be this monster?\r\nNo one wants
-      to be with me.\r\nI am horrible... a monster who scares people away...\r\nI
-      am not good enough for anyone...\r\nI am just a blood sucker.\r\nA person who
-      ruins other peoples lives.\r\nWhy was I born into this life?\r\nWhy me...\r\nI
-      don't... want to be here, I don't want this life.\r\nAnything else, please
-      just anything else would be better.\nAlways always always have to hide away,
-      avoid the sun, avoid italian resturants! \nI am so tired of hiding, having
-      no one ever be able to accept me, people would just be terrfied of me and I
-      would be more shunned than I already am.\r\nBut... Does it have to be like
-      this...? What if... I could make someone out there... happy... Maybe people
-      then wouldn't see me as a monster.\r\nNo... there is no one out there crazy
-      enough like that...\r\nIt's just to suck it up, act normal and hide away like
-      always...\r\n\nNarrator: Frustrated, you run your hand through your hair and
-      try to style it to the best of your ability while staring at the useless mirror.\r\nOnce
-      you are done you go to your wardrobe and put on a stylish outfit, something
-      casual, yet good looking.\nSuddenly, your stomach growls angrily. You walk
-      over to the fridge and fail to repress your frustration when seeing it empty.\n\nYou:
-      \"Ugh... perfect... I need to go out among people...\" you mutter to yourself."
+    stringVal: 'You: {flash=0.5}{w=1}{hpunch=8,2}Uugghhhh.... It''s so early... The
+      sun is already up...
+
+      I hate having to wake up early and be normal...
+      Why can''t everyone just be night owls?
+
+      
+
+      Narrator: You walk
+      over to the bathroom
+
+      Looking in the mirror, you sigh as only your pajamas
+      are visible
+
+      Feelings of dread, shame and disgust pour over you.
+
+      
+
+      You:
+      Why do I have to be this monster?
+
+      Narrator: *You feel your mind choke
+      as the words <color=red><b>Inadequate and Unlovable</b></color> circle in your
+      head like a bat to blood*
+
+      
+
+      You: I am just a blood sucker, a
+      leech.
+
+      Always always <b>always</b> have to hide away, avoid the sun,
+      avoid italian restaurants!!
+
+      I am so tired of hiding, having no one
+      ever be able to accept me...
+
+      
+
+      But... Does it have to be like
+      this...? What if... I could make someone out there... happy... Maybe then,
+      people wouldn''t see me as a monster.
+
+      No... there is no one out there
+      crazy enough like that...
+
+      I just have to suck it up, <b>act normal
+      and hide away like always...</b>
+
+      
+
+      Narrator: Suddenly, your
+      stomach growls angrily. You walk over to the fridge and fail to repress your
+      frustration when seeing it empty.
+
+      
+
+      You: "Ugh... Guess I got
+      to go buy something..." you mutter to yourself.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -1698,16 +1745,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 72.86425
-    y: 210
-    width: 76.86566
+    x: 24.864258
+    y: 202
+    width: 75
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 0
   blockName: Intro
   description: 
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 96754468}
   commandList:
   - {fileID: 96754469}
   - {fileID: 96754262}
@@ -1730,11 +1777,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -469.10117, y: 270.87424}
+  scrollPos: {x: 142.48116, y: 0.26062775}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.6700003
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -1743,7 +1790,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 96754265}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 96754261}
   variables: []
   description: 
   stepPause: 0
@@ -1864,7 +1912,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1129.5215
     y: -186.10654
-    width: 99.25371
+    width: 97
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1893,7 +1941,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1125.1721
     y: -77.411
-    width: 79.85073
+    width: 79
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2029,7 +2077,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1049.0857
     y: 337.80603
-    width: 118.656685
+    width: 115
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2059,7 +2107,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1042.5646
     y: 292.15378
-    width: 130.59698
+    width: 127
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2088,7 +2136,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1040.3899
     y: 248.67563
-    width: 135.07458
+    width: 132
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2334,7 +2382,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1064.0519
     y: 94.82961
-    width: 111.194
+    width: 109
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2445,7 +2493,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 968.6516
     y: 400.8493
-    width: 97.76117
+    width: 96
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2523,7 +2571,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1022.9988
     y: -101.32405
-    width: 97.76117
+    width: 96
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2552,7 +2600,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 755.6082
     y: -92.6284
-    width: 120.14922
+    width: 117
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2720,7 +2768,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 931.69476
     y: 259.54507
-    width: 72.38805
+    width: 72
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2750,7 +2798,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 927.3477
     y: 207.37137
-    width: 169.40292
+    width: 162
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2778,7 +2826,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 942.5645
     y: 161.71924
-    width: 84.32834
+    width: 82
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2945,7 +2993,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 919.40533
     y: 110.565674
-    width: 84.32834
+    width: 83
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2973,7 +3021,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 937.7726
     y: 57.50454
-    width: 84.32834
+    width: 83
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3001,7 +3049,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 934.8155
     y: 7.64476
-    width: 94.7761
+    width: 92
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3030,7 +3078,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 894.5708
     y: -46.192013
-    width: 129.10443
+    width: 125
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3175,7 +3223,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1303.4329
     y: 255.19733
-    width: 109.70146
+    width: 106
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3204,7 +3252,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1375.1725
     y: 309.54492
-    width: 82.8358
+    width: 82
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3496,7 +3544,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1118.6504
     y: 396.50156
-    width: 99.25371
+    width: 97
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3524,7 +3572,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1205.6063
     y: 366.06677
-    width: 99.25371
+    width: 97
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3552,7 +3600,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1166.4769
     y: 324.76254
-    width: 96.26863
+    width: 94
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3630,7 +3678,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1268.6505
     y: 305.19708
-    width: 93.28356
+    width: 92
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3659,7 +3707,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1196.9116
     y: 270.41464
-    width: 72.38805
+    width: 72
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3774,7 +3822,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1164.3033
     y: 209.5452
-    width: 66.4179
+    width: 66
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3842,7 +3890,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1122.9987
     y: 150.8497
-    width: 118.656685
+    width: 117
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3870,7 +3918,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1207.781
     y: 98.6758
-    width: 96.26863
+    width: 94
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3899,7 +3947,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1183.8677
     y: 35.63233
-    width: 118.656685
+    width: 115
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4056,7 +4104,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1144.7378
     y: -129.5849
-    width: 73.880585
+    width: 73
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4138,9 +4186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 2236.8794
+    x: 2238.6975
     y: 124.595436
-    width: 136.56712
+    width: 133
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4638,7 +4686,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 627.6183
     y: -28.81672
-    width: 109.70146
+    width: 107
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4988,7 +5036,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1556.465
     y: -11.509064
-    width: 78.3582
+    width: 77
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5016,7 +5064,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1427.6193
     y: 28.875526
-    width: 69.40298
+    width: 69
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5044,7 +5092,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1425.6956
     y: -15.355207
-    width: 73.880585
+    width: 74
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5152,7 +5200,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1296.8496
     y: -46.12442
-    width: 121.641754
+    width: 118
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5233,7 +5281,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1314.1572
     y: 7.7217026
-    width: 84.32834
+    width: 83
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5483,7 +5531,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1329.5414
     y: 128.87543
-    width: 106.71639
+    width: 104
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5511,7 +5559,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1325.6957
     y: 78.875496
-    width: 118.656685
+    width: 116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5650,7 +5698,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1370.8245
     y: 203.02351
-    width: 88.805954
+    width: 87
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5678,7 +5726,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1257.7804
     y: 200.84953
-    width: 97.76117
+    width: 95
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6068,7 +6116,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2078.8838
     y: 59.6447
-    width: 106.71639
+    width: 104
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6097,7 +6145,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2075.6943
     y: 5.798607
-    width: 108.20892
+    width: 106
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6433,7 +6481,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2284.2383
     y: 30.463804
-    width: 106.71639
+    width: 105
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6600,7 +6648,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1885.3109
     y: 117.336975
-    width: 88.805954
+    width: 87
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6629,7 +6677,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1914.1569
     y: 32.721657
-    width: 135.07458
+    width: 131
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6659,7 +6707,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1937.2335
     y: -32.662895
-    width: 106.71639
+    width: 104
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6688,7 +6736,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1889.7655
     y: -93.884544
-    width: 94.7761
+    width: 94
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6770,7 +6818,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1677.6185
     y: 53.875473
-    width: 66.4179
+    width: 66
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6798,7 +6846,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1785.3104
     y: -7.662913
-    width: 114.17908
+    width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6850,7 +6898,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1658.3882
     y: -7.662941
-    width: 94.7761
+    width: 93
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7403,6 +7451,21 @@ MonoBehaviour:
   atTime: 0
   loop: 1
   fadeDuration: 1
+--- !u!114 &96754468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96754226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 96754265}
+  suppressBlockAutoSelect: 0
+  waitForFrames: 1
 --- !u!114 &96754469
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7641,6 +7704,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885316, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: nameText
+      value: Ava
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
 --- !u!1 &393873863
@@ -7789,9 +7856,71 @@ Transform:
   - {fileID: 1508698909}
   - {fileID: 6322478410844816423}
   - {fileID: 363907004}
+  - {fileID: 13248463}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &561221992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 545482901}
+    m_Modifications:
+    - target: {fileID: 8974407403876885314, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_Name
+      value: Unknown Tinkerer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974407403876885316, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
+      propertyPath: nameText
+      value: ??
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
 --- !u!1001 &770288237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8667,7 +8796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1801900719}
+  selectedFlowchart: {fileID: 96754266}
 --- !u!4 &1762159479
 Transform:
   m_ObjectHideFlags: 1
@@ -9095,7 +9224,6 @@ GameObject:
   - component: {fileID: 1801901035}
   - component: {fileID: 1801901034}
   - component: {fileID: 1801901033}
-  - component: {fileID: 1801901030}
   - component: {fileID: 1801901050}
   - component: {fileID: 1801901046}
   - component: {fileID: 1801901041}
@@ -9109,6 +9237,12 @@ GameObject:
   - component: {fileID: 1801901053}
   - component: {fileID: 1801901052}
   - component: {fileID: 1801900944}
+  - component: {fileID: 1801901030}
+  - component: {fileID: 1801901057}
+  - component: {fileID: 1801901055}
+  - component: {fileID: 1801901056}
+  - component: {fileID: 1801901054}
+  - component: {fileID: 1801901058}
   m_Layer: 0
   m_Name: Flowchart_v1
   m_TagString: Untagged
@@ -9155,9 +9289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -259.6887
+    x: -261.05856
     y: 60.55944
-    width: 74.39024
+    width: 74.999985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9186,18 +9320,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -1283.7607, y: 235.65533}
+  scrollPos: {x: 488.00406, y: 302.09442}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 405
-  zoom: 0.8200002
+  zoom: 0.64000034
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 1801900718}
   selectedCommands: []
   variables:
   - {fileID: 1801900726}
@@ -9205,6 +9340,8 @@ MonoBehaviour:
   - {fileID: 1801900724}
   - {fileID: 1801900875}
   - {fileID: 1801901023}
+  - {fileID: 1801901057}
+  - {fileID: 1801901055}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -9585,9 +9722,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererHeartEye: It''s nice to meet you, too! I''m sorry
-      if I am scaring you away, I know I am very excitable and love to talk about
-      myself and my inventions, hehe!"'
+    stringVal: 'Ava TinkererHeartEye: It''s nice to meet you, too! I''m sorry if
+      I am scaring you away, I know I am very excitable and love to talk about myself
+      and my inventions, hehe!"'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10180,10 +10317,13 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Tinkerer TinkererLaughing: Heh! That is fair! I love looking for
-      new candy, too!\n\nTinkerer TinkererHearteye: Lollipops are my favorites, followed
-      by chocolate and Skittles\u2122 (not sponsored, sadly)! I just love to munch
-      them while I am working!"
+    stringVal: 'Tinkerer TinkererLaughing: Heh! That is fair! I love looking for
+      new candy, too!
+
+
+      Tinkerer TinkererHearteye: Lollipops are my favorites,
+      followed by chocolate and Skikkles (totally not Sk*ttles)! I just love to munch
+      them while I am working!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10522,14 +10662,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2178.0537
     y: 183.4854
-    width: 104.87804
+    width: 101.56247
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 130
   blockName: Minigame
   description: 
-  eventHandler: {fileID: 1801901030}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1801901013}
   - {fileID: 1801900727}
@@ -10574,7 +10714,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 464.7364
     y: 48.5
-    width: 67.073166
+    width: 65.62499
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10606,7 +10746,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 351.00922
     y: 109.54544
-    width: 73.17073
+    width: 70.312485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10635,7 +10775,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 346.50903
     y: 46.532112
-    width: 74.39024
+    width: 71.874985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10664,7 +10804,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 347.6385
     y: -13.045452
-    width: 74.39024
+    width: 71.874985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10693,7 +10833,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 250.00162
     y: 63.684196
-    width: 65.85365
+    width: 64.06249
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10725,7 +10865,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 16.100006
     y: 138.67647
-    width: 71.95122
+    width: 70.312485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10754,7 +10894,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 14.100006
     y: 64.5
-    width: 73.17073
+    width: 71.874985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10783,7 +10923,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 16.100006
     y: -7.5
-    width: 73.17073
+    width: 71.874985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10811,9 +10951,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -111.57394
-    y: 63.49823
-    width: 87.80487
+    x: -113.70159
+    y: 67.75355
+    width: 87.499985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10825,6 +10965,7 @@ MonoBehaviour:
   - {fileID: 1801900807}
   - {fileID: 1801900967}
   - {fileID: 1801900982}
+  - {fileID: 1801901056}
   - {fileID: 1801900758}
   - {fileID: 1801900990}
   - {fileID: 1801900757}
@@ -11000,13 +11141,13 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererBlushing2.0: Oh yeah sorry... It''s a bad habit
-      and I often forget that I can just go off on rambels, I''m sorry.
+    stringVal: 'Ava TinkererBlushing2.0: Oh yeah sorry... It''s a bad habit and I
+      often forget that I can just go off on rambels, I''m sorry.
 
 
 
-      But
-      uhm, well okay... Uhm... Do you like garlic bread?'
+      But uhm,
+      well okay... Uhm... Do you like garlic bread?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11111,10 +11252,7 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: 'Tinkerer TinkererHeartEye: Oh my, where are my manners, I haven''t
-      even introduced myself!
-
-
-      My name is Gravadain! But you can call me Ava!'
+      even introduced myself!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11450,7 +11588,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 944.0738
     y: 100.69481
-    width: 96.34145
+    width: 95.31248
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11479,7 +11617,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 922.424
     y: 146.05571
-    width: 120.73169
+    width: 118.74996
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11587,9 +11725,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1365.1321
+    x: 1366.1959
     y: 153.5253
-    width: 93.902435
+    width: 90.62498
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11620,7 +11758,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1343.2197
     y: -15.779114
-    width: 143.90242
+    width: 140.62495
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11652,7 +11790,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1354.8202
     y: 75.53975
-    width: 121.9512
+    width: 120.31246
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12030,7 +12168,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1221.0961
     y: 59.227253
-    width: 75.60975
+    width: 76.562485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12040,6 +12178,8 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1801900777}
+  - {fileID: 1801901054}
+  - {fileID: 1801901058}
   - {fileID: 1801900776}
   - {fileID: 1801900774}
   - {fileID: 1801900775}
@@ -12060,7 +12200,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1086.1631
     y: -23.836273
-    width: 86.58536
+    width: 84.374985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12090,7 +12230,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1087.407
     y: 28.30365
-    width: 84.14633
+    width: 82.812485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12119,7 +12259,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1082.6584
     y: 83.91789
-    width: 90.2439
+    width: 85.937485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12149,7 +12289,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1082.4878
     y: 129.30734
-    width: 92.68292
+    width: 90.62498
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12214,7 +12354,7 @@ MonoBehaviour:
 
 
 
-      Tinkerer
+      Ava
       TinkererBlushing2.0: Oh... okay.. I''m sorry... Well, I won''t bother you anymore...
 
 
@@ -12954,7 +13094,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2962.7341
     y: 364.48193
-    width: 97.56097
+    width: 92.18748
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12981,7 +13121,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3070.7341
     y: -3.5180664
-    width: 130.4878
+    width: 124.99996
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13010,7 +13150,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2882.7031
     y: 96.451004
-    width: 189.02437
+    width: 181.24992
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13390,7 +13530,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer: Oh great!! I have it like everyday! It is so delicious!
+    stringVal: 'Ava TikererHappy2.0: Oh great!! I have it like everyday! It is so
+      delicious!
 
 '
   clearPrevious:
@@ -13446,8 +13587,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer: Uuuhh, okayyy, weird, it is just bread... But to each their
-      own! I for one hate brussel sprouts!'
+    stringVal: 'Ava TinkererConfused: Uuuhh, okayyy, weird, it is just bread... But
+      to each their own! I for one hate brussel sprouts!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13476,8 +13617,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererConfused: Uh, okay, that''s mean. I am going to
-      go.'
+    stringVal: 'Ava TinkererConfused: Uh, okay, that''s mean. I am going to go.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13504,9 +13644,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1702.1953
-    y: 114.71782
-    width: 107.31706
+    x: 1707.5145
+    y: 118.97314
+    width: 107.81247
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13671,7 +13811,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1529.342
     y: 131.8085
-    width: 108.536575
+    width: 107.81247
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13699,9 +13839,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1537.6912
-    y: 42.422497
-    width: 101.2195
+    x: 1534.4996
+    y: 91.35867
+    width: 104.68747
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13729,9 +13869,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1526.4062
-    y: 83.48263
-    width: 117.07316
+    x: 1531.7255
+    y: 46.24858
+    width: 115.62496
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13743,6 +13883,7 @@ MonoBehaviour:
   - {fileID: 1801900895}
   - {fileID: 1801900823}
   - {fileID: 1801900824}
+  - {fileID: 1801901030}
   suppressAllAutoSelections: 0
 --- !u!114 &1801900838
 MonoBehaviour:
@@ -13933,7 +14074,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 749.77435
     y: 89.41902
-    width: 137.80487
+    width: 135.93745
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13963,7 +14104,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 758.59863
     y: 41.397774
-    width: 119.512184
+    width: 115.62496
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14225,7 +14366,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1975.7052
     y: 170.43875
-    width: 89.02438
+    width: 87.499985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14256,7 +14397,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 740.3242
     y: 144.49174
-    width: 152.439
+    width: 149.99994
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14481,7 +14622,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 587.2622
     y: 61.15184
-    width: 143.90242
+    width: 139.06245
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14512,7 +14653,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 605.8543
     y: -35.72049
-    width: 108.536575
+    width: 104.68747
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14542,7 +14683,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 586.55664
     y: 111.11816
-    width: 99.999985
+    width: 96.87497
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14615,7 +14756,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2428.7341
     y: 381.48193
-    width: 102.43901
+    width: 98.43747
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14645,7 +14786,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2586.7341
     y: 295.48193
-    width: 108.536575
+    width: 107.81247
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14674,7 +14815,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2538.7341
     y: 342.48193
-    width: 74.39024
+    width: 74.999985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14922,7 +15063,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 926.6839
     y: -12.483385
-    width: 67.073166
+    width: 65.62499
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15393,7 +15534,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 604.223
     y: 12.353638
-    width: 108.536575
+    width: 109.37497
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15731,7 +15872,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3190.8538
     y: 218.65309
-    width: 109.75609
+    width: 109.37497
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15870,8 +16011,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer: Heh! That is fair! I find it delicious tho! I have it to
-      like every other meal!'
+    stringVal: 'Ava TinkererLaughing: Heh! That is fair! I find it delicious tho!
+      I have it to like every other meal!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -16660,7 +16801,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2635.029
     y: 171.48198
-    width: 132.92682
+    width: 128.12497
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -16690,7 +16831,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2661.029
     y: 227.48198
-    width: 73.17073
+    width: 73.437485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -16968,7 +17109,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2915.029
     y: 7.512907
-    width: 69.51219
+    width: 70.312485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17087,7 +17228,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2655.029
     y: 113.48198
-    width: 99.999985
+    width: 96.87497
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17115,7 +17256,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2597.998
     y: 50.48198
-    width: 102.43901
+    width: 103.12497
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17143,7 +17284,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2505.091
     y: -5.5180206
-    width: 141.4634
+    width: 139.06245
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17276,7 +17417,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2472.8706
     y: 201.16374
-    width: 114.63413
+    width: 114.06246
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17306,7 +17447,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2435.2341
     y: 280.48193
-    width: 112.195114
+    width: 110.93747
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17337,7 +17478,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2445.1304
     y: 115.48198
-    width: 145.12193
+    width: 139.06245
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18427,7 +18568,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2331.5583
     y: 186.57277
-    width: 87.80487
+    width: 84.374985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18508,11 +18649,11 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererBlushing2.0: Yeah! That would be fun! Where do you
-      want to go?
+    stringVal: 'Ava TinkererBlushing2.0: Yeah! That would be fun! Where do you want
+      to go?
 
 
-      Player: How about walking around here together for a bit?'
+      You: How about walking around here together for a bit?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -18539,9 +18680,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1624.5852
-    y: -71.71383
-    width: 115.853645
+    x: 1699.0541
+    y: -70.65
+    width: 114.06246
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18757,7 +18898,7 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererHeartEye: Ah, alright! It was nice meeting you!
+    stringVal: 'Ava TinkererHeartEye: Ah, alright! It was nice meeting you!
 
 
 
@@ -19048,12 +19189,12 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererHeartEye:Okay, I guess it was nice meeting you!
-      Though you are a little weird... but see ya!
+    stringVal: 'Ava TinkererHeartEye:Okay, I guess it was nice meeting you! Though
+      you are a little weird... but see ya!
 
 
-      Narrator: *You finish
-      your shopping and leave the candy store*'
+      Narrator: *You finish your shopping
+      and leave the candy store*'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -19080,9 +19221,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1700.4557
-    y: 12.661575
-    width: 82.92682
+    x: 1690.8812
+    y: 6.278597
+    width: 81.249985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -19454,7 +19595,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 114.72299
     y: 61.932007
-    width: 106.09755
+    width: 104.68747
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -21664,7 +21805,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 346.71133
     y: 163.96025
-    width: 86.58536
+    width: 82.812485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -21748,7 +21889,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1087.6115
     y: 179.33145
-    width: 86.58536
+    width: 82.812485
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -21790,12 +21931,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1801900716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentBlock: {fileID: 1801900761}
-  suppressBlockAutoSelect: 0
-  waitForFrames: 1
+  itemId: 427
+  indentLevel: 0
+  text: No worries! Want to hang out here for a bit?
+  description: 
+  targetBlock: {fileID: 1801901032}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &1801901031
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -21837,7 +21988,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1624.5118
     y: -127.36172
-    width: 123.170715
+    width: 121.87496
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -21995,7 +22146,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer: Sounds fun! Want to buy some candy together?'
+    stringVal: 'Ava TinkererHappy2.0: Sounds fun! Want to buy some candy together?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -22055,7 +22206,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 762.337
     y: -3.0859382
-    width: 118.29267
+    width: 114.06246
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22106,7 +22257,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -4.7838326
     y: 199.70515
-    width: 110.9756
+    width: 107.81247
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22132,7 +22283,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 470.3464
     y: 187.51529
-    width: 70.731705
+    width: 68.74999
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22235,7 +22386,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 450.83405
     y: 286.29575
-    width: 95.12194
+    width: 92.18748
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22339,7 +22490,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 454.49268
     y: 238.73483
-    width: 93.902435
+    width: 92.18748
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22390,6 +22541,106 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: 'Tinkerer: Heh! I wish I had nothing either! Then I oculd spend all
       day working on more inventions!'
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1801901054
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801900716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8463ca92d706a9468427ca6dea2f9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 429
+  indentLevel: 0
+  getOrSet: 1
+  property: 0
+  characterData:
+    characterRef: {fileID: 0}
+    characterVal: {fileID: 465890499}
+  inOutVar: {fileID: 1801901055}
+--- !u!114 &1801901055
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801900716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4580f28dd8581476b810b38eea2f1316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: Ava
+  value: Ava
+--- !u!114 &1801901056
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801900716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8463ca92d706a9468427ca6dea2f9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 428
+  indentLevel: 0
+  getOrSet: 1
+  property: 0
+  characterData:
+    characterRef: {fileID: 0}
+    characterVal: {fileID: 465890499}
+  inOutVar: {fileID: 1801901057}
+--- !u!114 &1801901057
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801900716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4580f28dd8581476b810b38eea2f1316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: UnknownName
+  value: '?'
+--- !u!114 &1801901058
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801900716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 430
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: 'Tinkerer TinkererHeartEye: My name is Gravadain! But you can call
+      me Ava!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
