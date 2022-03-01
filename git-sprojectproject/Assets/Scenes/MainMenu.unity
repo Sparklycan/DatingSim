@@ -947,7 +947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ed8716b9e197545a6c24a643844277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverText: {fileID: 1030613524}
+  hoverText: {fileID: 1030613523}
   gamesUnlocked: {fileID: 11400000, guid: 13081b796bb0dc54a83e4161e93ae38b, type: 2}
 --- !u!1 &1030613523
 GameObject:
@@ -1642,6 +1642,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Speltest Dialog
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 13081b796bb0dc54a83e4161e93ae38b, type: 2}
+        m_TargetAssemblyTypeName: GamesUnlocked, Assembly-CSharp
+        m_MethodName: SendSaveMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1858238288
