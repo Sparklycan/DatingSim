@@ -9,8 +9,8 @@ public class MinigameHighscoreManager : MonoBehaviour
     public HighscoreContainer scoreContainer;
     public Text[] scoreTextsFishpong;
     public Text[] scoreTextsPlatformer;
-    public Text[] scoreTextsStealthAnyPercent;
-    public Text[] scoreTextsStealth100percent;
+    public Text[] scoreTextsStealthSuspicion;
+    public Text[] scoreTextsStealthNuggets;
     public Text[] scoreTextsFlex;
     public Text[] scoreTextsSweeper;
     
@@ -78,7 +78,7 @@ public class MinigameHighscoreManager : MonoBehaviour
     }
 
 
-    public void StealthScoreSetter(float timeFirst, int nuggets, float timeSecond)
+    public void StealthScoreSetter(int sus, int nuggets)
     {
         
         
@@ -151,7 +151,7 @@ public class MinigameHighscoreManager : MonoBehaviour
 
     public void PrintStealthScores()
     {
-        scoreTextsStealthAnyPercent[0].text = "Time: " + scoreContainer.stealthTimeScores.x + "    Nuggets: " +
+        /*scoreTextsStealthAnyPercent[0].text = "Time: " + scoreContainer.stealthTimeScores.x + "    Nuggets: " +
                                               scoreContainer.stealthNuggetScores.x;
         scoreTextsStealthAnyPercent[1].text = "Time: " + scoreContainer.stealthTimeScores.y + "    Nuggets: " +
                                               scoreContainer.stealthNuggetScores.y;
@@ -160,7 +160,8 @@ public class MinigameHighscoreManager : MonoBehaviour
 
         scoreTextsStealth100percent[0].text = "Time: " + scoreContainer.stealth100PercentScores.x;
         scoreTextsStealth100percent[1].text = "Time: " + scoreContainer.stealth100PercentScores.y;
-        scoreTextsStealth100percent[2].text = "Time: " + scoreContainer.stealth100PercentScores.z;
+        scoreTextsStealth100percent[2].text = "Time: " + scoreContainer.stealth100PercentScores.z;*/
+        
     }
 
     public void PrintFlexScores()

@@ -8,27 +8,34 @@ using UnityEngine;
 public class ArcadeSaving : MonoBehaviour
 {
     public GamesUnlocked gamesUnlocked;
+    //public string FilePath => Directory.GetCurrentDirectory() + '\\' + Path.GetDirectoryName(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path);
 
-    
-    public void TestBoolStatus()
+    private void Start()
     {
-        Debug.Log(gamesUnlocked.minigame1);
-        Debug.Log(gamesUnlocked.minigame2);
-        Debug.Log(gamesUnlocked.minigame3);
-        Debug.Log(gamesUnlocked.minigame4);
-        Debug.Log(gamesUnlocked.minigame5);
+        gamesUnlocked.onSave += SaveGame;
     }
 
     public void SaveGame()
     {
       
-        BinaryFormatter bf = new BinaryFormatter(); 
-        FileStream file = File.Create("C:/users/c17rebma/MySaveData.dat"); 
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file;
+        if (gamesUnlocked.useDefaultPath)
+        {
+            file = File.Create(  Application.persistentDataPath + "/GamesUnlocked.dat"); 
+        }
+        
+        else if (gamesUnlocked.useCurrentApplicationPath)
+        {
+            file = File.Create(  Directory.GetCurrentDirectory() + "/GamesUnlocked.dat"); 
+        }
+        else
+        {
+            file = File.Create(  gamesUnlocked.customPath + "/GamesUnlocked.dat"); 
+        }
         SaveData data = new SaveData();
-        data.minigame1BoolSave = gamesUnlocked.minigame1;
-        data.minigame2BoolSave = gamesUnlocked.minigame2;
-        data.minigame3BoolSave = gamesUnlocked.minigame3;
-        data.minigame4BoolSave = gamesUnlocked.minigame4;
+        
+        data.allMinigamesSave = gamesUnlocked.allMinigamesUnlocked;
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Game data saved!");
@@ -36,17 +43,39 @@ public class ArcadeSaving : MonoBehaviour
 
     public void LoadGame()
     {
-        if (File.Exists("C:/users/c17rebma/MySaveData.dat"))
+        
+        if (File.Exists(Application.persistentDataPath + "/GamesUnlocked.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = 
-                File.Open("C:/users/c17rebma/MySaveData.dat", FileMode.Open);
+                File.Open(Application.persistentDataPath + "/GamesUnlocked.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(file);
             file.Close();
-            gamesUnlocked.minigame1 = data.minigame1BoolSave;
-            gamesUnlocked.minigame2 = data.minigame2BoolSave;
-            gamesUnlocked.minigame3 = data.minigame3BoolSave;
-            gamesUnlocked.minigame4 = data.minigame4BoolSave;
+            
+            gamesUnlocked.allMinigamesUnlocked = data.allMinigamesSave;
+            Debug.Log("Game data loaded!");
+        }
+        
+        else if (File.Exists( Directory.GetCurrentDirectory() + "/GamesUnlocked.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = 
+                File.Open(Directory.GetCurrentDirectory() + "/GamesUnlocked.dat", FileMode.Open);
+            SaveData data = (SaveData)bf.Deserialize(file);
+            file.Close();
+            
+            gamesUnlocked.allMinigamesUnlocked = data.allMinigamesSave;
+            Debug.Log("Game data loaded!");
+        }
+        else if(File.Exists( gamesUnlocked.customPath + "/GamesUnlocked.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = 
+                File.Open(gamesUnlocked.customPath + "/GamesUnlocked.dat", FileMode.Open);
+            SaveData data = (SaveData)bf.Deserialize(file);
+            file.Close();
+            
+            gamesUnlocked.allMinigamesUnlocked = data.allMinigamesSave;
             Debug.Log("Game data loaded!");
         }
         else
@@ -57,15 +86,27 @@ public class ArcadeSaving : MonoBehaviour
 
     public void ResetData()
     {
-        if (File.Exists("C:/users/c17rebma/MySaveData.dat"))
+        if (File.Exists(Application.persistentDataPath + "/GamesUnlocked.dat"))
         {
-            File.Delete("C:/users/c17rebma/MySaveData.dat");
-            gamesUnlocked.minigame1 = false;
-            gamesUnlocked.minigame2 = false;
-            gamesUnlocked.minigame3 = false;
-            gamesUnlocked.minigame4 = false;
+            File.Delete(Application.persistentDataPath + "/GamesUnlocked.dat");
+            gamesUnlocked.allMinigamesUnlocked = false;
             Debug.Log("Data reset done, yeet");
         }
+        
+        else if (File.Exists(Directory.GetCurrentDirectory() + "/GamesUnlocked.dat"))
+        {
+            File.Delete(Directory.GetCurrentDirectory() + "/GamesUnlocked.dat");
+            gamesUnlocked.allMinigamesUnlocked = false;
+            Debug.Log("Data reset done, yeet");
+        }
+        
+        else if (File.Exists(gamesUnlocked.customPath + "/GamesUnlocked.dat"))
+        {
+            File.Delete(gamesUnlocked.customPath + "/GamesUnlocked.dat");
+            gamesUnlocked.allMinigamesUnlocked = false;
+            Debug.Log("Data reset done, yeet");
+        }
+        
         else
         {
             Debug.LogError("bro there's nothing HERE");
@@ -78,10 +119,6 @@ public class ArcadeSaving : MonoBehaviour
 [Serializable]
 class SaveData
 {
-    public bool minigame1BoolSave;
-    public bool minigame2BoolSave;
-    public bool minigame3BoolSave;
-    public bool minigame4BoolSave;
     public bool allMinigamesSave;
 }
 

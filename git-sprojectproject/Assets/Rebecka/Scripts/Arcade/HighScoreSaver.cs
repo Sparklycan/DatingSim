@@ -21,6 +21,10 @@ public class HighScoreSaver : MonoBehaviour
         {
             file = File.Create(Application.persistentDataPath + "/MyHighscoreSaveData.dat"); 
         }
+        else if (scoreContainer.useCurrentApplicationPath)
+        {
+            file = File.Create(  Directory.GetCurrentDirectory() + "/MyHighscoreSaveData.dat"); 
+        }
         else
         {
             file = File.Create(scoreContainer.saveDataPath + "/MyHighscoreSaveData.dat"); 
