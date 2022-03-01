@@ -64,12 +64,12 @@ namespace Fungus
         /// <summary>
         /// Character name as displayed in Say Dialog.
         /// </summary>
-        public virtual string NameText { get { return nameText; } }
+        public virtual string NameText { get { return nameText; } set { nameText = value; } }
 
         /// <summary>
         /// Color to display the character name in Say Dialog.
         /// </summary>
-        public virtual Color NameColor { get { return nameColor; } }
+        public virtual Color NameColor { get { return nameColor; } set { nameColor = value; } }
 
         /// <summary>
         /// Sound effect to play when this character is speaking.

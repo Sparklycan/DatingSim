@@ -21,7 +21,9 @@ namespace Fungus
             CurrentHealth,
             MaxHealth,
             GameObject,
-            Animator
+            Animator,
+            AttackBuff,
+            DefenseBuff
         }
 
 
@@ -35,6 +37,7 @@ namespace Fungus
         [SerializeField]
         [VariableProperty(typeof(StringVariable),
                           typeof(IntegerVariable),
+                          typeof(FloatVariable),
                           typeof(AnimatorVariable),
                           typeof(GameObjectVariable))]
         protected Variable inOutVar;
@@ -43,6 +46,7 @@ namespace Fungus
         {
             var ios = inOutVar as StringVariable;
             var ioi = inOutVar as IntegerVariable;
+            var iof = inOutVar as FloatVariable;
             var iogo = inOutVar as GameObjectVariable;
             var ioa = inOutVar as AnimatorVariable;
 
@@ -71,6 +75,12 @@ namespace Fungus
                             break;
                         case Property.Animator:
                             ioa.Value = target.Animator;
+                            break;
+                        case Property.AttackBuff:
+                            iof.Value = target.AttackBuff;
+                            break;
+                        case Property.DefenseBuff:
+                            iof.Value = target.DefenseBuff;
                             break;
                         default:
                             Debug.Log("Unsupported get or set attempted");

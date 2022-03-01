@@ -17,6 +17,7 @@ namespace Fungus
         public enum Property
         {
             Character,
+            WaitTurns,
             Ability
         }
 
@@ -30,12 +31,14 @@ namespace Fungus
 
         [SerializeField]
         [VariableProperty(typeof(CharacterClassVariable),
+                          typeof(IntegerVariable),
                           typeof(AbilityVariable))]
         protected Variable inOutVar;
 
         public override void OnEnter()
         {
             var ioc = inOutVar as CharacterClassVariable;
+            var ioi = inOutVar as IntegerVariable;
             var ioa = inOutVar as AbilityVariable;
 
 
@@ -49,6 +52,9 @@ namespace Fungus
                         case Property.Character:
                             ioc.Value = target.character;
                             break;
+                        case Property.WaitTurns:
+                            ioi.Value = target.waitTurns;
+                            break;
                         case Property.Ability:
                             ioa.Value = target.ability;
                             break;
@@ -61,6 +67,9 @@ namespace Fungus
                 case GetSet.Set:
                     switch (property)
                     {
+                        case Property.WaitTurns:
+                            target.waitTurns = ioi.Value;
+                            break;
                         default:
                             Debug.Log("Unsupported get or set attempted");
                             break;
