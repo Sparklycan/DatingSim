@@ -7,18 +7,25 @@ using UnityEngine.SceneManagement;
 public class Controller : MonoBehaviour
 {
     #region VARS
+    //public vars need to be changed in editor, not script
     public Rigidbody2D myBody;
     private BoxCollider2D boxcollider2d;
+
     private float moveSpeed = 20f;
     private float jumpForce = 500f;
+    private float maxSpeed = 10f;
+    private bool jumping;
     private float wallJumpXmod = 1.8f;
     private float wallJumpYmod = 1.5f;
+    private float hore = 0f;
+
+
     private float extraHeight = 0.02f;
     private float extraWidth = 0.05f;
-    private float maxSpeed = 10f;
-    public float hore = 0f;
-    public bool jumping;
+
     private int hp = 3;
+    private Vector3 respawn;
+    private bool vampire = false;
 
     [SerializeField] private LayerMask groundLayerMask;
     #endregion
@@ -32,11 +39,8 @@ public class Controller : MonoBehaviour
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-        
-       
-
+        respawn = transform.position;
     }
-
 
     // Update is called once per frame  STEP
     void Update()
@@ -51,7 +55,14 @@ public class Controller : MonoBehaviour
         if (hp < 1) {
             Die();
         }
+
+        //check if too far down
+        if (transform.position.y < -5f)
+        {
+            Die();
+        }
     }
+
     #region RAYCASTS
     //GROUND AND GRIP CHECKS
     private bool grounded()
@@ -293,7 +304,10 @@ public class Controller : MonoBehaviour
 
         myBody.velocity = new Vector2(myBody.velocity.x, Mathf.Clamp(myBody.velocity.y, -jumpForce, jumpForce));
         #endregion
+        //to prevent buffered jump whenever next grounded or gripped
+        jumping = false;
     }
+
     #region COLLISIONS
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -301,14 +315,22 @@ public class Controller : MonoBehaviour
         //Enemy collison
         if (collision.transform.tag == "Enemy")
         {
-            //destroys enemy
-            Destroy(collision.gameObject);
+            if (vampire == true)
+            {
+                //destroys enemy
+                Destroy(collision.gameObject);
+            }
 
-            //self delete
-            //  Destroy(gameObject);
-
+            if (vampire == false)
+            {
+                //self delete
+                //  Destroy(gameObject);
+                Die();
+            }
+            /*
             //push self
            myBody.AddForce(new Vector2(-jumpForce, 0f), ForceMode2D.Impulse);
+            */
 
             
         }
@@ -318,6 +340,13 @@ public class Controller : MonoBehaviour
             Hurt();
         }
 
+        //checkpoint collision
+        if (collision.transform.tag == "Checkpoint")
+        {
+            respawn = collision.transform.position;
+            Destroy(collision.gameObject);
+        }
+
             //debugs if works
             Debug.Log("WTF I AM COLLIDING");
     }
@@ -325,8 +354,13 @@ public class Controller : MonoBehaviour
 
     void Die() {
 
+        transform.position = respawn;
+        myBody.velocity = new Vector3(0f, 0f, 0f);
+        hp = 3;
+        /*
         Destroy(gameObject);
         SceneManager.LoadScene("DinMammaHopparRunt");
+        */
 
         Debug.Log("You died");
     }
