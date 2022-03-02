@@ -20,4 +20,9 @@ public class menuOptions : MonoBehaviour
     {
         page.SetActive(false);
     }
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
 }

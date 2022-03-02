@@ -8,32 +8,20 @@ using UnityEngine;
 public class HighScoreSaver : MonoBehaviour
 {
     public HighscoreContainer scoreContainer;
+    public string customPath =  "C:/Users/YourUser/AppData/LocalLow";
     
     
     
     public void SaveGame()
     {
       
-        BinaryFormatter bf = new BinaryFormatter(); 
-        //FileStream file = File.Create("C:/users/c17rebma/MyHighscoreSaveData.dat"); 
-        FileStream file;
-        if (scoreContainer.useDefaultPath)
-        {
-            file = File.Create(Application.persistentDataPath + "/MyHighscoreSaveData.dat"); 
-        }
-        else if (scoreContainer.useCurrentApplicationPath)
-        {
-            file = File.Create(  Directory.GetCurrentDirectory() + "/MyHighscoreSaveData.dat"); 
-        }
-        else
-        {
-            file = File.Create(scoreContainer.saveDataPath + "/MyHighscoreSaveData.dat"); 
-        }
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/MyHighscoreSaveData.dat"); 
+        
         
         HighscoreSaveData data = new HighscoreSaveData();
-
-        data.defaultPathUsed = scoreContainer.useDefaultPath;
-        data.customPath = scoreContainer.saveDataPath;
+        
+        data.customPath = customPath;
         data.values1ax = scoreContainer.fishpongScore1.x;
         data.values1ay = scoreContainer.fishpongScore1.y;
         data.values1az = scoreContainer.fishpongScore1.z;
@@ -68,8 +56,8 @@ public class HighScoreSaver : MonoBehaviour
 
     public void LoadGame()
     {
-        if (scoreContainer.useDefaultPath)
-        {
+       // if (scoreContainer.useDefaultPath)
+       // {
             
         
             if (File.Exists(Application.persistentDataPath + "/MyHighscoreSaveData.dat"))
@@ -80,8 +68,8 @@ public class HighScoreSaver : MonoBehaviour
                               + "MyHighscoreSaveData.dat", FileMode.Open);
                 HighscoreSaveData data = (HighscoreSaveData)bf.Deserialize(file);
                 file.Close();
-                scoreContainer.useDefaultPath = data.defaultPathUsed;
-                scoreContainer.saveDataPath = data.customPath;
+           
+                customPath = data.customPath;
                 scoreContainer.fishpongScore1.x = data.values1ax;
                 scoreContainer.fishpongScore1.y = data.values1ay;
                 scoreContainer.fishpongScore1.z = data.values1az;
@@ -110,25 +98,26 @@ public class HighScoreSaver : MonoBehaviour
                 scoreContainer.sweeperScore3.y = data.values3ey;
                 scoreContainer.sweeperScore3.z = data.values3ez;
                 Debug.Log("Game data loaded!");
+                Debug.Log(Application.persistentDataPath);
             }
             else
             {
                 Debug.Log("ur a big dummy, no save here!");
             }
-        }
-        else
+        //}
+        /*else
         {
-            if (File.Exists( scoreContainer.saveDataPath + "/MyHighscoreSaveData.dat"))
+            if (File.Exists( customPath + "/MyHighscoreSaveData.dat"))
             {
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = 
-                    File.Open(scoreContainer.saveDataPath + "/MyHighscoreSaveData.dat", FileMode.Open);
+                    File.Open(customPath + "/MyHighscoreSaveData.dat", FileMode.Open);
                 HighscoreSaveData data = (HighscoreSaveData)bf.Deserialize(file);
                 file.Close();
                 scoreContainer.useDefaultPath = data.defaultPathUsed;
-                scoreContainer.saveDataPath = data.customPath;
+                customPath = data.customPath;
                 scoreContainer.useDefaultPath = data.defaultPathUsed;
-                scoreContainer.saveDataPath = data.customPath;
+                customPath= data.customPath;
                 scoreContainer.fishpongScore1.x = data.values1ax;
                 scoreContainer.fishpongScore1.y = data.values1ay;
                 scoreContainer.fishpongScore1.z = data.values1az;
@@ -162,20 +151,18 @@ public class HighScoreSaver : MonoBehaviour
             {
                 Debug.Log("ur a big dummy, no save here!");
             }
-        }
+        }*/
     }
 
     public void ResetData()
     {
-        if (scoreContainer.useDefaultPath)
-        {
+        //if (scoreContainer.useDefaultPath)
+       // {
             if (File.Exists( Application.persistentDataPath 
                              +"/MyHighscoreSaveData.dat"))
             {
-                File.Delete(Application.persistentDataPath 
+                File.Delete(Application.persistentDataPath
                             +"/MyHighscoreSaveData.dat");
-                scoreContainer.useDefaultPath = true;
-                scoreContainer.saveDataPath = "C:/Users/YourUser/AppData/LocalLow";
                 scoreContainer.fishpongScore1 = Vector3.zero;
                 scoreContainer.fishpongScore2 = Vector3.zero;
                 scoreContainer.fishpongScore3 = Vector3.zero;
@@ -189,14 +176,14 @@ public class HighScoreSaver : MonoBehaviour
             {
                 Debug.Log("bro there's nothing HERE");
             }
-        }
-        else
+      //  }
+        /*else
         {
-            if (File.Exists(scoreContainer.saveDataPath + "/MyHighscoreSaveData.dat"))
+            if (File.Exists(customPath + "/MyHighscoreSaveData.dat"))
             {
-                File.Delete(scoreContainer.saveDataPath + "/MyHighscoreSaveData.dat");
+                File.Delete(customPath + "/MyHighscoreSaveData.dat");
                 scoreContainer.useDefaultPath = true;
-                scoreContainer.saveDataPath = "C:/Users/YourUser/AppData/LocalLow";
+                customPath = "C:/Users/YourUser/AppData/LocalLow";
                 scoreContainer.fishpongScore1 = Vector3.zero;
                 scoreContainer.fishpongScore2 = Vector3.zero;
                 scoreContainer.fishpongScore3 = Vector3.zero;
@@ -210,9 +197,10 @@ public class HighScoreSaver : MonoBehaviour
             {
                 Debug.Log("bro there's nothing HERE");
             }
-        }
+        }*/
        
     }
+    
 }
 
 
@@ -220,7 +208,7 @@ public class HighScoreSaver : MonoBehaviour
 class HighscoreSaveData
 {
 
-    public bool defaultPathUsed;
+   
 
     public string customPath;
     //fishpong

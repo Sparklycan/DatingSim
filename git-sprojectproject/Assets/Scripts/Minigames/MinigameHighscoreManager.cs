@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class MinigameHighscoreManager : MonoBehaviour
     public Text[] scoreTextsFlex;
     public Text[] scoreTextsSweeper;
 
-    private void Awake()
+    private void Start()
     {
        scoreSaver.LoadGame();
     }
@@ -219,6 +220,9 @@ public class MinigameHighscoreManager : MonoBehaviour
 
     public void PrintSweeperScores()
     {
+        
+        Debug.Log(Directory.GetCurrentDirectory());
+        Debug.Log(scoreContainer.sweeperScore1);
         scoreTextsSweeper[0].text ="Romance: " + scoreContainer.sweeperScore1.x.ToString() +", Lust: "+ scoreContainer.sweeperScore1.y.ToString() +", Suspicion: "+
                              scoreContainer.sweeperScore1.z.ToString();
         scoreTextsSweeper[1].text ="Romance: " +  scoreContainer.sweeperScore2.x.ToString() +", Lust: "+ scoreContainer.sweeperScore2.y.ToString() +", Suspicion: "+
