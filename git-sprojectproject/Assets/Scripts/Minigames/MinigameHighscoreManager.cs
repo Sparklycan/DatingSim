@@ -53,8 +53,12 @@ public class MinigameHighscoreManager : MonoBehaviour
             scoreContainer.fishpongScore3 = temporary;
             scoreSaver.SaveGame();
         }
+
+        if (scoreTextsFishpong.Length > 0)
+        {
+            PrintFishpongScores();
+        }
         
-        PrintFishpongScores();
         
     }
 
@@ -78,7 +82,12 @@ public class MinigameHighscoreManager : MonoBehaviour
             scoreContainer.platformerTimeScores.z = time;
             scoreSaver.SaveGame();
         }
-        PrintPlatformScores();
+
+        if (scoreTextsPlatformer.Length > 0)
+        {
+            PrintPlatformScores();
+        }
+        
     }
 
 
@@ -110,9 +119,12 @@ public class MinigameHighscoreManager : MonoBehaviour
             scoreContainer.stealthNuggetScores.z = nuggets;
             scoreSaver.SaveGame();
         }
+
+        if (scoreTextsStealthSuspicion.Length > 0)
+        {
+            PrintStealthScores();
+        }
         
-        
-        PrintStealthScores();
     }
 
 
@@ -156,8 +168,12 @@ public class MinigameHighscoreManager : MonoBehaviour
             scoreContainer.sweeperScore3 = temporary;
             scoreSaver.SaveGame();
         }
+
+        if (scoreTextsSweeper.Length > 0)
+        {
+            PrintSweeperScores();
+        }
         
-        PrintSweeperScores();
     }
 
     public void PrintFishpongScores()
@@ -184,9 +200,13 @@ public class MinigameHighscoreManager : MonoBehaviour
         scoreTextsStealthSuspicion[1].text = scoreContainer.stealthSuspicion.y.ToString();
         scoreTextsStealthSuspicion[2].text = scoreContainer.stealthSuspicion.z.ToString();
 
-        scoreTextsStealthNuggets[0].text = scoreContainer.stealthNuggetScores.x.ToString();
-        scoreTextsStealthNuggets[1].text = scoreContainer.stealthNuggetScores.y.ToString();
-        scoreTextsStealthNuggets[2].text = scoreContainer.stealthNuggetScores.z.ToString();
+        if (scoreTextsStealthNuggets.Length > 0)
+        {
+            scoreTextsStealthNuggets[0].text = scoreContainer.stealthNuggetScores.x.ToString();
+            scoreTextsStealthNuggets[1].text = scoreContainer.stealthNuggetScores.y.ToString();
+            scoreTextsStealthNuggets[2].text = scoreContainer.stealthNuggetScores.z.ToString();
+        }
+        
 
     }
 
@@ -205,6 +225,15 @@ public class MinigameHighscoreManager : MonoBehaviour
                             scoreContainer.sweeperScore2.z.ToString();
         scoreTextsSweeper[2].text ="Romance: " +  scoreContainer.sweeperScore3.x.ToString() +", Lust: "+ scoreContainer.sweeperScore3.y.ToString() +", Suspicion: "+
                             scoreContainer.sweeperScore3.z.ToString();
+    }
+
+    public void PrintAllScores()
+    {
+        PrintFishpongScores();
+        PrintFlexScores();
+        PrintPlatformScores();
+        PrintStealthScores();
+        PrintSweeperScores();
     }
     
 }
