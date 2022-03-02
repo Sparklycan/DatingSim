@@ -6,6 +6,7 @@ public class PlatCam : MonoBehaviour
 {
 
     public GameObject player;
+    public Rigidbody2D playerBody;
 
     // Start is called before the first frame update
     void Start()
@@ -17,51 +18,50 @@ public class PlatCam : MonoBehaviour
     void Update()
     {
         #region LOCAL VARS
-        float camSpeed = 0.8f;
+        float camSpeedx = 1.5f;
+        float camSpeedy = 0.8f;
         float yMargin = 1f; //used to create an offset in Y axis but var name yOffset was taken
         float xOffset = Mathf.Abs(transform.position.x - player.transform.position.x);
-        float yOffset = Mathf.Abs(transform.position.y - player.transform.position.y + yMargin);
+        float yOffset = (transform.position.y - player.transform.position.y + yMargin);
         bool gotoX = false;
         bool gotoY = false;
         #endregion
-        /*
+
         #region SET YMARGIN
-        if(player.myBody.velocity.y)
-        {
-            yMargin = -yMargin;
-        }
+         yMargin = -Mathf.Clamp(playerBody.velocity.y, -8f, 4f);
         #endregion
-        */
+
         #region CHECK OFFSETS
         if (xOffset > 3f)
         {
             gotoX = true;
         }
-        else if(xOffset < 0.1f)
+        else if(xOffset < 0.01f)
         {
             gotoX = false;
         }
 
-        if (yOffset > 2f)
+        if (yOffset > 1.5f || yOffset < -1.5f)
         {
             gotoY = true;
         }
-        else if (yOffset < 0.1f)
+        else //if (yOffset < 0.01f)
         {
             gotoY = false;
         }
         #endregion
+
         #region LERP TO POS
         if (gotoX)
         {
             //lerps poisiton based on time.deltatime in X
-            transform.position = new Vector3(Mathf.Lerp(transform.position.x, player.transform.position.x, camSpeed * Time.deltaTime), transform.position.y, transform.position.z);
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, player.transform.position.x, camSpeedx * Time.deltaTime), transform.position.y, transform.position.z);
         }
 
         if(gotoY)
         {
             //lerps poisiton based on time.deltatime in Y
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, player.transform.position.y - yMargin, camSpeed * Time.deltaTime), transform.position.z);
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, player.transform.position.y - yMargin, camSpeedy * Time.deltaTime), transform.position.z);
         }
         #endregion
     }
