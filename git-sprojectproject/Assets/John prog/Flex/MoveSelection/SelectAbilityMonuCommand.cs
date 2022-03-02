@@ -4,6 +4,7 @@ using UnityEngine;
 using Fungus;
 using System;
 using UnityEngine.UI;
+using System.Linq;
 
 [CommandInfo("Flex", "Select ability menu", helpText: "Select an ability.")]
 public class SelectAbilityMonuCommand : WaitForCondition
@@ -30,6 +31,7 @@ public class SelectAbilityMonuCommand : WaitForCondition
         {
             Button button = Instantiate(buttonPrefab, buttonLayoutGroup.transform);
             button.onClick.AddListener(delegate { selectedAbility.Value = ability; });
+            button.interactable = !character.Value.DisabledAbilities.Any(a => a == ability);
 
             Text text = button.GetComponentInChildren<Text>();
             text.text = ability.Name;

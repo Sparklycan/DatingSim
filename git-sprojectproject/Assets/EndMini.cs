@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndMini : MonoBehaviour
 {
     private Minigame _minigame;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -12,8 +13,8 @@ public class EndMini : MonoBehaviour
     }
 
 
-    public void END()
+    public void END(HookPoints hookPoints)
     {
-        _minigame.EndGame(0, 0, 0);
+        _minigame.EndGame(hookPoints.Points.z, hookPoints.Points.y, hookPoints.Points.x);
     }
 }

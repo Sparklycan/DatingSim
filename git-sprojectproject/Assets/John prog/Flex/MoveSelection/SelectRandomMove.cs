@@ -12,7 +12,7 @@ public class SelectRandomMove : MoveSelector
     public override void OnBeginSelect(CharacterClass character)
     {
         this.character = character;
-        abilities = character.Abilities;
+        abilities = character.Abilities.Except(character.DisabledAbilities);
     }
 
     public override void OnEndSelect()

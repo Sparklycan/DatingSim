@@ -21,7 +21,7 @@ namespace Fungus
 
         public override void OnEnter()
         {
-            character.Value.DoDamage(damage.Value, hurtAnimation.stringVal, deathAnimation.stringVal);
+            character.Value.DoDamage((int)((float)damage.Value * character.Value.AttackBuff), hurtAnimation.stringVal, deathAnimation.stringVal);
             Continue();
         }
 
