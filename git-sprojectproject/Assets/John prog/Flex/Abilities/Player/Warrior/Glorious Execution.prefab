@@ -275,6 +275,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 98
   indentLevel: 0
+  attacker:
+    characterClassRef: {fileID: 2308923584053224126}
+    characterClassVal: {fileID: 0}
   character:
     characterClassRef: {fileID: 2308923584053224109}
     characterClassVal: {fileID: 0}
@@ -499,6 +502,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 99
   indentLevel: 0
+  attacker:
+    characterClassRef: {fileID: 0}
+    characterClassVal: {fileID: 0}
   character:
     characterClassRef: {fileID: 2308923584053224126}
     characterClassVal: {fileID: 0}
@@ -1179,7 +1185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674475623242822488, guid: 81c991d670f309e489e6573eb7794ce3, type: 3}
       propertyPath: selectedCommands.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4674475623242822488, guid: 81c991d670f309e489e6573eb7794ce3, type: 3}
       propertyPath: selectedBlocks.Array.data[0]
@@ -1216,7 +1222,7 @@ PrefabInstance:
     - target: {fileID: 4674475623242822488, guid: 81c991d670f309e489e6573eb7794ce3, type: 3}
       propertyPath: selectedCommands.Array.data[0]
       value: 
-      objectReference: {fileID: 3712421874482208231}
+      objectReference: {fileID: 1467633296774430157}
     - target: {fileID: 4674475623242822491, guid: 81c991d670f309e489e6573eb7794ce3, type: 3}
       propertyPath: nodeRect.y
       value: 130.93617
