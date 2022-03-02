@@ -15,21 +15,18 @@ namespace Fungus
 
         public override void OnEnter()
         {
-            List<Move> sortedMoves = new List<Move>();
+            List<Move> moveList = new List<Move>();
 
             foreach (Move move in moves.Value)
-            {
-                if (move.waitTurns > 0)
-                    move.waitTurns--;
-                sortedMoves.Add(move);
-            }
+                moveList.Add(move);
 
             moves.Value.Clear();
-            foreach (Move move in sortedMoves
+            foreach (Move move in moveList
                 .OrderByDescending(m => m.waitTurns)
                 .ThenBy(m => m.ability.Priority)
                 .ThenBy(m => m.character.Allegience.Priority))
                     moves.Value.Insert(0, move);
+
             Continue();
         }
     }

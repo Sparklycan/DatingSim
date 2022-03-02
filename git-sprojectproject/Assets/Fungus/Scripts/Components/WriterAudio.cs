@@ -11,8 +11,10 @@ namespace Fungus
     /// </summary>
     public enum AudioMode
     {
-        /// <summary> Use short beep sound effects. </summary>
+        /// <summary> Use short beep sound effects on glyphs. </summary>
         Beeps,
+        /// <summary> Use short beep sound effects on words. </summary>
+        Words,
         /// <summary> Use long looping sound effect. </summary>
         SoundEffect,
     }
@@ -49,6 +51,8 @@ namespace Fungus
 
         // When true, a beep will be played on every written character glyph
         protected bool playBeeps;
+        // When true, a beep will be played on every written word
+        protected bool playWords;
 
         // True when a voiceover clip is playing
         protected bool playingVoiceover = false;
@@ -95,7 +99,7 @@ namespace Fungus
         {
             if (targetAudioSource == null ||
                 (audioMode == AudioMode.SoundEffect && soundEffect == null && audioClip == null) ||
-                (audioMode == AudioMode.Beeps && beepSounds.Count == 0))
+                ((audioMode == AudioMode.Beeps || audioMode == AudioMode.Words) && beepSounds.Count == 0))
             {
                 return;
             }
@@ -126,6 +130,13 @@ namespace Fungus
                 targetAudioSource.loop = false;
                 playBeeps = true;
             }
+            else if (audioMode == AudioMode.Words)
+            {
+                // Use beeps defined in WriterAudio
+                targetAudioSource.clip = null;
+                targetAudioSource.loop = false;
+                playWords = true;
+            }
         }
 
         protected virtual void Pause()
@@ -151,6 +162,7 @@ namespace Fungus
             targetVolume = 0f;
             targetAudioSource.loop = false;
             playBeeps = false;
+            playWords = false;
             playingVoiceover = false;
         }
 
@@ -223,6 +235,35 @@ namespace Fungus
             }
 
             if (playBeeps && beepSounds.Count > 0)
+            {
+                if (!targetAudioSource.isPlaying)
+                {
+                    if (nextBeepTime < Time.realtimeSinceStartup)
+                    {
+                        targetAudioSource.clip = beepSounds[Random.Range(0, beepSounds.Count)];
+
+                        if (targetAudioSource.clip != null)
+                        {
+                            targetAudioSource.loop = false;
+                            targetVolume = volume;
+                            targetAudioSource.Play();
+
+                            float extend = targetAudioSource.clip.length;
+                            nextBeepTime = Time.realtimeSinceStartup + extend;
+                        }
+                    }
+                }
+            }
+        }
+
+        public virtual void OnWord()
+        {
+            if (playingVoiceover)
+            {
+                return;
+            }
+
+            if (playWords && beepSounds.Count > 0)
             {
                 if (!targetAudioSource.isPlaying)
                 {

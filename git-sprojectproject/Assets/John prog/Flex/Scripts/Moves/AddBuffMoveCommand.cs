@@ -13,7 +13,9 @@ namespace Fungus
         [Tooltip("The collection to add the move to.")]
         private CollectionData moves;
         [SerializeField]
-        private CharacterClassData target;
+        private CharacterClassData attacker;
+        [SerializeField]
+        private CollectionData targets;
         [SerializeField]
         private AbilityData ability;
         [SerializeField]
@@ -28,12 +30,18 @@ namespace Fungus
 
         public override void OnEnter()
         {
-            BuffMove move = new BuffMove(target, null, ability, attack.Value, defense.Value, waitTurns.Value);
+            List<CharacterClass> targetList = new List<CharacterClass>();
+            foreach (CharacterClass target in targets.Value)
+                targetList.Add(target);
+
+            BuffMove move = new BuffMove(attacker, targetList.ToArray(), ability, attack.Value, defense.Value, waitTurns.Value);
             move.allowMoreMoves = false;
+            
             if (waitTurns.Value > 0)
                 moves.Value.Add(move);
             else
                 moves.Value.Insert(index.Value, move);
+            
             Continue();
         }
     }
