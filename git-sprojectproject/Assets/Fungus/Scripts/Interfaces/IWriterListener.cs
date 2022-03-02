@@ -43,6 +43,8 @@ namespace Fungus
 
         /// Called every time the Writer writes a new character glyph.
         void OnGlyph();
+        /// Called every time the Writer writes a new word.
+        void OnWord();
 
         /// <summary>
         /// Called when voiceover should start.

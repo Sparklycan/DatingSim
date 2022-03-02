@@ -608,7 +608,7 @@ namespace Fungus
             else
             {
                 for (int i = 0; i < param.Length + 1; ++i)
-                {   
+                {
                     if (exitFlag)
                     {
                         break;
@@ -621,6 +621,7 @@ namespace Fungus
                     }
 
                     PartitionString(writeWholeWords, param, i);
+                    NotifyWord();
                     ConcatenateString(startText);
                     textAdapter.Text = outputString.ToString();
 
@@ -652,6 +653,35 @@ namespace Fungus
                             timeAccumulator += waitTime;
                         }
                     }
+                }
+            }
+        }
+
+        private void NotifyWord()
+        {
+            bool left = false;
+            bool right = true;
+            if (leftString.Length > 0)
+            {
+                if (leftString.Length == 1)
+                    left = true;
+                else if (char.IsWhiteSpace(leftString[leftString.Length - 2]))
+                    left = true;
+
+                if (leftString.Length == 0)
+                    right = false;
+                else if (char.IsWhiteSpace(leftString[leftString.Length - 1]))
+                    right = false;
+            }
+
+            if (left && right)
+            {
+                WriterSignals.DoWriterGlyph(this);
+
+                for (int i = 0; i < writerListeners.Count; i++)
+                {
+                    var writerListener = writerListeners[i];
+                    writerListener.OnWord();
                 }
             }
         }
