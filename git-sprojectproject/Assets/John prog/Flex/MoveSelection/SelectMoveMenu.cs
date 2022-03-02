@@ -38,9 +38,9 @@ public class SelectMoveMenu : MoveSelector
         gameObject.SetActive(false);
     }
 
-    public void SetMove(Fungus.MoveVariable move)
+    public void SetMove(string moveKey)
     {
-        selectedMove = move.Value;
+        selectedMove = flowchart.GetVariable<Fungus.MoveVariable>(moveKey).Value;
     }
 
     public override IEnumerator<Move> Select()

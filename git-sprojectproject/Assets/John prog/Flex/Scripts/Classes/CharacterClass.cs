@@ -52,7 +52,10 @@ public class CharacterClass : MonoBehaviour, ClassBase
     static public event Action<CharacterClass> onCharacterEnable;
     static public event Action<CharacterClass> onCharacterDisable;
 
+    public event Action<CharacterClass, int> onTakeDamage;
+
     private HashSet<Ability> disabledAbilities = new HashSet<Ability>();
+    private HashSet<Tuple<Ability, CharacterClass>> disabledTargets = new HashSet<Tuple<Ability, CharacterClass>>();
 
     public void Awake()
     {
@@ -82,6 +85,25 @@ public class CharacterClass : MonoBehaviour, ClassBase
             disabledAbilities.Add(ability);
     }
 
+    public void EnableTarget(Ability ability, CharacterClass target, bool enabled)
+    {
+        var t = Tuple.Create(ability, target);
+        if (enabled)
+            disabledTargets.Remove(t);
+        else
+            disabledTargets.Add(t);
+    }
+
+    public void EnableAllAbilities()
+    {
+        disabledAbilities.Clear();
+    }
+
+    public void EnableAllTargets()
+    {
+        disabledTargets.Clear();
+    }
+
     public bool CanSelectAbility()
     {
         return abilitySelector.CanSelect(Abilities, this);
@@ -100,14 +122,21 @@ public class CharacterClass : MonoBehaviour, ClassBase
         yield return ability.Current;
     }
 
-    public void DoDamage(int damage, string hurtAnimation, string deathAnimation)
+    public void DoDamage(CharacterClass attacker, int damage, string hurtAnimation, string deathAnimation)
     {
-        currentHealth -= (int)((float)damage * defenseBuff);
+        damage = (int)((float)damage * defenseBuff);
+        onTakeDamage?.Invoke(attacker, damage);
+        currentHealth -= damage;
 
         if (currentHealth > 0)
             Animator.Play(hurtAnimation);
         else
             Animator.Play(deathAnimation);
+    }
+
+    public bool CanAttack(Ability ability, CharacterClass target)
+    {
+        return !disabledTargets.Contains(Tuple.Create(ability, target));
     }
 
     public void AddBuff(float attack, float defense)

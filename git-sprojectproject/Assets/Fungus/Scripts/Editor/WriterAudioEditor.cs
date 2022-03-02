@@ -38,7 +38,7 @@ namespace Fungus.EditorUtils
             EditorGUILayout.PropertyField(inputSoundProp);
 
             EditorGUILayout.PropertyField(audioModeProp);
-            if ((AudioMode)audioModeProp.enumValueIndex == AudioMode.Beeps)
+            if ((AudioMode)audioModeProp.enumValueIndex == AudioMode.Beeps || (AudioMode)audioModeProp.enumValueIndex == AudioMode.Words)
             {
                 EditorGUILayout.PropertyField(beepSoundsProp, new GUIContent("Beep Sounds", "A list of beep sounds to play at random"),true);
             }
