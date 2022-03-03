@@ -52,6 +52,7 @@ public class Controller : MonoBehaviour
     #endregion
     #endregion
 
+    //Before start
     private void Awake()
     {
         //def for hitbox
@@ -306,6 +307,7 @@ public class Controller : MonoBehaviour
     }
     #endregion
 
+    //MOVEMENT HERE
     private void FixedUpdate()
     {
         #region STRAFING
