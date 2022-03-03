@@ -405,6 +405,12 @@ public class Controller : MonoBehaviour
             respawn = collision.transform.position;
             Destroy(collision.gameObject);
         }
+
+        //collides with end zone to end game
+        if (collision.transform.tag == "PlatformerGoal")
+		{
+            Win();
+		}
     }
 
     //sets player to last checkpoint and heals them
@@ -453,6 +459,12 @@ public class Controller : MonoBehaviour
 
     //not used in mechanics, only for sound?
 	void strafe()
+	{
+
+	}
+
+    //called to end game
+    void Win()
 	{
 
 	}
