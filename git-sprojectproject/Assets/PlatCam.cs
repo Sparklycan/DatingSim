@@ -1,3 +1,4 @@
+#region CAMERA SCRIPT
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -112,3 +113,4 @@ public class PlatCam : MonoBehaviour
         #endregion
     }
 }
+#endregion

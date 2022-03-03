@@ -1,3 +1,4 @@
+#region PLAYER SCRIPT (Controller)
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -135,6 +136,8 @@ public class Controller : MonoBehaviour
 
 	#region RAYCASTS to check if grounded or gripping
 	//GROUND AND GRIP CHECKS
+
+	#region GROUND CHECK
 	private bool grounded()
     {
         int rayHits = 0;
@@ -190,7 +193,10 @@ public class Controller : MonoBehaviour
         }
         
     }
-    private bool gripRight()
+	#endregion
+
+	#region RIGHT GRIP CHECK
+	private bool gripRight()
     {
 
         int rayHits = 0;
@@ -247,7 +253,10 @@ public class Controller : MonoBehaviour
         }
 
     }
-    private bool gripLeft()
+	#endregion
+
+	#region LEFT GRIP CHECK
+	private bool gripLeft()
     {
 
         int rayHits = 0;
@@ -307,6 +316,8 @@ public class Controller : MonoBehaviour
     }
     #endregion
 
+    #endregion
+
     //MOVEMENT HERE
     private void FixedUpdate()
     {
@@ -322,11 +333,13 @@ public class Controller : MonoBehaviour
             myBody.AddForce(new Vector2(-moveSpeed, 0f), ForceMode2D.Impulse);
             strafe();
         }
-        #endregion
-        #region JUMPING AND WALL JUMPING
-        //JUMPING AND WALLJUMPING
-        // input.GetButtonDown("Jump")
-        if (grounded() && jumping && jumpReady)
+		#endregion
+
+		#region JUMPING AND WALL JUMPING
+		//JUMPING AND WALLJUMPING
+		// input.GetButtonDown("Jump")
+		#region NORMAL JUMP
+		if (grounded() && jumping && jumpReady)
         {
             myBody.velocity = new Vector2(myBody.velocity.x, 0f);
             myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -335,7 +348,10 @@ public class Controller : MonoBehaviour
             jump();
             
         }
-        else if (gripRight() && jumping && jumpReady)
+		#endregion
+
+		#region WALLJUMP FROM RIGHT TO LEFT
+		else if (gripRight() && jumping && jumpReady)
         {
             myBody.velocity = new Vector2(myBody.velocity.x, 0f);
             myBody.AddForce(new Vector2(-jumpForce * wallJumpXmod, jumpForce * wallJumpYmod), ForceMode2D.Impulse);
@@ -344,7 +360,10 @@ public class Controller : MonoBehaviour
             jump();
             
         }
-        else if (gripLeft() && jumping && jumpReady)
+		#endregion
+
+		#region WALLJUMP FROM LEFT TO RIGHT
+		else if (gripLeft() && jumping && jumpReady)
         {
             myBody.velocity = new Vector2(myBody.velocity.x, 0f);
             myBody.AddForce(new Vector2(jumpForce * wallJumpXmod, jumpForce * wallJumpYmod), ForceMode2D.Impulse);
@@ -353,11 +372,15 @@ public class Controller : MonoBehaviour
             jump();
         }
         #endregion
+
+        #endregion
+
         #region CLAMP
         //Limits velocity to be within given range
         myBody.velocity = new Vector2(Mathf.Clamp(myBody.velocity.x, -maxSpeed, maxSpeed),
             Mathf.Clamp(myBody.velocity.y, -jumpForce, jumpForce * jumpClamper));
         #endregion
+
         #region JUMP CD
         //to prevent mega jumps
         if (jumpReady == false)
@@ -379,8 +402,9 @@ public class Controller : MonoBehaviour
     //all collisions; Enemy, Thorn, Checkpoint
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Enemy collison. Kills either enemy or player depending on vampire var
-        if (collision.transform.tag == "Enemy")
+		#region ENEMY COLLISION
+		//Enemy collison. Kills either enemy or player depending on vampire var
+		if (collision.transform.tag == "Enemy")
         {
             if (vampire == true)
             {
@@ -394,29 +418,37 @@ public class Controller : MonoBehaviour
                 Die();
             }
         }
-        //Thorn collision. Hurts player
-        if (collision.transform.tag == "Thorn")
+		#endregion
+
+		#region THORN/SPIKE COLLISION
+		//Thorn collision. Hurts player
+		if (collision.transform.tag == "Thorn")
         {
             Hurt();
         }
+		#endregion
 
-        //checkpoint collision. also heals player
-        if (collision.transform.tag == "Checkpoint")
+		#region CHECKPOINT COLLISION
+		//checkpoint collision. also heals player
+		if (collision.transform.tag == "Checkpoint")
         {
             Heal();
             respawn = collision.transform.position;
             Destroy(collision.gameObject);
         }
+		#endregion
 
-        //collides with end zone to end game
-        if (collision.transform.tag == "PlatformerGoal")
+		#region GOAL COLLISION
+		//collides with end zone to end game
+		if (collision.transform.tag == "PlatformerGoal")
 		{
             Win();
 		}
-    }
+		#endregion
+	}
 
-    //sets player to last checkpoint and heals them
-    void Die() {
+	//sets player to last checkpoint and heals them
+	void Die() {
 
         transform.position = respawn;
         myBody.velocity = new Vector3(0f, 0f, 0f);
@@ -472,3 +504,4 @@ public class Controller : MonoBehaviour
 	}
 
 }
+#endregion
