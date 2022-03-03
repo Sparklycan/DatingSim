@@ -7,7 +7,7 @@ public class navMeshBake : MonoBehaviour
 {
 
     public NavMeshSurface Surface;
-
+    // Start is called before the first frame update
     void Awake()
     {
         Surface.BuildNavMesh();
