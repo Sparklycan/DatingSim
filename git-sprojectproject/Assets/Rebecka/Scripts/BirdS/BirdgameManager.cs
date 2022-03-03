@@ -10,13 +10,14 @@ public class BirdgameManager : MonoBehaviour
    
    public TimeScriptBirdGame timer;
    public PlayerScript player;
-   
+   public GameObject gameOverPanel;
 
 
    private void Start()
    {
       timer.timeOut += GameOverTime;
       player.healthOut += GameOverHealth;
+      gameOverPanel.SetActive(false);
    }
    
    private void GameOverHealth(int romance, int lust, int sus)
@@ -24,6 +25,7 @@ public class BirdgameManager : MonoBehaviour
       sendPoints(romance, lust, sus);
       Destroy(timer.gameObject);
       Destroy(player.gameObject);
+      gameOverPanel.SetActive(true);
    }
 
    private void GameOverTime()
@@ -31,6 +33,7 @@ public class BirdgameManager : MonoBehaviour
       sendPoints(player.romance, player.lust, player.sus);
       Destroy(player.gameObject);
       Destroy(timer.gameObject);
+      gameOverPanel.SetActive(true);
    }
    
 }
