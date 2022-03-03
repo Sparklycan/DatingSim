@@ -540,7 +540,6 @@ GameObject:
   - component: {fileID: 96754411}
   - component: {fileID: 96754449}
   - component: {fileID: 96754448}
-  - component: {fileID: 96754450}
   - component: {fileID: 96754451}
   - component: {fileID: 96754452}
   - component: {fileID: 96754454}
@@ -550,8 +549,6 @@ GameObject:
   - component: {fileID: 96754457}
   - component: {fileID: 96754458}
   - component: {fileID: 96754459}
-  - component: {fileID: 96754460}
-  - component: {fileID: 96754461}
   - component: {fileID: 96754463}
   - component: {fileID: 96754464}
   - component: {fileID: 96754462}
@@ -616,6 +613,16 @@ GameObject:
   - component: {fileID: 96754511}
   - component: {fileID: 96754510}
   - component: {fileID: 96754509}
+  - component: {fileID: 96754461}
+  - component: {fileID: 96754460}
+  - component: {fileID: 96754450}
+  - component: {fileID: 96754521}
+  - component: {fileID: 96754522}
+  - component: {fileID: 96754523}
+  - component: {fileID: 96754527}
+  - component: {fileID: 96754526}
+  - component: {fileID: 96754525}
+  - component: {fileID: 96754524}
   m_Layer: 0
   m_Name: FlowchartLunchGuy
   m_TagString: Untagged
@@ -872,7 +879,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754236
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1218,7 +1225,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754249
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1465,7 +1472,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754257
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1491,13 +1498,11 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 96754450}
-  - {fileID: 96754460}
-  - {fileID: 96754461}
   - {fileID: 96754256}
   - {fileID: 96754255}
   - {fileID: 96754251}
   - {fileID: 96754250}
+  - {fileID: 96754523}
   suppressAllAutoSelections: 0
 --- !u!114 &96754258
 MonoBehaviour:
@@ -1570,7 +1575,7 @@ MonoBehaviour:
 
 
       You walk through the streets of your town and
-      the scent of coffee captivates you and you feel yourself following the it into
+      the scent of coffee captivates you and you feel yourself following it into
       a local coffee shop.'
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -1600,19 +1605,19 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'You: {flash=0.5}{w=1}{hpunch=8,2}Uugghhhh.... It''s so early... The
-      sun is already up...
+    stringVal: 'You: {flash=0.5}{w=1}{hpunch=8,2}Uugghhhh ... It''s so early ...
+      The sun is already up ...
 
-      I hate having to wake up early and be normal ...
-      Why can''t everyone just be night owls?
+      I hate having to wake up early and be normal
+      ... Why can''t everyone just be night owls?
 
 
 
-      Narrator: You walk over to
-      the bathroom.
+      Narrator: You walk over
+      to the bathroom.
 
-      Looking in the mirror, you sigh as only your pajamas are
-      visible.
+      Looking in the mirror, you sigh as only your pajamas
+      are visible.
 
       Feelings of dread, shame and disgust pour over you.
 
@@ -1621,42 +1626,42 @@ MonoBehaviour:
       You:
       Why do I have to be this monster?
 
-      Narrator: *You feel your mind choke
-      as the words <color=red><b>Inadequate and Unlovable</b></color> circle in your
-      head like a bat to blood*
+      Narrator: You feel your mind choke
+      as the words <color=red><b>Inadequate</b></color> and <color=red><b>Unlovable</b></color>
+      circle in your head like a bat to blood.
 
 
 
-      You: I am just a blood sucker, a leech.
+      You: I am just a blood sucker,
+      a leech.
 
-      Always
-      always <b>always</b> have to hide away, avoid the sun, avoid italian restaurants!!
+      Always always <b>always</b> have to hide away, avoid the sun,
+      avoid italian restaurants!!
 
-      I
-      am so tired of hiding, having no one ever be able to accept me ...
-
-
-
-      But
-      ... Does it have to be like this ...? What if ... I could make someone out
-      there ... happy ... Maybe then, people wouldn''t see me as a monster.
-
-      No
-      ... there is no one out there crazy enough like that ...
-
-      I just have
-      to suck it up, <b>act normal and hide away like always ...</b>
+      I am so tired of hiding, having no one ever
+      be able to accept me ...
 
 
 
-      Narrator:
-      Suddenly, your stomach growls angrily. You walk over to the fridge and fail
-      to repress your frustration when seeing it empty.
+      But ... Does it have to be like this ...?
+      What if ... I could make someone out there ... happy ... Maybe then, people
+      wouldn''t see me as a monster.
+
+      No ... there is no one out there crazy
+      enough like that ...
+
+      I just have to suck it up, <b>act normal and hide
+      away like always ...</b>
 
 
 
-      You: Uuuugh... Guess
-      I got to go buy something...'
+      Narrator: Suddenly, your stomach growls angrily.
+      You walk over to the fridge and fail to repress your frustration when seeing
+      it empty.
+
+
+
+      You: Uuuugh ... Guess I got to go buy something ...'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -1820,7 +1825,7 @@ MonoBehaviour:
   scrollPos: {x: 620.2885, y: 403.05988}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 404
+  blockViewHeight: 280
   zoom: 0.37000045
   scrollViewRect:
     serializedVersion: 2
@@ -1828,7 +1833,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 96754265}
   selectedCommands: []
   variables: []
   description: 
@@ -1933,7 +1939,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754271
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2098,7 +2104,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754277
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2340,7 +2346,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754285
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2513,7 +2519,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754291
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2679,7 +2685,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754297
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2913,7 +2919,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754305
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3158,7 +3164,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754314
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3244,7 +3250,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754317
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3566,7 +3572,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754329
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3794,7 +3800,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754337
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3912,7 +3918,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754341
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4210,7 +4216,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754352
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4576,7 +4582,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754365
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4658,7 +4664,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754368
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4767,7 +4773,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754372
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5052,7 +5058,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754382
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5216,7 +5222,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754388
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5467,7 +5473,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754397
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5547,7 +5553,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754400
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5714,7 +5720,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754406
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5849,7 +5855,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754411
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5938,7 +5944,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754414
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6028,7 +6034,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754417
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6132,7 +6138,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754421
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6279,7 +6285,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754426
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6381,7 +6387,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754429
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6497,7 +6503,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754432
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6664,7 +6670,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754438
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6992,22 +6998,53 @@ MonoBehaviour:
   m_GameObject: {fileID: 96754226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 437f9a4e3dbc647f9bdce95308418bff, type: 3}
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 607
+  itemId: 684
   indentLevel: 0
-  duration: 1
-  fadeOut: 1
-  targetView: {fileID: 883949608}
-  waitUntilFinished: 1
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeTexture: {fileID: 0}
-  targetCamera: {fileID: 0}
-  fadeTweenType: 4
-  orthoSizeTweenType: 4
-  posTweenType: 4
-  rotTweenType: 4
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 775986478}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &96754451
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7306,7 +7343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1902400ccc99b45d69ad01cb86b57d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 617
+  itemId: 683
   indentLevel: 0
   musicClip: {fileID: 8300000, guid: 1ed2c1debe6f51c4fb63bb3c29654bcb, type: 3}
   atTime: 0
@@ -7321,53 +7358,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 96754226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 437f9a4e3dbc647f9bdce95308418bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 618
+  itemId: 682
   indentLevel: 0
-  description: 
-  delay: 0
-  invokeType: 0
-  staticEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 775986478}
-        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  booleanParameter:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  booleanEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  integerParameter:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  integerEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  floatParameter:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  floatEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  stringParameter:
-    stringRef: {fileID: 0}
-    stringVal: 
-  stringEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  duration: 1
+  fadeOut: 1
+  targetView: {fileID: 883949608}
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  targetCamera: {fileID: 0}
+  fadeTweenType: 4
+  orthoSizeTweenType: 4
+  posTweenType: 4
+  rotTweenType: 4
 --- !u!114 &96754462
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7586,6 +7592,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 96754522}
   - {fileID: 96754497}
   - {fileID: 96754495}
   suppressAllAutoSelections: 0
@@ -7605,7 +7612,7 @@ MonoBehaviour:
   indentLevel: 0
   text: I'm sure.
   description: 
-  targetBlock: {fileID: 96754471}
+  targetBlock: {fileID: 96754527}
   hideIfVisited: 0
   interactable:
     booleanRef: {fileID: 0}
@@ -7642,7 +7649,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754474
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7682,8 +7689,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 428.5365
-    y: 65.029724
+    x: 425.8338
+    y: 40.70543
     width: 85.13509
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -8129,7 +8136,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Narrator: You enter a coffee shop and a sense of warmth hits you.
+    stringVal: 'Narrator: You enter the coffee shop and a sense of warmth hits you.
 
       Through
       a glass wall you can see a room where a bunch of furry creatures are roaming
@@ -8148,7 +8155,7 @@ MonoBehaviour:
     floatVal: 0
   fadeWhenDone:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &96754493
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8174,6 +8181,9 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 96754461}
+  - {fileID: 96754460}
+  - {fileID: 96754450}
   - {fileID: 96754492}
   - {fileID: 96754491}
   - {fileID: 96754490}
@@ -8196,7 +8206,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: He looks hurt. You feel like you need to get out of there.
+    stringVal: 'Narrator: He looks hurt. You feel like you need to get out of there.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -8280,9 +8290,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "You leave the caf\xE9 and almost bump into a group of Caiden's fans
-      who have gathered right outside the door. They know you have talked to him
-      and they look jealous."
+    stringVal: "Narrator: You leave the caf\xE9 and almost bump into a group of Caiden's
+      fans who have gathered right outside the door. They know you have talked to
+      him and they look jealous."
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -8506,6 +8516,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 96754521}
   - {fileID: 96754375}
   - {fileID: 96754283}
   suppressAllAutoSelections: 0
@@ -8739,7 +8750,7 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: 'Narrator: Don''t let the fans find you! If they do, they will try
       to take a photo of you and try to upload it to social media! Since you won''t
-      be seen in the photo, they will know your secret... There''s only one thing
+      be seen in the photo, they will know your secret ... There''s only one thing
       to do about that. Bite them.'
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -8868,6 +8879,202 @@ MonoBehaviour:
   parentBlock: {fileID: 96754265}
   suppressBlockAutoSelect: 0
   waitForFrames: 1
+--- !u!114 &96754521
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96754226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 686
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 1260703791}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &96754522
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96754226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 687
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 1260703791}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &96754523
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96754226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 688
+  indentLevel: 0
+  text: Leave me alone!
+  description: 
+  targetBlock: {fileID: 96754475}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+--- !u!114 &96754524
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96754226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 694
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 96754496}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &96754525
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96754226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 693
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Narrator: You leave the caf\xE9 and almost bump into a group of fans
+      of the guy you talked to.\nApparantly, he's famous.\nThey know you have talked
+      to him and they look jealous."
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &96754526
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96754226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 692
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 363907006}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &96754527
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96754226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 577.0073
+    y: 40.18283
+    width: 136.48639
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 690
+  blockName: LeavingAlone
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 96754526}
+  - {fileID: 96754525}
+  - {fileID: 96754524}
+  suppressAllAutoSelections: 0
 --- !u!1 &282423936
 GameObject:
   m_ObjectHideFlags: 0
@@ -10729,8 +10936,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1801900767}
+  selectedCommands:
+  - {fileID: 1801900744}
   variables:
   - {fileID: 1801900726}
   - {fileID: 1801900725}
@@ -11091,7 +11300,7 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: 'Tinkerer TinkererHeartEye: So what brings you here to the candy shop?
-      And what is your favorite candy?'
+      And what''s your favorite candy?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11425,8 +11634,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererConfused: Uuuhhh... I mean, yeah, sure, I probably
-      have something at home! Otherwise we can probably easily find something at
+    stringVal: 'Tinkerer TinkererConfused: Uuuhhh ... I mean, yeah, sure, I probably
+      have something at home! Otherwise, we can probably easily find something at
       the hardware store.'
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -11504,7 +11713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 32
   indentLevel: 0
-  text: Come fix my pipes and I can repay you in more... fun ways *wink*
+  text: Come fix my pipes and I can repay you in more ... fun ways *wink*.
   description: 
   targetBlock: {fileID: 1801900764}
   hideIfVisited: 0
@@ -11579,17 +11788,17 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: 'Tinkerer TinkererHappy2.0: Oh, I am an engineer! I tinker with all
-      kinds of stuff! Like my glasses here, I made it so much better ''cause my eye
-      sucked before and now it is awesome!
+      kinds of stuff! Like my glasses here, I made them so much better ''cause my
+      eye sucked before and now it is awesome!
 
 
-      Tinkerer TinkererHeartEye:Oh,
-      and I can fix almost anything, oh and! I would call myself a bit of an innovator,
+      Tinkerer TinkererHeartEye:
+      Oh, and I can fix almost anything, oh and I would call myself a bit of an innovator,
       you see, I created the Roasty Toasty Back Massager!
 
 
-      *She barely stops
-      to catch her breath*'
+      Narrator: She barely
+      stops to catch her breath.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11639,8 +11848,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererConfused: Ehhh, oookay, I mean I like lollipops
-      the most; so I am gonna stick to those.'
+    stringVal: 'Tinkerer TinkererConfused: Ehhh, oookay ... I mean, I like lollipops
+      the most, so I''m gonna stick to those.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11721,7 +11930,7 @@ MonoBehaviour:
 
       Tinkerer TinkererHearteye: Lollipops are my favorites,
       followed by chocolate and Skikkles (totally not Sk*ttles)! I just love to munch
-      them while I am working!'
+      them while I''m working!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11796,7 +12005,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererConfused: Uuuhhh.... Well, okay, weird thing to
+    stringVal: 'Tinkerer TinkererConfused: Uuuhhh ... Well, okay, weird thing to
       say. But I can fix your eyesight if you''d like!'
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -11849,7 +12058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 19
   indentLevel: 0
-  text: Oh, I am so sorry... I got so distracted by everything yummy here.
+  text: Oh, I am so sorry ... I got so distracted by everything yummy here.
   description: 
   targetBlock: {fileID: 1801900769}
   hideIfVisited: 0
@@ -11900,7 +12109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 17
   indentLevel: 0
-  text: Apologies! Say... that is a very nice neck you have there...
+  text: Apologies! Say ... that is a very nice neck you have there ...
   description: 
   targetBlock: {fileID: 1801900770}
   hideIfVisited: 0
@@ -11927,8 +12136,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: Tinkerer TinkererHearteye fadein:Ouf! Watch where you are going please!
-      Small people here!
+    stringVal: 'Tinkerer TinkererHearteye fadein: Ouf! Watch where you''re going
+      please! Small people here!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11958,11 +12167,11 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: "Narrator: A thousand thoughts fly around in your head. Feeling like
-      you want a pick me up from your thoughts, you walk to the local mall and walk
+      you want a pick-me-up from your thoughts, you walk to the local mall and walk
       into the candy shop. A sweet treat always makes you feel better. You walk around
       the candy shop, eyeing the various mouthwatering goodies. \n\nYou get so caught
-      up in all the possible choices that you don't see when you accidentally bump
-      into someone in front of you.\r"
+      up in all the possible choices that you accidentally bump into someone in front
+      of you.\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13074,9 +13283,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererBlushing2.0: Uuhhh... heh heh heh... oooookayyy.
-      I... don''t know what that means? But if you need anything fixed I guess I
-      could give you some pointers!'
+    stringVal: 'Tinkerer TinkererBlushing2.0: Uuhhh ... heh heh heh ... oooookayyy.
+      I ... don''t know what that means? But if you need anything fixed, I guess
+      I could give you some pointers!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -15897,7 +16106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 139
   indentLevel: 0
-  text: Chocolate is the only thing I need in life
+  text: Chocolate is the only thing I need in life.
   description: 
   targetBlock: {fileID: 1801900861}
   hideIfVisited: 0
@@ -15922,7 +16131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 138
   indentLevel: 0
-  text: I don't like candy
+  text: I don't like candy.
   description: 
   targetBlock: {fileID: 1801900860}
   hideIfVisited: 0
@@ -15947,7 +16156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 137
   indentLevel: 0
-  text: As long as it is as sweet like you, I am happy
+  text: As long as it's as sweet as you, I'm happy.
   description: 
   targetBlock: {fileID: 1801900886}
   hideIfVisited: 0
@@ -15972,7 +16181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 136
   indentLevel: 0
-  text: Lollipops are my favorite hands down!
+  text: Lollipops are my favorite, hands down!
   description: 
   targetBlock: {fileID: 1801900862}
   hideIfVisited: 0
@@ -23178,7 +23387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 398
   indentLevel: 0
-  text: Mm... How fun...
+  text: Mm ... How fun ...
   description: 
   targetBlock: {fileID: 1801901025}
   hideIfVisited: 0
@@ -23203,8 +23412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 346.71133
-    y: 163.96025
+    x: 341.71133
+    y: 161.46025
     width: 84.99996
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -23235,7 +23444,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererHeartEye: I definetly think so! Tell me what you
+    stringVal: 'Tinkerer TinkererHeartEye: I definitely think so! Tell me what you
       do!'
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -23736,7 +23945,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererHeartEye: Oh cool! I am so nervous for eventually
+    stringVal: 'Tinkerer TinkererHeartEye: Oh cool! I''m so nervous for eventually
       getting a job!'
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -23840,8 +24049,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Tinkerer TinkererHeartEye: Oh that is cool! I study a few courses
-      whenever I am not busy tinkereing! I love mathematics! Everything just makes
+    stringVal: 'Tinkerer TinkererHeartEye: Oh, that''s cool! I study a few courses
+      whenever I''m not busy tinkering! I love mathematics! Everything just makes
       sense there!'
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -24073,7 +24282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 433
   indentLevel: 0
-  text: I am on a quest to find things that bring me joy in life...
+  text: I'm on a quest to find things that bring me joy in life ...
   description: 
   targetBlock: {fileID: 1801901040}
   hideIfVisited: 0
