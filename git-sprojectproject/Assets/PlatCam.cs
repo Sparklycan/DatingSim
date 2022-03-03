@@ -22,13 +22,15 @@ public class PlatCam : MonoBehaviour
         float camSpeedy = 0.8f;
         float yMargin = 1f; //used to create an offset in Y axis but var name yOffset was taken
         float xOffset = Mathf.Abs(transform.position.x - player.transform.position.x);
-        float yOffset = (transform.position.y - player.transform.position.y + yMargin);
+        float yOffset = (transform.position.y - player.transform.position.y - yMargin);
         bool gotoX = false;
         bool gotoY = false;
+        bool chaseYdown = false;
+        bool chaseYup = false;
         #endregion
 
         #region SET YMARGIN
-         yMargin = -Mathf.Clamp(playerBody.velocity.y, -8f, 4f);
+         yMargin = -Mathf.Clamp(playerBody.velocity.y, -8f, 8f);
         #endregion
 
         #region CHECK OFFSETS
@@ -41,14 +43,27 @@ public class PlatCam : MonoBehaviour
             gotoX = false;
         }
 
-        if (yOffset > 1.5f || yOffset < -1.5f)
+        if (yOffset > 1.5f)
         {
             gotoY = true;
+            chaseYdown = true;
         }
-        else //if (yOffset < 0.01f)
+		else
+		{
+            chaseYdown = false;
+		}
+        if (yOffset < -1.5f)
+		{
+            gotoY = true;
+            chaseYup = true;
+		}
+        else 
         {
-            gotoY = false;
+            chaseYup = false;
         }
+        if (chaseYup == false && chaseYdown == false){
+            gotoY = false;
+		}
         #endregion
 
         #region LERP TO POS
@@ -60,8 +75,20 @@ public class PlatCam : MonoBehaviour
 
         if(gotoY)
         {
-            //lerps poisiton based on time.deltatime in Y
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, player.transform.position.y - yMargin, camSpeedy * Time.deltaTime), transform.position.z);
+            if (chaseYdown == true)
+            {
+                //lerps poisiton based on time.deltatime in Y
+                transform.position = new Vector3(transform.position.x, 
+                    Mathf.Lerp(transform.position.y, player.transform.position.y - yMargin, camSpeedy * Time.deltaTime), 
+                    transform.position.z);
+            }
+            else if (chaseYup == true)
+			{
+                transform.position = new Vector3(transform.position.x,
+                   Mathf.Lerp(transform.position.y, player.transform.position.y - yMargin, camSpeedy * Time.deltaTime),
+                   transform.position.z);
+            }
+          
         }
         #endregion
     }

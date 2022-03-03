@@ -28,7 +28,8 @@ public class Controller : MonoBehaviour
     private float extraHeight = 0.02f;
     private float extraWidth = 0.6f;
 
-    private int hp = 3;
+    private int hp;
+    private int maxHp = 3;
     private Vector3 respawn;
     private bool vampire = false;
 
@@ -36,6 +37,8 @@ public class Controller : MonoBehaviour
     private float currentBloodTime;
     private bool bleeding;
     private float bleedDuration = 0.2f;
+
+    public GameObject[] hearts;
 
     [SerializeField] private LayerMask groundLayerMask;
     #endregion
@@ -53,6 +56,7 @@ public class Controller : MonoBehaviour
         jumpCDtimer = origJumpCD;
         currentBloodTime = bloodTime;
         bleeding = false;
+        hp = maxHp;
     }
 
     // Update is called once per frame  STEP
@@ -89,11 +93,37 @@ public class Controller : MonoBehaviour
         }
         #endregion
 
+        #region HEARTS
+       if (hp < 1){
+            hearts[0].SetActive(false);
+        }
+		else
+		{
+            hearts[0].SetActive(true);
+        }
+       if (hp < 2){
+            hearts[1].SetActive(false);
+        }
+        else
+        {
+            hearts[1].SetActive(true);
+        }
+        if (hp < 3)
+		{
+            hearts[2].SetActive(false);
+        }
+        else
+        {
+            hearts[2].SetActive(true);
+        }
+
+        #endregion
+
     }
 
-    #region RAYCASTS
-    //GROUND AND GRIP CHECKS
-    private bool grounded()
+	#region RAYCASTS
+	//GROUND AND GRIP CHECKS
+	private bool grounded()
     {
         int rayHits = 0;
         //ray 1
@@ -363,6 +393,7 @@ public class Controller : MonoBehaviour
         //checkpoint collision
         if (collision.transform.tag == "Checkpoint")
         {
+            Heal();
             respawn = collision.transform.position;
             Destroy(collision.gameObject);
         }
@@ -373,7 +404,7 @@ public class Controller : MonoBehaviour
 
         transform.position = respawn;
         myBody.velocity = new Vector3(0f, 0f, 0f);
-        hp = 3;
+        Heal();
         Bleed();
         /*
         Destroy(gameObject);
@@ -401,5 +432,10 @@ public class Controller : MonoBehaviour
         blood.startLifetime = bleedDuration;
         bleeding = true;
     }
+
+    void Heal()
+	{
+        hp = maxHp;
+	}
 
 }
