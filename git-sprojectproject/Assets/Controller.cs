@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour
 {
 	#region VARS
 	#region PHYSICS VARS
-	public Rigidbody2D myBody;
+	public Rigidbody2D myBody; //is set in Start(), but is public so can be accessed by camera
     private BoxCollider2D boxcollider2d;
 	#endregion
 
@@ -16,7 +16,7 @@ public class Controller : MonoBehaviour
 	public ParticleSystem blood;
     private float bloodTime = 0.5f;
     private float currentBloodTime;
-    private bool bleeding;
+    private bool bleeding = false;
     private float bleedDuration = 0.2f;
     #endregion
 
@@ -44,7 +44,8 @@ public class Controller : MonoBehaviour
     private int hp;
     private int maxHp = 3;
     private Vector3 respawn;
-    private bool vampire = false;
+    public bool vampire = false;
+    public float killDepth;
 	#endregion
 
 	#region UI VARS
@@ -67,7 +68,6 @@ public class Controller : MonoBehaviour
         respawn = transform.position;
         jumpCDtimer = origJumpCD;
         currentBloodTime = bloodTime;
-        bleeding = false;
         hp = maxHp;
     }
 
@@ -88,7 +88,7 @@ public class Controller : MonoBehaviour
 
 		#region Kill depth //if too far down on map, kill player
 		//check if too far down
-		if (transform.position.y < -5f)
+		if (transform.position.y < killDepth)
         {
             Die();
         }
