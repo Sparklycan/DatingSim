@@ -673,7 +673,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 8969943391626806919}
   selectedCommands: []
   variables:
   - {fileID: 8969943391626806936}
@@ -854,7 +855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 319
+    x: 317.57144
     y: 66.57143
     width: 93.42856
     height: 40
@@ -973,6 +974,10 @@ MonoBehaviour:
     abilityVal: {fileID: 0}
   selectedMove:
     moveRef: {fileID: 8969943391626806938}
+    moveVal:
+      move: 
+      allowMoreMoves: 0
+      waitTurns: 0
   togglePrefab: {fileID: 1455067711513730373, guid: 810af64666e6abd4cbba27e573c07c67, type: 3}
   continueButton: {fileID: 5054322452638418231}
   returnButton: {fileID: 5054322451951874143}
@@ -991,6 +996,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: SelectedMove
+  value:
+    move: 
+    allowMoreMoves: 0
+    waitTurns: 0
 --- !u!114 &8969943391626806941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,25 +1183,25 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 8969943391626806963}
-  targetComponentAssemblyName: SelectMoveMenu, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: SelectMoveMenu, Assembly-CSharp, Version=1.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: SelectMoveMenu
   targetMethod: SetMove
-  targetMethodText: 'SetMove (MoveVariable): Void'
+  targetMethodText: 'SetMove (String): Void'
   methodParameters:
   - objValue:
-      typeAssemblyname: Fungus.MoveVariable, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      typeFullname: Fungus.MoveVariable
+      typeAssemblyname: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.String
       intValue: 0
       boolValue: 0
       floatValue: 0
-      stringValue: 
+      stringValue: SelectedMove
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}
       materialValue: {fileID: 0}
-      objectValue: {fileID: 8969943391626806938}
+      objectValue: {fileID: 0}
       spriteValue: {fileID: 0}
       textureValue: {fileID: 0}
       vector2Value: {x: 0, y: 0}
@@ -1315,7 +1324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowSwitchOff: 0
+  m_AllowSwitchOff: 1
 --- !u!1001 &8969943390183601609
 PrefabInstance:
   m_ObjectHideFlags: 0
