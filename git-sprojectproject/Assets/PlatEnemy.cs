@@ -13,6 +13,7 @@ public class PlatEnemy : MonoBehaviour
     private float firstPoint;
     public float secondPoint;
     private float moveSpeed = 2f;
+    SpriteRenderer sevenUP;
     #endregion
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class PlatEnemy : MonoBehaviour
         firstPoint = transform.position.x;
         point1 = transform.position;
         point2 = new Vector3(secondPoint, transform.position.y, transform.position.z);
+        sevenUP = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,11 +30,11 @@ public class PlatEnemy : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
 
-        if (transform.position.x > secondPoint)
+        if (transform.position.x >= secondPoint)
 		{
             ChangeDirection();
 		}
-        if (transform.position.x < firstPoint)
+        if (transform.position.x <= firstPoint)
         {
             ChangeDirection();
         }
@@ -41,5 +43,13 @@ public class PlatEnemy : MonoBehaviour
     void ChangeDirection()
 	{
         moveSpeed *= -1f;
+        if (sevenUP.flipX == false)
+        {
+            sevenUP.flipX = true;
+        }
+        else
+        {
+            sevenUP.flipX = false;
+        }
 	}
 }

@@ -11,6 +11,8 @@ public class Controller : MonoBehaviour
     public Rigidbody2D myBody;
     private BoxCollider2D boxcollider2d;
 
+    public ParticleSystem blood;
+
     private float moveSpeed = 20f;
     private float jumpForce = 200f;
     private float maxSpeed = 8f;
@@ -30,6 +32,11 @@ public class Controller : MonoBehaviour
     private Vector3 respawn;
     private bool vampire = false;
 
+    private float bloodTime = 0.5f;
+    private float currentBloodTime;
+    private bool bleeding;
+    private float bleedDuration = 0.2f;
+
     [SerializeField] private LayerMask groundLayerMask;
     #endregion
 
@@ -44,6 +51,8 @@ public class Controller : MonoBehaviour
         myBody = GetComponent<Rigidbody2D>();
         respawn = transform.position;
         jumpCDtimer = origJumpCD;
+        currentBloodTime = bloodTime;
+        bleeding = false;
     }
 
     // Update is called once per frame  STEP
@@ -68,6 +77,17 @@ public class Controller : MonoBehaviour
         }
 
         Debug.Log(hp + " hp");
+
+        #region BLEEDING
+        if (bleeding)
+        {
+            currentBloodTime -= Time.deltaTime;
+            if (currentBloodTime < 0f)
+            {
+                stopBlood();
+            }
+        }
+        #endregion
 
     }
 
@@ -231,7 +251,7 @@ public class Controller : MonoBehaviour
         {
             rayColor3 = Color.red;
         }
-        Debug.DrawRay(boxcollider2d.bounds.center, Vector2.left * (boxcollider2d.bounds.extents.x + extraWidth), rayColor3);
+        
         //returns
         if (rayHits != 0)
         {
@@ -354,6 +374,7 @@ public class Controller : MonoBehaviour
         transform.position = respawn;
         myBody.velocity = new Vector3(0f, 0f, 0f);
         hp = 3;
+        Bleed();
         /*
         Destroy(gameObject);
         SceneManager.LoadScene("DinMammaHopparRunt");
@@ -364,6 +385,21 @@ public class Controller : MonoBehaviour
     {
         myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         hp--;
+        Bleed();
+    }
+
+    void stopBlood()
+    {
+        currentBloodTime = bloodTime;
+        bleeding = false;
+        blood.startLifetime = 0f;
+    }
+
+    void Bleed()
+    {
+
+        blood.startLifetime = bleedDuration;
+        bleeding = true;
     }
 
 }
