@@ -19,9 +19,12 @@ public class Controller : MonoBehaviour
     private float wallJumpYmod = 1.05f;
     private float hore = 0f;
     private float jumpClamper = 1f;
+    private bool jumpReady = true;
+    private float jumpCDtimer;
+    private float origJumpCD = 0.2f;
    
     private float extraHeight = 0.02f;
-    private float extraWidth = 0.1f;
+    private float extraWidth = 0.6f;
 
     private int hp = 3;
     private Vector3 respawn;
@@ -40,13 +43,15 @@ public class Controller : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         respawn = transform.position;
+        jumpCDtimer = origJumpCD;
     }
 
     // Update is called once per frame  STEP
     void Update()
     {
+        #region INPUTS
         hore = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButton("Jump"))
         {
             jumping = true;
         }
@@ -54,6 +59,7 @@ public class Controller : MonoBehaviour
         if (hp < 1) {
             Die();
         }
+        #endregion
 
         //check if too far down
         if (transform.position.y < -5f)
@@ -62,6 +68,7 @@ public class Controller : MonoBehaviour
         }
 
         Debug.Log(hp + " hp");
+
     }
 
     #region RAYCASTS
@@ -210,6 +217,8 @@ public class Controller : MonoBehaviour
         {
             rayColor2 = Color.red;
         }
+
+        //ray 3
         RaycastHit2D raycastHit3 = Physics2D.Raycast(new Vector2(boxcollider2d.bounds.center.x, boxcollider2d.bounds.center.y), Vector2.left, boxcollider2d.bounds.extents.x + extraWidth, groundLayerMask);
         Color rayColor3;
 
@@ -222,7 +231,7 @@ public class Controller : MonoBehaviour
         {
             rayColor3 = Color.red;
         }
-
+        Debug.DrawRay(boxcollider2d.bounds.center, Vector2.left * (boxcollider2d.bounds.extents.x + extraWidth), rayColor3);
         //returns
         if (rayHits != 0)
         {
@@ -252,20 +261,28 @@ public class Controller : MonoBehaviour
         #region JUMPING AND WALL JUMPING
         //JUMPING AND WALLJUMPING
         // input.GetButtonDown("Jump")
-        if (grounded() && jumping)
+        if (grounded() && jumping && jumpReady)
         {
+            myBody.velocity = new Vector2(myBody.velocity.x, 0f);
             myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumping = false;
+            jumpReady = false;
+            
         }
-        else if (gripRight() && jumping)
+        else if (gripRight() && jumping && jumpReady)
         {
+            myBody.velocity = new Vector2(myBody.velocity.x, 0f);
             myBody.AddForce(new Vector2(-jumpForce * wallJumpXmod, jumpForce * wallJumpYmod), ForceMode2D.Impulse);
             jumping = false;
+            jumpReady = false;
+            
         }
-        else if (gripLeft() && jumping)
+        else if (gripLeft() && jumping && jumpReady)
         {
+            myBody.velocity = new Vector2(myBody.velocity.x, 0f);
             myBody.AddForce(new Vector2(jumpForce * wallJumpXmod, jumpForce * wallJumpYmod), ForceMode2D.Impulse);
             jumping = false;
+            jumpReady = false;
         }
         #endregion
         #region CLAMP
@@ -276,11 +293,23 @@ public class Controller : MonoBehaviour
 
         //to prevent buffered jump whenever next grounded or gripped
         jumping = false;
-        
+
+        #region JUMP CD
+        if (jumpReady == false)
+        {
+            jumpCDtimer -= Time.deltaTime;
+            if (jumpCDtimer < 0f)
+            {
+                jumpReady = true;
+                jumpCDtimer = origJumpCD;
+            }
+        }
+        #endregion
+
     }
 
     #region COLLISIONS
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Enemy collison
@@ -336,4 +365,5 @@ public class Controller : MonoBehaviour
         myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         hp--;
     }
+
 }
