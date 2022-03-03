@@ -1,3 +1,4 @@
+using Fungus;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,9 @@ public class Move
     public readonly CharacterClass character;
     public readonly Ability ability;
     public readonly CharacterClass[] targets;
+    public string move;
     public bool allowMoreMoves = true;
+    public int waitTurns;
     public bool IsValid
     {
         get
@@ -48,11 +51,22 @@ public class Move
         }
     }
 
-    public Move(CharacterClass character, Ability ability, CharacterClass[] targets)
+    public virtual Attack GetAttack(MoveCollection moveCollection, Action onAttackFinished)
+    {
+        Attack attack = GameObject.Instantiate(ability.AttackPrefab);
+        attack.onAttackFinished += onAttackFinished;
+        attack.Initialize(character, targets, moveCollection, allowMoreMoves);
+        return attack;
+    }
+
+    public Move(CharacterClass character, Ability ability, CharacterClass[] targets, int waitTurns = 0)
     {
         this.character = character;
         this.ability = ability;
         this.targets = targets;
+        this.waitTurns = waitTurns;
+
+        move = ability.Name;
     }
 
 }

@@ -17,11 +17,14 @@ namespace Fungus
 
         public override void OnEnter()
         {
+            /*
             Attack attackPrefab = move.Value.ability.AttackPrefab;
 
             Attack attack = Instantiate(attackPrefab);
             attack.onAttackFinished += OnAttackFinished;
             attack.Initialize(move.Value.character, move.Value.targets, moves.Value as MoveCollection, move.Value.allowMoreMoves);
+             */
+            Attack attack = move.Value.GetAttack(moves.Value as MoveCollection, OnAttackFinished);
             attack.StartAttack();
         }
 

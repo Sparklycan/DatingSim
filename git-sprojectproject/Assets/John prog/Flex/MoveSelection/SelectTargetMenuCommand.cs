@@ -87,7 +87,7 @@ public class SelectTargetMenuCommand : WaitForCondition
         Vector2 position = character.transform.position;
 
         Toggle toggle = Instantiate(togglePrefab, position, Quaternion.identity, toggles.transform);
-        toggle.interactable = interactable;
+        toggle.interactable = interactable && this.character.Value.CanAttack(selectedAbility.Value, character);
         toggle.onValueChanged.AddListener(delegate { EvaluateToggles(); });
         toggle.group = toggleGroup;
 
@@ -107,12 +107,9 @@ public class SelectTargetMenuCommand : WaitForCondition
                 break;
             case Ability.Targets.All:
                 toggles.enabled = false;
-                foreach (Toggle toggle in characterToggles.Select(t => t.Value))
-                    toggle.isOn = true;
                 break;
             case Ability.Targets.Single:
                 toggles.enabled = true;
-                toggles.SetAllTogglesOff();
                 break;
         }
     }
@@ -127,7 +124,7 @@ public class SelectTargetMenuCommand : WaitForCondition
                 canContinue = true;
                 break;
             case Ability.Targets.Self:
-                canContinue = characterToggles[character].isOn;
+                canContinue = characterToggles[character.Value].isOn;
                 break;
             case Ability.Targets.All:
                 canContinue = true;

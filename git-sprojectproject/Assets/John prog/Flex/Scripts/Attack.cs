@@ -23,12 +23,14 @@ public class Attack : MonoBehaviour
     [SerializeField]
     protected Fungus.MoveCollection moveCollection;
 
+    public CharacterClass Attacker => attacker;
+    public CharacterClass[] Targets => targets;
+
     public bool IsAttacking { get; private set; }
     public bool AllowMoreMoves { get; private set; }
     public Fungus.MoveCollection Moves => moveCollection;
 
-    [SerializeField]
-    protected UnityEngine.Events.UnityEvent onAttack;
+    public UnityEngine.Events.UnityEvent onAttack = new UnityEngine.Events.UnityEvent();
 
     public event Action onAttackFinished;
 
@@ -76,10 +78,7 @@ public class Attack : MonoBehaviour
     public void StartAttack()
     {
         IsAttacking = true;
-        if (attacker != null)
-            onAttack?.Invoke();
-        else
-            FinishAttack();
+        onAttack?.Invoke();
     }
 
     public void FinishAttack()

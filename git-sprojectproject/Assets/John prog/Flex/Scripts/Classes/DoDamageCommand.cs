@@ -11,6 +11,8 @@ namespace Fungus
     {
 
         [SerializeField]
+        private CharacterClassData attacker;
+        [SerializeField]
         private CharacterClassData character;
         [SerializeField]
         private IntegerData damage;
@@ -21,7 +23,7 @@ namespace Fungus
 
         public override void OnEnter()
         {
-            character.Value.DoDamage(damage.Value, hurtAnimation.stringVal, deathAnimation.stringVal);
+            character.Value.DoDamage(attacker, (int)((float)damage.Value * character.Value.AttackBuff), hurtAnimation.stringVal, deathAnimation.stringVal);
             Continue();
         }
 

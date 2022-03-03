@@ -103,6 +103,8 @@ namespace Fungus
         public void ClearCommandtatistics() => commandStatistics.Clear();
         public void Visit(Command command, int count)
         {
+            if (command == null)
+                return;
             if (commandStatistics.ContainsKey(command))
                 commandStatistics[command] += count;
             else
