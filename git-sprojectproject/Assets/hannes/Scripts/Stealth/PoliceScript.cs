@@ -168,7 +168,7 @@ public class PoliceScript : MonoBehaviour
             }
         }
         SpotLight.spotAngle = angle * 2;
-        SpotLight.range = distance * 2;
+        SpotLight.range = distance;
         if (Input.GetKeyDown(KeyCode.C))
         {
             agent.SetDestination(player.transform.position);
