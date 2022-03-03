@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +11,15 @@ public class MinigameHighscoreManager : MonoBehaviour
     public HighscoreContainer scoreContainer;
     public Text[] scoreTextsFishpong;
     public Text[] scoreTextsPlatformer;
-    public Text[] scoreTextsStealthAnyPercent;
-    public Text[] scoreTextsStealth100percent;
+    public Text[] scoreTextsStealthSuspicion;
+    public Text[] scoreTextsStealthNuggets;
     public Text[] scoreTextsFlex;
     public Text[] scoreTextsSweeper;
-    
-    
+
+    private void Start()
+    {
+       scoreSaver.LoadGame();
+    }
 
     public void FishpongScoreSetter(float a, float b, float c)
     {
@@ -49,8 +54,12 @@ public class MinigameHighscoreManager : MonoBehaviour
             scoreContainer.fishpongScore3 = temporary;
             scoreSaver.SaveGame();
         }
+
+        if (scoreTextsFishpong.Length > 0)
+        {
+            PrintFishpongScores();
+        }
         
-        PrintFishpongScores();
         
     }
 
@@ -74,16 +83,49 @@ public class MinigameHighscoreManager : MonoBehaviour
             scoreContainer.platformerTimeScores.z = time;
             scoreSaver.SaveGame();
         }
-        PrintPlatformScores();
+
+        if (scoreTextsPlatformer.Length > 0)
+        {
+            PrintPlatformScores();
+        }
+        
     }
 
 
-    public void StealthScoreSetter(float timeFirst, int nuggets, float timeSecond)
+    public void StealthScoreSetter(int sus, int nuggets)
     {
+        if (sus < scoreContainer.stealthSuspicion.x)
+        {
+            scoreContainer.stealthSuspicion.z = scoreContainer.stealthSuspicion.y;
+            scoreContainer.stealthSuspicion.y = scoreContainer.stealthSuspicion.x;
+            scoreContainer.stealthSuspicion.x = sus;
+
+            scoreContainer.stealthNuggetScores.z = scoreContainer.stealthNuggetScores.y;
+            scoreContainer.stealthNuggetScores.y = scoreContainer.stealthNuggetScores.x;
+            scoreContainer.stealthNuggetScores.x = nuggets;
+            scoreSaver.SaveGame();
+        }
+        else if (sus < scoreContainer.stealthSuspicion.y)
+        {
+            scoreContainer.stealthSuspicion.z = scoreContainer.stealthSuspicion.y;
+            scoreContainer.stealthSuspicion.y = sus;
+            
+            scoreContainer.stealthNuggetScores.z = scoreContainer.stealthNuggetScores.y;
+            scoreContainer.stealthNuggetScores.y = nuggets;
+            scoreSaver.SaveGame();
+        }
+        else if (sus < scoreContainer.stealthSuspicion.z)
+        {
+            scoreContainer.stealthSuspicion.z = sus;
+            scoreContainer.stealthNuggetScores.z = nuggets;
+            scoreSaver.SaveGame();
+        }
+
+        if (scoreTextsStealthSuspicion.Length > 0)
+        {
+            PrintStealthScores();
+        }
         
-        
-        
-        //save score
     }
 
 
@@ -127,8 +169,12 @@ public class MinigameHighscoreManager : MonoBehaviour
             scoreContainer.sweeperScore3 = temporary;
             scoreSaver.SaveGame();
         }
+
+        if (scoreTextsSweeper.Length > 0)
+        {
+            PrintSweeperScores();
+        }
         
-        PrintSweeperScores();
     }
 
     public void PrintFishpongScores()
@@ -151,16 +197,18 @@ public class MinigameHighscoreManager : MonoBehaviour
 
     public void PrintStealthScores()
     {
-        scoreTextsStealthAnyPercent[0].text = "Time: " + scoreContainer.stealthTimeScores.x + "    Nuggets: " +
-                                              scoreContainer.stealthNuggetScores.x;
-        scoreTextsStealthAnyPercent[1].text = "Time: " + scoreContainer.stealthTimeScores.y + "    Nuggets: " +
-                                              scoreContainer.stealthNuggetScores.y;
-        scoreTextsStealthAnyPercent[2].text = "Time: " + scoreContainer.stealthTimeScores.z + "    Nuggets: " +
-                                              scoreContainer.stealthNuggetScores.z;
+        scoreTextsStealthSuspicion[0].text = scoreContainer.stealthSuspicion.x.ToString();
+        scoreTextsStealthSuspicion[1].text = scoreContainer.stealthSuspicion.y.ToString();
+        scoreTextsStealthSuspicion[2].text = scoreContainer.stealthSuspicion.z.ToString();
 
-        scoreTextsStealth100percent[0].text = "Time: " + scoreContainer.stealth100PercentScores.x;
-        scoreTextsStealth100percent[1].text = "Time: " + scoreContainer.stealth100PercentScores.y;
-        scoreTextsStealth100percent[2].text = "Time: " + scoreContainer.stealth100PercentScores.z;
+        if (scoreTextsStealthNuggets.Length > 0)
+        {
+            scoreTextsStealthNuggets[0].text = scoreContainer.stealthNuggetScores.x.ToString();
+            scoreTextsStealthNuggets[1].text = scoreContainer.stealthNuggetScores.y.ToString();
+            scoreTextsStealthNuggets[2].text = scoreContainer.stealthNuggetScores.z.ToString();
+        }
+        
+
     }
 
     public void PrintFlexScores()
@@ -172,12 +220,24 @@ public class MinigameHighscoreManager : MonoBehaviour
 
     public void PrintSweeperScores()
     {
+        
+        Debug.Log(Directory.GetCurrentDirectory());
+        Debug.Log(scoreContainer.sweeperScore1);
         scoreTextsSweeper[0].text ="Romance: " + scoreContainer.sweeperScore1.x.ToString() +", Lust: "+ scoreContainer.sweeperScore1.y.ToString() +", Suspicion: "+
                              scoreContainer.sweeperScore1.z.ToString();
         scoreTextsSweeper[1].text ="Romance: " +  scoreContainer.sweeperScore2.x.ToString() +", Lust: "+ scoreContainer.sweeperScore2.y.ToString() +", Suspicion: "+
                             scoreContainer.sweeperScore2.z.ToString();
         scoreTextsSweeper[2].text ="Romance: " +  scoreContainer.sweeperScore3.x.ToString() +", Lust: "+ scoreContainer.sweeperScore3.y.ToString() +", Suspicion: "+
                             scoreContainer.sweeperScore3.z.ToString();
+    }
+
+    public void PrintAllScores()
+    {
+        PrintFishpongScores();
+        PrintFlexScores();
+        PrintPlatformScores();
+        PrintStealthScores();
+        PrintSweeperScores();
     }
     
 }

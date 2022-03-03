@@ -2,38 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnlockThisMinigame : MonoBehaviour
+[CreateAssetMenu(menuName = "UnlockMinigameObject")]
+public class UnlockThisMinigame : ScriptableObject
 {
 
-    public bool game1, game2, game3, game4;
+    public bool allGames;
     public GamesUnlocked gamesUnlocked;
+    
+   
 
-    public ArcadeSaving save;
-    // Start is called before the first frame update
-    void Start()
+    public void UnlockAll()
     {
-        if (game1)
+        if (allGames)
         {
-            gamesUnlocked.minigame1 = true;
+            gamesUnlocked.allMinigamesUnlocked = true;
+            gamesUnlocked.onSave();
         }
-
-        if (game2)
+        else
         {
-            gamesUnlocked.minigame2 = true;
+            Debug.Log("Cannot unlock without allGames being set to true.");
         }
-
-        if (game3)
-        {
-            gamesUnlocked.minigame3 = true;
-        }
-
-        if (game4)
-        {
-            gamesUnlocked.minigame4 = true;
-        }
-        
-        
-        save.SaveGame();
     }
     
 }
