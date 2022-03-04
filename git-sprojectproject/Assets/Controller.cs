@@ -410,6 +410,7 @@ public class Controller : MonoBehaviour
             {
                 //destroys enemy
                 Destroy(collision.gameObject);
+                Bite();
             }
 
             if (vampire == false)
@@ -503,6 +504,12 @@ public class Controller : MonoBehaviour
 	{
 
 	}
+
+    //called when killing enemy. Sound goes here
+    void Bite()
+    {
+
+    }
     #endregion
 
 }
