@@ -94,7 +94,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1935264960313468510}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 2555897802886279297}
   variables:
   - {fileID: 8348463692048804192}
   - {fileID: 8343139334905389266}
@@ -139,9 +140,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 306.8743
+    x: 307.9052
     y: 128.90721
-    width: 161.3402
+    width: 121.340195
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -514,6 +515,7 @@ MonoBehaviour:
     targets: []
     move: 
     allowMoreMoves: 0
+    isHidden: 0
     waitTurns: 0
 --- !u!114 &3487324695418944732
 MonoBehaviour:
@@ -914,6 +916,9 @@ MonoBehaviour:
   allowMoreMoves:
     booleanRef: {fileID: 0}
     booleanVal: 0
+  isHidden:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
   waitTurns:
     integerRef: {fileID: 0}
     integerVal: 0
@@ -982,6 +987,9 @@ MonoBehaviour:
   allowMoreMoves:
     booleanRef: {fileID: 0}
     booleanVal: 0
+  isHidden:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
   waitTurns:
     integerRef: {fileID: 0}
     integerVal: 0
@@ -1050,6 +1058,9 @@ MonoBehaviour:
   allowMoreMoves:
     booleanRef: {fileID: 0}
     booleanVal: 0
+  isHidden:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
   waitTurns:
     integerRef: {fileID: 0}
     integerVal: 0

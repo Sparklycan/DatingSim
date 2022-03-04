@@ -79,11 +79,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 194.7966, y: 84.804436}
+  scrollPos: {x: 171.14117, y: 65.53093}
   variablesScrollPos: {x: 0, y: 28}
   variablesExpanded: 1
   blockViewHeight: 404.8
-  zoom: 0.97
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -92,7 +92,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1935264960313468510}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 2555897802886279297}
   variables:
   - {fileID: 8348463692048804192}
   - {fileID: 8343139334905389266}
@@ -138,7 +139,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 306.8743
     y: 130.96907
-    width: 148.96906
+    width: 114
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -510,6 +511,7 @@ MonoBehaviour:
     targets: []
     move: 
     allowMoreMoves: 0
+    isHidden: 0
     waitTurns: 0
 --- !u!114 &3487324695418944732
 MonoBehaviour:
@@ -945,6 +947,9 @@ MonoBehaviour:
   allowMoreMoves:
     booleanRef: {fileID: 0}
     booleanVal: 0
+  isHidden:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
   waitTurns:
     integerRef: {fileID: 0}
     integerVal: 0
@@ -1013,6 +1018,9 @@ MonoBehaviour:
   allowMoreMoves:
     booleanRef: {fileID: 0}
     booleanVal: 0
+  isHidden:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
   waitTurns:
     integerRef: {fileID: 0}
     integerVal: 0

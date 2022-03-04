@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using System.Linq;
 
 [CommandInfo("Flex", "Select ability menu", helpText: "Select an ability.")]
-public class SelectAbilityMonuCommand : WaitForCondition
+public class SelectAbilityMenuCommand : WaitForCondition
 {
 
     [SerializeField]

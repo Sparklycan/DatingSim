@@ -36,7 +36,22 @@ public class CharacterClass : MonoBehaviour, ClassBase
     public string Name => name;
     public string ClassName => className;
 
-    public int CurrentHealth => currentHealth;
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        private set
+        {
+            int previousHealth = currentHealth;
+            currentHealth = value;
+            
+            if (currentHealth > MaxHealth)
+                currentHealth = MaxHealth;
+            else if (currentHealth < 0)
+                currentHealth = 0;
+
+            onHealthChange?.Invoke(currentHealth - previousHealth);
+        }
+    }
     public int MaxHealth => maxHealth;
 
     public IEnumerable<Ability> Abilities => abilities;
@@ -54,6 +69,7 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public event Action<CharacterClass, int> onTakeDamage;
     public event Action<Move> onMakeMove;
+    public event Action<int> onHealthChange;
 
     private HashSet<Ability> disabledAbilities = new HashSet<Ability>();
     private HashSet<Tuple<Ability, CharacterClass>> disabledTargets = new HashSet<Tuple<Ability, CharacterClass>>();
@@ -65,7 +81,9 @@ public class CharacterClass : MonoBehaviour, ClassBase
         abilities = baseClass.Abilities.ToList();
 
         if (startAtMaxHealth)
-            currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
+        else
+            onHealthChange?.Invoke(0);
     }
 
     private void OnEnable()
@@ -127,9 +145,9 @@ public class CharacterClass : MonoBehaviour, ClassBase
     {
         damage = (int)((float)damage * defenseBuff);
         onTakeDamage?.Invoke(attacker, damage);
-        currentHealth -= damage;
+        CurrentHealth -= damage;
 
-        if (currentHealth > 0)
+        if (CurrentHealth > 0)
             Animator.Play(hurtAnimation);
         else
             Animator.Play(deathAnimation);

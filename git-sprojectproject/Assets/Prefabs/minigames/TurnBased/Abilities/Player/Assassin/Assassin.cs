@@ -42,7 +42,7 @@ public class Assassin : MonoBehaviour
 
     private void OnMakeMove(Move move)
     {
-        if (!move.allowMoreMoves)
+        if (move.isHidden)
             return;
 
         if (ignoredAbilities.Contains(move.ability))

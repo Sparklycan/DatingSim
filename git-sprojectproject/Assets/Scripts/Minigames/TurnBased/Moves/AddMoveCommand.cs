@@ -25,11 +25,14 @@ namespace Fungus
         [Tooltip("Should this move allow for more moves to be added this turn")]
         private BooleanData allowMoreMoves;
         [SerializeField]
+        [Tooltip("If true, this move is used internally")]
+        private BooleanData isHidden;
+        [SerializeField]
         private IntegerData waitTurns;
 
         public override void OnEnter()
         {
-            Move move = new Move(attacker.Value, ability.Value, new CharacterClass[] { target.Value }, waitTurns.Value);
+            Move move = new Move(attacker.Value, ability.Value, new CharacterClass[] { target.Value }, waitTurns.Value, isHidden.Value);
             move.allowMoreMoves = allowMoreMoves;
             if (waitTurns.Value > 0)
                 moves.Value.Add(move);
