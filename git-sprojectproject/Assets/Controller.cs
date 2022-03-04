@@ -447,6 +447,7 @@ public class Controller : MonoBehaviour
 		#endregion
 	}
 
+	#region CUSTOM FUNCTIONS  //sound goes here
 	//sets player to last checkpoint and heals them
 	void Die() {
 
@@ -502,6 +503,7 @@ public class Controller : MonoBehaviour
 	{
 
 	}
+    #endregion
 
 }
 #endregion
