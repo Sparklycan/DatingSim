@@ -22,13 +22,14 @@ public class PoliceScript : MonoBehaviour
                         // KILLSWITCH - (Alerter)
                         // SPRITES FIX
                         // POINTS FIX
-                        // IMPLEMENT RASMUS SHIT
     
     NavMeshAgent agent;
 
     private GameObject player;
 
     private Light _light;
+
+    public bool Killable;
     // Attention area
     [Header("ViewArea")]
     public float distance = 10;
@@ -94,6 +95,8 @@ public class PoliceScript : MonoBehaviour
     public GameObject Chased;
     private List<GameObject> Friends = new List<GameObject>();
     private NavMeshPath path;
+    private NavMeshAgent Agent;
+    private NavMeshSurface Surface;
     
     // Picture
     [Header("Picture")]
@@ -129,6 +132,7 @@ public class PoliceScript : MonoBehaviour
     private BoxCollider boxCollider;
     void Start()
     {
+
         Friends.Clear();
         GameObject[] AIArray = GameObject.FindGameObjectsWithTag("AI");
         foreach (GameObject node in AIArray)
@@ -136,10 +140,15 @@ public class PoliceScript : MonoBehaviour
             Friends.Add(node);
         }
 
+        agent = GetComponent<NavMeshAgent>();
         _stealthPointSaver = GameObject.FindWithTag("StealthHandler").GetComponent<StealthPointSaver>();
         path = new NavMeshPath();
         _light = GetComponent<Light>();
         boxCollider = GetComponent<BoxCollider>();
+        if (Killable)
+        {
+            boxCollider.enabled = true;
+        }
         slider.gameObject.SetActive(false);
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("StealthPlayer");
@@ -159,7 +168,7 @@ public class PoliceScript : MonoBehaviour
             }
         }
         SpotLight.spotAngle = angle * 2;
-        SpotLight.range = distance + 2;
+        SpotLight.range = distance;
         if (Input.GetKeyDown(KeyCode.C))
         {
             agent.SetDestination(player.transform.position);

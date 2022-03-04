@@ -2,21 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class StealthPointSaver : MonoBehaviour
 {
+    public UnityAction<int, int> sendPoints = delegate { };
     
-    [Tooltip("X: Sus, Y: Lust, Z: Love")]
-    public Vector3 Points;
+    
+    /*[Tooltip("X: Sus, Y: Lust, Z: Love")]
+    public Vector3 Points;*/
+
 
     private List<GameObject> AI = new List<GameObject>();
 
-     int concludedSus;
+     
 
-     public int maxTriggers;
-     int triggers;
-
+    public int maxTriggers;
+    int triggers;
+    
+    int concludedSus;
+    
     private float time;
 
     public GameObject EndGameCanvas;
@@ -24,6 +30,9 @@ public class StealthPointSaver : MonoBehaviour
     public Text susText, triggersText, timeText;
 
     private Minigame _minigame;
+    
+    
+    
     
     public void SusPlus(int points)
     {
@@ -38,6 +47,8 @@ public class StealthPointSaver : MonoBehaviour
     public void EndGame()
     {
         EndGameCanvas.SetActive(true);
+
+        sendPoints(concludedSus,triggers);
         
         susText.text = "SusPoints: " + concludedSus;
         triggersText.text = "Storynuggets: " + triggers + " / " + maxTriggers;
