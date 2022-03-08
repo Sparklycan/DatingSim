@@ -27,7 +27,6 @@ namespace Fungus
             Attack attack = move.Value.GetAttack(moves.Value as MoveCollection, OnAttackFinished);
             attack.Attacker.OnMakeMove(move.Value);
             attack.StartAttack();
-            Debug.Log($"Character: \"{attack.Attacker.ClassName}\"\nAbility: \"{move.Value.ability.Name}\"");
         }
 
         private void OnAttackFinished()
