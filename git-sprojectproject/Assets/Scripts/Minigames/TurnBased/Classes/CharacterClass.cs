@@ -98,10 +98,21 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public void EnableAbility(Ability ability, bool enabled)
     {
-        if (enabled)
-            disabledAbilities.Remove(ability);
+        if (ability == null)
+        {
+            if (enabled)
+                disabledAbilities.Clear();
+            else
+                foreach (Ability a in Abilities)
+                    disabledAbilities.Add(a);
+        }
         else
-            disabledAbilities.Add(ability);
+        {
+            if (enabled)
+                disabledAbilities.Remove(ability);
+            else
+                disabledAbilities.Add(ability);
+        }
     }
 
     public void EnableTarget(Ability ability, CharacterClass target, bool enabled)
