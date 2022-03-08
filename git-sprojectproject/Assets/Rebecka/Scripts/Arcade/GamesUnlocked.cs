@@ -2,27 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Arcade/MinigamesUnlocked")]
 public class GamesUnlocked : ScriptableObject
 {
-    public bool minigame1 = false;
-    public bool minigame2 = false;
-    public bool minigame3 = false;
-    public bool minigame4 = false;
-    public bool minigame5
+    public bool useDefaultPath = true;
+    public bool useCurrentApplicationPath = false;
+    public string customPath = "C:/Users/YourUser/AppData/LocalLow";
+    public bool allMinigamesUnlocked = false;
+     public UnityAction onSave = delegate{};
+     
+    
+
+    public void SendSaveMessage()
     {
-        get
-        {
-            if (minigame1 && minigame2 && minigame3 && minigame4)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        onSave();
     }
 
 
