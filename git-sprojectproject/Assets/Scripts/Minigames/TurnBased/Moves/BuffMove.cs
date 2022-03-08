@@ -33,8 +33,7 @@ public class BuffMove : Move
 
     private void OnAttack()
     {
-        foreach (CharacterClass target in targets)
-            target.AddBuff(attack, defense);
+        character.AddBuff(attack, defense);
 
         attackObject.FinishAttack();
     }
