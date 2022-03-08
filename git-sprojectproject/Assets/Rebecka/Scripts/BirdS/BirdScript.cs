@@ -67,8 +67,9 @@ public class BirdScript : MonoBehaviour
             {
                 int drop = UnityEngine.Random.Range(0, drops.Length);
                 Instantiate(drops[drop], transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                
             }
+            Destroy(gameObject);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
