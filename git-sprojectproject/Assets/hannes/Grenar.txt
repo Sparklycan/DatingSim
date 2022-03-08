@@ -1,0 +1,9 @@
+För att undvika misskommunikation och implementations konflikter,
+så har vi rikligt använt oss av så kallade “grenar” i vår projekt uppbyggnad.
+En “gren” är som en separat version utav grundprojektet, isolerad från den huvudsakliga versionen.
+I den kan man göra större förändringar utan att det uppdateras för resterande användare,
+fram tills att man är nöjd med vad som ska förändras.
+När man väl vill implementera sina förändringar till huvudprojektet är det ett enkelt (men försiktigt) knapptryck.
+Självklart är detta inte ett perfekt verktyg, fel implementeringar kan fortfarande ske,
+och separata grenar kan, om felanvända, göra mer skada än nytta, 
+vilket vi har blivit smärtsamt påminda om…

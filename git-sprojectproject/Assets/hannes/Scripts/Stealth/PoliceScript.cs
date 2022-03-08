@@ -16,7 +16,7 @@ using FMODUnity;
 [ExecuteInEditMode]
 public class PoliceScript : MonoBehaviour
 {
-// EXTREMELY IMPORTANT TO REMEMBER UNTIL AFTERWARDS: STATEMACHINE OR EVENTS
+// EXTREMELY IMPORTANT TO REMEMBER UNTIL AFTERWARDS: STATEMACHINE OR EVENTS FIX
                         // GODDAMN THIS IS BIG
                         // FUNGUS. REMEMBER THIS.
                         // KILLSWITCH - (Alerter)
