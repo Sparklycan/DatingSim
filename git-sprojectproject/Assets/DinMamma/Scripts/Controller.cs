@@ -36,6 +36,7 @@ public class Controller : MonoBehaviour
     private bool moveLock = false;
     private float maxMoveLockTime = 1f;
     private float moveLockTime;
+    SpriteRenderer mySprite;
 	#endregion
 
 	#region RAYCAST VARS
@@ -74,6 +75,7 @@ public class Controller : MonoBehaviour
         currentBloodTime = bloodTime;
         hp = maxHp;
         moveLockTime = maxMoveLockTime;
+        mySprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame  STEP
@@ -151,7 +153,7 @@ public class Controller : MonoBehaviour
                 moveLockTime = maxMoveLockTime;
             }
         }
-        
+
         #endregion
 
     }
@@ -382,7 +384,9 @@ public class Controller : MonoBehaviour
             myBody.AddForce(new Vector2(-jumpForce * wallJumpXmod, jumpForce * wallJumpYmod), ForceMode2D.Impulse);
             jumping = false;
             jumpReady = false;
-            jump();
+            walljumpFromRight(); //for sprite flip
+            walljump(); //for sound
+            
             
         }
 		#endregion
@@ -394,7 +398,8 @@ public class Controller : MonoBehaviour
             myBody.AddForce(new Vector2(jumpForce * wallJumpXmod, jumpForce * wallJumpYmod), ForceMode2D.Impulse);
             jumping = false;
             jumpReady = false;
-            jump();
+            walljumpFromLeft();  //for sprite flip
+            walljump(); //for sound
         }
         #endregion
 
@@ -527,11 +532,47 @@ public class Controller : MonoBehaviour
         //jag vet inte om man ljuderlägger hopp, men here you go bro
 	}
 
-    //not used in mechanics, only for sound?
-	void strafe()
-	{
+    //only used for sound
+    void walljump()
+    {
+        //sound here for walljump
+    }
 
-	}
+    //used for sprite flip, not sound
+    void walljumpFromLeft()
+    {
+        //jag vet inte om man ljuderlägger hopp, men here you go bro
+
+        //flips the sprite
+         mySprite.flipX = true;
+        
+    }
+    
+    //used for sprite flip, not sound
+    void walljumpFromRight()
+    {
+        //jag vet inte om man ljuderlägger hopp, men here you go bro
+
+        //flips the sprite
+         mySprite.flipX = false;
+
+    }
+
+    //not used in mechanics, only for sound?
+    void strafe()
+	{
+        #region Sprite flip
+        //flips the sprite
+        if (hore == 1)
+        {
+            mySprite.flipX = true;
+        }
+        else
+        {
+            mySprite.flipX = false;
+        }
+        #endregion
+    }
 
     //called to end game
     void Win()
