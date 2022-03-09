@@ -29497,6 +29497,7 @@ GameObject:
   - component: {fileID: 530613070}
   - component: {fileID: 530613069}
   - component: {fileID: 530613068}
+  - component: {fileID: 530613076}
   - component: {fileID: 530613075}
   m_Layer: 0
   m_Name: Flowchart_Epilog
@@ -29557,7 +29558,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 632
     y: 167
-    width: 117.42854
+    width: 119.62024
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29637,7 +29638,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 505
     y: 246
-    width: 96.857124
+    width: 94.30379
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29725,7 +29726,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 493
     y: 133
-    width: 103.714264
+    width: 101.89872
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29809,7 +29810,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 344
     y: 209
-    width: 97.999985
+    width: 96.835434
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29895,7 +29896,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 346
     y: 133
-    width: 116.28569
+    width: 115.82277
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29960,7 +29961,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 159
     y: 160
-    width: 84.285706
+    width: 85.44302
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29995,11 +29996,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 242.64897, y: -38.429924}
+  scrollPos: {x: -111.35163, y: 314.5178}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.7000003
+  zoom: 0.7900002
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -30007,9 +30008,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 530613074}
-  selectedCommands:
-  - {fileID: 530613075}
+  - {fileID: 530613054}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -31132,7 +31132,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 814
     y: 169
-    width: 95.714264
+    width: 98.10126
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -31142,6 +31142,7 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 530613073}
+  - {fileID: 530613076}
   - {fileID: 530613075}
   suppressAllAutoSelections: 0
 --- !u!114 &530613075
@@ -31153,11 +31154,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 530613042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1337544a71d4d5dab5510fe86ddca8, type: 3}
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 31
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: MainMenu
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
+--- !u!114 &530613076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530613042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 30
   indentLevel: 0
+  description: 
+  targetObject: {fileID: 1252951673}
+  targetComponentAssemblyName: UnlockThisMinigame, Assembly-CSharp, Version=1.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: UnlockThisMinigame
+  targetMethod: UnlockAll
+  targetMethodText: 'UnlockAll (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &540008441 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5697091943811580887, guid: 6b276841086d998478921c49828c1af3, type: 3}
@@ -32313,6 +32347,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 885801954}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1252951673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252951676}
+  - component: {fileID: 1252951675}
+  - component: {fileID: 1252951674}
+  m_Layer: 0
+  m_Name: UnlockArcade object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1252951674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252951673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0028f22e7345d914d8c80efdcf03e18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamesUnlocked: {fileID: 11400000, guid: 13081b796bb0dc54a83e4161e93ae38b, type: 2}
+--- !u!114 &1252951675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252951673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4736bc1a1d8b7a048b5c5c838cc4115f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamesUnlocked: {fileID: 11400000, guid: 13081b796bb0dc54a83e4161e93ae38b, type: 2}
+--- !u!4 &1252951676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252951673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 712.91956, y: 246.0763, z: -473.5024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1260703791 stripped
 MonoBehaviour:
