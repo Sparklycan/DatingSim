@@ -24,7 +24,8 @@ namespace Fungus
             attack.onAttackFinished += OnAttackFinished;
             attack.Initialize(move.Value.character, move.Value.targets, moves.Value as MoveCollection, move.Value.allowMoreMoves);
              */
-            Attack attack = move.Value.GetAttack(moves.Value as MoveCollection, OnAttackFinished);
+            Attack attack = move.Value.Attack;
+            move.Value.InitializeAttack(moves.Value as MoveCollection, OnAttackFinished);
             attack.Attacker.OnMakeMove(move.Value);
             attack.StartAttack();
         }
