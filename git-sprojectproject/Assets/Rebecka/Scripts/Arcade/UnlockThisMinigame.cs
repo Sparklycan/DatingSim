@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "UnlockMinigameObject")]
-public class UnlockThisMinigame : ScriptableObject
+public class UnlockThisMinigame : MonoBehaviour
 {
 
     public bool allGames;
