@@ -56,7 +56,7 @@ public class SelectMoveMenu : MoveSelector
             .Select(a => a.Target)
             .Distinct()
             .Select(t => GetAvalableTargets(t, character))
-            .Select(t => t.Any())
+            .Where(t => t.Any())
             .Any();
     }
 }
