@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 8584386698376998101, guid: 70ae88281a0a74443b55e766fdf7fa3b, type: 3}
+      propertyPath: abilitySelector
+      value: 
+      objectReference: {fileID: 2097997643108384011}
     - target: {fileID: 8584386698376998102, guid: 70ae88281a0a74443b55e766fdf7fa3b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -256,6 +260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assassin
       objectReference: {fileID: 0}
+    - target: {fileID: 8584386698376998101, guid: 24980b358985058489343bd78affb5dc, type: 3}
+      propertyPath: abilitySelector
+      value: 
+      objectReference: {fileID: 2097997643108384011}
     - target: {fileID: 8584386698376998102, guid: 24980b358985058489343bd78affb5dc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -497,6 +505,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4346450358538044603, guid: 72f63521fc20b45439adfbb2de45b7a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 72f63521fc20b45439adfbb2de45b7a0, type: 3}
+--- !u!114 &2097997643108384011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2781643791891898331, guid: 72f63521fc20b45439adfbb2de45b7a0, type: 3}
+  m_PrefabInstance: {fileID: 4289669813987959504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59510d7825ed32348a5da68656d56020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3284364438484793377 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1590790989192649457, guid: 72f63521fc20b45439adfbb2de45b7a0, type: 3}
