@@ -86,6 +86,12 @@ GameObject:
   - component: {fileID: 30898877942422092}
   - component: {fileID: -2100010596274295450}
   - component: {fileID: 7091642350023144002}
+  - component: {fileID: 5029234465335932222}
+  - component: {fileID: 5886233741017197933}
+  - component: {fileID: 2511419607075705717}
+  - component: {fileID: 190013084042872707}
+  - component: {fileID: 5432639610601098752}
+  - component: {fileID: 3235167497911307571}
   m_Layer: 0
   m_Name: AttackTemplate
   m_TagString: Untagged
@@ -120,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 175.55948, y: 26.5255}
+  scrollPos: {x: 201.09134, y: 225.46164}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -131,7 +137,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 5886233741017197933}
   selectedCommands: []
   variables:
   - {fileID: 3011970195145962967}
@@ -225,6 +232,7 @@ MonoBehaviour:
   allowMoreMovesKey: AllowMoreMoves
   targetCollection: {fileID: 5348260677769873888}
   moveCollection: {fileID: 0}
+  damages: {fileID: 0}
   onAttack:
     m_PersistentCalls:
       m_Calls:
@@ -2466,3 +2474,142 @@ MonoBehaviour:
   waitTurns:
     integerRef: {fileID: 0}
     integerVal: 0
+--- !u!114 &5029234465335932222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674475623242822498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d79372ee3bc1ab48a058a00f986137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCalculateDamages:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4674475623242822499}
+        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_MethodName: InitializeFlowchart
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4674475623242822488}
+          m_ObjectArgumentAssemblyTypeName: Fungus.Flowchart, Fungus
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4674475623242822488}
+        m_TargetAssemblyTypeName: Fungus.Flowchart, Fungus
+        m_MethodName: SendFungusMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CalculateDamages
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5886233741017197933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674475623242822498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 322.31284
+    y: -91.419106
+    width: 120.63829
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 86
+  blockName: Calculate Damages
+  description: 
+  eventHandler: {fileID: 2511419607075705717}
+  commandList:
+  - {fileID: 190013084042872707}
+  - {fileID: 5432639610601098752}
+  - {fileID: 3235167497911307571}
+  suppressAllAutoSelections: 0
+--- !u!114 &2511419607075705717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674475623242822498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 5886233741017197933}
+  suppressBlockAutoSelect: 0
+  message: CalculateDamages
+--- !u!114 &190013084042872707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674475623242822498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce547d5384ce3a41b7142cab8ab41dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 87
+  indentLevel: 0
+  collection:
+    collectionRef: {fileID: 3011970195145962967}
+    collectionVal: {fileID: 0}
+  item: {fileID: 3011970195145962950}
+  curIndex:
+    integerRef: {fileID: 0}
+    integerVal: 0
+--- !u!114 &5432639610601098752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674475623242822498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e94300057b80248ba2f15d32514506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 88
+  indentLevel: 1
+  damages: {fileID: 5029234465335932222}
+  target:
+    characterClassRef: {fileID: 3011970195145962950}
+    characterClassVal: {fileID: 0}
+  damage:
+    integerRef: {fileID: 0}
+    integerVal: 0
+--- !u!114 &3235167497911307571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674475623242822498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 89
+  indentLevel: 0

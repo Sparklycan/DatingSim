@@ -23,6 +23,9 @@ public class Attack : MonoBehaviour
     [SerializeField]
     protected Fungus.MoveCollection moveCollection;
 
+    [SerializeField]
+    protected Damages damages = null;
+
     public CharacterClass Attacker => attacker;
     public CharacterClass[] Targets => targets;
 
