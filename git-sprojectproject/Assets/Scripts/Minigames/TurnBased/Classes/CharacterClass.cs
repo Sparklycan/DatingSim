@@ -32,6 +32,8 @@ public class CharacterClass : MonoBehaviour, ClassBase
     private float attackBuff = 1.0f;
     [SerializeField]
     private float defenseBuff = 1.0f;
+    [SerializeField]
+    private float defenseLimit = 0.5f;
 
     public string Name => name;
     public string ClassName => className;
@@ -60,7 +62,7 @@ public class CharacterClass : MonoBehaviour, ClassBase
     public ClassType BaseClass => baseClass;
     public Allegience Allegience => allegience;
     public Animator Animator => animator;
-    public float AttackBuff => attackBuff;
+    public float AttackBuff => Mathf.Max(defenseBuff, defenseLimit);
     public float DefenseBuff => defenseBuff;
 
     // Used by TurnManager to keep track of all the characters
@@ -98,10 +100,21 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public void EnableAbility(Ability ability, bool enabled)
     {
-        if (enabled)
-            disabledAbilities.Remove(ability);
+        if (ability == null)
+        {
+            if (enabled)
+                disabledAbilities.Clear();
+            else
+                foreach (Ability a in Abilities)
+                    disabledAbilities.Add(a);
+        }
         else
-            disabledAbilities.Add(ability);
+        {
+            if (enabled)
+                disabledAbilities.Remove(ability);
+            else
+                disabledAbilities.Add(ability);
+        }
     }
 
     public void EnableTarget(Ability ability, CharacterClass target, bool enabled)
@@ -143,9 +156,9 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public void DoDamage(CharacterClass attacker, int damage, string hurtAnimation, string deathAnimation)
     {
-        damage = (int)((float)damage * defenseBuff);
-        onTakeDamage?.Invoke(attacker, damage);
-        CurrentHealth -= damage;
+        int totalDamage = (int)((float)damage * DefenseBuff * attacker.AttackBuff);
+        onTakeDamage?.Invoke(attacker, totalDamage);
+        CurrentHealth -= totalDamage;
 
         if (CurrentHealth > 0)
             Animator.Play(hurtAnimation);
