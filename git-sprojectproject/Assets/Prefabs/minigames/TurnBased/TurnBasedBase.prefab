@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 9066494453664828213}
   - component: {fileID: 3209347261730042177}
   - component: {fileID: 1212403018739066249}
+  - component: {fileID: 4346450358538044603}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -2103,6 +2104,7 @@ MonoBehaviour:
       targets: []
       move: 
       allowMoreMoves: 0
+      isHidden: 0
       waitTurns: 0
   moves:
     collectionRef: {fileID: 8811713764694803198}
@@ -2890,6 +2892,7 @@ MonoBehaviour:
     targets: []
     move: 
     allowMoreMoves: 0
+    isHidden: 0
     waitTurns: 0
 --- !u!114 &3029467952357225521
 MonoBehaviour:
@@ -2979,6 +2982,19 @@ MonoBehaviour:
   scope: 0
   key: ReturnValue
   value: 0
+--- !u!114 &4346450358538044603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781643791422089918}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea43504a2cc42640b8f14ff04170914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveCollection: {fileID: 2781643791422089874}
 --- !u!1 &4120656112335061183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,7 +3161,7 @@ GameObject:
   - component: {fileID: 1493709535976313900}
   - component: {fileID: 9189805833966239462}
   m_Layer: 0
-  m_Name: FlexBase
+  m_Name: TurnBasedBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

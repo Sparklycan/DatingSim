@@ -755,8 +755,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 8969943391626806922}
-  selectedCommands:
-  - {fileID: 8969943391626806914}
+  selectedCommands: []
   variables:
   - {fileID: 8969943391626806936}
   - {fileID: 8969943391626806923}
@@ -1064,6 +1063,7 @@ MonoBehaviour:
       targets: []
       move: 
       allowMoreMoves: 0
+      isHidden: 0
       waitTurns: 0
   togglePrefab: {fileID: 1455067711513730373, guid: 810af64666e6abd4cbba27e573c07c67, type: 3}
   continueButton: {fileID: 7504593921648324146}
@@ -1089,6 +1089,7 @@ MonoBehaviour:
     targets: []
     move: 
     allowMoreMoves: 0
+    isHidden: 0
     waitTurns: 0
 --- !u!114 &8969943391626806941
 MonoBehaviour:
@@ -1330,7 +1331,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8969943391825299112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.019417476, y: 0.019417476, z: 0.019417476}
   m_Children: []
   m_Father: {fileID: 8969943390402576626}
@@ -1360,7 +1361,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!114 &8969943391825299111
 MonoBehaviour:
