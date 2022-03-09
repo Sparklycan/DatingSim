@@ -33,6 +33,9 @@ public class Controller : MonoBehaviour
     private bool jumpReady = true;
     private float jumpCDtimer;
     private float origJumpCD = 0.2f;
+    private bool moveLock = false;
+    private float maxMoveLockTime = 1f;
+    private float moveLockTime;
 	#endregion
 
 	#region RAYCAST VARS
@@ -70,18 +73,24 @@ public class Controller : MonoBehaviour
         jumpCDtimer = origJumpCD;
         currentBloodTime = bloodTime;
         hp = maxHp;
+        moveLockTime = maxMoveLockTime;
     }
 
     // Update is called once per frame  STEP
     void Update()
     {
         #region INPUTS //checks get axis raw and sets var hore for horizontal input or jumping
-        hore = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButton("Jump"))
+        if (moveLock == false)
         {
-            jumping = true;
+            hore = Input.GetAxisRaw("Horizontal");
+            if (Input.GetButton("Jump"))
+            {
+                jumping = true;
+            }
         }
+        #endregion
 
+        #region DEATH
         if (hp < 1) {
             Die();
         }
@@ -132,13 +141,26 @@ public class Controller : MonoBehaviour
 
         #endregion
 
+        #region moveLock timer  //Upon death, player loses control of movment for set time. This is the timer
+        if (moveLock == true)
+        {
+            moveLockTime -= Time.deltaTime;
+            if (moveLockTime <= 0f)
+            {
+                moveLock = false;
+                moveLockTime = maxMoveLockTime;
+            }
+        }
+        
+        #endregion
+
     }
 
-	#region RAYCASTS to check if grounded or gripping
-	//GROUND AND GRIP CHECKS
+    #region RAYCASTS to check if grounded or gripping
+    //GROUND AND GRIP CHECKS
 
-	#region GROUND CHECK
-	private bool grounded()
+    #region GROUND CHECK
+    private bool grounded()
     {
         int rayHits = 0;
         //ray 1 LEFT
@@ -323,15 +345,18 @@ public class Controller : MonoBehaviour
     {
         #region STRAFING
         //STRAFING
-        if (hore > 0)
+        if (moveLock == false)
         {
-            myBody.AddForce(new Vector2(moveSpeed, 0f), ForceMode2D.Impulse);
-            strafe();
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            myBody.AddForce(new Vector2(-moveSpeed, 0f), ForceMode2D.Impulse);
-            strafe();
+            if (hore > 0)
+            {
+                myBody.AddForce(new Vector2(moveSpeed, 0f), ForceMode2D.Impulse);
+                strafe();
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                myBody.AddForce(new Vector2(-moveSpeed, 0f), ForceMode2D.Impulse);
+                strafe();
+            }
         }
 		#endregion
 
@@ -445,17 +470,26 @@ public class Controller : MonoBehaviour
 		{
             Win();
 		}
-		#endregion
-	}
+        #endregion
 
-	#region CUSTOM FUNCTIONS  //sound goes here
-	//sets player to last checkpoint and heals them
-	void Die() {
+        #region KILL ZONE COLLISION
+        if (collision.transform.tag == "KillZone")
+        {
+            Die();
+        }
+        #endregion
+
+    }
+
+    #region CUSTOM FUNCTIONS  //sound goes here
+    //sets player to last checkpoint and heals them
+    void Die() {
 
         transform.position = respawn;
         myBody.velocity = new Vector3(0f, 0f, 0f);
         Heal();
         Bleed();
+        moveLock = true;
     }
 
     //deals damage to player and starts Bleed
