@@ -7,6 +7,10 @@ using UnityEngine;
 [Serializable]
 public class Move
 {
+
+    private Attack attackObject;
+    public Attack Attack => attackObject;
+
     public CharacterClass character;
     public Ability ability;
     public CharacterClass[] targets;
@@ -69,12 +73,15 @@ public class Move
         }
     }
 
-    public virtual Attack GetAttack(MoveCollection moveCollection, Action onAttackFinished)
+    protected virtual Attack CreateAttackObject()
     {
-        Attack attack = GameObject.Instantiate(ability.AttackPrefab);
-        attack.onAttackFinished += onAttackFinished;
-        attack.Initialize(character, targets, moveCollection, allowMoreMoves);
-        return attack;
+        return GameObject.Instantiate(ability.AttackPrefab, GameObject.FindObjectOfType<TurnManager>().transform);
+    }
+
+    public void InitializeAttack(MoveCollection moveCollection, Action onAttackFinished)
+    {
+        Attack.onAttackFinished += onAttackFinished;
+        Attack.Initialize(character, targets, moveCollection, allowMoreMoves);
     }
 
     public Move(CharacterClass character, Ability ability, CharacterClass[] targets, int waitTurns = 0, bool isHidden = false)
@@ -86,6 +93,14 @@ public class Move
         this.isHidden = isHidden;
 
         move = ability.Name;
+
+        attackObject = CreateAttackObject();
+        Damages damages = attackObject.GetComponent<Damages>();
+        if (damages)
+        {
+            Attack.Initialize(character, targets, null, allowMoreMoves);
+            damages.CalculateDamages();
+        }
     }
 
 }

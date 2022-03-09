@@ -23,6 +23,7 @@ namespace Fungus
                     continue;
 
                 moves.Value.RemoveAt(i);
+                Destroy(move.Attack.gameObject);
             }
 
             Continue();

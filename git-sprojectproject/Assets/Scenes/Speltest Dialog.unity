@@ -169,6 +169,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &12545912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12545913}
+  - component: {fileID: 12545914}
+  - component: {fileID: 12545915}
+  m_Layer: 5
+  m_Name: NameText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &12545913
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12545912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1345964445}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 674, y: -75}
+  m_SizeDelta: {x: 1106, y: 56.366}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &12545914
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12545912}
+  m_CullTransparentMesh: 1
+--- !u!114 &12545915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12545912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5f3d5bc891cc32c4e8595f24e072225b, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 50
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Character Name
 --- !u!4 &13248463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8974407403876885315, guid: dde69c10fa0bef74aa766dfd15084d0c, type: 3}
@@ -634,7 +713,6 @@ GameObject:
   - component: {fileID: 96754526}
   - component: {fileID: 96754525}
   - component: {fileID: 96754524}
-  - component: {fileID: 96754520}
   m_Layer: 0
   m_Name: FlowchartLunchGuy
   m_TagString: Untagged
@@ -1662,8 +1740,8 @@ MonoBehaviour:
       No ... there is no one out there crazy
       enough like that ...
 
-      I just have to suck it up, <b>act normal and hide
-      away like always ...</b>
+      I just have to suck it up, {b}act normal and hide
+      away like always ...{/b}
 
 
 
@@ -1811,7 +1889,7 @@ MonoBehaviour:
   itemId: 0
   blockName: Intro
   description: 
-  eventHandler: {fileID: 96754520}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 96754469}
   - {fileID: 96754262}
@@ -1834,7 +1912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 377.62415, y: -59.49766}
+  scrollPos: {x: -1333.3512, y: 138.06328}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 564
@@ -1846,9 +1924,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 96754265}
-  selectedCommands:
-  - {fileID: 96754261}
+  - {fileID: 96754352}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -4244,7 +4321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 2238.6975
+    x: 2239.917
     y: 124.595436
     width: 131.7073
     height: 40
@@ -8877,21 +8954,6 @@ MonoBehaviour:
   - {fileID: 96754511}
   - {fileID: 96754509}
   suppressAllAutoSelections: 0
---- !u!114 &96754520
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96754226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 96754265}
-  suppressBlockAutoSelect: 0
-  waitForFrames: 1
 --- !u!114 &96754521
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9088,6 +9150,107 @@ MonoBehaviour:
   - {fileID: 96754525}
   - {fileID: 96754524}
   suppressAllAutoSelections: 0
+--- !u!1 &152181781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 152181785}
+  - component: {fileID: 152181784}
+  - component: {fileID: 152181782}
+  - component: {fileID: 152181783}
+  m_Layer: 5
+  m_Name: StoryText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &152181782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152181781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8e5bef8fa5ca4a44bab419299cf92876, type: 3}
+    m_FontSize: 45
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Story text
+--- !u!114 &152181783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152181781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 1150
+  m_PreferredHeight: 200
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!222 &152181784
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152181781}
+  m_CullTransparentMesh: 1
+--- !u!224 &152181785
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152181781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2083949562}
+  m_Father: {fileID: 1345964445}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.78700006}
+  m_AnchoredPosition: {x: -0.023986816, y: 6.571}
+  m_SizeDelta: {x: -278.716, y: -108.357}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &185884446
 GameObject:
   m_ObjectHideFlags: 0
@@ -9488,6 +9651,16 @@ GameObject:
   - component: {fileID: 185884836}
   - component: {fileID: 185884838}
   - component: {fileID: 185884837}
+  - component: {fileID: 185884839}
+  - component: {fileID: 185884848}
+  - component: {fileID: 185884847}
+  - component: {fileID: 185884846}
+  - component: {fileID: 185884845}
+  - component: {fileID: 185884844}
+  - component: {fileID: 185884843}
+  - component: {fileID: 185884842}
+  - component: {fileID: 185884841}
+  - component: {fileID: 185884840}
   m_Layer: 0
   m_Name: Flowchart_CT
   m_TagString: Untagged
@@ -9602,7 +9775,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3161.6523
     y: 466.83408
-    width: 94.26227
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9612,6 +9785,7 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 185884833}
+  - {fileID: 185884845}
   - {fileID: 185884449}
   - {fileID: 185884448}
   - {fileID: 185884447}
@@ -9633,7 +9807,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3291.6213
     y: 464.83408
-    width: 118.85242
+    width: 84.545395
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9712,11 +9886,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Oh, wow I have never actually met one that outright
-      states it! Let me see your true form! Now I can finally prove to everyone that
-      I was right! \n\nYou wouldn't mind me doing some tests on you right?! No wait?!
-      Are you scared of us humans? I am so sorry if anyone has mistreated you for
-      being a lizard! \n\nBut you won't kill us right?!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Oh, wow I have never
+      actually met one that outright states it! Let me see your true form! Now I
+      can finally prove to everyone that I was right! \n\nYou wouldn't mind me doing
+      some tests on you right?! No wait?! Are you scared of us humans? I am so sorry
+      if anyone has mistreated you for being a lizard! \n\nBut you won't kill us
+      right?!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -9745,11 +9920,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Hahah funny! Everyone knows <b>those</b> aren''t
-      real!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Hahah funny! Everyone
+      knows {b}those{/b} aren''t real!
 
 
-      You: At least, I can really suck the life out of you. *wink*'
+      You: At least, I can really suck the
+      life out of you. *wink*'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -9799,11 +9975,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Phew okay good! I trust you! You look like you
-      have a trustworthy face!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Phew okay good! I
+      trust you! You look like you have a trustworthy face!
 
 
-      You: Do you fear the lizard people?'
+      You: Do you fear
+      the lizard people?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -9853,13 +10030,13 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Hmm... I am not actually sure to be honest...
-      I know a lot of people do, believing they rule the government, drink the blood
-      of humans to preserve their form or that they possess or control humans.
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Hmm... I am not actually
+      sure to be honest... I know a lot of people do, believing they rule the government,
+      drink the blood of humans to preserve their form or that they possess or control
+      humans.
 
 
-      You:
-      You don''t believe that?'
+      You: You don''t believe that?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -9888,7 +10065,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3204.6394
     y: 372.5577
-    width: 72.950806
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9918,7 +10095,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3743.5862
     y: 348.6428
-    width: 128.68848
+    width: 97.27266
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9946,7 +10123,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3613.9465
     y: 222.7279
-    width: 115.57373
+    width: 79.09086
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9974,7 +10151,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3377.0112
     y: 350.68542
-    width: 125.40979
+    width: 91.818115
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10102,8 +10279,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Hmmm~~ I wouldn''t be super opposed to that...
-      But I need to know you aren''t one of them first!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Hmmm~~ I wouldn''t
+      be super opposed to that... But I need to know you aren''t one of them first!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10153,11 +10330,11 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: See! Yeah!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: See! Yeah!
 
 
-      You: I''ve heard people are
-      scared of lizard people, are you?'
+      You:
+      I''ve heard people are scared of lizard people, are you?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10186,12 +10363,13 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Agree to disagree! It is hard to prove I know!
-      It is probably super hard to prove because I understand that they are scared!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Agree to disagree!
+      It is hard to prove I know! It is probably super hard to prove because I understand
+      that they are scared!
 
 
-      You:
-      Scared? I figure you''d be scared of them, not the other way around?'
+      You: Scared? I figure you''d be scared of them,
+      not the other way around?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10220,7 +10398,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3168.5044
     y: 293.83408
-    width: 128.68848
+    width: 93.6363
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10252,7 +10430,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3190.8406
     y: 156.60025
-    width: 159.836
+    width: 128.18173
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10281,7 +10459,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3181.267
     y: 216.17467
-    width: 112.295044
+    width: 75.45449
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10386,14 +10564,15 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: My point is, we both agree this is Human evolution.
-      We came aaaaallll the way from tiny bacteria, even lizard like creatures, the
-      Westolothianians. \n\nIf we can come from that to what we are today, it would
-      then not be impossible for say, humans to have instead branched from mammals,
-      continue to branch into the lizard branch but merge with humans somewhere during
-      it all, becoming human-lizard-esk hybrids. \n\nJust look at Chameleons! They
-      blend into their environment! Who isn't to say that that trait hasn't been
-      passed to other lizard species that eventually became human-lizards!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: My point is, we both
+      agree this is Human evolution. We came aaaaallll the way from tiny bacteria,
+      even lizard like creatures, the Westolothianians. \n\nIf we can come from that
+      to what we are today, it would then not be impossible for say, humans to have
+      instead branched from mammals, continue to branch into the lizard branch but
+      merge with humans somewhere during it all, becoming human-lizard-esk hybrids.
+      \n\nJust look at Chameleons! They blend into their environment! Who isn't to
+      say that that trait hasn't been passed to other lizard species that eventually
+      became human-lizards!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10443,8 +10622,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Ooohh science pick-up line on what i just talked
-      about, even though it makes no sense, I like it! *wink*\r"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Ooohh science pick-up
+      line on what i just talked about, even though it makes no sense, I like it!
+      *wink*\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10473,7 +10653,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2956.798
     y: 164.04703
-    width: 84.42621
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10502,8 +10682,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 2946.16
-    y: 73.621506
-    width: 123.77045
+    y: 72.590576
+    width: 89.99994
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10582,17 +10762,18 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Look at it this way.\n\r\nNarrator: *he takes
-      a deep breath, seemingly calm and collected*\r\n\r\nConspiracy Theorist: Homosapiens
-      evolved from Hominoideas through millions of years of evolution, correct? \n\nBeyond
-      that, Hominoideas evolved through thousands of millions of years all the way
-      from the origin of life 4100 million years ago. Roughly 2125 million years
-      ago we became Prokaryotes.\n\nYou: Prokray-what-ites???\n\nConspiracy Theorist:
-      Tiny bacteria basically.\r\n\r\nOver the next 2 billion years we eventually
-      became Westolothianians, which were the first to walk on land. Several hundreds
-      of Eons later we had become Carpolestes, or primates. \n\nUltimetly 4 million
-      years ago we branched into Homo Erectus, branching into 'Humans', with first
-      Neanderthals eventually becoming the Homo Sapiens we are today!\n"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Look at it this way.\n\r\nNarrator:
+      *he takes a deep breath, seemingly calm and collected*\r\n\r\nConspiracy Theorist
+      ConspiracyTheoristNeutral: Homosapiens evolved from Hominoideas through millions
+      of years of evolution, correct? \n\nBeyond that, Hominoideas evolved through
+      thousands of millions of years all the way from the origin of life 4100 million
+      years ago. Roughly 2125 million years ago we became Prokaryotes.\n\nYou: Prokray-what-ites???\n\nConspiracy
+      Theorist ConspiracyTheoristNeutral: Tiny bacteria basically.\r\n\r\nOver the
+      next 2 billion years we eventually became Westolothianians, which were the
+      first to walk on land. Several hundreds of Eons later we had become Carpolestes,
+      or primates. \n\nUltimetly 4 million years ago we branched into Homo Erectus,
+      branching into 'Humans', with first Neanderthals eventually becoming the Homo
+      Sapiens we are today!\n"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10642,13 +10823,14 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Now that is just depressing my friend... However,
-      not a false statement. If the aliens don''t get us first, or ourselves, then
-      maybe the lizard people will take over! That is at least what some people think.
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Now that is just depressing
+      my friend... However, not a false statement. If the aliens don''t get us first,
+      or ourselves, then maybe the lizard people will take over! That is at least
+      what some people think.
 
 
-      You:
-      Wait.. wait.. lizard people?? Do you believe in them too??'
+      You: Wait.. wait.. lizard people?? Do you believe
+      in them too??'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10698,11 +10880,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: We really do tho! There are hidden creatures
-      everywhere!!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: We really do tho!
+      There are hidden creatures everywhere!!
 
 
-      You: What.. you believe in "lizard people" too?'
+      You: What.. you believe in
+      "lizard people" too?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10752,12 +10935,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Yes! I know, and it is not just aliens! There
-      are unknown creatures everywhere!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Yes! I know, and it
+      is not just aliens! There are unknown creatures everywhere!
 
 
-      You: What.. you believe in "lizard
-      people" too?'
+      You: What..
+      you believe in "lizard people" too?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10836,14 +11019,14 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Well you see, if we actively search for aliens,
-      we risk becoming prey. We can never trust them, nor will they be able to trust
-      us.\n\nHow do we know if they are a threat? How do they know we AREN'T a threat?
-      How would we  communicate with them? \n\nJust because something is Universal
-      for us, doesn't mean it is for them! A\n\nAdditionally, we have no idea how
-      technologically advanced they could be, which is dangerous for us! So it is
-      safest for us to just stay hidden or carefully listen for others out there
-      and hope they don't find us!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Well you see, if we
+      actively search for aliens, we risk becoming prey. We can never trust them,
+      nor will they be able to trust us.\n\nHow do we know if they are a threat?
+      How do they know we AREN'T a threat? How would we  communicate with them? \n\nJust
+      because something is Universal for us, doesn't mean it is for them! \n\nAdditionally,
+      we have no idea how technologically advanced they could be, which is dangerous
+      for us! So it is safest for us to just stay hidden or carefully listen for
+      others out there and hope they don't find us!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10895,9 +11078,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 2355.737
+    x: 2354.706
     y: 109.79176
-    width: 149.99994
+    width: 119.09082
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10950,13 +11133,13 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Thank goodness! Yeah I do not want people to
-      risk us all getting annihilated just to try to say hi to them!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Thank goodness! Yeah
+      I do not want people to risk us all getting annihilated just to try to say
+      hi to them!
 
 
-      It is
-      absurd! How do they not realize they''d just blow us up as soon as they got
-      wind of us!'
+      It is absurd! How do they not realize they''d just blow
+      us up as soon as they got wind of us!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11006,7 +11189,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2680.2036
     y: 121.49384
-    width: 123.77045
+    width: 88.181755
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11253,9 +11436,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Oh? Ooohh! Okay haha good! *nervous chuckle*
-      \n\nWhile statistically there just has to be other life out there! But oh boy
-      I hope they never find us!\r"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Oh? Ooohh! Okay haha
+      good! *nervous chuckle* \n\nWhile statistically there just has to be other
+      life out there! But oh boy I hope they never find us!\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11284,31 +11467,32 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Oohh, I have not! Tell me what they are like!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Oohh, I have not!
+      Tell me what they are like!
 
 
 
-      You:
-      How about I just show you?
+      You: How about I just show you?
 
 
 
-      Narrator: *He blushes wildly.*
+      Narrator:
+      *He blushes wildly.*
 
 
 
-      Conspiracy
-      Theorist: Here is my number, call me tonight if you want to talk more about...
-      aliens..
+      Conspiracy Theorist ConspiracyTheoristNeutral:
+      Here is my number, call me tonight if you want to talk more about... aliens..
 
 
 
-      Anyway! That reminds me, I have to contact Arecibo Observatory
-      to protest their operations! Oh! then i need to do more research on the lizards!
+      Anyway!
+      That reminds me, I have to contact Arecibo Observatory to protest their operations!
+      Oh! then i need to do more research on the lizards!
 
 
-      You:
-      What.. you believe in "lizard people" too?'
+      You: What.. you
+      believe in "lizard people" too?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11337,7 +11521,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2077.0112
     y: 255.53601
-    width: 94.26227
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11367,7 +11551,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1968.5049
     y: 361.91934
-    width: 97.540955
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11447,8 +11631,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Oh my! Uhm... Well I hope you haven''t! I would
-      not like to be probed! Wait wait-- Does that mean-?!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Oh my! Uhm... Well
+      I hope you haven''t! I would not like to be probed! Wait wait-- Does that mean-?!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11498,8 +11682,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: That is fair! It is hard to know, but I believe
-      that we simply cannot be the only ones, just statistically alone!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: That is fair! It is
+      hard to know, but I believe that we simply cannot be the only ones, just statistically
+      alone!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11528,7 +11713,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2246.9734
     y: 176.81299
-    width: 104.09833
+    width: 68.18178
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11556,7 +11741,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2340.8418
     y: 39.57895
-    width: 109.01636
+    width: 73.636314
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11634,10 +11819,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Hmmm... No... I don't think we would have! \n\nI
-      mean space and space travel is so immensely advanced and expansive, I do think
-      we need more advanced technology if we would have found them by now. We are
-      a tiny tiny spec after all!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Hmmm... No... I don't
+      think we would have! \n\nI mean space and space travel is so immensely advanced
+      and expansive, I do think we need more advanced technology if we would have
+      found them by now. We are a tiny tiny spec after all!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -11666,7 +11851,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2100.353
     y: 70.43002
-    width: 90.98358
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11695,7 +11880,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2066.3738
     y: 9.791725
-    width: 113.93439
+    width: 79.09086
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11775,9 +11960,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Right! Statistically there has to be odds of
-      other life out there! The odds are just too impossible for us to be the only
-      ones!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Right! Statistically
+      there has to be odds of other life out there! The odds are just too impossible
+      for us to be the only ones!
 
 
       But... I hope that we will never find them.'
@@ -12094,7 +12279,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1852.6096
     y: 261.6193
-    width: 153.27863
+    width: 120.909004
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12124,7 +12309,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: But tell me friend, Do you believe in aliens?'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: But tell me friend,
+      Do you believe in aliens?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -12174,8 +12360,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Yeah, see! It''s all a conspiracy! We are working
-      to spread the word to everyone! I am happy that you now know the truth!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Yeah, see! It''s all
+      a conspiracy! We are working to spread the word to everyone! I am happy that
+      you now know the truth!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -12204,7 +12391,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1689.4119
     y: 158.50946
-    width: 84.42621
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12235,7 +12422,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1849.6096
     y: 195.6193
-    width: 99.1803
+    width: 62.72723
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12263,7 +12450,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1846.6096
     y: 129.6193
-    width: 146.72125
+    width: 117.272644
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12293,7 +12480,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1843.6096
     y: 65.61929
-    width: 146.72125
+    width: 115.45446
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12323,9 +12510,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Why do so many people seem to say that?! It
-      does make perfect sense but, if I can't convince you I can't convince you!
-      \n\nYou work for them don't you?!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Why do so many people
+      seem to say that?! It does make perfect sense but, if I can't convince you
+      I can't convince you! \n\nYou work for them don't you?!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -12354,12 +12541,13 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: You do, do you~. Well I need to know more about
-      you first!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: You do, do you~. Well
+      I need to know more about you first!
 
 
 
-      Tell me friend, Do you believe in aliens?'
+      Tell me friend, Do you believe
+      in aliens?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -12388,7 +12576,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1672.6096
     y: 11.619293
-    width: 77.868835
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12495,8 +12683,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Deepfakes my friend! Deepfakes! It was all a
-      ruse to try to silence and defaminate our truthseekers name!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Deepfakes my friend!
+      Deepfakes! It was all a ruse to try to silence and defaminate our truthseekers
+      name!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -12523,9 +12712,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1494.6096
+    x: 1493.5787
     y: 111.61929
-    width: 159.836
+    width: 122.72719
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12603,9 +12792,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Yeah! I know! B.I.R.Ds. or Bureaucratic Intelligence
-      Reconnaissance Drones, are everywhere, you have to be careful out here! We
-      who know the truth need to stick together!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Yeah! I know! B.I.R.Ds.
+      or Bureaucratic Intelligence Reconnaissance Drones, are everywhere, you have
+      to be careful out here! We who know the truth need to stick together!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -12634,7 +12823,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1478.1096
     y: 26.619293
-    width: 143.44257
+    width: 111.8181
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12665,7 +12854,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1413.1096
     y: -53.380707
-    width: 156.55731
+    width: 124.545364
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12746,11 +12935,11 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Psshhh no no no, you see all of those are from
-      when birds actually still lived! They are all old! \n\nAnd and and now, think
-      about it, due to all the animal rights activists, you can't hunt and dissect
-      birds anymore! It is all the government's way of stopping us from finding out
-      the truth!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Psshhh no no no, you
+      see all of those are from when birds actually still lived! They are all old!
+      \n\nAnd and and now, think about it, due to all the animal rights activists,
+      you can't hunt and dissect birds anymore! It is all the government's way of
+      stopping us from finding out the truth!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -12800,8 +12989,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Psshhh don''t be ridiculous! They aren''t real,
-      but let me tell you about these "birds".'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Psshhh don''t be ridiculous!
+      They aren''t real, but let me tell you about these "birds".'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13018,10 +13207,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: No sir, that is quite rude! Excentric sure,
-      but not dumb! I do my research! Now I hope you have a good day in your ignorant
-      bliss! Hmpfh! \r\n\r\nNarrator: He picks up some of the squirrels and stomps
-      off with several other squirrels hot on his trail."
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: No sir, that is quite
+      rude! Excentric sure, but not dumb! I do my research! Now I hope you have a
+      good day in your ignorant bliss! Hmpfh! \r\n\r\nNarrator: He picks up some
+      of the squirrels and stomps off with several other squirrels hot on his trail."
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13071,12 +13260,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Perfect! So...
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Perfect! So...
 
 
 
-      Narrator: He breathes
-      in, preparing his next rampage of words.'
+      Narrator:
+      He breathes in, preparing his next rampage of words.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13105,7 +13294,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1102.1096
     y: 358.6193
-    width: 141.80322
+    width: 108.18174
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13131,9 +13320,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1254.1096
+    x: 1256.1715
     y: 337.6193
-    width: 104.09833
+    width: 68.18178
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13143,6 +13332,7 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 185884564}
+  - {fileID: 185884847}
   - {fileID: 185884561}
   - {fileID: 185884563}
   suppressAllAutoSelections: 0
@@ -13162,7 +13352,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1292.1096
     y: 287.6193
-    width: 136.8852
+    width: 106.36356
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13265,9 +13455,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: A lot of things are real my friend! But birds
-      are not one of them so you are right there! But does this mean you are a fellow
-      truthseeker?!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: A lot of things are
+      real my friend! But birds are not one of them so you are right there! But does
+      this mean you are a fellow truthseeker?!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13346,13 +13536,13 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: That is what they want you to believe!! Completely
-      innocent animals that stare into your soul, listening to every word you say,
-      always watching...\n\r\nNarrator: *He shivers* \r\n\r\nConspiracy Theorist:
-      Trust me... It is all true...  Between 1959 and 2001, the US government had
-      a genoside of all living birds! They replaced them with drones! Think about
-      it! Why do they fly away when you get close?! They don't want you to know about
-      the drones!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: That is what they
+      want you to believe!! Completely innocent animals that stare into your soul,
+      listening to every word you say, always watching...\n\r\nNarrator: *He shivers*
+      \r\n\r\nConspiracy Theorist ConspiracyTheoristNeutral: Trust me... It is all
+      true...  Between 1959 and 2001, the US government had a genoside of all living
+      birds! They replaced them with drones! Think about it! Why do they fly away
+      when you get close?! They don't want you to know about the drones!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13431,10 +13621,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Between 1959 and 2001, the US government had
-      a genoside of all living birds! They replaced them with drones! \n\nThink about
-      it! Why do they fly away when you get close?! They don't want you to know about
-      the drones!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Between 1959 and 2001,
+      the US government had a genoside of all living birds! They replaced them with
+      drones! \n\nThink about it! Why do they fly away when you get close?! They
+      don't want you to know about the drones!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13463,7 +13653,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1329.2373
     y: 128.7072
-    width: 105.73767
+    width: 68.18178
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13493,7 +13683,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1282.1096
     y: 46.619293
-    width: 127.04913
+    width: 89.99994
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13573,10 +13763,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: No no it is true! Between 1959 and 2001, the
-      US government had a genoside of all living birds! They replaced them with drones!
-      \n\nThink about it! Why do they fly away when you get close?! They don't want
-      you to know about the drones!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: No no it is true!
+      Between 1959 and 2001, the US government had a genoside of all living birds!
+      They replaced them with drones! \n\nThink about it! Why do they fly away when
+      you get close?! They don't want you to know about the drones!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13605,7 +13795,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1108.1096
     y: 218.52039
-    width: 118.85242
+    width: 84.545395
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13785,17 +13975,18 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Oh! You don''t know the truth?!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Oh! You don''t know
+      the truth?!
 
 
 
-      Narrator:
-      He glances to all sides before leaning in.
+      Narrator: He glances to all sides before leaning in.
 
 
 
-      Conspiracy Theorist: Pigeons
-      are government spies! They listen to everything, watch everything!'
+      Conspiracy
+      Theorist ConspiracyTheoristNeutral: Pigeons are government spies! They listen
+      to everything, watch everything!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13845,7 +14036,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: You too, friend!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: You too, friend!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13874,13 +14065,14 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: They don''t have brains! So that is a false
-      statement, but I approve of your enthusiasm!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: They don''t have brains!
+      So that is a false statement, but I approve of your enthusiasm!
 
 
 
-      I''m Gray by the way!
-      Gray Benson. A lot of people seem to want to reference me for some reason...'
+      I''m
+      Gray by the way! Gray Benson. A lot of people seem to want to reference me
+      for some reason...'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -13909,7 +14101,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 921.1096
     y: 208.6193
-    width: 107.377014
+    width: 69.999954
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13940,7 +14132,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 930.4005
     y: 286.5139
-    width: 127.04913
+    width: 95.454475
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13968,7 +14160,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1108.1776
     y: 70.43983
-    width: 94.26227
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13998,7 +14190,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1108.1096
     y: 118.61929
-    width: 123.77045
+    width: 86.36358
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14027,7 +14219,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1107.1096
     y: 168.6193
-    width: 105.73767
+    width: 66.363594
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14132,13 +14324,14 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Pigeons, government spies! Duuuhh!! How do so
-      many people not know this?!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Pigeons, government
+      spies! Duuuhh!! How do so many people not know this?!
 
 
 
-      I''m Gray by the way! Gray Benson. A lot
-      of people seem to want to reference me for some reason...'
+      I''m Gray by
+      the way! Gray Benson. A lot of people seem to want to reference me for some
+      reason...'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -14167,7 +14360,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 772.1096
     y: 232.74695
-    width: 97.540955
+    width: 60.90905
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14198,7 +14391,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 767.6979
     y: 151.97226
-    width: 84.42621
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14279,8 +14472,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: YEEEES!! SUCK IT YOU GOVERNMENT SPY!! HAHAH
-      FLY AWAY IN SHAME! TELL YOUR MASTERS WE WILL NOT COWER IN FEAR!!! HAHAHAH!!!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: YEEEES!! SUCK IT YOU
+      GOVERNMENT SPY!! HAHAH FLY AWAY IN SHAME! TELL YOUR MASTERS WE WILL NOT COWER
+      IN FEAR!!! HAHAHAH!!!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -14307,9 +14501,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 608.1096
+    x: 609.14056
     y: 169.6193
-    width: 71.31146
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14338,7 +14532,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 601.22736
     y: 30.38401
-    width: 76.22949
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14420,8 +14614,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Ssshhh!! Come here quickly and take a look at
-      this! It''s about to go down!'
+    stringVal: 'Conspiracy Theorist fadein ConspiracyTheoristNeutral: Ssshhh!! Come
+      here quickly and take a look at this! It''s about to go down!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -14450,8 +14644,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Ah! Don''t startle me so! You are going to disturb
-      their concentration! Come here and watch closely!'
+    stringVal: 'Conspiracy Theorist fadein ConspiracyTheoristNeutral: Ah! Don''t
+      startle me so! You are going to disturb their concentration! Come here and
+      watch closely!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -14480,7 +14675,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 401.01877
     y: 114.02831
-    width: 164.75403
+    width: 131.81808
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14513,11 +14708,11 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "You simply kick them away and watch as they fly through the air into
-      the other squirrels. Smirking satisfied you decide that it is time to take
-      your leave.\n\r\nYou sprint through the afternoon light, slowing down once
-      reaching a more populated area. Following the crowd, trying to remain inconspicuous
-      you find yourself wandering into the local arcade bar!\r"
+    stringVal: "Narrator: You simply kick them away and watch as they fly through
+      the air into the other squirrels. Smirking satisfied you decide that it is
+      time to take your leave.\n\r\nYou sprint through the afternoon light, slowing
+      down once reaching a more populated area. Following the crowd, trying to remain
+      inconspicuous you find yourself wandering into the local arcade bar!\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -14546,8 +14741,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: You''re about to witness history my friend!
-      Strap in as we are about to find out the truth!'
+    stringVal: 'Conspiracy Theorist fadein ConspiracyTheoristNeutral: You''re about
+      to witness history my friend! Strap in as we are about to find out the truth!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -14576,7 +14771,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 153.88232
     y: 174.5282
-    width: 117.21307
+    width: 80.909035
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14604,7 +14799,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 164.10962
     y: 107.61929
-    width: 74.59015
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14632,7 +14827,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 164.10971
     y: 49.66467
-    width: 84.42621
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14815,7 +15010,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 177.15508
     y: -122.06255
-    width: 82.786865
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14922,7 +15117,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 39.591682
     y: 92.69577
-    width: 71.31146
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14953,7 +15148,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1.301178
     y: -38.878315
-    width: 125.40979
+    width: 89.99994
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15066,14 +15261,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: -146.31891
     y: 69.81289
-    width: 74.59015
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 0
   blockName: Start
   description: 
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 185884839}
   commandList:
   - {fileID: 185884752}
   - {fileID: 185884838}
@@ -15094,21 +15289,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 618.7449, y: 464.11432}
+  scrollPos: {x: 925.02673, y: 284.73892}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 488
-  zoom: 0.6100004
+  zoom: 0.5500004
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 185884685}
-  selectedCommands:
-  - {fileID: 185884837}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 185884562}
   - {fileID: 185884501}
@@ -15207,18 +15400,18 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: See!!! It is all a conspiracy!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: See!!! It is all a
+      conspiracy!
 
 
 
-      Pigeons
-      are government spies! They listen to everything, watch everything!
+      Pigeons are government spies! They listen to everything,
+      watch everything!
 
 
 
-      I''m
-      Gray by the way! Gray Benson. A lot of people seem to want to reference me
-      for some reason...'
+      I''m Gray by the way! Gray Benson. A lot of people
+      seem to want to reference me for some reason...'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -15322,14 +15515,14 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Fake! False! They are fake robots created by
-      the government! Pigeons are government spies! They listen to everything, watch
-      everything!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Fake! False! They
+      are fake robots created by the government! Pigeons are government spies! They
+      listen to everything, watch everything!
 
 
 
-      I''m Gray by the way! Gray Benson. A lot of people seem
-      to want to reference me for some reason...'
+      I''m Gray by the way! Gray
+      Benson. A lot of people seem to want to reference me for some reason...'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -15358,7 +15551,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 936.3184
     y: -303.04846
-    width: 120.49176
+    width: 86.36358
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15391,7 +15584,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 759.8478
     y: -325.4012
-    width: 113.93439
+    width: 80.909035
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15519,23 +15712,24 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: *sniff* "Thank you... He was a dear friend and
-      will forever be remembered in my heart... He fought so valiantly against those...
-      those bastards!"
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: *sniff* "Thank you...
+      He was a dear friend and will forever be remembered in my heart... He fought
+      so valiantly against those... those bastards!"
 
 
 
-      Narrator: He wipes his face and reaches out his hand
-      towards you.
+      Narrator: He wipes
+      his face and reaches out his hand towards you.
 
 
 
-      Conspiracy Theorist: I''m Gray by the way! Gray Benson.
-      A lot of people seem to want to reference me for some reason...
+      Conspiracy Theorist
+      ConspiracyTheoristNeutral: I''m Gray by the way! Gray Benson. A lot of people
+      seem to want to reference me for some reason...
 
 
-      You:
-      So why were you fighting a pigeon?'
+      You: So why were you
+      fighting a pigeon?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -15585,12 +15779,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: *sniff* Apologies, I am just very rattled...
-      As I said, I lost a close friend today...
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: *sniff* Apologies,
+      I am just very rattled... As I said, I lost a close friend today...
 
 
-      You: I am so sorry for your
-      loss'
+      You:
+      I am so sorry for your loss'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -15640,12 +15834,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: *sniff* Okay... It''s just... He was more than
-      just a squirrel to me, he was a close friend...
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: *sniff* Okay... It''s
+      just... He was more than just a squirrel to me, he was a close friend...
 
 
-      You: I am so sorry
-      for your loss.'
+      You:
+      I am so sorry for your loss.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -15724,8 +15918,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: I am not crazy! I just know the truth! Put it
-      like this! Have you ever seen a baby pigeon?!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: I am not crazy! I
+      just know the truth! Put it like this! Have you ever seen a baby pigeon?!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -15752,9 +15946,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 884.55365
+    x: 882.49176
     y: -114.7728
-    width: 104.09833
+    width: 66.363594
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15782,7 +15976,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 782.2006
     y: -199.51874
-    width: 146.72125
+    width: 115.45446
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15810,7 +16004,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 653.96545
     y: -235.98938
-    width: 105.73767
+    width: 68.18178
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15916,9 +16110,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: JUST A SQUIRREL?!?! HE WAS MY MOST TRUSTED COMPANION!
-      \n\nHOW DARE YOU!! YOU HAVE NO VALUE OF ANIMAL LIFE AND CLEARLY ON THE PIGEONS
-      SIDE!? \n\nARE YOU ALSO A GOVERNMENT SPY HUH HUH!?"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: JUST A SQUIRREL?!?!
+      HE WAS MY MOST TRUSTED COMPANION! \n\nHOW DARE YOU!! YOU HAVE NO VALUE OF ANIMAL
+      LIFE AND CLEARLY ON THE PIGEONS SIDE!? \n\nARE YOU ALSO A GOVERNMENT SPY HUH
+      HUH!?"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -15995,9 +16190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 713.9653
+    x: 712.9343
     y: -7.75401
-    width: 146.72125
+    width: 111.8181
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -16027,7 +16222,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 648.0829
     y: -88.9305
-    width: 125.40979
+    width: 89.99994
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -16058,15 +16253,15 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Nooo!! Mr. Fluffertail!! NOOO!!! You had so
-      much spirit in you! It can''t be your time yet!! *sobs* I promise I''ll give
-      you a proper burial...
+    stringVal: 'Conspiracy Theorist fadein ConspiracyTheoristNeutral: Nooo!! Mr.
+      Fluffertail!! NOOO!!! You had so much spirit in you! It can''t be your time
+      yet!! *sobs* I promise I''ll give you a proper burial...
 
 
 
-      Narrator: You watch him in silence as he buries
-      the little squirrel. He takes off his bucket hat, puts it over his heart and
-      hums the American National Anthem.'
+      Narrator:
+      You watch him in silence as he buries the little squirrel. He takes off his
+      bucket hat, puts it over his heart and hums the American National Anthem.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -16169,10 +16364,11 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Mmm... As much as I enjoyed telling you of the
-      truth, I think not. I am just going to take my squirrels and keep spreading
-      the truth! \r\n\r\nStay aware and alert! And watch out for those pigeons!\r\n\r\nNarrator:
-      He picks up two squirrels and smiles cheerily before walking away."
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Mmm... As much as
+      I enjoyed telling you of the truth, I think not. I am just going to take my
+      squirrels and keep spreading the truth! \r\n\r\nStay aware and alert! And watch
+      out for those pigeons!\r\n\r\nNarrator: He picks up two squirrels and smiles
+      cheerily before walking away."
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -16201,8 +16397,8 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Yeah, here is my number! If you\u2019re ever
-      bored or want to know more of the truth in life, call me!\r\n\r\nNarrator:
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Yeah, here is my number!
+      If you\u2019re ever bored or want to know more of the truth in life, call me!\r\n\r\nNarrator:
       He smiles and picks up a few squirrels before leaving you in the park.\n\r\nYou
       obtained Gray's number"
   clearPrevious:
@@ -16511,12 +16707,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: See you around friend! It was a really nice
-      conversation with you!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: See you around friend!
+      It was a really nice conversation with you!
 
 
-      Narrator: He picks up a squirrel and waves at
-      you while walking out of the park.
+      Narrator: He picks up a
+      squirrel and waves at you while walking out of the park.
 
 '
   clearPrevious:
@@ -16597,10 +16793,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Just telling people about the truth! Like I
-      did with you now! Lovely conversation we had! And now I shall have more lovely
-      conversations with others at a protest I am headed too!\r\n\r\nI hope you have
-      a good one friend!\r"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Just telling people
+      about the truth! Like I did with you now! Lovely conversation we had! And now
+      I shall have more lovely conversations with others at a protest I am headed
+      too!\r\n\r\nI hope you have a good one friend!\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -16629,7 +16825,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 4646.4663
     y: 251.17606
-    width: 115.57373
+    width: 79.09086
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -16638,6 +16834,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 185884840}
   - {fileID: 185884837}
   - {fileID: 185884753}
   - {fileID: 185884673}
@@ -16731,8 +16928,8 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Hmm no, the enlightenment of people is too important!
-      However perhaps another time!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Hmm no, the enlightenment
+      of people is too important! However perhaps another time!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -16775,12 +16972,13 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Ooh tempting offer, but the truth must be revealed!
-      Tell you what, here is my number, call me for a date at night and let''s see
-      where things go from there!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Ooh tempting offer,
+      but the truth must be revealed! Tell you what, here is my number, call me for
+      a date at night and let''s see where things go from there!
 
 
-      Narrator: You received Gray''s number!'
+      Narrator:
+      You received Gray''s number!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -17097,7 +17295,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 4159.409
     y: 94.87836
-    width: 84.42621
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17126,7 +17324,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 4162.198
     y: 26.816498
-    width: 113.93439
+    width: 80.909035
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17235,8 +17433,9 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Great! Wouldn''t want anything to happen to
-      you! But I should get going! I have a truth saying to get to!'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Great! Wouldn''t want
+      anything to happen to you! But I should get going! I have a truth saying to
+      get to!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -17315,10 +17514,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Fair fair! It would be cool I guess if it would
-      be proven one day! I personally just struggle to see the logic in it! \n\nBut
-      oh dear look at the time! A protest is waiting for me, where I must spread
-      the truth! I have to skedaddle!\r"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Fair fair! It would
+      be cool I guess if it would be proven one day! I personally just struggle to
+      see the logic in it! \n\nBut oh dear look at the time! A protest is waiting
+      for me, where I must spread the truth! I have to skedaddle!\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -17345,9 +17544,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 4387.6787
+    x: 4386.648
     y: 165.09921
-    width: 149.99994
+    width: 119.09082
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17385,7 +17584,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 4441.209
     y: 311.7236
-    width: 104.09833
+    width: 69.999954
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17463,10 +17662,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: I don't see how it doesn't! But that is up to
-      you for not seeing the truth! Many do want to live in ignorant bliss, which
-      I can understand!\r\n\r\nBut oh dear look at the time! A protest is waiting
-      for me, where I must spread the truth! I have to skedaddle!\r"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: I don't see how it
+      doesn't! But that is up to you for not seeing the truth! Many do want to live
+      in ignorant bliss, which I can understand!\r\n\r\nBut oh dear look at the time!
+      A protest is waiting for me, where I must spread the truth! I have to skedaddle!\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -17537,10 +17736,11 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: *Smirks*\n\nMm, well~ Let me know if you ever
-      want to have a little... discussion. I'd be happy to come over some time for
-      some tea~.\r\n\r\nI have to run now, but call me some time! \r\n\r\nNarrator:
-      He gives you a little wink before walking away and out of the park.\n"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: *Smirks*\n\nMm, well~
+      Let me know if you ever want to have a little... discussion. I'd be happy to
+      come over some time for some tea~.\r\n\r\nI have to run now, but call me some
+      time! \r\n\r\nNarrator: He gives you a little wink before walking away and
+      out of the park.\n"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -17826,14 +18026,15 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: *Smirks*\n\nMy my you are a flirty one aren't
-      you? Are you that excited for our alien discussion later? I am a man who loves
-      patience, so you have to wait! Until some lovely evening. \r\n\r\nBut oh my,
-      look at the time! It is time for me to skedaddle! I am awaited at a protest
-      to inform the world!\r\n\r\nCall me soon, I'll be looking forward to it!\r\n\r\nNarrator:
-      He gives you a finger-gun before picking up a few squirrels and walking out
-      of the park. You watch him leave, seeing him almost sway his butt a little
-      extra as he walks away.\r\n\r\nHe does have a good butt.\r"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: *Smirks*\n\nMy my
+      you are a flirty one aren't you? Are you that excited for our alien discussion
+      later? I am a man who loves patience, so you have to wait! Until some lovely
+      evening. \r\n\r\nBut oh my, look at the time! It is time for me to skedaddle!
+      I am awaited at a protest to inform the world!\r\n\r\nCall me soon, I'll be
+      looking forward to it!\r\n\r\nNarrator: He gives you a finger-gun before picking
+      up a few squirrels and walking out of the park. You watch him leave, seeing
+      him almost sway his butt a little extra as he walks away.\r\n\r\nHe does have
+      a good butt.\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -17862,16 +18063,15 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Wait- wait- WHAT?!!?!! HOW DID YOU JUST DO THAT?!?!
-      OH GOD OH GOD, HELP!! POLICE!!!\r\n\r\nNarrator: He runs off screaming for
-      the police. You see this as a time to escape and fly away as a bat. Once in
-      a secluded alleyway you transform back into your human form. \n\nYou think
-      to yourself confused, he did want you to turn into a bat, so why did he run
-      away? \r\n\r\nYou shake your head, humans will forever be weird. But you feel
-      an odd feeling from having scared him away. \n\nSuddenly you hear some intense
-      noices from the neighbooring building. Walking out to the street and into the
-      building you find yourself in the local arcade bar.\r\n\r\nA game or two seems
-      like fun!"
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Wait- wait- WHAT?!!?!!
+      HOW DID YOU JUST DO THAT?!?! OH GOD OH GOD, HELP!! POLICE!!!
+
+
+
+      Narrator:
+      He runs off screaming for the police. You see this as a time to escape and
+      fly away as a bat. Once in a secluded alleyway you transform back into your
+      human form. '
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -17898,9 +18098,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 3682.797
+    x: 3683.8608
     y: 549.9154
-    width: 110.6557
+    width: 75.45449
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17912,9 +18112,11 @@ MonoBehaviour:
   - {fileID: 185884773}
   - {fileID: 185884714}
   - {fileID: 185884715}
+  - {fileID: 185884843}
   - {fileID: 185884711}
   - {fileID: 185884713}
   - {fileID: 185884712}
+  - {fileID: 185884844}
   - {fileID: 185884710}
   suppressAllAutoSelections: 0
 --- !u!114 &185884718
@@ -17933,7 +18135,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3807.6982
     y: 547.8165
-    width: 68.032776
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17944,6 +18146,8 @@ MonoBehaviour:
   commandList:
   - {fileID: 185884811}
   - {fileID: 185884716}
+  - {fileID: 185884841}
+  - {fileID: 185884842}
   - {fileID: 185884756}
   suppressAllAutoSelections: 0
 --- !u!114 &185884719
@@ -18012,8 +18216,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Hahah oohh really? Can you also turn into a
-      bat for me? A long, hard one?'
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Hahah oohh really?
+      Can you also turn into a bat for me? A long, hard one?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -18042,7 +18246,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3721.6982
     y: 439.8165
-    width: 120.49176
+    width: 84.545395
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18091,9 +18295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 4121.698
+    x: 4123.826
     y: 407.8165
-    width: 159.836
+    width: 128.18173
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18123,7 +18327,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3919.6982
     y: 436.8165
-    width: 100.81964
+    width: 62.72723
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18228,17 +18432,17 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Heh, no, they are supernatural creatures!\n\r\nYou:
-      But if we could come from bacteria and become lizard people or humans like
-      you say, why could there not be vampires?\n\r\nConspiracy Theorist: Well...
-      I don't see how being a vampire has any scientific and biological advantages
-      really.\n\nBeing constantly dependent on blood, especially other humans, directly
-      opposes what we humans are best at, cooperation! Or well, most of the time
-      best at... \n\nAnyhow, through time and time again, surviving together has
-      been humanity's winning strategy. Therefore, I view a subhuman race of vampires
-      that would just kill each other quite counter-productive. \n\nThey would make
-      themselves extinct through time! Perhaps, they existed millennia ago, but now,
-      I don't think so!\n"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Heh, no, they are
+      supernatural creatures!\n\r\nYou: But if we could come from bacteria and become
+      lizard people or humans like you say, why could there not be vampires?\n\r\nConspiracy
+      Theorist ConspiracyTheoristNeutral: Well... I don't see how being a vampire
+      has any scientific and biological advantages really.\n\nBeing constantly dependent
+      on blood, especially other humans, directly opposes what we humans are best
+      at, cooperation! Or well, most of the time best at... \n\nAnyhow, through time
+      and time again, surviving together has been humanity's winning strategy. Therefore,
+      I view a subhuman race of vampires that would just kill each other quite counter-productive.
+      \n\nThey would make themselves extinct through time! Perhaps, they existed
+      millennia ago, but now, I don't think so!\n"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -18265,9 +18469,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 3929.6982
+    x: 3928.6345
     y: 296.8165
-    width: 138.52454
+    width: 104.54538
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18297,7 +18501,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 4008.5217
     y: 131.8165
-    width: 72.950806
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18380,22 +18584,22 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: No.. I don''t think so. I think they are scared.
-      Humans are cruel... especially to people who aren''t like them. And I believe
-      that everyone has something to hide, and it isn''t always bad. Sometimes we
-      just don''t want to show ourselves or be vulnerable until we actually know
-      someone..
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: No.. I don''t think
+      so. I think they are scared. Humans are cruel... especially to people who aren''t
+      like them. And I believe that everyone has something to hide, and it isn''t
+      always bad. Sometimes we just don''t want to show ourselves or be vulnerable
+      until we actually know someone..
 
 
 
-      Narrator: You look down at the ground for a moment. His
-      words struck you deeper than you could ever imagine. No matter how crazy he
-      seemed, he had a very good point.
+      Narrator: You look down at the ground
+      for a moment. His words struck you deeper than you could ever imagine. No matter
+      how crazy he seemed, he had a very good point.
 
 
 
-      Conspiracy Theorist: You alright
-      friend?'
+      Conspiracy Theorist
+      ConspiracyTheoristNeutral: You alright friend?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -18424,7 +18628,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3811.6982
     y: 204.8165
-    width: 122.1311
+    width: 88.181755
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18495,8 +18699,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Conspiracy Theorist: Oh! Oooh.. Okay! You freaked me out there for
-      a second!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Oh! Oooh.. Okay! You
+      freaked me out there for a second!
 
 
       You: Do you fear the lizard people?'
@@ -18528,7 +18732,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2957.0208
     y: 569.49866
-    width: 104.09833
+    width: 68.18178
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18580,7 +18784,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3229.6982
     y: 573.8165
-    width: 89.34424
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18607,7 +18811,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3095.1814
     y: 569.71765
-    width: 95.90161
+    width: 60.90905
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23959,11 +24163,11 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Before he can process your words you lundge at him and bite down
-      hard into his neck. He tries hopelessly to fight you off but quickly collapses
-      as you suck a smuch blood as you can from his throat. Suddenly you are interrupted
-      by something stabbing your foot and leg. \n\nLooking down you see two squirrels,
-      depseratly trying to save their master. "
+    stringVal: "Narrator: Before he can process your words you lundge at him and
+      bite down hard into his neck. He tries hopelessly to fight you off but quickly
+      collapses as you suck a smuch blood as you can from his throat. Suddenly you
+      are interrupted by something stabbing your foot and leg. \n\nLooking down you
+      see two squirrels, depseratly trying to save their master. "
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -23992,7 +24196,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1768.175
     y: -272.44287
-    width: 81.14752
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24002,6 +24206,7 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 185884832}
+  - {fileID: 185884846}
   - {fileID: 185884796}
   - {fileID: 185884795}
   - {fileID: 185884782}
@@ -24173,11 +24378,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Hmm okay... You''ve just been so... strange...
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Hmm okay... You''ve
+      just been so... strange...
 
 
-      But! Answer
-      me this then! Do you believe in aliens instead?'
+      But! Answer me this then! Do you believe
+      in aliens instead?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -24206,8 +24412,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: Oh boy!! Okay c'mon boys! We have an another government enemy in front
-      of us! What!? Are you here to steal our freedom?!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Oh boy!! Okay c''mon
+      boys! We have an another government enemy in front of us! What!? Are you here
+      to steal our freedom?!'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -24234,9 +24441,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1615.7042
+    x: 1614.6733
     y: -97.5603
-    width: 100.81964
+    width: 66.363594
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24266,7 +24473,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1510.9977
     y: -174.17644
-    width: 159.836
+    width: 129.99991
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24309,7 +24516,8 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Good... But you''ve been a bit... weird.. '
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral: Good... But you''ve
+      been a bit... weird.. '
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -24987,14 +25195,15 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: My point is, we both agree this is Human evolution.
-      We came aaaaallll the way from tiny bacteria, even lizard like creatures, the
-      Westolothianians. \n\nIf we can come from that to what we are today, it would
-      then not be impossible for say, humans to have instead branched from mammals,
-      continue to branch into the lizard branch but merge with humans somewhere during
-      it all, becoming human-lizard-esk hybrids. \n\nJust look at Chameleons! They
-      blend into their environment! Who isn't to say that that trait hasn't been
-      passed to other lizard species that eventually became human-lizards!"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: My point is, we both
+      agree this is Human evolution. We came aaaaallll the way from tiny bacteria,
+      even lizard like creatures, the Westolothianians. \n\nIf we can come from that
+      to what we are today, it would then not be impossible for say, humans to have
+      instead branched from mammals, continue to branch into the lizard branch but
+      merge with humans somewhere during it all, becoming human-lizard-esk hybrids.
+      \n\nJust look at Chameleons! They blend into their environment! Who isn't to
+      say that that trait hasn't been passed to other lizard species that eventually
+      became human-lizards!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -25023,7 +25232,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2937.7622
     y: 232.275
-    width: 118.85242
+    width: 82.72722
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25268,8 +25477,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 289.7031
-    y: 109.77594
-    width: 90.98358
+    y: 108.74501
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25278,6 +25487,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 185884848}
   - {fileID: 185884820}
   suppressAllAutoSelections: 0
 --- !u!114 &185884824
@@ -25296,10 +25506,11 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Conspiracy Theorist: Here is my number~. I can't wait for your call~.
-      \n\nNarrator: He gives you a finger-gun before picking up a few squirrels and
-      walking out of the park. You watch him leave, seeing him almost sway his butt
-      a little extra as he walks away.\r\n\r\nHe does have a good butt.\r"
+    stringVal: "Conspiracy Theorist ConspiracyTheoristNeutral: Here is my number~.
+      I can't wait for your call~. \n\nNarrator: He gives you a finger-gun before
+      picking up a few squirrels and walking out of the park. You watch him leave,
+      seeing him almost sway his butt a little extra as he walks away.\r\n\r\nHe
+      does have a good butt.\r"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -25328,16 +25539,17 @@ MonoBehaviour:
   indentLevel: 1
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Hmm, I will say, even though I had a nice time talking to you, there
-      are warning flags that go off in my head, I don't think I can trust you. So
-      I have to pass on giving you my number...\n\nBut have a good life, and may
-      you eventually see the truth!\n\nNarrator: Gray gives you a couple finger guns
-      before picking up some of the squirrels and walks out of the park. \n\nYou
-      feel slightly off hearing him say that, but try to shrug it off. He was weird
-      himself, and you were simply yourself. No big deal, just not someone for you.
-      \n\nYou walk out of the park, trying not to let what he said bother you too
-      much. as you are on your way home you are drawn to a building with music spewing
-      out of it. Coming closer to it you see it is the local aracde bar!"
+    stringVal: "Conspiracy Theorist  ConspiracyTheoristNeutral: Hmm, I will say,
+      even though I had a nice time talking to you, there are warning flags that
+      go off in my head, I don't think I can trust you. So I have to pass on giving
+      you my number...\n\nBut have a good life, and may you eventually see the truth!\n\nNarrator:
+      Gray gives you a couple finger guns before picking up some of the squirrels
+      and walks out of the park. \n\nYou feel slightly off hearing him say that,
+      but try to shrug it off. He was weird himself, and you were simply yourself.
+      No big deal, just not someone for you. \n\nYou walk out of the park, trying
+      not to let what he said bother you too much. as you are on your way home you
+      are drawn to a building with music spewing out of it. Coming closer to it you
+      see it is the local aracde bar!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -26383,11 +26595,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Hmmm... Okay.... I am not sure how much I can trust you... but if
-      you say so!
+    stringVal: 'Conspiracy Theorist ConspiracyTheoristNeutral:Hmmm... Okay.... I
+      am not sure how much I can trust you... but if you say so!
 
 
-      But! Answer me this! Do you believe in aliens instead?'
+      But! Answer
+      me this! Do you believe in aliens instead?'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -26416,7 +26629,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1611.5684
     y: -291.02197
-    width: 90.98358
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -26483,6 +26696,295 @@ MonoBehaviour:
   soundClip: {fileID: 8300000, guid: 71b1bd17032fd4c48b3e22400fad5e8e, type: 3}
   volume: 1
   loop: 1
+--- !u!114 &185884839
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 185884637}
+  suppressBlockAutoSelect: 0
+  waitForFrames: 1
+--- !u!114 &185884840
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 732
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 2028120167}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &185884841
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 731
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Narrator: You think to yourself confused, he did want you to turn
+      into a bat, so why did he run away? \r\n\r\nYou shake your head, humans will
+      forever be weird. But you feel an odd feeling from having scared him away.
+      \n\nSuddenly you hear some intense noices from the neighbooring building. Walking
+      out to the street and into the building you find yourself in the local arcade
+      bar.\r\n\r\nA game or two seems like fun!"
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &185884842
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 730
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 2028120167}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &185884843
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 729
+  indentLevel: 1
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 2028120167}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &185884844
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 728
+  indentLevel: 1
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 2028120167}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &185884845
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 727
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 2028120167}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &185884846
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 726
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 2028120167}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &185884847
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 725
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 2028120167}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &185884848
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185884446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 724
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 2028120167}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!1 &282423936
 GameObject:
   m_ObjectHideFlags: 0
@@ -27547,6 +28049,85 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!1 &1071812818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071812819}
+  - component: {fileID: 1071812821}
+  - component: {fileID: 1071812820}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1071812819
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071812818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2083949562}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1071812820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071812818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1071812821
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071812818}
+  m_CullTransparentMesh: 1
 --- !u!114 &1112215944 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7524204546637934317, guid: d6e10cf4af6b5ee46b2b9cbcdd24aaf9, type: 3}
@@ -27651,6 +28232,126 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1345964444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1345964445}
+  - component: {fileID: 1345964449}
+  - component: {fileID: 1345964448}
+  - component: {fileID: 1345964447}
+  - component: {fileID: 1345964446}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1345964445
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345964444}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99998546, y: 0.99998546, z: 0.99998546}
+  m_Children:
+  - {fileID: 12545913}
+  - {fileID: 152181785}
+  m_Father: {fileID: 2081667277}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -841.13, y: 0}
+  m_SizeDelta: {x: 1682.25, y: 375.703}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1345964446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345964444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2081667278}
+          m_TargetAssemblyTypeName: Fungus.DialogInput, Fungus
+          m_MethodName: SetDialogClickedFlag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!225 &1345964447
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345964444}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1345964448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345964444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0b367d94fcecc3247a8cafbf1d42dca3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1345964449
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345964444}
+  m_CullTransparentMesh: 1
 --- !u!1 &1351472436
 GameObject:
   m_ObjectHideFlags: 0
@@ -28181,7 +28882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1801900719}
+  selectedFlowchart: {fileID: 185884638}
 --- !u!4 &1762159479
 Transform:
   m_ObjectHideFlags: 1
@@ -28760,7 +29461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -2109.996, y: -23.27286}
+  scrollPos: {x: -1827.3922, y: 131.65993}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 405
@@ -28772,7 +29473,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1801900718}
+  - {fileID: 1801901106}
   selectedCommands: []
   variables:
   - {fileID: 1801900726}
@@ -44583,7 +45284,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2081667277}
   m_Father: {fileID: 545482901}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44602,9 +45304,10 @@ MonoBehaviour:
   nameText: Gray
   nameColor: {r: 0.4529542, g: 1, b: 0.3443396, a: 1}
   soundEffect: {fileID: 0}
-  portraits: []
+  portraits:
+  - {fileID: 21300000, guid: 4b5adb66ffa6cd54e9cf919e0bfb3f30, type: 3}
   portraitsFace: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 2081667276}
   description: 
 --- !u!114 &2045130284 stripped
 MonoBehaviour:
@@ -44663,6 +45366,313 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2081667275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081667277}
+  - component: {fileID: 2081667279}
+  - component: {fileID: 2081667285}
+  - component: {fileID: 2081667284}
+  - component: {fileID: 2081667283}
+  - component: {fileID: 2081667276}
+  - component: {fileID: 2081667282}
+  - component: {fileID: 2081667281}
+  - component: {fileID: 2081667278}
+  - component: {fileID: 2081667280}
+  m_Layer: 5
+  m_Name: ConspiracySayDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2081667276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0bbe22c246e4c78ad8e9816cbae9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 0.25
+  continueButton: {fileID: 2083949565}
+  dialogCanvas: {fileID: 2081667279}
+  nameText: {fileID: 12545915}
+  nameTextGO: {fileID: 0}
+  storyText: {fileID: 152181782}
+  storyTextGO: {fileID: 0}
+  characterImage: {fileID: 0}
+  fitTextWithImage: 1
+  closeOtherDialogs: 1
+--- !u!224 &2081667277
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1345964445}
+  m_Father: {fileID: 2028120166}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &2081667278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b85556abd314f3f870c18c013fdcef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickMode: 1
+  nextClickDelay: 0
+  cancelEnabled: 1
+  ignoreMenuClicks: 1
+--- !u!223 &2081667279
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 1
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
+--- !u!82 &2081667280
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 9f98bb4643abe9f48b91b6442e5fd030, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &2081667281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4782cf42f2644447b9631f6e522160b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: 1
+  loop: 1
+  targetAudioSource: {fileID: 0}
+  audioMode: 1
+  beepSounds:
+  - {fileID: 8300000, guid: fa39c874dd1a93445b17993767c1ff20, type: 3}
+  - {fileID: 8300000, guid: 468d249f40df0ed438533992502ea60f, type: 3}
+  - {fileID: 8300000, guid: cd46ccd923c6afc4e80427740b6f2196, type: 3}
+  - {fileID: 8300000, guid: 41e02716c38908444b09b13172037375, type: 3}
+  - {fileID: 8300000, guid: aab12df3ab5267e4eb1934c755f1b8ba, type: 3}
+  - {fileID: 8300000, guid: 4731393aabe8a4d45b2ae9589a000ba9, type: 3}
+  - {fileID: 8300000, guid: 7492833ba1227cf4f98074eab6f76ff0, type: 3}
+  - {fileID: 8300000, guid: e9b12ea1e225dc34c96fda134d549170, type: 3}
+  - {fileID: 8300000, guid: 27fae6576b9246845a27e16c2633b656, type: 3}
+  - {fileID: 8300000, guid: d9326eab021f8884e89a32367e21e4a7, type: 3}
+  - {fileID: 8300000, guid: 0d383a5141d1c5c45802308b97d7228a, type: 3}
+  - {fileID: 8300000, guid: aa6777b9399fae140a124c220acb459e, type: 3}
+  - {fileID: 8300000, guid: 84acba12312457e4c9f6cdb2d615bd61, type: 3}
+  - {fileID: 8300000, guid: ea8582e9adc220b40b10e06944a08af2, type: 3}
+  - {fileID: 8300000, guid: 630fced762461f4478834948af26e354, type: 3}
+  soundEffect: {fileID: 0}
+  inputSound: {fileID: 8300000, guid: 14a396b1562834718b2d52b9c4639264, type: 3}
+--- !u!114 &2081667282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a676940fce6344af1a70043b089a6c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTextObject: {fileID: 152181781}
+  punchObject: {fileID: 1345964444}
+  writingSpeed: 60
+  punctuationPause: 0.25
+  hiddenTextColor: {r: 1, g: 1, b: 1, a: 0}
+  writeWholeWords: 0
+  forceRichText: 1
+  instantComplete: 1
+  doReadAheadText: 1
+--- !u!114 &2081667283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!225 &2081667284
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2081667285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081667275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 32
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1600, y: 1200}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 1
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &2082157208
 GameObject:
   m_ObjectHideFlags: 0
@@ -44743,6 +45753,139 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2083949561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083949562}
+  - component: {fileID: 2083949564}
+  - component: {fileID: 2083949563}
+  - component: {fileID: 2083949565}
+  m_Layer: 5
+  m_Name: Continue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2083949562
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083949561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1071812819}
+  m_Father: {fileID: 152181785}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -38.900024, y: 38.074993}
+  m_SizeDelta: {x: 77.900024, y: 77}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2083949563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083949561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0753e155271773f4e8304ebca5fdddea, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2083949564
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083949561}
+  m_CullTransparentMesh: 1
+--- !u!114 &2083949565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083949561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Highlighted
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2083949563}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: SetButtonClickedFlag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3083369242530071695
 PrefabInstance:
   m_ObjectHideFlags: 0
