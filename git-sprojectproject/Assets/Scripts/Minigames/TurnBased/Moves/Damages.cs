@@ -18,6 +18,8 @@ public class Damages : MonoBehaviour
     public int GetDamage(CharacterClass target)
     {
         int damage = 0;
+        if (target == null)
+            return 0;
         damages.TryGetValue(target, out damage);
         return damage;
     }

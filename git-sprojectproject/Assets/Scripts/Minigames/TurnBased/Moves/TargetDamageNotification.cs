@@ -37,6 +37,9 @@ public class TargetDamageNotification : MonoBehaviour
 
             foreach(CharacterClass target in attack.Targets)
             {
+                if (target == null)
+                    continue;
+
                 int damage = damages.GetDamage(target);
                 int totalDamage = (int)((float)damage * attack.Attacker.AttackBuff / target.DefenseBuff);
                 if (targets.ContainsKey(target))

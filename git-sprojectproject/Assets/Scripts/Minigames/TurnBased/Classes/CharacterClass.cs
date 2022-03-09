@@ -156,9 +156,12 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public void DoDamage(CharacterClass attacker, int damage, string hurtAnimation, string deathAnimation)
     {
-        int totalDamage = (int)((float)damage * attacker.AttackBuff / DefenseBuff);
-        onTakeDamage?.Invoke(attacker, totalDamage);
-        CurrentHealth -= totalDamage;
+        if (attacker != null)
+        {
+            int totalDamage = (int)((float)damage * attacker.AttackBuff / DefenseBuff);
+            onTakeDamage?.Invoke(attacker, totalDamage);
+            CurrentHealth -= totalDamage;
+        }
 
         if (CurrentHealth > 0)
             Animator.Play(hurtAnimation);
