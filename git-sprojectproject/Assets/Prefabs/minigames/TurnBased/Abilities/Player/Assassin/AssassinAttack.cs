@@ -31,4 +31,9 @@ public class AssassinAttack : Attack
         if (movesVar != null) movesVar.Value = pastMoves;
     }
 
+    public void SortPastMoves()
+    {
+        assassin.SortMoves();
+    }
+
 }

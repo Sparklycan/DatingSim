@@ -32,11 +32,28 @@ public class CharacterClass : MonoBehaviour, ClassBase
     private float attackBuff = 1.0f;
     [SerializeField]
     private float defenseBuff = 1.0f;
+    [SerializeField]
+    private float defenseLimit = 0.5f;
 
     public string Name => name;
     public string ClassName => className;
 
-    public int CurrentHealth => currentHealth;
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        private set
+        {
+            int previousHealth = currentHealth;
+            currentHealth = value;
+            
+            if (currentHealth > MaxHealth)
+                currentHealth = MaxHealth;
+            else if (currentHealth < 0)
+                currentHealth = 0;
+
+            onHealthChange?.Invoke(currentHealth - previousHealth);
+        }
+    }
     public int MaxHealth => maxHealth;
 
     public IEnumerable<Ability> Abilities => abilities;
@@ -45,7 +62,7 @@ public class CharacterClass : MonoBehaviour, ClassBase
     public ClassType BaseClass => baseClass;
     public Allegience Allegience => allegience;
     public Animator Animator => animator;
-    public float AttackBuff => attackBuff;
+    public float AttackBuff => Mathf.Max(defenseBuff, defenseLimit);
     public float DefenseBuff => defenseBuff;
 
     // Used by TurnManager to keep track of all the characters
@@ -54,6 +71,7 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public event Action<CharacterClass, int> onTakeDamage;
     public event Action<Move> onMakeMove;
+    public event Action<int> onHealthChange;
 
     private HashSet<Ability> disabledAbilities = new HashSet<Ability>();
     private HashSet<Tuple<Ability, CharacterClass>> disabledTargets = new HashSet<Tuple<Ability, CharacterClass>>();
@@ -65,7 +83,9 @@ public class CharacterClass : MonoBehaviour, ClassBase
         abilities = baseClass.Abilities.ToList();
 
         if (startAtMaxHealth)
-            currentHealth = maxHealth;
+            CurrentHealth = maxHealth;
+        else
+            onHealthChange?.Invoke(0);
     }
 
     private void OnEnable()
@@ -80,10 +100,21 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public void EnableAbility(Ability ability, bool enabled)
     {
-        if (enabled)
-            disabledAbilities.Remove(ability);
+        if (ability == null)
+        {
+            if (enabled)
+                disabledAbilities.Clear();
+            else
+                foreach (Ability a in Abilities)
+                    disabledAbilities.Add(a);
+        }
         else
-            disabledAbilities.Add(ability);
+        {
+            if (enabled)
+                disabledAbilities.Remove(ability);
+            else
+                disabledAbilities.Add(ability);
+        }
     }
 
     public void EnableTarget(Ability ability, CharacterClass target, bool enabled)
@@ -125,11 +156,11 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public void DoDamage(CharacterClass attacker, int damage, string hurtAnimation, string deathAnimation)
     {
-        damage = (int)((float)damage * defenseBuff);
-        onTakeDamage?.Invoke(attacker, damage);
-        currentHealth -= damage;
+        int totalDamage = (int)((float)damage * DefenseBuff * attacker.AttackBuff);
+        onTakeDamage?.Invoke(attacker, totalDamage);
+        CurrentHealth -= totalDamage;
 
-        if (currentHealth > 0)
+        if (CurrentHealth > 0)
             Animator.Play(hurtAnimation);
         else
             Animator.Play(deathAnimation);

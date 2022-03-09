@@ -17,6 +17,8 @@ namespace Fungus
         private IntegerData index;
         [SerializeField]
         private BooleanData allowMoreMoves;
+        [SerializeField]
+        private BooleanData isHidden;
 
         public override void OnEnter()
         {
@@ -32,6 +34,7 @@ namespace Fungus
                     yield return null;
 
                 ability.Current.allowMoreMoves = allowMoreMoves.Value;
+                ability.Current.isHidden = isHidden.Value;
                 moves.Value.Insert(index.Value, ability.Current);
             }
             Continue();

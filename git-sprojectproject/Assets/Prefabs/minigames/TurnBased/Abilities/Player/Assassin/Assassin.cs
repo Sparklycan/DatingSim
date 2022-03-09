@@ -17,6 +17,9 @@ public class Assassin : MonoBehaviour
     private List<Ability> ignoredAbilities = new List<Ability>();
 
     [SerializeField]
+    public List<Ability> prioritizedAbilities = new List<Ability>();
+
+    [SerializeField]
     private Fungus.MoveCollection pastMoves;
 
     public Fungus.MoveCollection PastMoves => pastMoves;
@@ -40,19 +43,36 @@ public class Assassin : MonoBehaviour
             character.EnableTarget(ability, attacker, false);
     }
 
+    public void SortMoves()
+    {
+        List<Move> sortedMoves = new List<Move>();
+
+        foreach (Ability priority in prioritizedAbilities)
+        {
+            foreach(Move move in pastMoves)
+            {
+                if (move.ability == priority)
+                    sortedMoves.Add(move);
+            }
+        }
+        foreach (Move move in pastMoves)
+        {
+            if (!sortedMoves.Contains(move))
+                sortedMoves.Add(move);
+        }
+
+        pastMoves.Clear();
+        foreach (Move move in sortedMoves)
+            pastMoves.Add(move);
+    }
+
     private void OnMakeMove(Move move)
     {
-        if (!move.allowMoreMoves)
+        if (move.isHidden)
             return;
 
         if (ignoredAbilities.Contains(move.ability))
             return;
-
-        foreach (Move m in pastMoves)
-        {
-            if (move.ability == m.ability)
-                return;
-        }
 
         pastMoves.Add(move);
     }

@@ -13,7 +13,7 @@ public class BuffMove : Move
     private Attack attackObject;
 
     public BuffMove(CharacterClass character, CharacterClass[] targets, Ability ability, float attack, float defense, int waitTurns = 0)
-        :base(character, ability, targets, waitTurns)
+        :base(character, ability, targets, waitTurns, true)
     {
         this.attack = attack;
         this.defense = defense;
@@ -33,8 +33,7 @@ public class BuffMove : Move
 
     private void OnAttack()
     {
-        foreach (CharacterClass target in targets)
-            target.AddBuff(attack, defense);
+        character.AddBuff(attack, defense);
 
         attackObject.FinishAttack();
     }
