@@ -82,6 +82,7 @@ public class Attack : MonoBehaviour
     {
         IsAttacking = true;
         onAttack?.Invoke();
+        
     }
 
     public void FinishAttack()
