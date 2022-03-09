@@ -770,7 +770,7 @@ PrefabInstance:
     - target: {fileID: 3325789566902409090, guid: 46ef61b649c902e479d8861de4fc07c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1895210890}
+      objectReference: {fileID: 0}
     - target: {fileID: 3325789566902409090, guid: 46ef61b649c902e479d8861de4fc07c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -1038,7 +1038,6 @@ GameObject:
   - component: {fileID: 1895210886}
   - component: {fileID: 1895210889}
   - component: {fileID: 1895210888}
-  - component: {fileID: 1895210890}
   m_Layer: 0
   m_Name: menuoption
   m_TagString: Untagged
@@ -1109,19 +1108,6 @@ MonoBehaviour:
   scoreTextsStealthNuggets: []
   scoreTextsFlex: []
   scoreTextsSweeper: []
---- !u!114 &1895210890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895210885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4736bc1a1d8b7a048b5c5c838cc4115f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamesUnlocked: {fileID: 11400000, guid: 13081b796bb0dc54a83e4161e93ae38b, type: 2}
 --- !u!224 &1941845247 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6535249607143199392, guid: 46ef61b649c902e479d8861de4fc07c6, type: 3}
