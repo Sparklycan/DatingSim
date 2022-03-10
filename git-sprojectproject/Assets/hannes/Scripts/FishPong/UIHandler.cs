@@ -20,6 +20,10 @@ public class UIHandler : MonoBehaviour
         X.text = "Sus: " + H.Points.x;
         Y.text = "Lust: " + H.Points.y;
         Z.text = "Love: " + H.Points.z;
-        TIMER.text = "" + (int)G.timer;
+        if (TIMER != null)
+        {
+            TIMER.text = "" + (int)G.timer;
+        }
+        
     }
 }

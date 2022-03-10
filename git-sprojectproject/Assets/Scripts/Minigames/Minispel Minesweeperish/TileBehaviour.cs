@@ -200,6 +200,8 @@ public class TileBehaviour : MonoBehaviour
                         {
                             sr.sprite = tileSettings.spriteUpWithIcon;
                         }
+                        
+                        gm.UpdateScore();
 
                     }
                     else
