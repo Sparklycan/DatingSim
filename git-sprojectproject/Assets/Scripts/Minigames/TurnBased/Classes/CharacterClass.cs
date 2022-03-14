@@ -62,8 +62,8 @@ public class CharacterClass : MonoBehaviour, ClassBase
     public ClassType BaseClass => baseClass;
     public Allegience Allegience => allegience;
     public Animator Animator => animator;
-    public float AttackBuff => Mathf.Max(defenseBuff, defenseLimit);
-    public float DefenseBuff => defenseBuff;
+    public float AttackBuff => attackBuff;
+    public float DefenseBuff => Mathf.Max(defenseBuff, defenseLimit);
 
     // Used by TurnManager to keep track of all the characters
     static public event Action<CharacterClass> onCharacterEnable;
@@ -156,14 +156,22 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public void DoDamage(CharacterClass attacker, int damage, string hurtAnimation, string deathAnimation)
     {
-        int totalDamage = (int)((float)damage * DefenseBuff * attacker.AttackBuff);
-        onTakeDamage?.Invoke(attacker, totalDamage);
-        CurrentHealth -= totalDamage;
+        if (attacker != null)
+        {
+            int totalDamage = (int)((float)damage * attacker.AttackBuff / DefenseBuff);
+            onTakeDamage?.Invoke(attacker, totalDamage);
+            CurrentHealth -= totalDamage;
+        }
 
         if (CurrentHealth > 0)
             Animator.Play(hurtAnimation);
         else
             Animator.Play(deathAnimation);
+    }
+
+    public void Heal(int ammount)
+    {
+        CurrentHealth += ammount;
     }
 
     public void OnMakeMove(Move move)

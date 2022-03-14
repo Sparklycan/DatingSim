@@ -29,6 +29,7 @@ public class GamemanagerGame1 : MonoBehaviour
 
     public PanelController pc;
     public Text loveText, lustText, susText;
+    public Text sideTextLove, sideTextLust, sideTextSus;
    [HideInInspector] public int lust =0, love =0, sus =0;
     
     private Vector3 playerPosition;
@@ -71,7 +72,11 @@ public class GamemanagerGame1 : MonoBehaviour
         }
         
         BegginerStepAvailability();
-        
+
+        sideTextLove.text = "0";
+        sideTextLust.text = "0";
+        sideTextSus.text = "0";
+
     }
 
 
@@ -323,6 +328,14 @@ public class GamemanagerGame1 : MonoBehaviour
                 tile.LoveBiteAction();
             }
         }
+    }
+
+
+    public void UpdateScore()
+    {
+        sideTextLove.text = love.ToString();
+        sideTextLust.text = lust.ToString();
+        sideTextSus.text = sus.ToString();
     }
     
 }
