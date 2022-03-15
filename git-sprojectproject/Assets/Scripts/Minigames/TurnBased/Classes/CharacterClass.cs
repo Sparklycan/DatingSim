@@ -138,7 +138,7 @@ public class CharacterClass : MonoBehaviour, ClassBase
 
     public bool CanSelectAbility()
     {
-        return abilitySelector.CanSelect(Abilities, this);
+        return GetComponent<Stunned>() == null &&  abilitySelector.CanSelect(Abilities, this);
     }
 
     public IEnumerator<Move> SelectAbility()

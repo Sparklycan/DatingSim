@@ -40,10 +40,13 @@ public class PlatEnemy : MonoBehaviour
 
         //gets the sprite from child
         sevenUP = GetComponentInChildren<SpriteRenderer>();
+
+        //get rigidbody2d
+        myBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //enemy patrols between spawn X and X coord set in editor
         transform.position = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);

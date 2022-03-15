@@ -41,7 +41,7 @@ public class Controller : MonoBehaviour
 
 	#region RAYCAST VARS
 	private float extraHeight = 0.02f;
-    private float extraWidth = 0.6f;
+    private float extraWidth = 0.3f;
     [SerializeField] private LayerMask groundLayerMask;
     #endregion
 
@@ -265,6 +265,9 @@ public class Controller : MonoBehaviour
         {
             rayColor3 = Color.red;
         }
+        
+        //debug
+      //  Debug.DrawRay(boxcollider2d.bounds.center, Vector2.right * (boxcollider2d.bounds.extents.x + extraWidth), rayColor3);
 
         //returns
         if (rayHits != 0)
