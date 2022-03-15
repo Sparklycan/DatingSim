@@ -499,6 +499,7 @@ public class Controller : MonoBehaviour
         Heal();
         Bleed();
         moveLock = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Health", transform.position);
     }
 
     //deals damage to player and starts Bleed
@@ -529,6 +530,7 @@ public class Controller : MonoBehaviour
     void Heal()
 	{
         hp = maxHp;
+        
 	}
 
     //not used in mechanics, only for sound?
