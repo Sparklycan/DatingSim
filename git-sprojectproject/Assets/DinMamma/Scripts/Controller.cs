@@ -100,10 +100,12 @@ public class Controller : MonoBehaviour
 
 		#region Kill depth //if too far down on map, kill player
 		//check if too far down
+        /*
 		if (transform.position.y < killDepth)
         {
             Die();
         }
+        */
         #endregion
 
         #region BLEEDING  //timer for particles
@@ -532,7 +534,7 @@ public class Controller : MonoBehaviour
     //not used in mechanics, only for sound?
     void jump()
 	{
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        //jag vet inte om man ljuderlÃ¤gger hopp, men here you go bro
 	}
 
     //only used for sound
@@ -544,7 +546,7 @@ public class Controller : MonoBehaviour
     //used for sprite flip, not sound
     void walljumpFromLeft()
     {
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        //jag vet inte om man ljuderlÃ¤gger hopp, men here you go bro
 
         //flips the sprite
          mySprite.flipX = true;
@@ -554,7 +556,7 @@ public class Controller : MonoBehaviour
     //used for sprite flip, not sound
     void walljumpFromRight()
     {
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        //jag vet inte om man ljuderlÃ¤gger hopp, men here you go bro
 
         //flips the sprite
          mySprite.flipX = false;
