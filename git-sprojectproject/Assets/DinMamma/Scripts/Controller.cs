@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Controller : MonoBehaviour
 {
 	#region VARS
@@ -506,6 +507,7 @@ public class Controller : MonoBehaviour
         myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         hp--;
         Bleed();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Damage", transform.position);
     }
 
     //stops particles
@@ -532,19 +534,19 @@ public class Controller : MonoBehaviour
     //not used in mechanics, only for sound?
     void jump()
 	{
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Jump", transform.position);
 	}
 
     //only used for sound
     void walljump()
     {
-        //sound here for walljump
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Jump", transform.position);
     }
 
     //used for sprite flip, not sound
     void walljumpFromLeft()
     {
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        //jag vet inte om man ljuderlï¿½gger hopp, men here you go bro
 
         //flips the sprite
          mySprite.flipX = true;
@@ -554,7 +556,7 @@ public class Controller : MonoBehaviour
     //used for sprite flip, not sound
     void walljumpFromRight()
     {
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        //jag vet inte om man ljuderlï¿½gger hopp, men here you go bro
 
         //flips the sprite
          mySprite.flipX = false;
@@ -586,7 +588,7 @@ public class Controller : MonoBehaviour
     //called when killing enemy. Sound goes here
     void Bite()
     {
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Bite", transform.position);
     }
     #endregion
 
