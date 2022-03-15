@@ -261,6 +261,7 @@ public class GamemanagerGame1 : MonoBehaviour
         lustText.text = lust.ToString();
         susText.text = sus.ToString();
         
+        flowchart.SendFungusMessage("Game Done");
         pc.GameDone(love,lust,sus);
     }
 
