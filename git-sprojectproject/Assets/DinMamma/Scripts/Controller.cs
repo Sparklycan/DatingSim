@@ -2,8 +2,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Fungus;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
@@ -54,8 +56,10 @@ public class Controller : MonoBehaviour
     public int score = 0;
 	#endregion
 
-	#region UI VARS
+    #region UI VARS
 	public GameObject[] hearts;
+    public GameObject EndCanvas;
+    public Text scoreText;
     #endregion
     #endregion
 
@@ -437,7 +441,7 @@ public class Controller : MonoBehaviour
 
     //all collisions; Enemy, Thorn, Checkpoint
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    { 
 		#region ENEMY COLLISION
 		//Enemy collison. Kills either enemy or player depending on vampire var
 		if (collision.transform.tag == "Enemy")
@@ -489,6 +493,8 @@ public class Controller : MonoBehaviour
             Die();
         }
         #endregion
+        
+
 
     }
 
@@ -586,8 +592,9 @@ public class Controller : MonoBehaviour
     //called to end game
     void Win()
 	{
-
-	}
+        EndCanvas.SetActive(true);
+        scoreText.text = "Score: " + score;
+    }
 
     //called when killing enemy. Sound goes here
     void Bite()
@@ -595,6 +602,9 @@ public class Controller : MonoBehaviour
         score++;
         FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Bite", transform.position);
     }
+
+
+
     #endregion
 
 }
