@@ -51,6 +51,7 @@ public class Controller : MonoBehaviour
     private Vector3 respawn;
     public bool vampire = false;
     public float killDepth;
+    public int score = 0;
 	#endregion
 
 	#region UI VARS
@@ -588,7 +589,7 @@ public class Controller : MonoBehaviour
     //called when killing enemy. Sound goes here
     void Bite()
     {
-
+        score++;
     }
     #endregion
 
