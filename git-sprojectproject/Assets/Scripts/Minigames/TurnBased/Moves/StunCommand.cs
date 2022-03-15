@@ -21,7 +21,8 @@ namespace Fungus
             if (stun)
             {
                 Stunned stunned = character.Value.gameObject.AddComponent<Stunned>();
-                stunned.moves = moves.Value as MoveCollection;
+                if (stunned != null)
+                    stunned.moves = moves.Value as MoveCollection;
             }
             else
             {
