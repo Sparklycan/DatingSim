@@ -501,6 +501,7 @@ public class Controller : MonoBehaviour
         Heal();
         Bleed();
         moveLock = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Health", transform.position);
     }
 
     //deals damage to player and starts Bleed
@@ -509,6 +510,7 @@ public class Controller : MonoBehaviour
         myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         hp--;
         Bleed();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Damage", transform.position);
     }
 
     //stops particles
@@ -530,18 +532,19 @@ public class Controller : MonoBehaviour
     void Heal()
 	{
         hp = maxHp;
+        
 	}
 
     //not used in mechanics, only for sound?
     void jump()
 	{
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Jump", transform.position);
 	}
 
     //only used for sound
     void walljump()
     {
-        //sound here for walljump
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Jump", transform.position);
     }
 
     //used for sprite flip, not sound
@@ -590,6 +593,7 @@ public class Controller : MonoBehaviour
     void Bite()
     {
         score++;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Bite", transform.position);
     }
     #endregion
 
