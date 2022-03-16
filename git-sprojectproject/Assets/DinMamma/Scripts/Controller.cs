@@ -54,12 +54,16 @@ public class Controller : MonoBehaviour
     public bool vampire = false;
     public float killDepth;
     public int score = 0;
+    private float timer = 0f;
+    public int ShortenedTimer;
+    private bool won = false;
 	#endregion
 
     #region UI VARS
 	public GameObject[] hearts;
     public GameObject EndCanvas;
     public Text scoreText;
+    public Text timerText;
     #endregion
     #endregion
 
@@ -161,6 +165,14 @@ public class Controller : MonoBehaviour
             }
         }
 
+        #endregion
+
+        #region TIMER
+        //adds part of a second based on last update frame to timer if not won yet
+        if (won == false)
+        {
+            timer += Time.deltaTime;
+        }
         #endregion
 
     }
@@ -522,15 +534,19 @@ public class Controller : MonoBehaviour
     //stops particles
     void stopBlood()
     {
-        currentBloodTime = bloodTime;
+        
+      //  blood.startLifetime = 0f;
         bleeding = false;
-        blood.startLifetime = 0f;
+        blood.gameObject.SetActive(false);
+        currentBloodTime = bloodTime;
+
     }
 
     //starts particles
     void Bleed()
     {
-        blood.startLifetime = bleedDuration;
+        //blood.startLifetime = bleedDuration;
+        blood.gameObject.SetActive(true);
         bleeding = true;
     }
 
@@ -592,8 +608,14 @@ public class Controller : MonoBehaviour
     //called to end game
     void Win()
 	{
+        won = true;
+        ShortenedTimer = (int)timer;
         EndCanvas.SetActive(true);
+        
         scoreText.text = "Score: " + score;
+
+        timerText.text = "Time: " + ShortenedTimer + " seconds!";
+        
     }
 
     //called when killing enemy. Sound goes here
