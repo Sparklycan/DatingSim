@@ -534,15 +534,19 @@ public class Controller : MonoBehaviour
     //stops particles
     void stopBlood()
     {
-        currentBloodTime = bloodTime;
+        
+      //  blood.startLifetime = 0f;
         bleeding = false;
-        blood.startLifetime = 0f;
+        blood.gameObject.SetActive(false);
+        currentBloodTime = bloodTime;
+
     }
 
     //starts particles
     void Bleed()
     {
-        blood.startLifetime = bleedDuration;
+        //blood.startLifetime = bleedDuration;
+        blood.gameObject.SetActive(true);
         bleeding = true;
     }
 
@@ -607,8 +611,11 @@ public class Controller : MonoBehaviour
         won = true;
         ShortenedTimer = (int)timer;
         EndCanvas.SetActive(true);
+        
         scoreText.text = "Score: " + score;
+
         timerText.text = "Time: " + ShortenedTimer + " seconds!";
+        
     }
 
     //called when killing enemy. Sound goes here
