@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2597364725720622723}
   - component: {fileID: 2781881097297353007}
   - component: {fileID: 8551827167816755282}
+  - component: {fileID: 3200519529297584981}
   m_Layer: 0
   m_Name: TurnBased
   m_TagString: Untagged
@@ -77,9 +78,11 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 4408204390062469428}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 2597364725720622723}
   variables:
   - {fileID: 8551827167816755282}
+  - {fileID: 3200519529297584981}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -105,7 +108,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 435
-    y: 105
+    y: 103
     width: 131.6
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -244,6 +247,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: ReturnValue
+  value: 0
+--- !u!114 &3200519529297584981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049422897708403518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb91b566ceda411bad1e9d3c3243ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 2
+  key: TurnCount
   value: 0
 --- !u!1 &8688929286868729734
 GameObject:
