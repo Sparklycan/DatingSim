@@ -25,4 +25,5 @@ public class menuOptions : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }
