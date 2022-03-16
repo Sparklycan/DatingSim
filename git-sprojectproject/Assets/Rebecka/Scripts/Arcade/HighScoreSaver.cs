@@ -77,7 +77,7 @@ public class HighScoreSaver : MonoBehaviour
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = 
                     File.Open(Application.persistentDataPath 
-                              + "MyHighscoreSaveData.dat", FileMode.Open);
+                              + "/MyHighscoreSaveData.dat", FileMode.Open);
                 HighscoreSaveData data = (HighscoreSaveData)bf.Deserialize(file);
                 file.Close();
            
