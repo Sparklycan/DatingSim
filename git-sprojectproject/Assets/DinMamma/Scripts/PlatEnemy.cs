@@ -36,24 +36,27 @@ public class PlatEnemy : MonoBehaviour
         point1 = transform.position;
 
         //sets up second point vec3 based with x float from editor
-        point2 = new Vector3(secondPoint, transform.position.y, transform.position.z);
+        point2 = new Vector3(transform.position.x + secondPoint, transform.position.y, transform.position.z);
 
         //gets the sprite from child
         sevenUP = GetComponentInChildren<SpriteRenderer>();
+
+        //get rigidbody2d
+        myBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //enemy patrols between spawn X and X coord set in editor
         transform.position = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
 
         //when a patrol point has been reached; change direction
-        if (transform.position.x >= secondPoint)
+        if (transform.position.x >= point2.x)
 		{
             ChangeDirection();
 		}
-        if (transform.position.x <= firstPoint)
+        if (transform.position.x <= point1.x)
         {
             ChangeDirection();
         }
@@ -74,5 +77,12 @@ public class PlatEnemy : MonoBehaviour
             sevenUP.flipX = false;
         }
 	}
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(point2, 0.5f);
+    }
 }
 #endregion

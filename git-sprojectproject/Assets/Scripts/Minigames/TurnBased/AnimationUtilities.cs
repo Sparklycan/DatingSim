@@ -10,4 +10,9 @@ public class AnimationUtilities : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void InstantiatePrefab(GameObject prefab)
+    {
+        Instantiate(prefab, transform);
+    }
+
 }

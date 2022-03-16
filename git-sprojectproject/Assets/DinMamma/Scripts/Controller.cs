@@ -2,8 +2,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Fungus;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
@@ -41,7 +43,7 @@ public class Controller : MonoBehaviour
 
 	#region RAYCAST VARS
 	private float extraHeight = 0.02f;
-    private float extraWidth = 0.6f;
+    private float extraWidth = 0.3f;
     [SerializeField] private LayerMask groundLayerMask;
     #endregion
 
@@ -51,10 +53,17 @@ public class Controller : MonoBehaviour
     private Vector3 respawn;
     public bool vampire = false;
     public float killDepth;
+    public int score = 0;
+    private float timer = 0f;
+    public int ShortenedTimer;
+    private bool won = false;
 	#endregion
 
-	#region UI VARS
+    #region UI VARS
 	public GameObject[] hearts;
+    public GameObject EndCanvas;
+    public Text scoreText;
+    public Text timerText;
     #endregion
     #endregion
 
@@ -100,10 +109,12 @@ public class Controller : MonoBehaviour
 
 		#region Kill depth //if too far down on map, kill player
 		//check if too far down
+        /*
 		if (transform.position.y < killDepth)
         {
             Die();
         }
+        */
         #endregion
 
         #region BLEEDING  //timer for particles
@@ -154,6 +165,14 @@ public class Controller : MonoBehaviour
             }
         }
 
+        #endregion
+
+        #region TIMER
+        //adds part of a second based on last update frame to timer if not won yet
+        if (won == false)
+        {
+            timer += Time.deltaTime;
+        }
         #endregion
 
     }
@@ -265,6 +284,9 @@ public class Controller : MonoBehaviour
         {
             rayColor3 = Color.red;
         }
+        
+        //debug
+      //  Debug.DrawRay(boxcollider2d.bounds.center, Vector2.right * (boxcollider2d.bounds.extents.x + extraWidth), rayColor3);
 
         //returns
         if (rayHits != 0)
@@ -431,7 +453,7 @@ public class Controller : MonoBehaviour
 
     //all collisions; Enemy, Thorn, Checkpoint
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    { 
 		#region ENEMY COLLISION
 		//Enemy collison. Kills either enemy or player depending on vampire var
 		if (collision.transform.tag == "Enemy")
@@ -483,6 +505,8 @@ public class Controller : MonoBehaviour
             Die();
         }
         #endregion
+        
+
 
     }
 
@@ -495,6 +519,7 @@ public class Controller : MonoBehaviour
         Heal();
         Bleed();
         moveLock = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Health", transform.position);
     }
 
     //deals damage to player and starts Bleed
@@ -503,20 +528,25 @@ public class Controller : MonoBehaviour
         myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         hp--;
         Bleed();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Damage", transform.position);
     }
 
     //stops particles
     void stopBlood()
     {
-        currentBloodTime = bloodTime;
+        
+      //  blood.startLifetime = 0f;
         bleeding = false;
-        blood.startLifetime = 0f;
+        blood.gameObject.SetActive(false);
+        currentBloodTime = bloodTime;
+
     }
 
     //starts particles
     void Bleed()
     {
-        blood.startLifetime = bleedDuration;
+        //blood.startLifetime = bleedDuration;
+        blood.gameObject.SetActive(true);
         bleeding = true;
     }
 
@@ -524,24 +554,25 @@ public class Controller : MonoBehaviour
     void Heal()
 	{
         hp = maxHp;
+        
 	}
 
     //not used in mechanics, only for sound?
     void jump()
 	{
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Jump", transform.position);
 	}
 
     //only used for sound
     void walljump()
     {
-        //sound here for walljump
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Jump", transform.position);
     }
 
     //used for sprite flip, not sound
     void walljumpFromLeft()
     {
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        //jag vet inte om man ljuderlÃ¤gger hopp, men here you go bro
 
         //flips the sprite
          mySprite.flipX = true;
@@ -551,7 +582,7 @@ public class Controller : MonoBehaviour
     //used for sprite flip, not sound
     void walljumpFromRight()
     {
-        //jag vet inte om man ljuderlägger hopp, men here you go bro
+        //jag vet inte om man ljuderlÃ¤gger hopp, men here you go bro
 
         //flips the sprite
          mySprite.flipX = false;
@@ -577,14 +608,25 @@ public class Controller : MonoBehaviour
     //called to end game
     void Win()
 	{
+        won = true;
+        ShortenedTimer = (int)timer;
+        EndCanvas.SetActive(true);
+        
+        scoreText.text = "Score: " + score;
 
-	}
+        timerText.text = "Time: " + ShortenedTimer + " seconds!";
+        
+    }
 
     //called when killing enemy. Sound goes here
     void Bite()
     {
-
+        score++;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Sound/SFX/Minigames/Platformer/Bite", transform.position);
     }
+
+
+
     #endregion
 
 }
