@@ -10,7 +10,9 @@ public class MinigameHighscoreManager : MonoBehaviour
     public HighScoreSaver scoreSaver;
     public HighscoreContainer scoreContainer;
     public Text[] scoreTextsFishpong;
-    public Text[] scoreTextsPlatformer;
+    public Text[] scoreTextsPlatformerFun;
+    public Text[] scoreTextsPlatformerGood;
+    public Text[] scoreTextsPlatformerKills;
     public Text[] scoreTextsStealthSuspicion;
     public Text[] scoreTextsStealthNuggets;
     public Text[] scoreTextsFlex;
@@ -63,34 +65,75 @@ public class MinigameHighscoreManager : MonoBehaviour
         
     }
 
-    public void PlatformScoreSetter(float time)
+    public void PlatformScoreSetterFun(int time, int kills)
     {
-        if (time >= scoreContainer.platformerTimeScores.x)
+        if (time >= scoreContainer.platformerTimeScoresFun.x)
         {
-            scoreContainer.platformerTimeScores.z = scoreContainer.platformerTimeScores.y;
-            scoreContainer.platformerTimeScores.y = scoreContainer.platformerTimeScores.x;
-            scoreContainer.platformerTimeScores.x = time;
+            scoreContainer.platformerTimeScoresFun.z = scoreContainer.platformerTimeScoresFun.y;
+            scoreContainer.platformerTimeScoresFun.y = scoreContainer.platformerTimeScoresFun.x;
+            scoreContainer.platformerTimeScoresFun.x = time;
+
+            scoreContainer.platformerKillsScores.z = scoreContainer.platformerKillsScores.y;
+            scoreContainer.platformerKillsScores.y = scoreContainer.platformerKillsScores.x;
+            scoreContainer.platformerKillsScores.x = kills;
             scoreSaver.SaveGame();
         }
-        else if (time >= scoreContainer.platformerTimeScores.y)
+        else if (time >= scoreContainer.platformerTimeScoresFun.y)
         {
-            scoreContainer.platformerTimeScores.z = scoreContainer.platformerTimeScores.y;
-            scoreContainer.platformerTimeScores.y = time;
+            scoreContainer.platformerTimeScoresFun.z = scoreContainer.platformerTimeScoresFun.y;
+            scoreContainer.platformerTimeScoresFun.y = time;
+            
+            scoreContainer.platformerKillsScores.z = scoreContainer.platformerKillsScores.y;
+            scoreContainer.platformerKillsScores.y = kills;
             scoreSaver.SaveGame();
         }
-        else if (time >= scoreContainer.platformerTimeScores.z)
+        else if (time >= scoreContainer.platformerTimeScoresFun.z)
         {
-            scoreContainer.platformerTimeScores.z = time;
+            scoreContainer.platformerTimeScoresFun.z = time;
+
+            scoreContainer.platformerKillsScores.z = kills;
             scoreSaver.SaveGame();
         }
 
-        if (scoreTextsPlatformer.Length > 0)
+        if (scoreTextsPlatformerFun.Length > 0)
         {
-            PrintPlatformScores();
+            PrintPlatformScoresFun();
+        }
+
+        if (scoreTextsPlatformerKills.Length > 0)
+        {
+            PrintPlatformScoresKills();
         }
         
     }
 
+    public void PlatformScoreSetterGood(int time)
+    {
+        if (time >= scoreContainer.platformerTimeScoresGood.x)
+        {
+            scoreContainer.platformerTimeScoresGood.z = scoreContainer.platformerTimeScoresGood.y;
+            scoreContainer.platformerTimeScoresGood.y = scoreContainer.platformerTimeScoresGood.x;
+            scoreContainer.platformerTimeScoresGood.x = time;
+            scoreSaver.SaveGame();
+        }
+        else if (time >= scoreContainer.platformerTimeScoresGood.y)
+        {
+            scoreContainer.platformerTimeScoresGood.z = scoreContainer.platformerTimeScoresGood.y;
+            scoreContainer.platformerTimeScoresGood.y = time;
+            scoreSaver.SaveGame();
+        }
+        else if (time >= scoreContainer.platformerTimeScoresGood.z)
+        {
+            scoreContainer.platformerTimeScoresGood.z = time;
+            scoreSaver.SaveGame();
+        }
+
+        if (scoreTextsPlatformerGood.Length > 0)
+        {
+            PrintPlatformScoresGood();
+        }
+        
+    }
 
     public void StealthScoreSetter(int sus, int nuggets)
     {
@@ -129,10 +172,37 @@ public class MinigameHighscoreManager : MonoBehaviour
     }
 
 
-    public void FlexScoreSetter()
+    public void FlexScoreSetter(int turns)
     {
+        if (turns > scoreContainer.flexTurnScores.x)
+        {
+
+            scoreContainer.flexTurnScores.z = scoreContainer.flexTurnScores.y;
+            scoreContainer.flexTurnScores.y = scoreContainer.flexTurnScores.x;
+            scoreContainer.flexTurnScores.x = turns;
+            scoreSaver.SaveGame();
+        }
         
-        //save score
+        else if (turns > scoreContainer.flexTurnScores.y)
+        {
+
+            scoreContainer.flexTurnScores.z = scoreContainer.flexTurnScores.y;
+            scoreContainer.flexTurnScores.y = turns;
+            scoreSaver.SaveGame();
+        }
+        
+        else if (turns > scoreContainer.flexTurnScores.z)
+        {
+
+            
+            scoreContainer.flexTurnScores.z = turns;
+            scoreSaver.SaveGame();
+        }
+
+        if (scoreTextsFlex.Length > 0)
+        {
+            PrintFlexScores();
+        }
     }
     
     
@@ -188,11 +258,25 @@ public class MinigameHighscoreManager : MonoBehaviour
        
     }
 
-    public void PrintPlatformScores()
+    public void PrintPlatformScoresFun()
     {
-        scoreTextsPlatformer[0].text = "Time: " + scoreContainer.platformerTimeScores.x.ToString();
-        scoreTextsPlatformer[1].text = "Time: " + scoreContainer.platformerTimeScores.y.ToString();
-        scoreTextsPlatformer[2].text = "Time: " + scoreContainer.platformerTimeScores.z.ToString();
+        scoreTextsPlatformerFun[0].text = scoreContainer.platformerTimeScoresFun.x.ToString();
+        scoreTextsPlatformerFun[1].text = scoreContainer.platformerTimeScoresFun.y.ToString();
+        scoreTextsPlatformerFun[2].text = scoreContainer.platformerTimeScoresFun.z.ToString();
+    }
+    
+    public void PrintPlatformScoresGood()
+    {
+        scoreTextsPlatformerGood[0].text = scoreContainer.platformerTimeScoresGood.x.ToString();
+        scoreTextsPlatformerGood[1].text = scoreContainer.platformerTimeScoresGood.y.ToString();
+        scoreTextsPlatformerGood[2].text = scoreContainer.platformerTimeScoresGood.z.ToString();
+    }
+    
+    public void PrintPlatformScoresKills()
+    {
+        scoreTextsPlatformerKills[0].text = scoreContainer.platformerKillsScores.x.ToString();
+        scoreTextsPlatformerKills[1].text = scoreContainer.platformerKillsScores.y.ToString();
+        scoreTextsPlatformerKills[2].text = scoreContainer.platformerKillsScores.z.ToString();
     }
 
     public void PrintStealthScores()
@@ -213,9 +297,9 @@ public class MinigameHighscoreManager : MonoBehaviour
 
     public void PrintFlexScores()
     {
-        scoreTextsFlex[0].text = "Turns: " + scoreContainer.flexTurnScores.x.ToString();
-        scoreTextsFlex[1].text = "Turns: " + scoreContainer.flexTurnScores.y.ToString();
-        scoreTextsFlex[2].text = "Turns: " + scoreContainer.flexTurnScores.z.ToString();
+        scoreTextsFlex[0].text = scoreContainer.flexTurnScores.x.ToString();
+        scoreTextsFlex[1].text = scoreContainer.flexTurnScores.y.ToString();
+        scoreTextsFlex[2].text = scoreContainer.flexTurnScores.z.ToString();
     }
 
     public void PrintSweeperScores()
@@ -235,7 +319,9 @@ public class MinigameHighscoreManager : MonoBehaviour
     {
         PrintFishpongScores();
         PrintFlexScores();
-        PrintPlatformScores();
+        PrintPlatformScoresFun();
+        PrintPlatformScoresKills();
+        PrintPlatformScoresGood();
         PrintStealthScores();
         PrintSweeperScores();
     }
