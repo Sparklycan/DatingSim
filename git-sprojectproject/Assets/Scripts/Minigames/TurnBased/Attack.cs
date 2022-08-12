@@ -78,18 +78,20 @@ public class Attack : MonoBehaviour
         }
     }
 
-    public void StartAttack()
+    public void StartAttack(bool destroyWhenFinished = true)
     {
         IsAttacking = true;
+
+        if (destroyWhenFinished)
+            onAttackFinished += () => Destroy(gameObject);
+
         onAttack?.Invoke();
-        
     }
 
     public void FinishAttack()
     {
         IsAttacking = false;
         onAttackFinished?.Invoke();
-        Destroy(gameObject);
     }
 
 }

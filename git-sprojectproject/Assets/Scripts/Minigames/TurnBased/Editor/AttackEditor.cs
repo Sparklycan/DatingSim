@@ -18,7 +18,7 @@ public class AttackEditor : Editor
 
         GUI.enabled = !attack.IsAttacking;
         if (GUILayout.Button("Attack"))
-            attack.StartAttack();
+            attack.StartAttack(false);
         GUI.enabled = true;
     }
 

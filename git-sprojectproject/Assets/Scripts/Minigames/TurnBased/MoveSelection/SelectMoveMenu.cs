@@ -30,11 +30,13 @@ public class SelectMoveMenu : MoveSelector
         Fungus.CharacterClassVariable variable = Flowchart.GetVariable<Fungus.CharacterClassVariable>(characterVariable);
         variable.Value = character;
 
+        HideObject.SendMessage(HideObject.Messages.Show);
         gameObject.SetActive(true);
     }
 
     public override void OnEndSelect()
     {
+        HideObject.SendMessage(HideObject.Messages.Hide);
         gameObject.SetActive(false);
     }
 

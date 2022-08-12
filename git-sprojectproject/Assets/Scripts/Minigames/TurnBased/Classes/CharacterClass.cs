@@ -29,6 +29,10 @@ public class CharacterClass : MonoBehaviour, ClassBase
     private Animator animator;
 
     [SerializeField]
+    private Vector2 targetOffset = Vector2.zero;
+    public Vector2 TargetOffset => targetOffset * transform.localScale;
+
+    [SerializeField]
     private float attackBuff = 1.0f;
     [SerializeField]
     private float defenseBuff = 1.0f;
@@ -164,9 +168,15 @@ public class CharacterClass : MonoBehaviour, ClassBase
         }
 
         if (CurrentHealth > 0)
-            Animator.Play(hurtAnimation);
+        {
+            if (!string.IsNullOrWhiteSpace(hurtAnimation))
+                Animator.Play(hurtAnimation);
+        }
         else
-            Animator.Play(deathAnimation);
+        {
+            if (!string.IsNullOrWhiteSpace(deathAnimation))
+                Animator.Play(deathAnimation);
+        }
     }
 
     public void Heal(int ammount)
